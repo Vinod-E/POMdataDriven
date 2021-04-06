@@ -51,7 +51,7 @@ class CRPOE2ERegression:
 
     def crpo_job_selection_process(self):
         self.job_sp.crpo_job_selection_process()
-        self.E2E_output.job_creation_report(self.job_sp.job_sp_collection)
+        self.E2E_output.job_sp_report(self.job_sp.job_sp_collection)
 
 
 Object = CRPOE2ERegression()

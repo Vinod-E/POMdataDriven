@@ -21,4 +21,3 @@ class CRPOJobSelectionProcess:
                 self.job_sp_collection.append(func)
             else:
                 self.job_sp_collection.append(func)
-        print(self.job_sp_collection)

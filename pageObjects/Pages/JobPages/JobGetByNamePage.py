@@ -15,7 +15,11 @@ class JobGetByName:
         self.tab = Title(self.driver)
 
     def job_tab_title(self, tab_title):
-        self.tab.tab_title(tab_title)
+        try:
+            self.tab.tab_title(tab_title)
+            return True
+        except Exception as error:
+            ui_logger.error(error)
 
     def job_name_validation(self, job_name):
         try:

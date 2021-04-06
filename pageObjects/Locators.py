@@ -46,7 +46,8 @@ BUTTONS = {
     'all_buttons': "//*[text()='{}']",
     'done': '//*[@ng-click="$hide();"]',
     'radio': 'label.btn-default',
-    'actionClicked': '//*[@ng-click="vm.actionClicked({}{}{});"]'
+    'actionClicked': '//*[@ng-click="vm.actionClicked({}{}{});"]',
+    'create': '//*[@ng-click="vm.create();"]'
 }
 
 ACTIONS = {

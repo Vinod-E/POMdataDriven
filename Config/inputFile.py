@@ -1,7 +1,6 @@
-import os
+from Config import CongfigFile
 
-PATH = os.getenv("HOME")
-GENERIC_INPUT_PATH = "%s/PythonFrameWorkNew/Pytest_UI/testData/" % PATH
+GENERIC_INPUT_PATH = CongfigFile.INPUT_FILE
 
 INPUT_PATH = {
     'login_excel': GENERIC_INPUT_PATH + 'Login_Details.xls',

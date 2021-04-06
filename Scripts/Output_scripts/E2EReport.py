@@ -12,8 +12,8 @@ class E2EOutputReport:
         self.start_date_time = start_date_time
         self.__path = outputFile.OUTPUT_PATH['E2E_output']
 
-        excel_headers_1 = []
-        color_headers_1 = []
+        excel_headers_1 = ['Create Job', 'Status', 'Job Config']
+        color_headers_1 = ['Status', 'Create Job', 'Job Config']
 
         self.xlw = excelWrite.ExcelReportWrite(version=self.version, test_cases=self.TestCases)
         self.xlw.excel_header_by_index(row=1, col=0, excel_headers_list=excel_headers_1,
@@ -34,9 +34,9 @@ class E2EOutputReport:
     def job_getby_report(self, job_getby_coll):
         testdata_headers = ['Tab Validation', 'Job Name Validation']
         self.xlw.input_output_report(testdata_headers=testdata_headers, collection=job_getby_coll,
-                                     row=15, i_column=0, o_column=1, path=self.__path)
+                                     row=16, i_column=0, o_column=1, path=self.__path)
 
-    def job_sp_report(self, job_getby_coll):
+    def job_sp_report(self, job_sp_coll):
         testdata_headers = ['Job Actions', 'Tag Selection Process Action']
-        self.xlw.input_output_report(testdata_headers=testdata_headers, collection=job_getby_coll,
-                                     row=2, i_column=1, o_column=2, path=self.__path)
+        self.xlw.input_output_report(testdata_headers=testdata_headers, collection=job_sp_coll,
+                                     row=2, i_column=2, o_column=3, path=self.__path)

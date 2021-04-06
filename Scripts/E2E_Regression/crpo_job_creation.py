@@ -57,4 +57,3 @@ class CRPOJobCreation:
                 self.job_create_collection.append(func)
             else:
                 self.job_create_collection.append(func)
-        print(self.job_create_collection)

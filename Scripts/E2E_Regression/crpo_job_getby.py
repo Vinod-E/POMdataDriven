@@ -32,4 +32,3 @@ class CRPOJobGetBy:
                 self.job_getby_collection.append(func)
             else:
                 self.job_getby_collection.append(func)
-        print(self.job_getby_collection)

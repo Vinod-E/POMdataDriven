@@ -12,6 +12,7 @@ class JobCreationPage:
     """
     ----------------- WEB ELEMENT REFERENCE CLASS PRIVATE VARIABLES TO EASY ACCESS ------>>>>
     """
+    __e_create = Locators.BUTTONS['create']
     __e_job_names = Locators.JOB['job_name']
     __e_anchor_tag = Locators.TAG['anchor']
     __e_file_path = Locators.ATTACHMENT['file']
@@ -22,7 +23,7 @@ class JobCreationPage:
     __e_openings = Locators.JOB['openings']
     __e_male = Locators.PLACEHOLDER['num_ph'].format('Male')
     __e_female = Locators.PLACEHOLDER['num_ph'].format('Female')
-    __e_create = Locators.BUTTONS['button'].format('Create')
+    __e_job_create = Locators.BUTTONS['button'].format('Create')
 
     def __init__(self, driver):
         self.driver = driver
@@ -43,7 +44,7 @@ class JobCreationPage:
 
     def create_button(self):
         try:
-            self.wait.web_elements_wait_click(By.PARTIAL_LINK_TEXT, 'New Job Ro', 'Job Create Button')
+            self.wait.web_element_wait_click(By.XPATH, self.__e_create, 'Job Create Button')
             print('***--------->>> Clicked on job created button')
             self.wait.loading()
             return True
@@ -114,6 +115,6 @@ class JobCreationPage:
         return True
 
     def job_create(self):
-        self.wait.web_element_wait_click(By.XPATH, self.__e_create, 'Job_create_button')
-        time.sleep(1)
+        self.wait.web_element_wait_click(By.XPATH, self.__e_job_create, 'Job_create_button')
+        time.sleep(1.5)
         return True
