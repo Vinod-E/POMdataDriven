@@ -25,7 +25,7 @@ class CRPOE2ERegression:
         login = CRPOLogin(driver=driver, index=index)
         job = CRPOJobCreation(driver=driver, index=index, version=version)
         job_getby = CRPOJobGetBy(driver=driver, index=index, version=version)
-        job_sp = CRPOJobSelectionProcess(driver=driver)
+        job_sp = CRPOJobSelectionProcess(driver=driver, index=index, version=version)
 
         E2E_output = E2EReport.E2EOutputReport(version=version, server=server, start_date_time=date_time)
 
