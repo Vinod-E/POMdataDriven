@@ -18,8 +18,9 @@ class Actions:
 
     def job_actions_click(self):
         try:
-            time.sleep(1)
+            self.wait.loading()
             self.scroll.up(0, 100)
+            time.sleep(1)
             self.wait.web_element_wait_click(By.XPATH, self.__e_job_actions_xpath, 'Job_actions_click')
             print('Job Actions - Clicked')
             return True

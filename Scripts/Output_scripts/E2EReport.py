@@ -37,6 +37,7 @@ class E2EOutputReport:
                                      row=16, i_column=0, o_column=1, path=self.__path)
 
     def job_sp_report(self, job_sp_coll):
-        testdata_headers = ['Job Actions', 'Tag Selection Process Action']
+        testdata_headers = ['Job Actions', 'Tag Selection Process Action', 'Select Selection Process', 'Save',
+                            'Tagged Notifier']
         self.xlw.input_output_report(testdata_headers=testdata_headers, collection=job_sp_coll,
                                      row=2, i_column=2, o_column=3, path=self.__path)
