@@ -65,8 +65,10 @@ class InterviewFeedback:
 
     def agree_and_submit(self):
         try:
+            time.sleep(0.7)
             self.wait.web_element_wait_click(By.XPATH, self.__e_agree_xpath, 'feedback_form_validation')
             print('Agree and submit - Submitted')
+            time.sleep(1)
             return True
         except Exception as error:
             ui_logger.error(error)
