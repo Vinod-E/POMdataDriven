@@ -8,7 +8,7 @@ class MassOutputReport:
         self.server = server
         self.start_date_time = start_date_time
         self.__path = outputFile.OUTPUT_PATH['Mass_Interview_output']
-        test_cases = 152
+        test_cases = 153
         excel_headers_1 = ['Event', 'Status', 'Applicant (Change Status)', 'Status', 'Configurations (Slot/Allocation)',
                            'Status', 'Slot Assignment', 'Status', 'Room Creation', 'Status', 'Candidate Login',
                            'Status', 'Assign Room', 'Status']
@@ -99,8 +99,8 @@ class MassOutputReport:
 
     def feedback_report(self, feed_coll):
         testdata_headers = ['Provide Feedback action', 'Switch to tab', 'shortlist - decision', 'Ratings', 'comments',
-                            'overall comment', 'Feedback validation Agree', 'Review Feedback', 'Close Tab',
-                            'Switch to tab']
+                            'overall comment', 'Submit Feedback', 'Feedback validation Agree', 'Review Feedback',
+                            'Close Tab', 'Switch to tab']
         self.xlw.input_output_report(testdata_headers=testdata_headers, collection=feed_coll,
                                      row=22, i_column=4, o_column=5, path=self.__path)
 

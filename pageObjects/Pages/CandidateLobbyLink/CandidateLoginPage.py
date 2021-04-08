@@ -93,4 +93,3 @@ class LoginPage:
                 return True
         except Exception as error:
             ui_logger.error(error)
-
