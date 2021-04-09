@@ -1,7 +1,6 @@
 import time
 from pageObjects import Locators
 from selenium.webdriver.common.by import By
-from utilities.PageScroll import PageScroll
 from Listeners.logger_settings import ui_logger
 from utilities.WebDriver_Wait import WebElementWait
 from utilities.uiNotifier import Notifier
@@ -41,6 +40,15 @@ class SelectionProcessPage:
             time.sleep(0.7)
             self.notifier.glowing_messages(message)
             self.notifier.dismiss_message()
+            return True
+        except Exception as error:
+            ui_logger.error(error)
+
+    def page_refresh(self):
+        try:
+            self.wait.refresh_page()
+            print('Page - Refreshed')
+            time.sleep(1.5)
             return True
         except Exception as error:
             ui_logger.error(error)

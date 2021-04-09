@@ -4,8 +4,8 @@ from utilities.WebDriver_Wait import WebElementWait
 
 
 class EventSubTabs:
-    __e_event_config_xpath = Locators.EVENT['configurations']
-    __e_event_owners_xpath = Locators.EVENT['owners']
+    __e_event_config_xpath = Locators.SUB_MENU['configurations']
+    __e_event_owners_xpath = Locators.SUB_MENU['owners']
     __e_manage_candidates = Locators.BUTTONS['all_buttons'].format('Manage Candidates')
 
     def __init__(self, driver):

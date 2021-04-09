@@ -12,8 +12,11 @@ class EnvironmentSetup:
         self.start_date_time = datetime.datetime.now()
         print("Run started at:: "+str(self.start_date_time))
 
-        self.driver = webdriver.Chrome(executable_path=ChromeDriverManager().install())
-        self.driver.maximize_window()
+        opt = webdriver.ChromeOptions()
+        # opt.add_argument("--ignore-certificate-errors")
+        opt.add_argument("--start-maximized")
+
+        self.driver = webdriver.Chrome(executable_path=ChromeDriverManager().install(), chrome_options=opt)
 
         if self.server == 'amsin':
             self.driver.get(ReadConfigFile.ReadConfig.get_qa_url())

@@ -139,3 +139,7 @@ class WebElementWait:
 
     def drop_down_selection(self):
         self.perform.send_keys(Keys.ARROW_DOWN, Keys.ENTER)
+
+    def refresh_page(self):
+        time.sleep(0.5)
+        self.driver.refresh()

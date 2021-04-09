@@ -18,6 +18,13 @@ MENU = {
     'menu': "//a[contains(text(),'{}')]"
 }
 
+SUB_MENU = {
+    'configurations': '//*[@ui-sref="crpo.events.details.configurations"]',
+    'owners': '//*[@crpo.events.details.owners]',
+    'job_configurations': '//*[@ui-sref="crpo.jobRole.details.configurations"]',
+    'automations': '//*[@ui-sref="crpo.jobRole.details.automations.applicants"]'
+}
+
 ATTACHMENT = {
     'file': '//input[@type="file"]'
 }
@@ -47,7 +54,10 @@ BUTTONS = {
     'done': '//*[@ng-click="$hide();"]',
     'radio': 'label.btn-default',
     'actionClicked': '//*[@ng-click="vm.actionClicked({}{}{});"]',
-    'create': '//*[@ng-click="vm.create();"]'
+    'btnActionClicked': '//*[@ng-click="vm.actionClicked({}{}{})"]',
+    'create': '//*[@ng-click="vm.create();"]',
+    'form_search': '//*[@ng-click="vm.service.templates.search();"]',
+    'ec_save': '//button[@ng-click="vm.saveEcConfig();"]'
 }
 
 ACTIONS = {
@@ -58,6 +68,7 @@ ACTIONS = {
     'lobby': 'Event-Details-View-Interview-Lobby',
     'panel': 'Event-Details-View-Interview-Panel',
     'selection_process': 'Jobrole-Details-Selection-Process',
+    'feedback_form': 'Jobrole-Details-Configure-Feedback-Form',
     'float_click_class': 'fa-angle-right',
     'float_action': ''
 }
@@ -91,12 +102,12 @@ JOB = {
     'job_name': '//*[@placeholder="Name"]',
     'description': '//*[@id="mainBodyElement"]/div[3]/section/div/basic-job/div/div'
                    '[2]/div[8]/div/wysiwyg-edit/div/div[2]/iframe',
-    'openings': 'openings'
-}
-
-EVENT = {
-    'configurations': '//*[@ui-sref="crpo.events.details.configurations"]',
-    'owners': '//*[@crpo.events.details.owners]',
+    'openings': 'openings',
+    'feedback_overall_mandatory': '//table/tbody/tr[2]/td[2]/div/label[1]',
+    'reject_overall_mandatory': '//table/tbody/tr[3]/td[2]/div/label[1]',
+    'Ec_negative_stage': '//table/tbody/tr/th[4]/ta-dropdown/div/div/input',
+    'Ec_negative_status': '//table/tbody/tr/th[5]/ta-dropdown/div/div/input',
+    'task_new': 'addnew_link'
 }
 
 CHANGE_STATUS = {
