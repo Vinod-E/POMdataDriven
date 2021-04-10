@@ -1,3 +1,9 @@
+ACCOUNT = {
+    'account_icon': '//a[@class="ng-binding"]',
+    'settings': 'crpo-common-settings',
+    'new_form': '//*[@id="mainBodyElement"]/div[3]/section/div/div/div[2]/ul/li[18]/span/b'
+}
+
 LOADING = {
     'load': 'dw-loading-active',
     'load_text': 'dw-loading-text',
