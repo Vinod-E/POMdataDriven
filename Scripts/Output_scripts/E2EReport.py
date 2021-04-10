@@ -69,3 +69,9 @@ class E2EOutputReport:
                             'Overall Mandatory - Form2', 'Reject Overall Mandatory - Form2', 'Save - Form2']
         self.xlw.input_output_report(testdata_headers=testdata_headers, collection=job_feed_coll,
                                      row=12, i_column=6, o_column=7, path=self.__path)
+
+    def job_new_feed_report(self, job_new_feed_coll):
+        testdata_headers = ['Account Name', 'Settings', 'Interview Module', 'New Form Settings', 'New Form - On',
+                            'Notifier Validate', 'Notifier Dismiss']
+        self.xlw.input_output_report(testdata_headers=testdata_headers, collection=job_new_feed_coll,
+                                     row=2, i_column=8, o_column=9, path=self.__path)
