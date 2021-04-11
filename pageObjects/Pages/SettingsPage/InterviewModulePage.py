@@ -20,14 +20,16 @@ class InterviewModulePage:
 
     def interview_module(self):
         try:
+            self.scroll.down(0, -100)
+            time.sleep(0.5)
             self.wait.web_element_wait_click(By.XPATH, self.__e_interview_module_xpath, 'interview_module')
+            time.sleep(1)
             return True
         except Exception as error:
             ui_logger.error(error)
 
     def new_form_setting(self):
         try:
-            time.sleep(0.5)
             self.scroll.down(0, -100)
             self.wait.web_element_wait_click(By.XPATH, self.__e_new_form_xpath, 'new_form_setting')
             return True

@@ -76,3 +76,12 @@ class Search:
             return True
         except Exception as error:
             ui_logger.error(error)
+
+    def job_search_button(self):
+        try:
+            time.sleep(1)
+            self.wait.web_element_wait_click(By.XPATH, self.__e_search_btn_xpath, 'search_button')
+            print('Job name - Searched')
+            return True
+        except Exception as error:
+            ui_logger.error(error)

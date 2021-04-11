@@ -1,7 +1,10 @@
+import time
+
 from pageObjects import Locators
 from selenium.webdriver.common.by import By
 from Listeners.logger_settings import ui_logger
 from utilities.WebDriver_Wait import WebElementWait
+from utilities.PageScroll import PageScroll
 
 
 class AccountName:
@@ -12,6 +15,7 @@ class AccountName:
     def __init__(self, driver):
         self.driver = driver
         self.wait = WebElementWait(self.driver)
+        self.scroll = PageScroll(self.driver)
 
     def account_name_click(self):
         try:

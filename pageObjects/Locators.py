@@ -63,6 +63,7 @@ BUTTONS = {
     'btnActionClicked': '//*[@ng-click="vm.actionClicked({}{}{})"]',
     'create': '//*[@ng-click="vm.create();"]',
     'form_search': '//*[@ng-click="vm.service.templates.search();"]',
+    'new_form_search': '.form-control.btn-submit',
     'ec_save': '//button[@ng-click="vm.saveEcConfig();"]'
 }
 
