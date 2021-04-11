@@ -29,7 +29,7 @@ class CRPOE2ERegression:
         job_getby = CRPOJobGetBy(driver=driver, index=index, version=version)
         job_Config = CRPOJobSelectionProcess(driver=driver, index=index)
         job_feedback = CRPOJobFeedbackForm(driver=driver, index=index)
-        job_new_feedback = CRPOJobFeedbackFormNew(driver=driver, index=index)
+        job_new_feedback = CRPOJobFeedbackFormNew(driver=driver, index=index, version=version)
 
         E2E_output = E2EReport.E2EOutputReport(version=version, server=server, start_date_time=date_time)
 
@@ -73,22 +73,32 @@ class CRPOE2ERegression:
         self.job_feedback.crpo_job_feedback_form2()
         self.E2E_output.job_feed_report2(self.job_feedback.job_ff2_collection)
 
+    def crpo_job_new_form_enable(self):
+        self.job_new_feedback.crpo_job_new_form_enable()
+        self.E2E_output.job_new_form_on_report(self.job_new_feedback.job_new_form_On_collection)
+
     def crpo_job_new_feedback_form(self):
         self.job_new_feedback.crpo_job_feedback_new_form()
         self.E2E_output.job_new_feed_report(self.job_new_feedback.job_new_form_collection)
+
+    def crpo_job_new_form_disable(self):
+        self.job_new_feedback.crpo_job_new_form_disable()
+        self.E2E_output.job_new_form_off_report(self.job_new_feedback.job_new_form_Off_collection)
 
 
 Object = CRPOE2ERegression()
 Object.crpo_login()
 
 if Object.login_success:
-    # Object.crpo_create_job()
-    # Object.crpo_job_getby()
-    # Object.crpo_job_selection_process()
-    # Object.crpo_job_eligibility_criteria()
-    # Object.crpo_job_activity_task()
-    # Object.crpo_job_feedback_form1()
-    # Object.crpo_job_feedback_form2()
+    Object.crpo_create_job()
+    Object.crpo_job_getby()
+    Object.crpo_job_selection_process()
+    Object.crpo_job_eligibility_criteria()
+    Object.crpo_job_activity_task()
+    Object.crpo_job_feedback_form1()
+    Object.crpo_job_feedback_form2()
+    Object.crpo_job_new_form_enable()
     Object.crpo_job_new_feedback_form()
+    Object.crpo_job_new_form_disable()
     Object.E2E_output.overall_status()
     Object.environment.close()

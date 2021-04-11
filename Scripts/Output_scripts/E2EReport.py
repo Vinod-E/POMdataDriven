@@ -13,8 +13,10 @@ class E2EOutputReport:
         self.__path = outputFile.OUTPUT_PATH['E2E_output']
 
         excel_headers_1 = ['Create Job', 'Status', 'Job (SP / EC)', 'Status', 'Job (Task)', 'Status',
-                           'Job (Old Form)', 'Status', 'Job (New Form)', 'Status']
-        color_headers_1 = ['Status', 'Create Job', 'Job (SP / EC)', 'Job (Task)', 'Job (Old Form)', 'Job (New Form)']
+                           'Job (Old Form)', 'Status', 'Settings - NewForm (ON/OFF)', 'Status', 'Job (New Form)',
+                           'Status']
+        color_headers_1 = ['Status', 'Create Job', 'Job (SP / EC)', 'Job (Task)', 'Job (Old Form)', 'Job (New Form)',
+                           'Settings - NewForm (ON/OFF)']
 
         self.xlw = excelWrite.ExcelReportWrite(version=self.version, test_cases=self.TestCases)
         self.xlw.excel_header_by_index(row=1, col=0, excel_headers_list=excel_headers_1,
@@ -70,8 +72,23 @@ class E2EOutputReport:
         self.xlw.input_output_report(testdata_headers=testdata_headers, collection=job_feed_coll,
                                      row=12, i_column=6, o_column=7, path=self.__path)
 
-    def job_new_feed_report(self, job_new_feed_coll):
+    def job_new_form_on_report(self, job_new_form_on_coll):
         testdata_headers = ['Account Name', 'Settings', 'Interview Module', 'New Form Settings', 'New Form - On',
                             'Notifier Validate', 'Notifier Dismiss']
-        self.xlw.input_output_report(testdata_headers=testdata_headers, collection=job_new_feed_coll,
+        self.xlw.input_output_report(testdata_headers=testdata_headers, collection=job_new_form_on_coll,
                                      row=2, i_column=8, o_column=9, path=self.__path)
+
+    def job_new_form_off_report(self, job_new_form_off_coll):
+        testdata_headers = ['Account Name', 'Settings', 'Interview Module', 'New Form Settings', 'New Form - Off',
+                            'Notifier Validate', 'Notifier Dismiss']
+        self.xlw.input_output_report(testdata_headers=testdata_headers, collection=job_new_form_off_coll,
+                                     row=9, i_column=8, o_column=9, path=self.__path)
+
+    def job_new_feed_report(self, job_new_feed_coll):
+        testdata_headers = ['Job Tab', 'Advance Search', 'Job Name Enter', 'Search By Name', 'Job Name Click',
+                            'Job Name Validation', 'Job Actions', 'Configure Feedback Action', 'Select Stage - NewForm',
+                            'Search stage - NewForm', 'Search - NewForm', 'Use NewForm', 'Overall Mandatory - NewForm',
+                            'Reject Overall Mandatory - NewForm', 'Edit - NewForm', 'Update - NewForm',
+                            'Update - Notifier', 'Notifier - Dismiss']
+        self.xlw.input_output_report(testdata_headers=testdata_headers, collection=job_new_feed_coll,
+                                     row=2, i_column=10, o_column=11, path=self.__path)
