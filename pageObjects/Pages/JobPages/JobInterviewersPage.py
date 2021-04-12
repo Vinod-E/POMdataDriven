@@ -39,6 +39,7 @@ class TagInterviewersPage:
             time.sleep(1)
             self.wait.web_element_wait_click(By.XPATH, self.__e_job_int_save_xpath, 'job_int_save')
             print('saved - job interviewers')
+            self.wait.loading()
             return True
         except Exception as error:
             ui_logger.error(error)
