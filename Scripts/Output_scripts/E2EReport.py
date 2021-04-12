@@ -107,3 +107,11 @@ class E2EOutputReport:
                             'Update - Notifier', 'Notifier - Dismiss']
         self.xlw.input_output_report(testdata_headers=testdata_headers, collection=job_new_feed_coll,
                                      row=2, i_column=14, o_column=15, path=self.__path)
+
+    def req_creation_report(self, req_creation_coll):
+        testdata_headers = ['Requirement Tab', 'Requirement Create Button', 'Requirement Name', 'Requirement Job Name',
+                            'Job Search', 'Move All Items', 'Done', 'Hiring Track', 'College Type',
+                            'Requirement created Button', 'Requirement created Notifier',
+                            'Requirement Notifier Dismiss']
+        self.xlw.input_output_report(testdata_headers=testdata_headers, collection=req_creation_coll,
+                                     row=21, i_column=0, o_column=1, path=self.__path)

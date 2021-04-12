@@ -9,6 +9,7 @@ from Scripts.E2E_Regression.crpo_job_feedback_form import CRPOJobFeedbackForm
 from Scripts.E2E_Regression.crpo_job_feedback_form_new import CRPOJobFeedbackFormNew
 from Scripts.E2E_Regression.crpo_job_tag_interviewers import CRPOJobTagInterviewers
 from Scripts.E2E_Regression.crpo_job_automations import CRPOJobAutomations
+from Scripts.E2E_Regression.crpo_req_creation import CRPOReqCreation
 from Scripts.Output_scripts import E2EReport
 
 
@@ -36,6 +37,7 @@ class CRPOE2ERegression:
         job_new_feedback = CRPOJobFeedbackFormNew(driver=driver, index=index, version=version)
         job_interviewers = CRPOJobTagInterviewers(driver=driver, index=index)
         job_automations = CRPOJobAutomations(driver=driver, index=index)
+        req = CRPOReqCreation(driver=driver, index=index, version=version)
 
         E2E_output = E2EReport.E2EOutputReport(version=version, server=server, start_date_time=date_time)
 
@@ -99,6 +101,10 @@ class CRPOE2ERegression:
         self.job_new_feedback.crpo_job_new_form_disable()
         self.E2E_output.job_new_form_off_report(self.job_new_feedback.job_new_form_Off_collection)
 
+    def crpo_requirement_creation(self):
+        self.req.crpo_req_creation()
+        self.E2E_output.req_creation_report(self.req.req_create_collection)
+
 
 Object = CRPOE2ERegression()
 Object.crpo_login()
@@ -116,5 +122,6 @@ if Object.login_success:
     Object.crpo_job_new_form_enable()
     Object.crpo_job_new_feedback_form()
     Object.crpo_job_new_form_disable()
+    Object.crpo_requirement_creation()
     Object.E2E_output.overall_status()
     Object.environment.close()
