@@ -28,7 +28,8 @@ SUB_MENU = {
     'configurations': '//*[@ui-sref="crpo.events.details.configurations"]',
     'owners': '//*[@crpo.events.details.owners]',
     'job_configurations': '//*[@ui-sref="crpo.jobRole.details.configurations"]',
-    'automations': '//*[@ui-sref="crpo.jobRole.details.automations.applicants"]'
+    'automations': '//*[@ui-sref="crpo.jobRole.details.automations.applicants"]',
+    'job_owners': '//*[@ui-sref="crpo.jobRole.details.interviewers"]'
 }
 
 ATTACHMENT = {
@@ -76,6 +77,7 @@ ACTIONS = {
     'panel': 'Event-Details-View-Interview-Panel',
     'selection_process': 'Jobrole-Details-Selection-Process',
     'feedback_form': 'Jobrole-Details-Configure-Feedback-Form',
+    'tag_interviewers': 'Jobrole-Details-Interviewers',
     'float_click_class': 'fa-angle-right',
     'float_action': ''
 }
@@ -114,7 +116,11 @@ JOB = {
     'reject_overall_mandatory': '//table/tbody/tr[3]/td[2]/div/label[1]',
     'Ec_negative_stage': '//table/tbody/tr/th[4]/ta-dropdown/div/div/input',
     'Ec_negative_status': '//table/tbody/tr/th[5]/ta-dropdown/div/div/input',
-    'task_new': 'addnew_link'
+    'task_new': 'addnew_link',
+    'int_panel': '//*[@ng-model="vm.selectedInterviewPanel"]',
+    'panel_int_add': 'add_label',
+    'total_owners': '.section_header.ng-binding'
+
 }
 
 CHANGE_STATUS = {
