@@ -15,5 +15,6 @@ INPUT_PATH = {
     'event_room': GENERIC_INPUT_PATH + 'Event_room_creation.xls',
     'candidate_lobby': GENERIC_INPUT_PATH + 'Lobby_Candidate.xls',
     'interview_lobby': GENERIC_INPUT_PATH + 'Lobby_Interviewer.xls',
-    'feedback': GENERIC_INPUT_PATH + 'feedback.xls'
+    'feedback': GENERIC_INPUT_PATH + 'feedback.xls',
+    'requirement_excel': GENERIC_INPUT_PATH + 'requirement.xls',
 }
