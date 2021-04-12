@@ -123,7 +123,7 @@ class WebElementWait:
             if i.text.strip() == value.strip():
                 button_name = i.text.strip()
                 i.click()
-                time.sleep(1.5)
+                time.sleep(0.4)
         return button_name
 
     def web_elements_wait_send_keys(self, by_locator, element, keys):
