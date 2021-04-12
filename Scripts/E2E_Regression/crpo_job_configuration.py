@@ -1,18 +1,14 @@
 from Config import inputFile
 from utilities import excelRead
-from pageObjects.Pages.JobPages.JobActionsPage import Actions
 from pageObjects.Pages.MenuPages.jobSubTabPages import JobSubTabs
-from pageObjects.Pages.JobPages.SelectionProcessPage import SelectionProcessPage
 from pageObjects.Pages.JobPages.ActivityTaskConfigPage import ActivityTaskConfigPage
 from pageObjects.Pages.JobPages.EligibilityCriteriaConfigPage import EligibilityCriteriaPage
 from pageObjects.Pages.MultiSearchAddValue.multiSelectValues import MultiSelectValues
 
 
-class CRPOJobSelectionProcess:
+class CRPOJobConfiguration:
     def __init__(self, driver, index):
         self.driver = driver
-        self.actions = Actions(self.driver)
-        self.sp = SelectionProcessPage(self.driver)
         self.job_sub_tab = JobSubTabs(self.driver)
         self.job_ec = EligibilityCriteriaPage(self.driver)
         self.job_task = ActivityTaskConfigPage(self.driver)
@@ -24,8 +20,6 @@ class CRPOJobSelectionProcess:
         job_config_excel = excelRead.ExcelRead()
         job_config_excel.read(inputFile.INPUT_PATH['job_config_excel'], index=index)
         xl = job_config_excel.excel_dict
-        self.xl_job_sp = xl['job_sp'][0]
-        self.xl_sp_notifier = xl['notifier'][0]
         self.xl_ec = xl['eligibility_criteria'][0]
         self.xl_ec_stage = xl['Ec stage'][0]
         self.xl_positive = xl['Positive status'][0]
@@ -39,25 +33,8 @@ class CRPOJobSelectionProcess:
         self.xl_task = xl['activity1_task1'][0]
         self.xl_task_notifier = xl['task_notifier'][0]
 
-        self.job_sp_collection = []
         self.job_ec_collection = []
         self.job_task_collection = []
-
-    def crpo_job_selection_process(self):
-        self.job_sp_collection = []
-
-        __list = [self.actions.job_actions_click(),
-                  self.actions.tag_selection_process(),
-                  self.sp.job_sp(self.xl_job_sp),
-                  self.sp.job_sp_save(),
-                  self.sp.job_sp_notifier(self.xl_sp_notifier),
-                  self.sp.page_refresh()
-                  ]
-        for func in __list:
-            if func:
-                self.job_sp_collection.append(func)
-            else:
-                self.job_sp_collection.append(func)
 
     def crpo_job_ec_configuration(self):
         self.job_ec_collection = []
