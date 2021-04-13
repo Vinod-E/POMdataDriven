@@ -65,6 +65,7 @@ class RequirementCreationPage:
         try:
             self.wait.web_element_wait_send_keys(By.XPATH, self.__e_req_track_xpath, track,
                                                  'requirement_hiring')
+            self.wait.drop_down_selection()
             print(f'Requirement hiring track - {track}')
             return True
         except Exception as error:
@@ -74,6 +75,7 @@ class RequirementCreationPage:
         try:
             self.wait.web_element_wait_send_keys(By.XPATH, self.__e_req_type_xpath, college_type,
                                                  'requirement_type')
+            self.wait.drop_down_selection()
             print(f'Requirement college type - {college_type}')
             return True
         except Exception as error:
