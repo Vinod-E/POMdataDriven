@@ -29,7 +29,10 @@ SUB_MENU = {
     'owners': '//*[@crpo.events.details.owners]',
     'job_configurations': '//*[@ui-sref="crpo.jobRole.details.configurations"]',
     'automations': '//*[@ui-sref="crpo.jobRole.details.automations.applicants"]',
-    'job_owners': '//*[@ui-sref="crpo.jobRole.details.interviewers"]'
+    'job_owners': '//*[@ui-sref="crpo.jobRole.details.interviewers"]',
+    'req_configurations': '//*[@ng-click="vm.goToConfiguration()"]',
+    'req_duplicity': '//*[@ui-sref="crpo.requirements.details.configuration.candidateDuplicity"]',
+    'req_query': '//*[@ui-sref="crpo.requirements.details.configuration.queryConfiguration"]'
 }
 
 ATTACHMENT = {

@@ -105,6 +105,10 @@ class CRPOE2ERegression:
         self.req.crpo_req_creation()
         self.E2E_output.req_creation_report(self.req.req_create_collection)
 
+    def crpo_requirement_configuration(self):
+        self.req.crpo_req_configuration()
+        self.E2E_output.req_configuration_report(self.req.req_config_collection)
+
 
 Object = CRPOE2ERegression()
 Object.crpo_login()
@@ -123,5 +127,6 @@ if Object.login_success:
     Object.crpo_job_new_feedback_form()
     Object.crpo_job_new_form_disable()
     Object.crpo_requirement_creation()
+    Object.crpo_requirement_configuration()
     Object.E2E_output.overall_status()
     Object.environment.close()

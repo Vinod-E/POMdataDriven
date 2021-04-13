@@ -1,7 +1,9 @@
 from Config import inputFile
 from utilities import excelRead
 from pageObjects.Pages.MultiSearchAddValue.multiSelectValues import MultiSelectValues
+from pageObjects.Pages.MenuPages.requirementSubTabPages import RequirementSubTabs
 from pageObjects.Pages.RequirementPages.CreateRequirementPage import RequirementCreationPage
+from pageObjects.Pages.RequirementPages.RequirementDuplicityConfig import DuplicityCheck
 
 
 class CRPOReqCreation:
@@ -9,6 +11,8 @@ class CRPOReqCreation:
         self.driver = driver
         self.req = RequirementCreationPage(self.driver)
         self.multi_value = MultiSelectValues(self.driver)
+        self.tab = RequirementSubTabs(self.driver)
+        self.duplicity = DuplicityCheck(self.driver)
 
         """
         ----------------- EXCEL READ AND TO ASSIGN VALUES TO RESPECTIVE INIT VARIABLES ------>>>>
@@ -22,9 +26,12 @@ class CRPOReqCreation:
         self.xl_track = xl['track'][0]
         self.xl_type = xl['type'][0]
         self.xl_msg = xl['message'][0]
+        self.xl_duplicity = xl['duplicity'][0]
+        self.xl_duplicity_msg = xl['duplicity_msg'][0]
 
         # ---- Collection of all success items
         self.req_create_collection = []
+        self.req_config_collection = []
 
     def crpo_req_creation(self):
         self.req_create_collection = []
@@ -47,3 +54,18 @@ class CRPOReqCreation:
                 self.req_create_collection.append(func)
             else:
                 self.req_create_collection.append(func)
+
+    def crpo_req_configuration(self):
+        self.req_config_collection = []
+
+        __list = [self.tab.requirement_configurations(),
+                  self.tab.requirement_duplicity(),
+                  self.duplicity.do_not_allow_duplicates(self.xl_duplicity),
+                  self.duplicity.req_duplicity_notifier(self.xl_duplicity_msg),
+                  self.duplicity.req_duplicity_notifier_dismiss()
+                  ]
+        for func in __list:
+            if func:
+                self.req_config_collection.append(func)
+            else:
+                self.req_config_collection.append(func)

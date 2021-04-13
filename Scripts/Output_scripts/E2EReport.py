@@ -12,15 +12,20 @@ class E2EOutputReport:
         self.start_date_time = start_date_time
         self.__path = outputFile.OUTPUT_PATH['E2E_output']
 
+        self.xlw = excelWrite.ExcelReportWrite(version=self.version, test_cases=self.TestCases)
+
         excel_headers_1 = ['Create Job', 'Status', 'Job (SP / EC)', 'Status', 'Job (Task)', 'Status',
                            'Job Interviewers', 'Status', 'Job (Old Form)', 'Status', 'Settings - NewForm (ON/OFF)',
                            'Status', 'Job (New Form)', 'Status', 'Job Automations', 'Status']
         color_headers_1 = ['Status', 'Create Job', 'Job (SP / EC)', 'Job (Task)', 'Job (Old Form)', 'Job (New Form)',
                            'Settings - NewForm (ON/OFF)', 'Job Interviewers', 'Job Automations']
-
-        self.xlw = excelWrite.ExcelReportWrite(version=self.version, test_cases=self.TestCases)
         self.xlw.excel_header_by_index(row=1, col=0, excel_headers_list=excel_headers_1,
                                        color_headers_list=color_headers_1)
+
+        excel_headers_2 = ['Create Requirement', 'Status']
+        color_headers_2 = ['Status', 'Create Requirement']
+        self.xlw.excel_header_by_index(row=20, col=0, excel_headers_list=excel_headers_2,
+                                       color_headers_list=color_headers_2)
 
     def overall_status(self):
         self.xlw.status(start_date_time=self.start_date_time, version=self.version, server=self.server,
@@ -115,3 +120,9 @@ class E2EOutputReport:
                             'Requirement Notifier Dismiss']
         self.xlw.input_output_report(testdata_headers=testdata_headers, collection=req_creation_coll,
                                      row=21, i_column=0, o_column=1, path=self.__path)
+
+    def req_configuration_report(self, req_creation_coll):
+        testdata_headers = ['Configurations Tab', 'Duplicity Check tab', 'Duplicity - Do not Allow',
+                            'Duplicity Notifier', 'Duplicity Notifier Dismiss']
+        self.xlw.input_output_report(testdata_headers=testdata_headers, collection=req_creation_coll,
+                                     row=33, i_column=0, o_column=1, path=self.__path)
