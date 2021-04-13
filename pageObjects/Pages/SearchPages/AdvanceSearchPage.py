@@ -11,6 +11,7 @@ class Search:
     __e_search_id = Locators.SEARCH['advance_search']
     __e_Name_name = Locators.SEARCH['Name']
     __e_name_name = Locators.SEARCH['name']
+    __e_test_name = Locators.SEARCH['test_name']
     __e_search_btn_xpath = Locators.BUTTONS['button'].format('Search')
     __e_manage_search_css = Locators.SEARCH['manage_candidate_search']
     __e_clear_id = Locators.SEARCH['clear']
@@ -53,10 +54,19 @@ class Search:
         except Exception as error:
             ui_logger.error(error)
 
+    def test_name_search_field(self, search_key):
+        try:
+            time.sleep(1)
+            self.wait.web_element_wait_send_keys(By.NAME, self.__e_test_name, search_key, 'test_name_search_field')
+            print('Test name - Entered')
+            return True
+        except Exception as error:
+            ui_logger.error(error)
+
     def search_button(self):
         try:
             time.sleep(1)
-            self.page_scroll.up(0, 300)
+            self.page_scroll.up(0, 150)
             self.wait.web_element_wait_click(By.XPATH, self.__e_search_btn_xpath, 'search_button')
             return True
         except Exception as error:

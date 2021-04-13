@@ -22,8 +22,8 @@ class E2EOutputReport:
         self.xlw.excel_header_by_index(row=1, col=0, excel_headers_list=excel_headers_1,
                                        color_headers_list=color_headers_1)
 
-        excel_headers_2 = ['Create Requirement', 'Status']
-        color_headers_2 = ['Status', 'Create Requirement']
+        excel_headers_2 = ['Create Requirement', 'Status', 'Clone Assessment', 'Status']
+        color_headers_2 = ['Status', 'Create Requirement', 'Clone Assessment']
         self.xlw.excel_header_by_index(row=20, col=0, excel_headers_list=excel_headers_2,
                                        color_headers_list=color_headers_2)
 
@@ -126,3 +126,11 @@ class E2EOutputReport:
                             'Duplicity Notifier', 'Duplicity Notifier Dismiss']
         self.xlw.input_output_report(testdata_headers=testdata_headers, collection=req_creation_coll,
                                      row=33, i_column=0, o_column=1, path=self.__path)
+
+    def test_clone_report(self, test_clone_coll):
+        testdata_headers = ['Assessment Tab', 'Advance search', 'Old Test name Enter', 'Search Button', 'Name Click',
+                            'Assessment Name validation', 'Assessment Actions', 'Clone Assessment Action',
+                            'New Test NAME', 'From Date', 'To Date', 'Clone Button Click', 'Clone Assessment Notifier',
+                            'Clone Notifier Dismiss']
+        self.xlw.input_output_report(testdata_headers=testdata_headers, collection=test_clone_coll,
+                                     row=21, i_column=2, o_column=3, path=self.__path)

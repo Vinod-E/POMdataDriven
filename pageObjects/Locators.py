@@ -81,6 +81,7 @@ ACTIONS = {
     'selection_process': 'Jobrole-Details-Selection-Process',
     'feedback_form': 'Jobrole-Details-Configure-Feedback-Form',
     'tag_interviewers': 'Jobrole-Details-Interviewers',
+    'clone_assessment': 'Assessment-Details-Clone-Assessment',
     'float_click_class': 'fa-angle-right',
     'float_action': ''
 }
@@ -89,6 +90,7 @@ SEARCH = {
     'advance_search': 'cardlist-view-filter',
     'Name': 'Name',
     'name': 'name',
+    'test_name': 'testName',
     'manage_candidate_search': '.fa-filter',
     'clear': 'cardlist-view-clear-filter',
 }
