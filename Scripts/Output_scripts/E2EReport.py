@@ -22,8 +22,11 @@ class E2EOutputReport:
         self.xlw.excel_header_by_index(row=1, col=0, excel_headers_list=excel_headers_1,
                                        color_headers_list=color_headers_1)
 
-        excel_headers_2 = ['Create Requirement', 'Status', 'Clone Assessment', 'Status']
-        color_headers_2 = ['Status', 'Create Requirement', 'Clone Assessment']
+        excel_headers_2 = ['Create Requirement', 'Status', 'Clone Assessment', 'Status', 'Create Event', 'Status',
+                           'Configuration (Task)', 'Status', 'Configuration (Tag Test)', 'Status',
+                           'Event Upload Candidates', 'Status']
+        color_headers_2 = ['Status', 'Create Requirement', 'Clone Assessment', 'Create Event', 'Configuration (Task)',
+                           'Configuration (Tag Test)', 'Event Upload Candidates', ]
         self.xlw.excel_header_by_index(row=20, col=0, excel_headers_list=excel_headers_2,
                                        color_headers_list=color_headers_2)
 
@@ -134,3 +137,34 @@ class E2EOutputReport:
                             'Clone Notifier Dismiss']
         self.xlw.input_output_report(testdata_headers=testdata_headers, collection=test_clone_coll,
                                      row=21, i_column=2, o_column=3, path=self.__path)
+
+    def event_create_report(self, create_event_coll):
+        testdata_headers = ['Event Tab', 'New Event Create', 'New Event Name', 'Requirement Name', 'Job Name Click',
+                            'Job Name search', 'Event job selected', 'Selection Done', 'Event Slot', 'Event From Date',
+                            'Event To Date', 'Event Reporting Date', 'Event manager selected', 'Event College Selected',
+                            'Event EC enabled', 'Event Created', 'Event create Notifier',
+                            'Event create  Notifier Dismiss']
+        self.xlw.input_output_report(testdata_headers=testdata_headers, collection=create_event_coll,
+                                     row=21, i_column=4, o_column=5, path=self.__path)
+
+    def event_task_config_report(self, config_coll):
+        testdata_headers = ['Event Name Validation', 'Configurations Tab', 'Task Configure', 'Task New Row',
+                            'Task Job Name', 'Assign Stage_Status', 'Positive Stage_Status', 'Negative Stage_Status',
+                            'Activity Field Enter', 'Task Field', 'Move all Items', 'Done', 'Task Save',
+                            'Task Notifier Validate', 'Task Notifier Dismissed']
+        self.xlw.input_output_report(testdata_headers=testdata_headers, collection=config_coll,
+                                     row=21, i_column=6, o_column=7, path=self.__path)
+
+    def event_test_config_report(self, config_coll):
+        testdata_headers = ['Test Configure', 'Test Job Name', 'Test Stage', 'Test Assessment', 'Test Active',
+                            'Save Test Config', 'Test Config Notifier', 'Test Config  Notifier Dismiss']
+        self.xlw.input_output_report(testdata_headers=testdata_headers, collection=config_coll,
+                                     row=21, i_column=8, o_column=9, path=self.__path)
+
+    def event_upload_candidate_report(self, upload_candidate_coll):
+        testdata_headers = ['Event Actions', 'Upload Candidate Action',
+                            'Upload Candidate File', 'Next Button', 'Declare Check', 'Signature Entry', 'Agree Button',
+                            'Edit information', 'Name Edit', 'Email Edit', 'USN Edit', 'Save Information',
+                            'Upload Count Validate']
+        self.xlw.input_output_report(testdata_headers=testdata_headers, collection=upload_candidate_coll,
+                                     row=21, i_column=10, o_column=11, path=self.__path)

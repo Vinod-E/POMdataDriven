@@ -9,12 +9,12 @@ from utilities.uiNotifier import Notifier
 
 class JobAutomations:
 
-    __e_registration_stage_xpath = '//*[@id="main-table"]/tbody[1]/tr[2]/td[1]/div/i'
-    __e_eligibility_stage_xpath = '//*[@id="main-table"]/tbody[2]/tr[2]/td[1]/div/i'
-    __e_offer_stage_xpath = '//*[@id="main-table"]/tbody[7]/tr[4]/td[1]/div/i'
-    __e_hopping_stage_xpath = '//*[@ng-model="vm.hopping[statusId].selectedStage"]'
-    __e_hopping_status_xpath = '//*[@ng-model="vm.hopping[statusId].selectedStatus"]'
-    __e_toggle_buttons_css = '.slider.round'
+    __e_registration_stage_xpath = Locators.JOB['registration_hop']
+    __e_eligibility_stage_xpath = Locators.JOB['eligibility_hop']
+    __e_offer_stage_xpath = Locators.JOB['offer_stage']
+    __e_hopping_stage_xpath = Locators.JOB['hop_stage_field']
+    __e_hopping_status_xpath = Locators.JOB['hop_status_field']
+    __e_toggle_buttons_css = Locators.JOB['toggle_buttons']
     __e_save_xpath = Locators.BUTTONS['button'].format('Save')
 
     def __init__(self, driver):
