@@ -1,3 +1,5 @@
+import time
+
 from Config import Enviroment
 from Listeners.logger_settings import ui_logger
 from Scripts.Login.crpo_login_page import CRPOLogin
@@ -11,6 +13,9 @@ from Scripts.E2E_Regression.crpo_job_tag_interviewers import CRPOJobTagInterview
 from Scripts.E2E_Regression.crpo_job_automations import CRPOJobAutomations
 from Scripts.E2E_Regression.crpo_req_creation import CRPOReqCreation
 from Scripts.E2E_Regression.crpo_test_clone import CRPOAssessmentClone
+from Scripts.E2E_Regression.crpo_event_creation import CRPOEventCreation
+from Scripts.E2E_Regression.crpo_event_configuration import CRPOEventConfiguration
+from Scripts.E2E_Regression.crpo_event_upload_candidate import CRPOUploadCandidate
 from Scripts.Output_scripts import E2EReport
 
 
@@ -18,6 +23,7 @@ class CRPOE2ERegression:
     """
         Required class Objects are created
     """
+    email = input('Enter Email Id ::')
     environment = ''
     login_success = ''
 
@@ -40,6 +46,9 @@ class CRPOE2ERegression:
         job_automations = CRPOJobAutomations(driver=driver, index=index)
         req = CRPOReqCreation(driver=driver, index=index, version=version)
         test = CRPOAssessmentClone(driver=driver, index=index, version=version)
+        event = CRPOEventCreation(driver=driver, index=index, version=version)
+        event_config = CRPOEventConfiguration(driver=driver, index=index, version=version)
+        upload = CRPOUploadCandidate(driver=driver, index=index, version=version)
 
         E2E_output = E2EReport.E2EOutputReport(version=version, server=server, start_date_time=date_time)
 
@@ -115,25 +124,45 @@ class CRPOE2ERegression:
         self.test.crpo_assessment_clone()
         self.E2E_output.test_clone_report(self.test.test_clone_collection)
 
+    def crpo_event_creation(self):
+        self.event.crpo_event_creation()
+        self.E2E_output.event_create_report(self.event.event_create_collection)
+
+    def crpo_event_task_configuration(self):
+        self.event_config.crpo_event_task_configurations()
+        self.E2E_output.event_task_config_report(self.event_config.event_task_config_collection)
+
+    def crpo_event_test_configuration(self):
+        self.event_config.crpo_event_test_configurations()
+        self.E2E_output.event_test_config_report(self.event_config.event_test_config_collection)
+
+    def crpo_event_upload_candidates(self):
+        self.upload.crpo_event_upload_candidates(self.email)
+        self.E2E_output.event_upload_candidate_report(self.upload.event_upload_collection)
+
 
 Object = CRPOE2ERegression()
 Object.crpo_login()
 
 if Object.login_success:
-    # Object.crpo_create_job()
-    # Object.crpo_job_getby()
-    # Object.crpo_job_selection_process()
-    # Object.crpo_job_eligibility_criteria()
-    # Object.crpo_job_activity_task()
-    # Object.crpo_job_interviewers()
-    # Object.crpo_job_automations()
-    # Object.crpo_job_feedback_form1()
-    # Object.crpo_job_feedback_form2()
-    # Object.crpo_job_new_form_enable()
-    # Object.crpo_job_new_feedback_form()
-    # Object.crpo_job_new_form_disable()
-    # Object.crpo_requirement_creation()
-    # Object.crpo_requirement_configuration()
+    Object.crpo_create_job()
+    Object.crpo_job_getby()
+    Object.crpo_job_selection_process()
+    Object.crpo_job_eligibility_criteria()
+    Object.crpo_job_activity_task()
+    Object.crpo_job_interviewers()
+    Object.crpo_job_automations()
+    Object.crpo_job_feedback_form1()
+    Object.crpo_job_feedback_form2()
+    Object.crpo_job_new_form_enable()
+    Object.crpo_job_new_feedback_form()
+    Object.crpo_job_new_form_disable()
+    Object.crpo_requirement_creation()
+    Object.crpo_requirement_configuration()
     Object.crpo_assessment_clone()
+    Object.crpo_event_creation()
+    Object.crpo_event_task_configuration()
+    Object.crpo_event_test_configuration()
+    Object.crpo_event_upload_candidates()
     Object.E2E_output.overall_status()
     Object.environment.close()

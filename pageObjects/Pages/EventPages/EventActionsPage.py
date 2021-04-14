@@ -12,6 +12,7 @@ class Actions:
     __e_event_slot_id = Locators.ACTIONS['slot_config']
     __e_event_lobby_id = Locators.ACTIONS['lobby']
     __e_event_interview_lobby = Locators.ACTIONS['panel']
+    __e_event_upload_candidates = Locators.ACTIONS['upload_candidate']
 
     def __init__(self, driver):
         self.driver = driver
@@ -62,6 +63,15 @@ class Actions:
             print('Event_interviewer_lobby - Screen')
             time.sleep(5)
             print('Event_interviewer_lobby - whiteScreen')
+            return True
+        except Exception as error:
+            ui_logger.error(error)
+
+    def event_upload_candidates(self):
+        try:
+            self.wait.web_element_wait_click(By.ID, self.__e_event_upload_candidates, 'event_upload_candidates')
+            self.wait.loading()
+            print('Event Upload Candidate - Screen')
             return True
         except Exception as error:
             ui_logger.error(error)

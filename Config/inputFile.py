@@ -3,9 +3,11 @@ from Config import CongfigFile
 GENERIC_INPUT_PATH = CongfigFile.INPUT_FILE
 
 INPUT_PATH = {
+    'upload': GENERIC_INPUT_PATH + 'candidateUpload.xls',
+    'job_attachment': GENERIC_INPUT_PATH + 'job-description.pdf',
+
     'login_excel': GENERIC_INPUT_PATH + 'Login_Details.xls',
     'job_excel': GENERIC_INPUT_PATH + 'Job_Details.xls',
-    'job_attachment': GENERIC_INPUT_PATH + 'job-description.pdf',
     'job_config_excel': GENERIC_INPUT_PATH + 'Job_Configurations.xls',
     'job_automation': GENERIC_INPUT_PATH + 'Job_automations.xls',
     'job_feedback_form': GENERIC_INPUT_PATH + 'Job_Feedback_from_config.xls',
@@ -17,5 +19,6 @@ INPUT_PATH = {
     'interview_lobby': GENERIC_INPUT_PATH + 'Lobby_Interviewer.xls',
     'feedback': GENERIC_INPUT_PATH + 'feedback.xls',
     'requirement_excel': GENERIC_INPUT_PATH + 'requirement.xls',
-    'assessment_excel': GENERIC_INPUT_PATH + 'assessment_details.xls'
+    'assessment_excel': GENERIC_INPUT_PATH + 'assessment_details.xls',
+    'event_excel': GENERIC_INPUT_PATH + 'event_details.xls',
 }

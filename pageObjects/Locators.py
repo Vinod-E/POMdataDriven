@@ -55,7 +55,8 @@ TITLE = {
 }
 
 CHECKBOX = {
-    'check': 'grid_items'
+    'check': 'grid_items',
+    'type': '//*[@type="checkbox"]'
 }
 
 BUTTONS = {
@@ -68,12 +69,14 @@ BUTTONS = {
     'create': '//*[@ng-click="vm.create();"]',
     'form_search': '//*[@ng-click="vm.service.templates.search();"]',
     'new_form_search': '.form-control.btn-submit',
-    'ec_save': '//button[@ng-click="vm.saveEcConfig();"]'
+    'ec_save': '//button[@ng-click="vm.saveEcConfig();"]',
+    'task_configure': '//*[@ng-click="vm.getTaskConfigurationModal()"]'
 }
 
 ACTIONS = {
     'actions_click': "//span[contains(text(),'Actions')]",
     'view_candidates': 'Event-Details-View-Candidates',
+    'upload_candidate': 'Event-Details-Upload-Candidates',
     'slot_config': 'Event-Details-Configure-Interview-Slots',
     'status_change': 'cardlist-view-Change-Applicant Status',
     'lobby': 'Event-Details-View-Interview-Lobby',
@@ -124,8 +127,13 @@ JOB = {
     'task_new': 'addnew_link',
     'int_panel': '//*[@ng-model="vm.selectedInterviewPanel"]',
     'panel_int_add': 'add_label',
-    'total_owners': '.section_header.ng-binding'
-
+    'total_owners': '.section_header.ng-binding',
+    'registration_hop': '//*[@id="main-table"]/tbody[1]/tr[2]/td[1]/div/i',
+    'eligibility_hop': '//*[@id="main-table"]/tbody[2]/tr[2]/td[1]/div/i',
+    'offer_stage': '//*[@id="main-table"]/tbody[7]/tr[4]/td[1]/div/i',
+    'hop_stage_field': '//*[@ng-model="vm.hopping[statusId].selectedStage"]',
+    'hop_status_field': '//*[@ng-model="vm.hopping[statusId].selectedStatus"]',
+    'toggle_buttons': '.slider.round'
 }
 
 CHANGE_STATUS = {
@@ -135,7 +143,13 @@ CHANGE_STATUS = {
 }
 
 CANDIDATE = {
-    'id': '//*[@id="mainBodyElement"]/div[3]/div/div[1]/div[1]/div/div/div[2]/div[2]/p[2]/span[2]'
+    'id': '//*[@id="mainBodyElement"]/div[3]/div/div[1]/div[1]/div/div/div[2]/div[2]/p[2]/span[2]',
+    'upload_signature': '//*[@ng-model="vm.signature"]',
+    'name_field': '//*[@id="mainBodyElement"]/div[7]/div/div/div[2]/form/div[1]/div/input',
+    'email_field': '//*[@id="mainBodyElement"]/div[7]/div/div/div[2]/form/div[3]/div/input',
+    'usn_field': '//*[@id="mainBodyElement"]/div[7]/div/div/div[2]/form/div[9]/div/input',
+    'save_info': '//*[@data-ng-click="vm.validateSingleCandidate(entity);"]',
+    'Upload_count': '.status-card.bg-success.ng-binding'
 }
 
 EVENT_LOBBY = {
@@ -143,7 +157,7 @@ EVENT_LOBBY = {
     'assign_slot': '//*[@bs-tooltip="{}{}{}"]'.format("'", 'Assign slots', "'"),
     'un_assign': '//*[@bs-tooltip="{}{}{}"]'.format("'", 'Unassign Room', "'"),
     'assign_room': '//*[@bs-tooltip="{}{}{}"]'.format("'", 'Assign Room', "'"),
-    'room_search': 'noDataMsg'
+    'room_search': 'noDataMsg',
 }
 
 CANDIDATE_LOBBY_LOGIN = {
