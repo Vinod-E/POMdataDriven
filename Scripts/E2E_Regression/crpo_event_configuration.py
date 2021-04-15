@@ -66,7 +66,8 @@ class CRPOEventConfiguration:
                   self.test.test_active_enable(),
                   self.test.event_test_configure_save(),
                   self.test.test_tag_notifier(self.xl_test_message),
-                  self.test.test_tag_notifier_dismiss()
+                  self.test.test_tag_notifier_dismiss(),
+                  self.test.cancel_test_extra_config()
                   ]
         for func in __list:
             if func:

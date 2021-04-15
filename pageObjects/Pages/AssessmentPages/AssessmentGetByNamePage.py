@@ -29,6 +29,7 @@ class AssessmentGetByName:
                                             self.__e_test_name_xpath.format(assessment_name),
                                             'Assessment_name_validation')
             print(f'Assessment Name - {self.wait.text_value}')
+            self.wait.loading()
             return True
         except Exception as error:
             ui_logger.error(error)

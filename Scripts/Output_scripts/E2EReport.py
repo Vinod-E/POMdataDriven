@@ -4,7 +4,7 @@ from Config import outputFile
 
 class E2EOutputReport:
     """Number of Test cases """
-    TestCases = 150
+    TestCases = 250
 
     def __init__(self, version, server, start_date_time):
         self.version = version
@@ -38,14 +38,14 @@ class E2EOutputReport:
         testdata_headers = ['Job Tab', 'Job Create Button', 'Job Name', 'Job Attachment', 'Job Notifier', 'Description',
                             'Location Field', 'Hiring Manager Field', 'Business Unit Field', 'Opening Field',
                             'Male Diversity Field', 'Female Diversity Field', 'Job created Button',
-                            'Job created Notifier']
+                            'Job created Notifier', 'Job created Notifier Dismiss']
         self.xlw.input_output_report(testdata_headers=testdata_headers, collection=job_creation_coll,
                                      row=2, i_column=0, o_column=1, path=self.__path)
 
     def job_getby_report(self, job_getby_coll):
         testdata_headers = ['Tab Validation', 'Job Name Validation']
         self.xlw.input_output_report(testdata_headers=testdata_headers, collection=job_getby_coll,
-                                     row=16, i_column=0, o_column=1, path=self.__path)
+                                     row=17, i_column=0, o_column=1, path=self.__path)
 
     def job_sp_report(self, job_sp_coll):
         testdata_headers = ['Job Actions', 'Tag Selection Process Action', 'Select Selection Process', 'Save',
@@ -157,14 +157,14 @@ class E2EOutputReport:
 
     def event_test_config_report(self, config_coll):
         testdata_headers = ['Test Configure', 'Test Job Name', 'Test Stage', 'Test Assessment', 'Test Active',
-                            'Save Test Config', 'Test Config Notifier', 'Test Config  Notifier Dismiss']
+                            'Save Test Config', 'Test Config Notifier', 'Test Config  Notifier Dismiss',
+                            'Cancel Test Config']
         self.xlw.input_output_report(testdata_headers=testdata_headers, collection=config_coll,
                                      row=21, i_column=8, o_column=9, path=self.__path)
 
     def event_upload_candidate_report(self, upload_candidate_coll):
-        testdata_headers = ['Event Actions', 'Upload Candidate Action',
-                            'Upload Candidate File', 'Next Button', 'Declare Check', 'Signature Entry', 'Agree Button',
-                            'Edit information', 'Name Edit', 'Email Edit', 'USN Edit', 'Save Information',
-                            'Upload Count Validate']
+        testdata_headers = ['Event Actions', 'Upload Candidate Action', 'Upload Candidate File', 'Next Button',
+                            'Declare Check', 'Signature Entry', 'Agree Button', 'Edit information', 'Name Edit',
+                            'Email Edit', 'USN Edit', 'Save Information', 'Save Candidate', 'Upload Count Validate']
         self.xlw.input_output_report(testdata_headers=testdata_headers, collection=upload_candidate_coll,
                                      row=21, i_column=10, o_column=11, path=self.__path)

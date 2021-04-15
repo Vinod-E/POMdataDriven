@@ -70,7 +70,7 @@ class JobCreationPage:
         except Exception as error:
             ui_logger.error(error)
 
-    def job_notifier(self, message):
+    def job_attachment_notifier(self, message):
         try:
             self.notifier.glowing_messages(message)
             self.notifier.dismiss_message()
@@ -116,5 +116,20 @@ class JobCreationPage:
 
     def job_create(self):
         self.wait.web_element_wait_click(By.XPATH, self.__e_job_create, 'Job_create_button')
-        time.sleep(1.5)
+        self.wait.loading()
         return True
+
+    def job_create_notifier(self, message):
+        try:
+            self.notifier.glowing_messages(message)
+            return True
+        except Exception as error:
+            ui_logger.error(error)
+
+    def job_create_notifier_dismiss(self):
+        try:
+            self.notifier.dismiss_message()
+            self.wait.loading()
+            return True
+        except Exception as error:
+            ui_logger.error(error)

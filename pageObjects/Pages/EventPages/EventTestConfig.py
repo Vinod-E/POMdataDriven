@@ -14,6 +14,7 @@ class EventTestConfigPage:
     __e_test_xpath = Locators.PLACEHOLDER['text_ph'].format('Test')
     __e_test_active_css = Locators.BUTTONS['radio']
     __e_test_save_xpath = Locators.BUTTONS['button'].format('Save')
+    __e_test_config_cancel_xpath = Locators.BUTTONS['all_buttons'].format('CANCEL')
 
     def __init__(self, driver):
         self.driver = driver
@@ -89,7 +90,14 @@ class EventTestConfigPage:
         try:
             self.notifier.dismiss_message()
             time.sleep(0.7)
-            self.wait.refresh_page()
+            return True
+        except Exception as error:
+            ui_logger.error(error)
+
+    def cancel_test_extra_config(self):
+        try:
+            self.wait.loading()
+            self.wait.web_element_wait_click(By.XPATH, self.__e_test_config_cancel_xpath, 'cancel_test_extra_config')
             return True
         except Exception as error:
             ui_logger.error(error)

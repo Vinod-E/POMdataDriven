@@ -92,6 +92,7 @@ class ActivityTaskConfigPage:
         try:
             self.wait.web_element_wait_click(By.XPATH, self.__e_activity_save_xpath, 'job_activity_task_save')
             print('Job Activity Task - Saved')
+            time.sleep(0.5)
             return True
         except Exception as error:
             ui_logger.error(error)

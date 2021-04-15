@@ -41,6 +41,7 @@ class JobGetByName:
 
     def job_name_validation(self, job_name):
         try:
+            self.wait.loading()
             self.wait.web_element_wait_text(By.XPATH,
                                             self.__e_job_name_xpath.format(job_name),
                                             'Job_name_validation')

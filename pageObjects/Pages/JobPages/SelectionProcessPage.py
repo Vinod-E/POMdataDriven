@@ -48,6 +48,7 @@ class SelectionProcessPage:
         try:
             self.wait.refresh_page()
             print('Page - Refreshed')
+            self.wait.loading()
             time.sleep(1.5)
             return True
         except Exception as error:

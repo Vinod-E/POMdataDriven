@@ -41,7 +41,7 @@ class CRPOJobCreation:
                   self.job.create_button(),
                   self.job.job_name(self.xl_job_name),
                   self.job.job_attachment(self.job_attachment_file),
-                  self.job.job_notifier(self.xl_job_attach_message),
+                  self.job.job_attachment_notifier(self.xl_job_attach_message),
                   self.job.job_description(self.xl_job_desc),
                   self.job.job_location(self.xl_job_loc),
                   self.job.job_hiring_manager(self.xl_job_hm),
@@ -50,7 +50,8 @@ class CRPOJobCreation:
                   self.job.job_male_diversity(self.xl_job_male),
                   self.job.job_female_diversity(self.xl_job_female),
                   self.job.job_create(),
-                  self.job.job_notifier(self.xl_job_create_message)
+                  self.job.job_create_notifier(self.xl_job_create_message),
+                  self.job.job_create_notifier_dismiss()
                   ]
         for func in __list:
             if func:
