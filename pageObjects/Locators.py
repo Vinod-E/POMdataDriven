@@ -149,7 +149,8 @@ CANDIDATE = {
     'email_field': '//*[@id="mainBodyElement"]/div[7]/div/div/div[2]/form/div[3]/div/input',
     'usn_field': '//*[@id="mainBodyElement"]/div[7]/div/div/div[2]/form/div[9]/div/input',
     'save_info': '//*[@data-ng-click="vm.validateSingleCandidate(entity);"]',
-    'Upload_count': '.status-card.bg-success.ng-binding'
+    'Upload_count': '.status-card.bg-success.ng-binding',
+    'save': '//*[@data-ng-click="vm.consolidateCandidateInfo();"]'
 }
 
 EVENT_LOBBY = {

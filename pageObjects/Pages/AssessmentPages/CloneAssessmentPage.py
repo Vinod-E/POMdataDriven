@@ -35,6 +35,7 @@ class CloneAssessmentPage:
 
     def new_test_name(self, new_test_name):
         try:
+            time.sleep(0.7)
             self.wait.web_element_wait_send_keys(By.NAME, self.__e_new_test_field_name, new_test_name,
                                                  'new_test_name')
             print(f'New test name {new_test_name} - Entered')

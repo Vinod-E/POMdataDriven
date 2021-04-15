@@ -54,6 +54,7 @@ class EventCreation:
                                                  'event_req_field')
             time.sleep(1)
             self.wait.drop_down_selection()
+            self.wait.loading()
             print(f'New event req name - {req_name} - Entered')
             return True
         except Exception as error:
@@ -155,7 +156,7 @@ class EventCreation:
     def event_create_notifier_dismiss(self):
         try:
             self.notifier.dismiss_message()
-            time.sleep(0.5)
+            time.sleep(0.9)
             self.wait.loading()
             return True
         except Exception as error:

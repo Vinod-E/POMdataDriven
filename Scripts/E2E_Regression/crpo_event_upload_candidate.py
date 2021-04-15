@@ -38,6 +38,7 @@ class CRPOUploadCandidate:
                   self.upload.email_edit(email),
                   self.upload.usn_edit(self.xl_event_name),
                   self.upload.save_info(),
+                  self.upload.save_candidate(),
                   self.upload.success_upload(self.xl_success_msg)
                   ]
         for func in __list:

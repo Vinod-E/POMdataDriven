@@ -20,6 +20,7 @@ class FeedbackConfigPage:
 
     def stage_selection(self, stage):
         try:
+            time.sleep(1)
             self.wait.web_element_wait_send_keys(By.XPATH, self.__e_form_stage_xpath, stage, 'Send_Selection_Process')
             self.wait.drop_down_selection()
             print(f'selected - {stage}')

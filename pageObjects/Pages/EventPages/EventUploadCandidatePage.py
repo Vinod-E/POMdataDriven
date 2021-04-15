@@ -19,7 +19,7 @@ class EventUploadCandidate:
     __e_email_xpath = Locators.CANDIDATE['email_field']
     __e_usn_xpath = Locators.CANDIDATE['usn_field']
     __e_save_button_xpath = Locators.CANDIDATE['save_info']
-    __e_save_candidate_xpath = Locators.BUTTONS['button'].format('Save')
+    __e_save_candidate_xpath = Locators.CANDIDATE['save']
     __e_upload_count_css = Locators.CANDIDATE['Upload_count']
 
     def __init__(self, driver):
@@ -130,10 +130,10 @@ class EventUploadCandidate:
 
     def success_upload(self, message):
         try:
+            time.sleep(3)
             self.wait.web_element_wait_text(By.CSS_SELECTOR, self.__e_upload_count_css, 'success_upload')
             if self.wait.text_value.strip() == message:
                 print(f'Success {self.wait.text_value.strip()} - Count')
                 return True
         except Exception as error:
             ui_logger.error(error)
-

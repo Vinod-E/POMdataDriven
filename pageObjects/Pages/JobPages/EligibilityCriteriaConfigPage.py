@@ -103,7 +103,7 @@ class EligibilityCriteriaPage:
     def job_ec_notifier_dismiss(self):
         try:
             self.notifier.dismiss_message()
-            time.sleep(0.5)
+            time.sleep(1.5)
             return True
         except Exception as error:
             ui_logger.error(error)

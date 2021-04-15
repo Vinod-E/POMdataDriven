@@ -25,6 +25,7 @@ class JobSubTabs:
         try:
             self.wait.web_element_wait_click(By.XPATH, self.__e_job_automations_xpath, 'Job_Automations_tab')
             print('Job Automations Tab - Clicked')
+            self.wait.loading()
             return True
         except Exception as error:
             ui_logger.error(error)
