@@ -38,9 +38,9 @@ class MassOutputReport:
     def event_applicant_report(self, event_app_coll):
         testdata_headers = ['Event Actions', 'View Applicant Action', 'Applicant Advance Search',
                             'Applicant Name Enter', 'Search Button', 'Select Applicant', 'Change Status Action',
-                            'Stage Field', 'Status Field', 'Comment', 'Change Button', 'Applicant Name Click',
-                            'Switch window', 'Applicant status Validate', 'Candidate Id Copied',
-                            'Close window', 'Switch to original window']
+                            'Stage Field', 'Status Field', 'Comment', 'Change Button', 'Change Status Notifier',
+                            'Change Status Notifier Dismiss', 'Applicant Name Click', 'Applicant status Validate',
+                            'Candidate Id Copied', 'Close window', 'Switch to original window']
         self.xlw.input_output_report(testdata_headers=testdata_headers, collection=event_app_coll,
                                      row=2, i_column=2, o_column=3, path=self.__path)
 

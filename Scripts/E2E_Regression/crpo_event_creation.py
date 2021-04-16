@@ -1,7 +1,7 @@
 from datetime import datetime
 from Config import inputFile
 from utilities import excelRead, SwitchWindow
-from pageObjects.Pages.SearchPages import AdvanceSearchPage
+from pageObjects.Pages.MenuPages.menuPage import Menu
 from pageObjects.Pages.MultiSearchAddValue.multiSelectValues import MultiSelectValues
 from pageObjects.Pages.EventPages import EventGetByNamePage, EventApplicantPage, \
     EventActionsPage, EventCreationPage
@@ -14,9 +14,9 @@ class CRPOEventCreation:
         self.__test_from_date = now.strftime("%d/%m/%Y")
         self.__test_to_date = now.strftime("%d/%m/%Y")
         self.driver = driver
+        self.menu = Menu(self.driver)
         self.event = EventCreationPage.EventCreation(self.driver)
         self.multi_value = MultiSelectValues(self.driver)
-        self.search = AdvanceSearchPage.Search(self.driver)
         self.getby = EventGetByNamePage.EventGetByName(self.driver)
         self.event_action = EventActionsPage.Actions(self.driver)
         self.applicant_grid = EventApplicantPage.EventApplicant(self.driver)
@@ -40,7 +40,7 @@ class CRPOEventCreation:
 
     def crpo_event_creation(self):
         self.event_create_collection = []
-        __list = [self.search.event_tab(self.xl_menu_name, self.xl_tab_title),
+        __list = [self.menu.event_tab(self.xl_menu_name, self.xl_tab_title),
                   self.event.new_event_button(),
                   self.event.event_name_field(self.xl_event_name),
                   self.event.event_req_field(self.xl_event_name),

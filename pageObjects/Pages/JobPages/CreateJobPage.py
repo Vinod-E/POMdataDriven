@@ -1,6 +1,4 @@
 import time
-from utilities import appTitle
-from pageObjects.Pages.MenuPages.menuPage import Menu
 from pageObjects import Locators
 from utilities.uiNotifier import Notifier
 from selenium.webdriver.common.by import By
@@ -28,19 +26,7 @@ class JobCreationPage:
     def __init__(self, driver):
         self.driver = driver
         self.wait = WebElementWait(self.driver)
-        self.tab = Menu(self.driver)
         self.notifier = Notifier(self.driver)
-        self.tab_title = appTitle.Title(self.driver)
-
-    def job_tab(self, tab_name, tab_title):
-        try:
-            self.tab.job_tab(tab_name)
-            self.wait.loading()
-            assert self.tab_title.tab_title(tab_title) == tab_title, 'Webdriver is in wrong tab'
-            return True
-
-        except Exception as error:
-            ui_logger.error(error)
 
     def create_button(self):
         try:
@@ -129,6 +115,8 @@ class JobCreationPage:
     def job_create_notifier_dismiss(self):
         try:
             self.notifier.dismiss_message()
+            self.wait.loading()
+            time.sleep(0.2)
             self.wait.loading()
             return True
         except Exception as error:

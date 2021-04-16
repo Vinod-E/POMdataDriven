@@ -23,10 +23,12 @@ class E2EOutputReport:
                                        color_headers_list=color_headers_1)
 
         excel_headers_2 = ['Create Requirement', 'Status', 'Clone Assessment', 'Status', 'Create Event', 'Status',
-                           'Configuration (Task)', 'Status', 'Configuration (Tag Test)', 'Status',
-                           'Event Upload Candidates', 'Status']
+                           'Configuration (Task)', 'Status', 'Configuration (Tag Test / Owners)', 'Status',
+                           'Event Upload Candidates', 'Status', 'Applicant Status Change', 'Status', 'Candidate',
+                           'Status']
         color_headers_2 = ['Status', 'Create Requirement', 'Clone Assessment', 'Create Event', 'Configuration (Task)',
-                           'Configuration (Tag Test)', 'Event Upload Candidates', ]
+                           'Configuration (Tag Test / Owners)', 'Event Upload Candidates', 'Applicant Status Change',
+                           'Candidate']
         self.xlw.excel_header_by_index(row=20, col=0, excel_headers_list=excel_headers_2,
                                        color_headers_list=color_headers_2)
 
@@ -162,9 +164,32 @@ class E2EOutputReport:
         self.xlw.input_output_report(testdata_headers=testdata_headers, collection=config_coll,
                                      row=21, i_column=8, o_column=9, path=self.__path)
 
+    def event_owners_config_report(self, owners_coll):
+        testdata_headers = ['Event Actions', 'Manage Event Owners Action', 'Move all Owners', 'Owners Update',
+                            'Owners Notifier', 'Owners Notifier Dismiss']
+        self.xlw.input_output_report(testdata_headers=testdata_headers, collection=owners_coll,
+                                     row=30, i_column=8, o_column=9, path=self.__path)
+
     def event_upload_candidate_report(self, upload_candidate_coll):
         testdata_headers = ['Event Actions', 'Upload Candidate Action', 'Upload Candidate File', 'Next Button',
                             'Declare Check', 'Signature Entry', 'Agree Button', 'Edit information', 'Name Edit',
-                            'Email Edit', 'USN Edit', 'Save Information', 'Save Candidate', 'Upload Count Validate']
+                            'Email Edit', 'USN Edit', 'Save Information', 'Save Candidate', 'Upload Count Validate',
+                            'Close Upload screen', 'Close Main Screen', 'Confirm - OK']
         self.xlw.input_output_report(testdata_headers=testdata_headers, collection=upload_candidate_coll,
                                      row=21, i_column=10, o_column=11, path=self.__path)
+
+    def event_applicant_status_report(self, applicant_status_coll):
+        testdata_headers = ['Event Tab', 'Advance Search', 'Event Name Enter', 'Search Button', 'Event GetBy Name',
+                            'Event Name Validation', 'Event Actions', 'View Candidates', 'Advance Search',
+                            'Applicant Name Enter', 'Search Button', 'Applicant select', 'Applicant Change Status',
+                            'Applicant stage Entry', 'Applicant status Entry', 'Comment', 'Change Button',
+                            'Change Notifier', 'Change Notifier Dismiss']
+        self.xlw.input_output_report(testdata_headers=testdata_headers, collection=applicant_status_coll,
+                                     row=21, i_column=12, o_column=13, path=self.__path)
+
+    def event_applicant_manage_report(self, applicant_status_coll):
+        testdata_headers = ['Applicant Name click', 'Status Validate', 'Candidate Floating Actions',
+                            'Manage Task Action', 'Candidate Name Validate', 'Stage-Status Validate',
+                            'Submitted - 0', 'Pending - 1', 'Rejected - 0', 'Approved - 0', 'Total - 1']
+        self.xlw.input_output_report(testdata_headers=testdata_headers, collection=applicant_status_coll,
+                                     row=21, i_column=14, o_column=15, path=self.__path)

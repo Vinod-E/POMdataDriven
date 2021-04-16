@@ -23,15 +23,6 @@ class Search:
         self.tab_title = appTitle.Title(self.driver)
         self.page_scroll = PageScroll.PageScroll(self.driver)
 
-    def event_tab(self, tab_name, tab_title):
-        try:
-            self.tab.event_tab(tab_name)
-            self.wait.loading()
-            assert self.tab_title.tab_title(tab_title) == tab_title, 'Webdriver is in wrong tab'
-            return True
-        except Exception as error:
-            ui_logger.error(error)
-
     def advance_search(self):
         try:
             self.page_scroll.down(0, -200)
@@ -66,7 +57,7 @@ class Search:
     def search_button(self):
         try:
             time.sleep(1)
-            self.page_scroll.up(0, 150)
+            self.page_scroll.up(0, 170)
             self.wait.web_element_wait_click(By.XPATH, self.__e_search_btn_xpath, 'search_button')
             return True
         except Exception as error:

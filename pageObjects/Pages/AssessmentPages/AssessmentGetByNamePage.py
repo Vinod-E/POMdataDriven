@@ -30,6 +30,7 @@ class AssessmentGetByName:
                                             'Assessment_name_validation')
             print(f'Assessment Name - {self.wait.text_value}')
             self.wait.loading()
+            time.sleep(0.3)
             return True
         except Exception as error:
             ui_logger.error(error)

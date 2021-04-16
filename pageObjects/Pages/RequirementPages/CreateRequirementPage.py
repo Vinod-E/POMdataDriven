@@ -1,9 +1,6 @@
 import time
-from utilities import appTitle
-from pageObjects.Pages.MenuPages.menuPage import Menu
 from pageObjects import Locators
 from utilities.uiNotifier import Notifier
-from utilities.PageScroll import PageScroll
 from selenium.webdriver.common.by import By
 from Listeners.logger_settings import ui_logger
 from utilities.WebDriver_Wait import WebElementWait
@@ -23,20 +20,7 @@ class RequirementCreationPage:
     def __init__(self, driver):
         self.driver = driver
         self.wait = WebElementWait(self.driver)
-        self.tab = Menu(self.driver)
         self.notifier = Notifier(self.driver)
-        self.tab_title = appTitle.Title(self.driver)
-        self.scroll = PageScroll(self.driver)
-
-    def requirement_tab(self, tab_name, tab_title):
-        try:
-            self.scroll.up(0, 50)
-            self.tab.requirement_tab(tab_name)
-            self.wait.loading()
-            assert self.tab_title.tab_title(tab_title) == tab_title, 'Webdriver is in wrong tab'
-            return True
-        except Exception as error:
-            ui_logger.error(error)
 
     def create_button(self):
         try:

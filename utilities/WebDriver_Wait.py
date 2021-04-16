@@ -100,7 +100,7 @@ class WebElementWait:
         text = ''
         self.web_elements_wait(by_locator, element)
         for i in self.perform:
-            if i.text.strip() == value:
+            if value in i.text.strip():
                 text = i.text.strip()
                 break
         return text

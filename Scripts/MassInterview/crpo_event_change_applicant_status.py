@@ -1,4 +1,5 @@
 from Config import inputFile
+from pageObjects.Pages.MenuPages.menuPage import Menu
 from utilities import excelRead, SwitchWindow
 from pageObjects.Pages.SearchPages import AdvanceSearchPage
 from pageObjects.Pages.StatusChangePage.StatusChange import ChangeStatus
@@ -10,6 +11,7 @@ class EventApplicant:
 
     def __init__(self, driver, index, version):
         self.driver = driver
+        self.menu = Menu(self.driver)
         self.search = AdvanceSearchPage.Search(self.driver)
         self.getby = EventGetByNamePage.EventGetByName(self.driver)
         self.event_action = EventActionsPage.Actions(self.driver)
@@ -37,7 +39,7 @@ class EventApplicant:
 
     def event(self):
         self.event_collection = []
-        __list = [self.search.event_tab(self.xl_menu_name, self.xl_tab_title),
+        __list = [self.menu.event_tab(self.xl_menu_name, self.xl_tab_title),
                   self.search.advance_search(),
                   self.search.name_field(self.xl_event_name),
                   self.search.search_button(),
@@ -62,8 +64,9 @@ class EventApplicant:
                   self.status_change.applicant_status(self.xl_status),
                   self.status_change.comment(self.xl_comment),
                   self.status_change.change_button(),
-                  self.applicant_grid.applicant_get_name(self.xl_event_name, self.xl_message),
-                  self.window_switch.switch_to_window(1),
+                  self.status_change.change_status_notifier(self.xl_message),
+                  self.status_change.change_status_notifier_dismiss(),
+                  self.applicant_grid.applicant_get_name(self.xl_event_name, 1),
                   self.candidate_details.candidate_status(self.xl_status),
                   self.candidate_details.candidate_id_copy(),
                   self.window_switch.window_close(),

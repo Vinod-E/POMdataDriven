@@ -3,17 +3,43 @@ from pageObjects import Locators
 from selenium.webdriver.common.by import By
 from Listeners.logger_settings import ui_logger
 from utilities.WebDriver_Wait import WebElementWait
+from utilities.SwitchWindow import SwitchWindowClose
 
 
 class CandidateDetailsPage:
     __e_title_xpath = Locators.TITLE['title']
     __e_id_xpath = Locators.CANDIDATE['id']
+    __e_candidate_float_action_class = Locators.ACTIONS['float_click_class']
+    __e_manage_task_xpath = Locators.TITLE['title'].format('Manage Task')
 
     def __init__(self, driver):
         self.driver = driver
         self.wait = WebElementWait(self.driver)
+        self.window = SwitchWindowClose(self.driver)
 
         self.candidate_id = ''
+
+    def candidate_float_actions(self):
+        try:
+            self.wait.web_element_wait_click(By.CLASS_NAME, self.__e_candidate_float_action_class,
+                                             'candidate_float_actions')
+            print('Candidate details screen - floating action clicked')
+            return True
+        except Exception as error:
+            ui_logger.error(error)
+
+    def candidate_manage_task_action(self, window_index):
+        try:
+            time.sleep(1)
+            self.wait.web_element_wait_click(By.XPATH, self.__e_manage_task_xpath,
+                                             'candidate_manage_task_action')
+            print('Candidate details screen - floating action - Manage Task')
+            time.sleep(1)
+            self.window.switch_to_window(window_index)
+            self.wait.loading()
+            return True
+        except Exception as error:
+            ui_logger.error(error)
 
     def candidate_status(self, changed_status):
         try:

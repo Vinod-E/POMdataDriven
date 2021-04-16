@@ -21,6 +21,9 @@ class EventUploadCandidate:
     __e_save_button_xpath = Locators.CANDIDATE['save_info']
     __e_save_candidate_xpath = Locators.CANDIDATE['save']
     __e_upload_count_css = Locators.CANDIDATE['Upload_count']
+    __e_close_button_xpath = Locators.BUTTONS['button'].format('Close')
+    __e_close_main_xpath = Locators.BUTTONS['close']
+    __e_confirm_close_main_xpath = Locators.BUTTONS['all_buttons'].format('OK')
 
     def __init__(self, driver):
         self.driver = driver
@@ -135,5 +138,30 @@ class EventUploadCandidate:
             if self.wait.text_value.strip() == message:
                 print(f'Success {self.wait.text_value.strip()} - Count')
                 return True
+        except Exception as error:
+            ui_logger.error(error)
+
+    def close_candidate_screen(self):
+        try:
+            self.wait.web_element_wait_click(By.XPATH, self.__e_close_button_xpath, 'close_candidate_screen')
+            print('Close Candidate Screen - Closed')
+            return True
+        except Exception as error:
+            ui_logger.error(error)
+
+    def close_main_screen(self):
+        try:
+            self.wait.web_element_wait_click(By.XPATH, self.__e_close_main_xpath, 'close_main_screen')
+            print('Close Main Screen - Closed')
+            return True
+        except Exception as error:
+            ui_logger.error(error)
+
+    def confirm_close_main_screen(self):
+        try:
+            self.wait.web_element_wait_click(By.XPATH, self.__e_confirm_close_main_xpath, 'confirm_close_main_screen')
+            print('Confirm Close Main Screen - Closed')
+            self.wait.loading()
+            return True
         except Exception as error:
             ui_logger.error(error)

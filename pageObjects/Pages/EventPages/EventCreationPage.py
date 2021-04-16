@@ -49,7 +49,6 @@ class EventCreation:
 
     def event_req_field(self, req_name):
         try:
-            time.sleep(0.5)
             self.wait.web_element_wait_send_keys(By.XPATH, self.__e_event_req_name_xpath, req_name,
                                                  'event_req_field')
             time.sleep(1)
@@ -121,6 +120,7 @@ class EventCreation:
                                                  'event_college_field')
             self.wait.drop_down_selection()
             print(f'Event college name - {college} - Entered')
+            self.wait.loading()
             return True
         except Exception as error:
             ui_logger.error(error)

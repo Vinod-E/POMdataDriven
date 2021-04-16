@@ -1,4 +1,5 @@
 from Config import inputFile
+from pageObjects.Pages.MenuPages.eventSubTabPages import EventSubTabs
 from pageObjects.Pages.EventPages.EventConfigurationTabPage import EventConfiguration
 from utilities import excelRead
 
@@ -7,6 +8,7 @@ class EnableAutoAssign:
     def __init__(self, driver, index):
         self.driver = driver
         self.config = EventConfiguration(self.driver)
+        self.event_sub_tab = EventSubTabs(self.driver)
 
         """
         ----------------- EXCEL READ AND TO ASSIGN VALUES TO RESPECTIVE INIT VARIABLES ------>>>>
@@ -25,7 +27,7 @@ class EnableAutoAssign:
     def auto_allocation_user_chat(self):
 
         self.event_config_collection = []
-        __list = [self.config.configurations_tab(),
+        __list = [self.event_sub_tab.event_configurations(),
                   self.config.on_off_buttons(self.xl_on_off_button),
                   self.config.user_id_chat(),
                   self.config.search_user_chat(self.xl_user_name),

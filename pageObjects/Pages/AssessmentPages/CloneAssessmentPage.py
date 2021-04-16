@@ -1,6 +1,4 @@
 import time
-from utilities import appTitle
-from pageObjects.Pages.MenuPages.menuPage import Menu
 from pageObjects import Locators
 from utilities.uiNotifier import Notifier
 from selenium.webdriver.common.by import By
@@ -20,18 +18,7 @@ class CloneAssessmentPage:
     def __init__(self, driver):
         self.driver = driver
         self.wait = WebElementWait(self.driver)
-        self.tab = Menu(self.driver)
         self.notifier = Notifier(self.driver)
-        self.tab_title = appTitle.Title(self.driver)
-
-    def assessment_tab(self, tab_name, tab_title):
-        try:
-            self.tab.assessment_tab(tab_name)
-            self.wait.loading()
-            assert self.tab_title.tab_title(tab_title) == tab_title, 'Webdriver is in wrong tab'
-            return True
-        except Exception as error:
-            ui_logger.error(error)
 
     def new_test_name(self, new_test_name):
         try:

@@ -3,9 +3,7 @@ from pageObjects import Locators
 from selenium.webdriver.common.by import By
 from Listeners.logger_settings import ui_logger
 from utilities.WebDriver_Wait import WebElementWait
-from utilities.PageScroll import PageScroll
 from utilities.uiNotifier import Notifier
-from pageObjects.Pages.MenuPages.eventSubTabPages import EventSubTabs
 
 
 class EventConfiguration:
@@ -20,20 +18,7 @@ class EventConfiguration:
     def __init__(self, driver):
         self.driver = driver
         self.wait = WebElementWait(self.driver)
-        self.event_tab = EventSubTabs(self.driver)
-        self.scroll = PageScroll(self.driver)
         self.notifier = Notifier(self.driver)
-
-    def configurations_tab(self):
-        try:
-            self.scroll.up(0, -100)
-            self.event_tab.event_configurations()
-            time.sleep(0.5)
-            print('Event Configurations Tab - Landed')
-            self.scroll.up(0, 200)
-            return True
-        except Exception as error:
-            ui_logger.error(error)
 
     def on_off_buttons(self, button_name):
         try:
