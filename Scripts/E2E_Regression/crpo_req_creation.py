@@ -1,5 +1,6 @@
 from Config import inputFile
 from utilities import excelRead
+from pageObjects.Pages.MenuPages.menuPage import Menu
 from pageObjects.Pages.MultiSearchAddValue.multiSelectValues import MultiSelectValues
 from pageObjects.Pages.MenuPages.requirementSubTabPages import RequirementSubTabs
 from pageObjects.Pages.RequirementPages.CreateRequirementPage import RequirementCreationPage
@@ -9,6 +10,7 @@ from pageObjects.Pages.RequirementPages.RequirementDuplicityConfig import Duplic
 class CRPOReqCreation:
     def __init__(self, driver, index, version):
         self.driver = driver
+        self.menu = Menu(self.driver)
         self.req = RequirementCreationPage(self.driver)
         self.multi_value = MultiSelectValues(self.driver)
         self.tab = RequirementSubTabs(self.driver)
@@ -36,7 +38,7 @@ class CRPOReqCreation:
     def crpo_req_creation(self):
         self.req_create_collection = []
 
-        __list = [self.req.requirement_tab(self.xl_menu, self.xl_tab_title),
+        __list = [self.menu.requirement_tab(self.xl_menu, self.xl_tab_title),
                   self.req.create_button(),
                   self.req.requirement_name(self.xl_req_name),
                   self.req.requirement_job(),

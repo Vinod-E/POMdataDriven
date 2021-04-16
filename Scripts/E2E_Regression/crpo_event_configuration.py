@@ -1,5 +1,6 @@
 from Config import inputFile
 from utilities import excelRead
+from pageObjects.Pages.MenuPages.eventSubTabPages import EventSubTabs
 from pageObjects.Pages.MultiSearchAddValue.multiSelectValues import MultiSelectValues
 from pageObjects.Pages.EventPages.EventGetByNamePage import EventGetByName
 from pageObjects.Pages.EventPages.EventActivityTaskConfigPage import EventActivityTaskConfigPage
@@ -11,6 +12,7 @@ class CRPOEventConfiguration:
     def __init__(self, driver, index, version):
         self.driver = driver
         self.get_by = EventGetByName(self.driver)
+        self.event_sub_tab = EventSubTabs(self.driver)
         self.task_config = EventActivityTaskConfigPage(self.driver)
         self.multi_value = MultiSelectValues(self.driver)
         self.test = EventTestConfigPage(self.driver)
@@ -35,7 +37,7 @@ class CRPOEventConfiguration:
 
     def crpo_event_task_configurations(self):
         self.event_task_config_collection = []
-        __list = [self.task_config.configurations_tab(),
+        __list = [self.event_sub_tab.event_configurations(),
                   self.get_by.event_name_validation(self.xl_event_name),
                   self.task_config.event_task_configure_button(),
                   self.task_config.task_new_row(),

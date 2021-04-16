@@ -70,13 +70,15 @@ BUTTONS = {
     'form_search': '//*[@ng-click="vm.service.templates.search();"]',
     'new_form_search': '.form-control.btn-submit',
     'ec_save': '//button[@ng-click="vm.saveEcConfig();"]',
-    'task_configure': '//*[@ng-click="vm.getTaskConfigurationModal()"]'
+    'task_configure': '//*[@ng-click="vm.getTaskConfigurationModal()"]',
+    'close': '//*[@ng-click="vm.cancelClicked()"]'
 }
 
 ACTIONS = {
     'actions_click': "//span[contains(text(),'Actions')]",
     'view_candidates': 'Event-Details-View-Candidates',
     'upload_candidate': 'Event-Details-Upload-Candidates',
+    'event_owners': 'Event-Details-Manage-Event-Owners',
     'slot_config': 'Event-Details-Configure-Interview-Slots',
     'status_change': 'cardlist-view-Change-Applicant Status',
     'lobby': 'Event-Details-View-Interview-Lobby',

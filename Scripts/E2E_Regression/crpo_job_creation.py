@@ -1,12 +1,13 @@
 from Config import inputFile
 from utilities import excelRead
+from pageObjects.Pages.MenuPages.menuPage import Menu
 from pageObjects.Pages.JobPages.CreateJobPage import JobCreationPage
 
 
 class CRPOJobCreation:
     def __init__(self, driver, index, version):
         self.driver = driver
-
+        self.menu = Menu(self.driver)
         self.job = JobCreationPage(self.driver)
 
         """
@@ -37,7 +38,7 @@ class CRPOJobCreation:
     def crpo_job_creation(self):
         self.job_create_collection = []
 
-        __list = [self.job.job_tab(self.xl_job_menu, self.xl_job_create_tab_title),
+        __list = [self.menu.job_tab(self.xl_job_menu, self.xl_job_create_tab_title),
                   self.job.create_button(),
                   self.job.job_name(self.xl_job_name),
                   self.job.job_attachment(self.job_attachment_file),

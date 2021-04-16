@@ -54,7 +54,7 @@ class InterviewModulePage:
 
     def save_notifier(self, message):
         try:
-            time.sleep(0.4)
+            time.sleep(0.8)
             self.notifier.glowing_messages(message)
             return True
         except Exception as error:

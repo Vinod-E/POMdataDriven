@@ -16,6 +16,9 @@ from Scripts.E2E_Regression.crpo_test_clone import CRPOAssessmentClone
 from Scripts.E2E_Regression.crpo_event_creation import CRPOEventCreation
 from Scripts.E2E_Regression.crpo_event_configuration import CRPOEventConfiguration
 from Scripts.E2E_Regression.crpo_event_upload_candidate import CRPOUploadCandidate
+from Scripts.E2E_Regression.crpo_event_owners import CRPOEventOwners
+from Scripts.E2E_Regression.crpo_event_applicant_status_change import CRPOEventApplicantStatusChange
+from Scripts.E2E_Regression.crpo_event_manage_task import CRPOEventManageTask
 from Scripts.Output_scripts import E2EReport
 
 
@@ -48,7 +51,10 @@ class CRPOE2ERegression:
         test = CRPOAssessmentClone(driver=driver, index=index, version=version)
         event = CRPOEventCreation(driver=driver, index=index, version=version)
         event_config = CRPOEventConfiguration(driver=driver, index=index, version=version)
+        owners = CRPOEventOwners(driver=driver, index=index)
         upload = CRPOUploadCandidate(driver=driver, index=index, version=version)
+        applicant = CRPOEventApplicantStatusChange(driver=driver, index=index, version=version)
+        task = CRPOEventManageTask(driver=driver, index=index, version=version)
 
         E2E_output = E2EReport.E2EOutputReport(version=version, server=server, start_date_time=date_time)
 
@@ -136,9 +142,21 @@ class CRPOE2ERegression:
         self.event_config.crpo_event_test_configurations()
         self.E2E_output.event_test_config_report(self.event_config.event_test_config_collection)
 
+    def crpo_event_owners_configuration(self):
+        self.owners.crpo_event_owners_tagging()
+        self.E2E_output.event_owners_config_report(self.owners.event_owners_collection)
+
     def crpo_event_upload_candidates(self):
         self.upload.crpo_event_upload_candidates(self.email)
         self.E2E_output.event_upload_candidate_report(self.upload.event_upload_collection)
+
+    def crpo_event_applicant_status_change(self):
+        self.applicant.crpo_event_applicant()
+        self.E2E_output.event_applicant_status_report(self.applicant.event_app_status_collection)
+
+    def crpo_event_applicant_manage_details(self):
+        self.task.crpo_event_applicant_manage_screen()
+        self.E2E_output.event_applicant_manage_report(self.task.event_app_details_collection)
 
 
 Object = CRPOE2ERegression()
@@ -163,6 +181,9 @@ if Object.login_success:
     Object.crpo_event_creation()
     Object.crpo_event_task_configuration()
     Object.crpo_event_test_configuration()
+    Object.crpo_event_owners_configuration()
     Object.crpo_event_upload_candidates()
+    Object.crpo_event_applicant_status_change()
+    Object.crpo_event_applicant_manage_details()
     Object.E2E_output.overall_status()
     Object.environment.close()

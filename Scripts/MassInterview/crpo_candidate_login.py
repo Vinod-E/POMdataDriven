@@ -1,6 +1,7 @@
 from Config import inputFile
 from pageObjects.Pages.CandidateLobbyLink.CandidateLoginPage import LoginPage
 from pageObjects.Pages.EventPages.EventLobbyPage import LobbyPage
+from pageObjects.Pages.MenuPages.eventSubTabPages import EventSubTabs
 from utilities import excelRead
 from utilities.SwitchWindow import SwitchWindowClose
 
@@ -8,6 +9,7 @@ from utilities.SwitchWindow import SwitchWindowClose
 class CandidateLobbyLogin:
     def __init__(self, driver, index, version):
         self.driver = driver
+        self.event_sub_tab = EventSubTabs(self.driver)
         self.candidate_login = LoginPage(self.driver)
         self.new_tab = SwitchWindowClose(self.driver)
         self.lobby = LobbyPage(self.driver)
@@ -33,7 +35,7 @@ class CandidateLobbyLogin:
                   self.candidate_login.almost_message(self.xl_almost_message),
                   self.new_tab.window_close(),
                   self.new_tab.switch_to_window(0),
-                  self.lobby.manage_candidates_tab(),
+                  self.event_sub_tab.manage_candidates(),
                   self.lobby.un_assign_room(),
                   self.lobby.ok_buttons(),
                   self.lobby.ok_buttons(),

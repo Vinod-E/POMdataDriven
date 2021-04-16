@@ -116,13 +116,6 @@ class LobbyPage:
         except Exception as error:
             ui_logger.error(error)
 
-    def manage_candidates_tab(self):
-        try:
-            self.sub_tab.manage_candidates()
-            return True
-        except Exception as error:
-            ui_logger.error(error)
-
     def un_assign_room(self):
         try:
             self.wait.web_element_wait_click(By.XPATH, self.__e_un_assign_xpath, 'Un_assign_from_room')

@@ -11,8 +11,9 @@ class Actions:
     __e_event_candidates_id = Locators.ACTIONS['view_candidates']
     __e_event_slot_id = Locators.ACTIONS['slot_config']
     __e_event_lobby_id = Locators.ACTIONS['lobby']
-    __e_event_interview_lobby = Locators.ACTIONS['panel']
-    __e_event_upload_candidates = Locators.ACTIONS['upload_candidate']
+    __e_event_interview_lobby_id = Locators.ACTIONS['panel']
+    __e_event_upload_candidates_id = Locators.ACTIONS['upload_candidate']
+    __e_event_owners_id = Locators.ACTIONS['event_owners']
 
     def __init__(self, driver):
         self.driver = driver
@@ -58,7 +59,7 @@ class Actions:
 
     def interview_lobby_panel(self):
         try:
-            self.wait.web_element_wait_click(By.ID, self.__e_event_interview_lobby, 'Interviewer_Lobby_panel')
+            self.wait.web_element_wait_click(By.ID, self.__e_event_interview_lobby_id, 'Interviewer_Lobby_panel')
             self.wait.loading()
             print('Event_interviewer_lobby - Screen')
             time.sleep(5)
@@ -69,9 +70,18 @@ class Actions:
 
     def event_upload_candidates(self):
         try:
-            self.wait.web_element_wait_click(By.ID, self.__e_event_upload_candidates, 'event_upload_candidates')
+            self.wait.web_element_wait_click(By.ID, self.__e_event_upload_candidates_id, 'event_upload_candidates')
             self.wait.loading()
             print('Event Upload Candidate - Screen')
+            return True
+        except Exception as error:
+            ui_logger.error(error)
+
+    def manage_event_owners(self):
+        try:
+            self.wait.web_element_wait_click(By.ID, self.__e_event_owners_id, 'manage_event_owners')
+            self.wait.loading()
+            print('Event Owners adding - Screen')
             return True
         except Exception as error:
             ui_logger.error(error)

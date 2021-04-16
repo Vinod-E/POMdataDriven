@@ -2,7 +2,7 @@ from Config import inputFile
 from utilities import excelRead
 from pageObjects.Pages.SettingsPage.AccountNameSettingsPage import AccountName
 from pageObjects.Pages.SettingsPage.InterviewModulePage import InterviewModulePage
-from pageObjects.Pages.JobPages.CreateJobPage import JobCreationPage
+from pageObjects.Pages.MenuPages.menuPage import Menu
 from pageObjects.Pages.SearchPages.AdvanceSearchPage import Search
 from pageObjects.Pages.JobPages.JobGetByNamePage import JobGetByName
 from pageObjects.Pages.JobPages.JobActionsPage import Actions
@@ -14,7 +14,7 @@ class CRPOJobFeedbackFormNew:
         self.driver = driver
         self.account = AccountName(self.driver)
         self.new_form = InterviewModulePage(self.driver)
-        self.menu = JobCreationPage(self.driver)
+        self.menu = Menu(self.driver)
         self.search = Search(self.driver)
         self.job_get_name = JobGetByName(self.driver)
         self.actions = Actions(self.driver)

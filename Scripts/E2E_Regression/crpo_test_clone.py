@@ -1,7 +1,7 @@
-import ssl
 from datetime import datetime
 from Config import inputFile
 from utilities import excelRead
+from pageObjects.Pages.MenuPages.menuPage import Menu
 from pageObjects.Pages.AssessmentPages.CloneAssessmentPage import CloneAssessmentPage
 from pageObjects.Pages.AssessmentPages.AssessmentGetByNamePage import AssessmentGetByName
 from pageObjects.Pages.AssessmentPages.AssessmentActionsPage import Actions
@@ -14,6 +14,7 @@ class CRPOAssessmentClone:
         self.__test_from_date = now.strftime("%d/%m/%Y")
         self.__test_to_date = now.strftime("%d/%m/%Y")
         self.driver = driver
+        self.menu = Menu(self.driver)
         self.clone = CloneAssessmentPage(self.driver)
         self.search = Search(self.driver)
         self.get_by = AssessmentGetByName(self.driver)
@@ -37,7 +38,7 @@ class CRPOAssessmentClone:
     def crpo_assessment_clone(self):
         self.test_clone_collection = []
 
-        __list = [self.clone.assessment_tab(self.xl_menu, self.xl_tab_title),
+        __list = [self.menu.assessment_tab(self.xl_menu, self.xl_tab_title),
                   self.search.advance_search(),
                   self.search.test_name_search_field(self.xl_clone_test_name),
                   self.search.search_button(),

@@ -3,6 +3,7 @@ from pageObjects import Locators
 from selenium.webdriver.common.by import By
 from Listeners.logger_settings import ui_logger
 from utilities.WebDriver_Wait import WebElementWait
+from utilities.uiNotifier import Notifier
 
 
 class ChangeStatus:
@@ -15,6 +16,7 @@ class ChangeStatus:
     def __init__(self, driver):
         self.driver = driver
         self.wait = WebElementWait(self.driver)
+        self.notifier = Notifier(self.driver)
 
     def applicant_stage(self, stage):
         try:
@@ -45,6 +47,23 @@ class ChangeStatus:
         try:
             self.wait.web_element_wait_click(By.XPATH, self.__e_button_xpath, 'Change_Button')
             print('MassInterview applicant status - Changed')
+            self.wait.loading()
+            return True
+        except Exception as error:
+            ui_logger.error(error)
+
+    def change_status_notifier(self, message):
+        try:
+            time.sleep(2)
+            self.notifier.glowing_messages(message)
+            return True
+        except Exception as error:
+            ui_logger.error(error)
+
+    def change_status_notifier_dismiss(self):
+        try:
+            self.notifier.dismiss_message()
+            time.sleep(0.9)
             self.wait.loading()
             return True
         except Exception as error:

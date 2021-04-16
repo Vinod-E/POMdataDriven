@@ -1,7 +1,6 @@
 from Config import inputFile
 from utilities import excelRead
 from pageObjects.Pages.EventPages.EventActionsPage import Actions
-from pageObjects.Pages.EventPages.EventGetByNamePage import EventGetByName
 from pageObjects.Pages.EventPages.EventUploadCandidatePage import EventUploadCandidate
 
 
@@ -39,7 +38,10 @@ class CRPOUploadCandidate:
                   self.upload.usn_edit(self.xl_event_name),
                   self.upload.save_info(),
                   self.upload.save_candidate(),
-                  self.upload.success_upload(self.xl_success_msg)
+                  self.upload.success_upload(self.xl_success_msg),
+                  self.upload.close_candidate_screen(),
+                  self.upload.close_main_screen(),
+                  self.upload.confirm_close_main_screen()
                   ]
         for func in __list:
             if func:

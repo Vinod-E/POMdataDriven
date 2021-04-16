@@ -5,7 +5,6 @@ from Listeners.logger_settings import ui_logger
 from pageObjects.Pages.MenuPages.eventSubTabPages import EventSubTabs
 from utilities.WebDriver_Wait import WebElementWait
 from utilities.uiNotifier import Notifier
-from utilities.PageScroll import PageScroll
 
 
 class EventActivityTaskConfigPage:
@@ -23,19 +22,7 @@ class EventActivityTaskConfigPage:
         self.driver = driver
         self.wait = WebElementWait(self.driver)
         self.notifier = Notifier(self.driver)
-        self.scroll = PageScroll(self.driver)
         self.event_tab = EventSubTabs(self.driver)
-
-    def configurations_tab(self):
-        try:
-            self.scroll.up(0, -100)
-            self.event_tab.event_configurations()
-            time.sleep(0.5)
-            print('Event Configurations Tab - Landed')
-            self.scroll.up(0, 200)
-            return True
-        except Exception as error:
-            ui_logger.error(error)
 
     def event_task_configure_button(self):
         try:
@@ -123,7 +110,7 @@ class EventActivityTaskConfigPage:
 
     def event_task_notifier(self, message):
         try:
-            time.sleep(0.4)
+            time.sleep(0.8)
             self.notifier.glowing_messages(message)
             return True
         except Exception as error:
