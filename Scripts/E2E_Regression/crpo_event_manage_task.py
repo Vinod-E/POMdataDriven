@@ -38,19 +38,19 @@ class CRPOEventManageTask:
 
     def crpo_event_applicant_manage_screen(self):
         self.event_app_details_collection = []
+
         __list = [self.applicant.applicant_get_name(self.xl_event_name, 1),
                   self.candidate_details.candidate_status(self.xl_candidate_status),
                   self.candidate_details.candidate_float_actions(),
                   self.candidate_details.candidate_manage_task_action(2),
                   self.task_screen.candidate_name_validate(self.xl_event_name),
-                  self.task_screen.candidate_stage_status_validate(self.xl_stage_status1),
                   self.task_screen.submitted_task_validate(self.xl_submit1),
                   self.task_screen.pending_task_validate(self.xl_pending1),
                   self.task_screen.rejected_task_validate(self.xl_rejected1),
                   self.task_screen.approved_task_validate(self.xl_approved1),
                   self.task_screen.total_task_validate(self.xl_total1),
+                  self.task_screen.switch_back_to_old_window()
 
-                  # self.task_screen.candidate_stage_status_validate(self.xl_stage_status2),
                   # self.task_screen.submitted_task_validate(self.xl_submit2),
                   # self.task_screen.pending_task_validate(self.xl_pending2),
                   # self.task_screen.rejected_task_validate(self.xl_rejected2),
