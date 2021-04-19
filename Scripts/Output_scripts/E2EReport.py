@@ -4,7 +4,7 @@ from Config import outputFile
 
 class E2EOutputReport:
     """Number of Test cases """
-    TestCases = 250
+    TestCases = 259
 
     def __init__(self, version, server, start_date_time):
         self.version = version
@@ -31,6 +31,11 @@ class E2EOutputReport:
                            'Candidate (Manage Task)']
         self.xlw.excel_header_by_index(row=20, col=0, excel_headers_list=excel_headers_2,
                                        color_headers_list=color_headers_2)
+
+        excel_headers_3 = ['Embrace (Behalf Of Submission)', 'Status', 'Candidate (Submission status)', 'Status']
+        color_headers_3 = ['Status', 'Embrace (Behalf Of Submission)', 'Candidate (Submission status)']
+        self.xlw.excel_header_by_index(row=40, col=0, excel_headers_list=excel_headers_3,
+                                       color_headers_list=color_headers_3)
 
     def overall_status(self):
         self.xlw.status(start_date_time=self.start_date_time, version=self.version, server=self.server,
@@ -193,3 +198,17 @@ class E2EOutputReport:
                             'Rejected - 0', 'Approved - 0', 'Total - 1', 'Switch Back Old Window']
         self.xlw.input_output_report(testdata_headers=testdata_headers, collection=applicant_status_coll,
                                      row=21, i_column=14, o_column=15, path=self.__path)
+
+    def event_embrace_report(self, embrace_coll):
+        testdata_headers = ['More Tab', 'Embrace Tab', 'Switch To New Window', 'Candidate Module', 'Advance Search',
+                            'Candidate Behalf of action', 'Candidate acceptance - Yes', 'Submit Task', 'Task Notifier',
+                            'Task Notifier Dismiss', 'Close Window', 'Switch To Old Window']
+        self.xlw.input_output_report(testdata_headers=testdata_headers, collection=embrace_coll,
+                                     row=41, i_column=0, o_column=1, path=self.__path)
+
+    def event_applicant_manage_task_report(self, applicant_status_coll):
+        testdata_headers = ['Applicant Name click', 'Status Validate', 'Candidate Floating Actions',
+                            'Manage Task Action', 'Candidate Name Validate', 'Submitted - 1', 'Pending - 13',
+                            'Rejected - 0', 'Approved - 1', 'Total - 14', 'Switch Back Old Window']
+        self.xlw.input_output_report(testdata_headers=testdata_headers, collection=applicant_status_coll,
+                                     row=41, i_column=2, o_column=3, path=self.__path)

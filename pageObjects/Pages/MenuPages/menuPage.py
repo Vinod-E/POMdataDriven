@@ -1,3 +1,5 @@
+import time
+
 from Listeners.logger_settings import ui_logger
 from pageObjects import Locators
 from selenium.webdriver.common.by import By
@@ -8,6 +10,8 @@ from utilities.WebDriver_Wait import WebElementWait
 
 class Menu:
     __e_menu = Locators.MENU['menu']
+    __e_menu_embrace = Locators.MENU['embrace']
+    __e_embrace_candidate_xpath = Locators.EMBRACE['candidate_tab']
 
     def __init__(self, driver):
         self.driver = driver
@@ -59,9 +63,19 @@ class Menu:
         except Exception as error:
             ui_logger.error(error)
 
-    def embrace_tab(self, embrace_menu_name):
+    def embrace_tab(self):
         try:
-            self.wait.web_element_wait_click(By.XPATH, self.__e_menu.format(embrace_menu_name), 'not_in_Embrace')
+            self.wait.web_element_wait_click(By.XPATH, self.__e_menu_embrace, 'not_in_Embrace')
+            return True
+        except Exception as error:
+            ui_logger.error(error)
+
+    def embrace_candidate_tab(self):
+        try:
+            self.wait.embrace_loading()
+            time.sleep(1)
+            self.wait.web_element_wait_click(By.XPATH, self.__e_embrace_candidate_xpath,
+                                             'not_in_Embrace_candidate_tab')
             return True
         except Exception as error:
             ui_logger.error(error)
