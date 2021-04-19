@@ -96,14 +96,14 @@ class WebElementWait:
         self.text_value = self.perform.text
 
     def web_elements_wait_text(self, by_locator, element, value):
-        time.sleep(2)
-        text = ''
+        time.sleep(1.7)
+        text_value = ''
         self.web_elements_wait(by_locator, element)
         for i in self.perform:
             if value in i.text.strip():
-                text = i.text.strip()
+                text_value = i.text.strip()
                 break
-        return text
+        return text_value
 
     def web_elements_wait_click(self, by_locator, element, value):
         button_name = ''

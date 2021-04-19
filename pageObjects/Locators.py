@@ -182,3 +182,8 @@ FEEDBACK = {
 INTERVIEWER_LOBBY = {
     'finish_interview': '//*[@id="mainBodyElement"]/div[7]/div/div/div/div[2]/div[1]/button'
 }
+
+MANAGE_TASK = {
+    'common_label': '.ng-binding',
+    'candidate_status': '//*[@id="mainBodyElement"]/div[3]/div[2]/div[1]/div[1]/div/div[1]/div[1]/span[2]'
+}

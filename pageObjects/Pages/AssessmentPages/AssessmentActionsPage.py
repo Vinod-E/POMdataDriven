@@ -1,3 +1,5 @@
+import time
+
 from pageObjects import Locators
 from selenium.webdriver.common.by import By
 from utilities.PageScroll import PageScroll
@@ -26,6 +28,7 @@ class Actions:
 
     def clone_assessment(self):
         try:
+            time.sleep(1)
             self.wait.web_element_wait_click(By.ID, self.__e_clone_test_id, 'clone_assessment')
             self.wait.loading()
             print('Clone Assessment action - Clicked')

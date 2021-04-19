@@ -24,11 +24,11 @@ class E2EOutputReport:
 
         excel_headers_2 = ['Create Requirement', 'Status', 'Clone Assessment', 'Status', 'Create Event', 'Status',
                            'Configuration (Task)', 'Status', 'Configuration (Tag Test / Owners)', 'Status',
-                           'Event Upload Candidates', 'Status', 'Applicant Status Change', 'Status', 'Candidate',
-                           'Status']
+                           'Event Upload Candidates', 'Status', 'Applicant Status Change', 'Status',
+                           'Candidate (Manage Task)', 'Status']
         color_headers_2 = ['Status', 'Create Requirement', 'Clone Assessment', 'Create Event', 'Configuration (Task)',
                            'Configuration (Tag Test / Owners)', 'Event Upload Candidates', 'Applicant Status Change',
-                           'Candidate']
+                           'Candidate (Manage Task)']
         self.xlw.excel_header_by_index(row=20, col=0, excel_headers_list=excel_headers_2,
                                        color_headers_list=color_headers_2)
 
@@ -189,7 +189,7 @@ class E2EOutputReport:
 
     def event_applicant_manage_report(self, applicant_status_coll):
         testdata_headers = ['Applicant Name click', 'Status Validate', 'Candidate Floating Actions',
-                            'Manage Task Action', 'Candidate Name Validate', 'Stage-Status Validate',
-                            'Submitted - 0', 'Pending - 1', 'Rejected - 0', 'Approved - 0', 'Total - 1']
+                            'Manage Task Action', 'Candidate Name Validate', 'Submitted - 0', 'Pending - 1',
+                            'Rejected - 0', 'Approved - 0', 'Total - 1', 'Switch Back Old Window']
         self.xlw.input_output_report(testdata_headers=testdata_headers, collection=applicant_status_coll,
                                      row=21, i_column=14, o_column=15, path=self.__path)
