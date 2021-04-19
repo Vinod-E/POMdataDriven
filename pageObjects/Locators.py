@@ -7,7 +7,8 @@ ACCOUNT = {
 LOADING = {
     'load': 'dw-loading-active',
     'load_text': 'dw-loading-text',
-    'upload': '//*[@ng-disabled="vm.loadingOptions.active"]'
+    'upload': '//*[@ng-disabled="vm.loadingOptions.active"]',
+    'embrace_load': '//*[@aria-busy="true"]',
 }
 
 TAG = {
@@ -21,7 +22,8 @@ CHECK_BOX = {
 }
 
 MENU = {
-    'menu': "//a[contains(text(),'{}')]"
+    'menu': "//a[contains(text(),'{}')]",
+    'embrace': '//*[@ng-click="vm.invokeOtherApp(value.click)"]'
 }
 
 SUB_MENU = {
@@ -186,4 +188,10 @@ INTERVIEWER_LOBBY = {
 MANAGE_TASK = {
     'common_label': '.ng-binding',
     'candidate_status': '//*[@id="mainBodyElement"]/div[3]/div[2]/div[1]/div[1]/div/div[1]/div[1]/span[2]'
+}
+
+EMBRACE = {
+    'candidate_tab': '/html/body/div[1]/header[2]/div/div/div[2]/div/ul/li[2]/a',
+    'candidate_name_search_field': '//*[@ng-model="vm.candidateSearchCriteria.CandidatName"]',
+    'candidate_acceptance_yes': 'testacceprtanceoffer'
 }

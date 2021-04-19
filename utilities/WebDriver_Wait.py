@@ -14,6 +14,7 @@ class WebElementWait:
     load = Locators.LOADING['load']
     load_text = Locators.LOADING['load_text']
     upload = Locators.LOADING['upload']
+    embrace_load = Locators.LOADING['embrace_load']
 
     def __init__(self, driver):
         self.driver = driver
@@ -61,6 +62,20 @@ class WebElementWait:
             try:
                 if self.driver.find_element(By.CLASS_NAME, self.load):
                     self.perform = self.driver.find_element(By.CLASS_NAME, self.load)
+                    if self.perform:
+                        # print(f'{self.perform.text}............!!')
+                        time.sleep(0.5)
+            except Exception as error:
+                # ui_logger.error(error)
+                break
+        print('***--------->>> Page Loading Completed <<<---------***')
+
+    def embrace_loading(self):
+        attempts = 1000
+        for i in range(0, attempts):
+            try:
+                if self.driver.find_element(By.XPATH, self.embrace_load):
+                    self.perform = self.driver.find_element(By.XPATH, self.embrace_load)
                     if self.perform:
                         # print(f'{self.perform.text}............!!')
                         time.sleep(0.5)

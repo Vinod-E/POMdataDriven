@@ -19,6 +19,7 @@ from Scripts.E2E_Regression.crpo_event_upload_candidate import CRPOUploadCandida
 from Scripts.E2E_Regression.crpo_event_owners import CRPOEventOwners
 from Scripts.E2E_Regression.crpo_event_applicant_status_change import CRPOEventApplicantStatusChange
 from Scripts.E2E_Regression.crpo_event_manage_task import CRPOEventManageTask
+from Scripts.E2E_Regression.crpo_embrace_behalf_of import CRPOEmbraceTask
 from Scripts.Output_scripts import E2EReport
 
 
@@ -55,6 +56,7 @@ class CRPOE2ERegression:
         upload = CRPOUploadCandidate(driver=driver, index=index, version=version)
         applicant = CRPOEventApplicantStatusChange(driver=driver, index=index, version=version)
         task = CRPOEventManageTask(driver=driver, index=index, version=version)
+        embrace = CRPOEmbraceTask(driver=driver, index=index, version=version)
 
         E2E_output = E2EReport.E2EOutputReport(version=version, server=server, start_date_time=date_time)
 
@@ -158,6 +160,14 @@ class CRPOE2ERegression:
         self.task.crpo_event_applicant_manage_screen()
         self.E2E_output.event_applicant_manage_report(self.task.event_app_details_collection)
 
+    def crpo_embrace_behalf_of_candidate(self):
+        self.embrace.crpo_embrace_behalf_of_candidate()
+        self.E2E_output.event_embrace_report(self.embrace.event_mbrace_collection)
+
+    def crpo_event_applicant_manage_details_submitted_task(self):
+        self.task.crpo_event_applicant_manage_screen_submit_after()
+        self.E2E_output.event_applicant_manage_task_report(self.task.event_app_task_submit_collection)
+
 
 Object = CRPOE2ERegression()
 Object.crpo_login()
@@ -185,5 +195,7 @@ if Object.login_success:
     Object.crpo_event_upload_candidates()
     Object.crpo_event_applicant_status_change()
     Object.crpo_event_applicant_manage_details()
+    Object.crpo_embrace_behalf_of_candidate()
+    Object.crpo_event_applicant_manage_details_submitted_task()
     Object.E2E_output.overall_status()
     Object.environment.close()

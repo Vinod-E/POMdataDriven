@@ -19,7 +19,8 @@ class CRPOEventManageTask:
         status_excel = excelRead.ExcelRead()
         status_excel.read(inputFile.INPUT_PATH['manage_task'], index=index)
         xl = status_excel.excel_dict
-        self.xl_candidate_status = xl['candidate_status'][0]
+        self.xl_candidate_status1 = xl['candidate_status1'][0]
+        self.xl_candidate_status2 = xl['candidate_status2'][0]
         self.xl_event_name = xl['event_name'][0].format(version)
         self.xl_stage_status1 = xl['stage_status1'][0]
         self.xl_submit1 = xl['submit0'][0]
@@ -35,12 +36,13 @@ class CRPOEventManageTask:
         self.xl_total2 = xl['total14'][0]
 
         self.event_app_details_collection = []
+        self.event_app_task_submit_collection = []
 
     def crpo_event_applicant_manage_screen(self):
         self.event_app_details_collection = []
 
         __list = [self.applicant.applicant_get_name(self.xl_event_name, 1),
-                  self.candidate_details.candidate_status(self.xl_candidate_status),
+                  self.candidate_details.candidate_status(self.xl_candidate_status1),
                   self.candidate_details.candidate_float_actions(),
                   self.candidate_details.candidate_manage_task_action(2),
                   self.task_screen.candidate_name_validate(self.xl_event_name),
@@ -50,15 +52,30 @@ class CRPOEventManageTask:
                   self.task_screen.approved_task_validate(self.xl_approved1),
                   self.task_screen.total_task_validate(self.xl_total1),
                   self.task_screen.switch_back_to_old_window()
-
-                  # self.task_screen.submitted_task_validate(self.xl_submit2),
-                  # self.task_screen.pending_task_validate(self.xl_pending2),
-                  # self.task_screen.rejected_task_validate(self.xl_rejected2),
-                  # self.task_screen.approved_task_validate(self.xl_approved2),
-                  # self.task_screen.total_task_validate(self.xl_total2)
                   ]
         for func in __list:
             if func:
                 self.event_app_details_collection.append(func)
             else:
                 self.event_app_details_collection.append(func)
+
+    def crpo_event_applicant_manage_screen_submit_after(self):
+        self.event_app_task_submit_collection = []
+
+        __list = [self.applicant.applicant_get_name(self.xl_event_name, 1),
+                  self.candidate_details.candidate_status(self.xl_candidate_status2),
+                  self.candidate_details.candidate_float_actions(),
+                  self.candidate_details.candidate_manage_task_action(2),
+                  self.task_screen.candidate_name_validate(self.xl_event_name),
+                  self.task_screen.submitted_task_validate(self.xl_submit2),
+                  self.task_screen.pending_task_validate(self.xl_pending2),
+                  self.task_screen.rejected_task_validate(self.xl_rejected2),
+                  self.task_screen.approved_task_validate(self.xl_approved2),
+                  self.task_screen.total_task_validate(self.xl_total2),
+                  self.task_screen.switch_back_to_old_window()
+                  ]
+        for func in __list:
+            if func:
+                self.event_app_task_submit_collection.append(func)
+            else:
+                self.event_app_task_submit_collection.append(func)
