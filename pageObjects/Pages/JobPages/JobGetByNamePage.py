@@ -27,7 +27,6 @@ class JobGetByName:
 
     def job_name_click(self, job_name):
         try:
-            self.wait.loading()
             self.wait.web_element_wait_click(By.XPATH, self.__e_job_name_xpath.format(job_name), 'job_name_click')
             time.sleep(0.5)
             self.driver.close()

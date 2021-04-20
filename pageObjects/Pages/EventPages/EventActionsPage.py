@@ -70,6 +70,7 @@ class Actions:
 
     def event_upload_candidates(self):
         try:
+            time.sleep(0.5)
             self.wait.web_element_wait_click(By.ID, self.__e_event_upload_candidates_id, 'event_upload_candidates')
             self.wait.loading()
             print('Event Upload Candidate - Screen')

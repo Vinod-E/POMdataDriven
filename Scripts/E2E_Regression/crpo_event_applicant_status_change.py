@@ -1,5 +1,7 @@
 from Config import inputFile
+from pageObjects.Pages.CandidatePages.CandidateDetailsPage import CandidateDetailsPage
 from utilities import excelRead
+from utilities.SwitchWindow import SwitchWindowClose
 from pageObjects.Pages.MenuPages.menuPage import Menu
 from pageObjects.Pages.EventPages.EventGetByNamePage import EventGetByName
 from pageObjects.Pages.SearchPages.AdvanceSearchPage import Search
@@ -18,6 +20,8 @@ class CRPOEventApplicantStatusChange:
         self.action = Actions(self.driver)
         self.applicant = EventApplicant(self.driver)
         self.status = ChangeStatus(self.driver)
+        self.candidate_details = CandidateDetailsPage(self.driver)
+        self.switch_window = SwitchWindowClose(self.driver)
 
         """
         ----------------- EXCEL READ AND TO ASSIGN VALUES TO RESPECTIVE INIT VARIABLES ------>>>>
@@ -28,13 +32,14 @@ class CRPOEventApplicantStatusChange:
         self.xl_menu = xl['menu'][0]
         self.xl_tab_title = xl['tab_title'][0]
         self.xl_event_name = xl['event_name'][0].format(version)
+        self.xl_hop_status = xl['hop_status'][0]
         self.xl_stage = xl['e2e_stage'][0]
         self.xl_status = xl['e2e_status'][0]
         self.xl_comment = xl['e2e_comment'][0]
         self.xl_message = xl['message'][0]
 
         self.event_app_status_collection = []
-        self.event_app_details_collection = []
+        self.event_change_status_collection = []
 
     def crpo_event_applicant(self):
         self.event_app_status_collection = []
@@ -49,7 +54,20 @@ class CRPOEventApplicantStatusChange:
                   self.search.advance_search(),
                   self.search.name_field_applicant(self.xl_event_name),
                   self.search.search_button(),
-                  self.applicant.select_applicant(),
+                  self.applicant.applicant_get_name(self.xl_event_name, 1),
+                  self.candidate_details.candidate_status(self.xl_hop_status),
+                  self.switch_window.window_close(),
+                  self.switch_window.switch_to_window(0)
+                  ]
+        for func in __list:
+            if func:
+                self.event_app_status_collection.append(func)
+            else:
+                self.event_app_status_collection.append(func)
+
+    def crpo_event_status_change(self):
+        self.event_change_status_collection = []
+        __list = [self.applicant.select_applicant(),
                   self.applicant.change_status_action(),
                   self.status.applicant_stage(self.xl_stage),
                   self.status.applicant_status(self.xl_status),
@@ -60,6 +78,6 @@ class CRPOEventApplicantStatusChange:
                   ]
         for func in __list:
             if func:
-                self.event_app_status_collection.append(func)
+                self.event_change_status_collection.append(func)
             else:
-                self.event_app_status_collection.append(func)
+                self.event_change_status_collection.append(func)

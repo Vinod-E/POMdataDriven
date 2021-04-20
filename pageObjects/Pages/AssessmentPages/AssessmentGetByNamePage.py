@@ -15,7 +15,6 @@ class AssessmentGetByName:
 
     def test_name_click(self, test_name):
         try:
-            self.wait.loading()
             self.wait.web_element_wait_click(By.XPATH, self.__e_test_name_xpath.format(test_name),
                                              'test_name_click')
             print(f'Clicked on - {test_name}')

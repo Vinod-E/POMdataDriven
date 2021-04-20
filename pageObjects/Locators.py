@@ -53,7 +53,8 @@ PLACEHOLDER = {
 }
 
 TITLE = {
-    'title': '//*[@title="{}"]'
+    'title': '//*[@title="{}"]',
+    'tooltip': '//*[@bs-tooltip="{}{}{}"]'
 }
 
 CHECKBOX = {
@@ -187,7 +188,8 @@ INTERVIEWER_LOBBY = {
 
 MANAGE_TASK = {
     'common_label': '.ng-binding',
-    'candidate_status': '//*[@id="mainBodyElement"]/div[3]/div[2]/div[1]/div[1]/div/div[1]/div[1]/span[2]'
+    'candidate_status': '//*[@id="mainBodyElement"]/div[3]/div[2]/div[1]/div[1]/div/div[1]/div[1]/span[2]',
+    'total': '//*[@id="mainBodyElement"]/div[3]/div[2]/div[1]/div[3]/div[1]/div/div[5]'
 }
 
 EMBRACE = {

@@ -54,7 +54,7 @@ class ChangeStatus:
 
     def change_status_notifier(self, message):
         try:
-            time.sleep(2)
+            time.sleep(1)
             self.notifier.glowing_messages(message)
             return True
         except Exception as error:
@@ -63,8 +63,8 @@ class ChangeStatus:
     def change_status_notifier_dismiss(self):
         try:
             self.notifier.dismiss_message()
-            time.sleep(0.9)
             self.wait.loading()
+            time.sleep(0.5)
             return True
         except Exception as error:
             ui_logger.error(error)
