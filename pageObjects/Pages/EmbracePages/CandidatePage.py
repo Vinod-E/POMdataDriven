@@ -40,7 +40,7 @@ class CandidatePage:
 
     def submit_task_notifier(self, message):
         try:
-            time.sleep(0.7)
+            self.wait.embrace_loading()
             self.notifier.glowing_messages(message)
             return True
         except Exception as error:
@@ -49,8 +49,7 @@ class CandidatePage:
     def submit_task_notifier_dismiss(self):
         try:
             self.notifier.dismiss_message()
-            time.sleep(0.9)
-            self.wait.loading()
+            time.sleep(0.5)
             return True
         except Exception as error:
             ui_logger.error(error)

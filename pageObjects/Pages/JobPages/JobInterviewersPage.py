@@ -22,12 +22,14 @@ class TagInterviewersPage:
             self.wait.web_element_wait_send_keys(By.XPATH, self.__e_job_interviewers_xpath,
                                                  value, 'job_int_panel')
             print(f'{value} - Selected from job interviewers panel')
+            self.wait.loading()
             return True
         except Exception as error:
             ui_logger.error(error)
 
     def job_int_add(self):
         try:
+            time.sleep(0.5)
             self.wait.web_element_wait_click(By.CLASS_NAME, self.__e_job_int_add_class, 'job_int_add')
             print('saved - selection process')
             return True
@@ -36,7 +38,7 @@ class TagInterviewersPage:
 
     def job_int_save(self):
         try:
-            time.sleep(1)
+            time.sleep(0.5)
             self.wait.web_element_wait_click(By.XPATH, self.__e_job_int_save_xpath, 'job_int_save')
             print('saved - job interviewers')
             self.wait.loading()

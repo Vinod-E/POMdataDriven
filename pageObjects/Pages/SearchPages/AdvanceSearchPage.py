@@ -59,6 +59,7 @@ class Search:
             time.sleep(1)
             self.page_scroll.up(0, 170)
             self.wait.web_element_wait_click(By.XPATH, self.__e_search_btn_xpath, 'search_button')
+            self.wait.loading()
             return True
         except Exception as error:
             ui_logger.error(error)

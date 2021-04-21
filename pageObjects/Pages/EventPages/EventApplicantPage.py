@@ -37,7 +37,7 @@ class EventApplicant:
 
     def applicant_get_name(self, applicant_name, index_window):
         try:
-            time.sleep(1.9)
+            time.sleep(1)
             self.wait.web_element_wait_click(By.XPATH, self.__e_applicant_name_xpath.format(applicant_name),
                                              'Applicant_Get_By_Name')
             print('Clicked on applicant name')

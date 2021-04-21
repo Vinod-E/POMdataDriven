@@ -29,8 +29,8 @@ class CRPOEventOwners:
                   self.action.manage_event_owners(),
                   self.multi_value.move_all_items(),
                   self.owners.event_owners_update(),
-                  self.owners.event_owners_notifier(self.xl_owners_message),
-                  self.owners.event_owners_notifier_dismiss()
+                  # self.owners.event_owners_notifier(self.xl_owners_message),
+                  # self.owners.event_owners_notifier_dismiss()
                   ]
         for func in __list:
             if func:

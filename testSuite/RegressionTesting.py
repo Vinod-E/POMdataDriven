@@ -152,9 +152,13 @@ class CRPOE2ERegression:
         self.upload.crpo_event_upload_candidates(self.email)
         self.E2E_output.event_upload_candidate_report(self.upload.event_upload_collection)
 
-    def crpo_event_applicant_status_change(self):
+    def crpo_event_applicant_hop_status(self):
         self.applicant.crpo_event_applicant()
-        self.E2E_output.event_applicant_status_report(self.applicant.event_app_status_collection)
+        self.E2E_output.event_applicant_hop_status_report(self.applicant.event_app_status_collection)
+
+    def crpo_event_applicant_status_change(self):
+        self.applicant.crpo_event_status_change()
+        self.E2E_output.event_applicant_status_report(self.applicant.event_change_status_collection)
 
     def crpo_event_applicant_manage_details(self):
         self.task.crpo_event_applicant_manage_screen()
@@ -193,6 +197,7 @@ if Object.login_success:
     Object.crpo_event_test_configuration()
     Object.crpo_event_owners_configuration()
     Object.crpo_event_upload_candidates()
+    Object.crpo_event_applicant_hop_status()
     Object.crpo_event_applicant_status_change()
     Object.crpo_event_applicant_manage_details()
     Object.crpo_embrace_behalf_of_candidate()

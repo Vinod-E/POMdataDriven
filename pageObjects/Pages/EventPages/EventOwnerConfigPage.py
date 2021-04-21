@@ -23,6 +23,9 @@ class EventOwnersConfigPage:
             time.sleep(0.5)
             self.wait.web_element_wait_click(By.XPATH, self.__e_owners_update_xpath, 'event_owners_update')
             print('Event Owners update button - Clicked')
+            time.sleep(1)
+            self.wait.loading()
+            self.scroll.up(0, 70)
             return True
         except Exception as error:
             ui_logger.error(error)
