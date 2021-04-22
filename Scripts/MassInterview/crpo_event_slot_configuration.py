@@ -25,8 +25,11 @@ class SlotConfiguration:
         self.xl_count = xl['count'][0]
 
         self.event_slot_collection = []
+        self.candidate_login_collection = []
 
-    def slot_configurations(self, candidate_id):
+    def slot_configurations(self):
+        self.event_slot_collection = []
+
         __list = [self.slot.event_actions_click(),
                   self.slot.event_slot_configuration(),
                   self.slot_config.current_applicant_status_choose(),
@@ -41,7 +44,17 @@ class SlotConfiguration:
                   self.slot_config.assign_slot_button(),
                   self.slot_config.ok_button(),
                   self.slot_config.ok_button(),
-                  self.slot_config.search_id(candidate_id),
+                  ]
+        for func in __list:
+            if func:
+                self.event_slot_collection.append(func)
+            else:
+                self.event_slot_collection.append(func)
+
+    def candidate_login_link_copy(self, candidate_id):
+        self.candidate_login_collection = []
+
+        __list = [self.slot_config.search_id(candidate_id),
                   self.slot_config.search_button(),
                   self.slot_config.login_link_action(),
                   self.slot_config.copy_candidate_login_link(candidate_id),
@@ -49,6 +62,6 @@ class SlotConfiguration:
                   ]
         for func in __list:
             if func:
-                self.event_slot_collection.append(func)
+                self.candidate_login_collection.append(func)
             else:
-                self.event_slot_collection.append(func)
+                self.candidate_login_collection.append(func)

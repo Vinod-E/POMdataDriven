@@ -60,6 +60,8 @@ class ExcelReportWrite(styles.FontColor):
     def status(self, path, excel_save_name, start_date_time, version, server):
         try:
             failure_cases = len(self.Expected_success_cases) - len(self.Actual_success_cases)
+            print('Expected Cases::', len(self.Expected_success_cases))
+            print('Actual Cases::', len(self.Actual_success_cases))
             percentage = len(self.Actual_success_cases) * 100 / len(self.Expected_success_cases)
             end_date_time = datetime.datetime.now()
             time_taken = end_date_time - start_date_time

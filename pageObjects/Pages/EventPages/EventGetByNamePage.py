@@ -18,6 +18,7 @@ class EventGetByName:
         try:
             self.wait.loading()
             self.wait.web_element_wait_click(By.XPATH, self.__e_click_name_xpath, 'Event_name_click')
+            print('Event name - Clicked to open details screen')
             self.wait.loading()
             return True
         except Exception as error:
@@ -30,6 +31,7 @@ class EventGetByName:
                                             self.__e_event_name_xpath.format(event_name),
                                             'Event_name_validation')
             print('Event Name -', self.wait.text_value)
+            self.wait.loading()
             return True
         except Exception as error:
             ui_logger.error(error)

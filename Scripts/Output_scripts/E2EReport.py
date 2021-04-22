@@ -4,7 +4,7 @@ from Config import outputFile
 
 class E2EOutputReport:
     """Number of Test cases """
-    TestCases = 261
+    TestCases = 269
 
     def __init__(self, version, server, start_date_time):
         self.version = version
