@@ -1,3 +1,5 @@
+import select
+
 from Config import Enviroment
 from Listeners.logger_settings import ui_logger
 from Scripts.Login.crpo_login_page import CRPOLogin
@@ -38,7 +40,7 @@ class MassInterviewFlow:
         login = CRPOLogin(driver=driver, index=index)
         status = EventApplicant(driver=driver, index=index, version=version)
         slot = SlotConfiguration(driver=driver, index=index, time=time)
-        allocation = EnableAutoAssign(driver=driver, index=index)
+        allocation = EnableAutoAssign(driver=driver, index=index, version=version)
         room = Room(driver=driver, index=index, version=version)
         candidate = CandidateLobbyLogin(driver=driver, index=index, version=version)
         assign_room = AssignRoom(driver=driver, index=index, version=version)
@@ -60,25 +62,27 @@ class MassInterviewFlow:
         except Exception as error:
             ui_logger.error(error)
 
-    def applicant_status_change(self):
-        self.status.event()
-        self.MASS_OUTPUT.event_report(0, 1, self.status.event_collection)
+    def event_applicant_search(self):
+        self.status.event_applicant_search()
+        self.MASS_OUTPUT.event_app_report(self.status.event_collection)
 
+    def applicant_status_change(self):
         self.status.event_applicant_grid()
         self.id = self.status.candidate_details.candidate_id
         self.MASS_OUTPUT.event_applicant_report(self.status.applicant_collection)
 
     def auto_allocation_configuration(self):
-        self.status.event()
-        self.MASS_OUTPUT.event_report(4, 5, self.status.event_collection)
-
         self.allocation.auto_allocation_user_chat()
         self.MASS_OUTPUT.auto_allocation_report(self.allocation.event_config_collection)
 
     def slot_configuration(self):
-        self.slot.slot_configurations(self.id)
-        self.login_link = self.slot.slot_config.candidate_login_link
+        self.slot.slot_configurations()
         self.MASS_OUTPUT.slot_config_report(self.slot.event_slot_collection)
+
+    def candidate_link_copy(self):
+        self.slot.candidate_login_link_copy(self.id)
+        self.login_link = self.slot.slot_config.candidate_login_link
+        self.MASS_OUTPUT.link_copy_report(self.slot.candidate_login_collection)
 
     def room_creation(self):
         self.room.create_room()
@@ -113,9 +117,11 @@ Object = MassInterviewFlow()
 Object.crpo_login()
 
 if Object.login_success:
+    Object.event_applicant_search()
     Object.applicant_status_change()
     Object.auto_allocation_configuration()
     Object.slot_configuration()
+    Object.candidate_link_copy()
     Object.room_creation()
     Object.candidate_lobby()
     Object.room_tagging()

@@ -37,14 +37,19 @@ class EventApplicant:
         self.event_collection = []
         self.applicant_collection = []
 
-    def event(self):
+    def event_applicant_search(self):
         self.event_collection = []
         __list = [self.menu.event_tab(self.xl_menu_name, self.xl_tab_title),
                   self.search.advance_search(),
                   self.search.name_field(self.xl_event_name),
                   self.search.search_button(),
                   self.getby.event_name_click(),
-                  self.getby.event_name_validation(self.xl_event_name)
+                  self.getby.event_name_validation(self.xl_event_name),
+                  self.event_action.event_actions_click(),
+                  self.event_action.event_view_candidates(),
+                  self.search.advance_search(),
+                  self.search.name_field_applicant(self.xl_event_name),
+                  self.search.search_button(),
                   ]
         for func in __list:
             if func:
@@ -53,12 +58,7 @@ class EventApplicant:
                 self.event_collection.append(func)
 
     def event_applicant_grid(self):
-        __list = [self.event_action.event_actions_click(),
-                  self.event_action.event_view_candidates(),
-                  self.search.advance_search(),
-                  self.search.name_field_applicant(self.xl_event_name),
-                  self.search.search_button(),
-                  self.applicant_grid.select_applicant(),
+        __list = [self.applicant_grid.select_applicant(),
                   self.applicant_grid.change_status_action(),
                   self.status_change.applicant_stage(self.xl_stage),
                   self.status_change.applicant_status(self.xl_status),
