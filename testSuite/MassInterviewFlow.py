@@ -1,5 +1,3 @@
-import select
-
 from Config import Enviroment
 from Listeners.logger_settings import ui_logger
 from Scripts.Login.crpo_login_page import CRPOLogin

@@ -82,6 +82,7 @@ ACTIONS = {
     'view_candidates': 'Event-Details-View-Candidates',
     'upload_candidate': 'Event-Details-Upload-Candidates',
     'event_owners': 'Event-Details-Manage-Event-Owners',
+    'live_interviews': 'Event-Details-Live-Schedule-Interviews',
     'slot_config': 'Event-Details-Configure-Interview-Slots',
     'status_change': 'cardlist-view-Change-Applicant Status',
     'lobby': 'Event-Details-View-Interview-Lobby',

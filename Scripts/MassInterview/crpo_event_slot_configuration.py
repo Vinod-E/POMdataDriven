@@ -18,7 +18,7 @@ class SlotConfiguration:
         ----------------- EXCEL READ AND TO ASSIGN VALUES TO RESPECTIVE INIT VARIABLES ------>>>>
         """
         slot_excel = excelRead.ExcelRead()
-        slot_excel.read(inputFile.INPUT_PATH['event_slot_config'], index=index)
+        slot_excel.read(inputFile.INPUT_PATH['event_slot_room'], index=index)
         xl = slot_excel.excel_dict
         self.xl_stage_status = xl['stage_status'][0]
         self.xl_number_of_slots = xl['number_of_slots'][0]
