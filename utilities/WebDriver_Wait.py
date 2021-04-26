@@ -128,7 +128,6 @@ class WebElementWait:
             if i.text.strip() == value.strip():
                 button_name = i.text.strip()
                 i.click()
-                break
         return button_name
 
     def web_elements_wait_multiple_click(self, by_locator, element, value):

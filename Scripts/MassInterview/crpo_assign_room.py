@@ -13,7 +13,7 @@ class AssignRoom:
         ----------------- EXCEL READ AND TO ASSIGN VALUES TO RESPECTIVE INIT VARIABLES ------>>>>
         """
         status_excel = excelRead.ExcelRead()
-        status_excel.read(inputFile.INPUT_PATH['event_room'], index=index)
+        status_excel.read(inputFile.INPUT_PATH['event_slot_room'], index=index)
         xl = status_excel.excel_dict
         self.xl_room_name = xl['room_name'][0].format(version)
         self.xl_tag_room_message = xl['no_candidate_tagged'][0]
