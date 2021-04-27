@@ -21,6 +21,13 @@ class MultiSelectValues:
         except Exception as error:
             ui_logger.error(error)
 
+    def search_clear(self):
+        try:
+            self.wait.clear(By.XPATH, self.__e_search_xpath, 'search_clear')
+            return True
+        except Exception as error:
+            ui_logger.error(error)
+
     def move_all_items(self):
         try:
             self.wait.web_element_wait_click(By.XPATH, self.__e_select_search_item_xpath, 'Move_all_items')

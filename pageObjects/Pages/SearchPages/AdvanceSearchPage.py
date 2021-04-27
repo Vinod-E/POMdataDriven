@@ -12,6 +12,7 @@ class Search:
     __e_Name_name = Locators.SEARCH['Name']
     __e_name_name = Locators.SEARCH['name']
     __e_test_name = Locators.SEARCH['test_name']
+    __e_candidate_name = Locators.SEARCH['candidate_name']
     __e_search_btn_xpath = Locators.BUTTONS['button'].format('Search')
     __e_manage_search_css = Locators.SEARCH['manage_candidate_search']
     __e_clear_id = Locators.SEARCH['clear']
@@ -41,6 +42,14 @@ class Search:
     def name_field_applicant(self, search_key):
         try:
             self.wait.web_element_wait_send_keys(By.NAME, self.__e_name_name, search_key, 'search_applicant_name_field')
+            return True
+        except Exception as error:
+            ui_logger.error(error)
+
+    def candidate_name_field(self, search_key):
+        try:
+            self.wait.web_element_wait_send_keys(By.NAME, self.__e_candidate_name, search_key,
+                                                 'search_applicant_name_field')
             return True
         except Exception as error:
             ui_logger.error(error)

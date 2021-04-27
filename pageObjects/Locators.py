@@ -47,7 +47,7 @@ NOTIFIER = {
 }
 
 PLACEHOLDER = {
-    'place_holder': '//input[@placeholder="{}"]',
+    'place_holder': '//*[@placeholder="{}"]',
     'text_ph': '//input[@type="text"][@placeholder="{}"]',
     'num_ph': '//input[@type="number"][@placeholder="{}"]'
 }
@@ -83,6 +83,7 @@ ACTIONS = {
     'upload_candidate': 'Event-Details-Upload-Candidates',
     'event_owners': 'Event-Details-Manage-Event-Owners',
     'live_interviews': 'Event-Details-Live-Schedule-Interviews',
+    'event_interviews': 'Event-Details-View-Event-Interviews',
     'slot_config': 'Event-Details-Configure-Interview-Slots',
     'status_change': 'cardlist-view-Change-Applicant Status',
     'lobby': 'Event-Details-View-Interview-Lobby',
@@ -91,8 +92,9 @@ ACTIONS = {
     'feedback_form': 'Jobrole-Details-Configure-Feedback-Form',
     'tag_interviewers': 'Jobrole-Details-Interviewers',
     'clone_assessment': 'Assessment-Details-Clone-Assessment',
+    'app_more': '//*[@data-toggle="dropdown"]',
+    'provide_feedback': 'cardlist-view-Provide-Interview Feedback',
     'float_click_class': 'fa-angle-right',
-    'float_action': ''
 }
 
 SEARCH = {
@@ -100,6 +102,7 @@ SEARCH = {
     'Name': 'Name',
     'name': 'name',
     'test_name': 'testName',
+    'candidate_name': 'candidateName',
     'manage_candidate_search': '.fa-filter',
     'clear': 'cardlist-view-clear-filter',
 }
@@ -173,6 +176,15 @@ CANDIDATE_LOBBY_LOGIN = {
     'almost-message': ".headerText.ng-scope",
     'your-message': '/html/body/div[2]/div[1]/div[1]/div[2]/div/div/div/div/div/div/div/div[2]/div[1]/p[1]',
     'finished-message': '/html/body/div[2]/div[1]/div[1]/div[2]/div/div/div/div/div/div/div/div[2]/div/p[1]'
+}
+
+LIVE_INTERVIEW = {
+    'stage_selection': '//*[@ng-model="vm.selectedInterviewStage"]',
+    'app_search': '//*[@ng-click="vm.searchApplicants();"]',
+    'int_screen': 'modal-header',
+    'select_int': '//*[@ng-readonly="vm.config.readonly"]',
+    'arrow_down': 'fa-chevron-down',
+    'feedback_button': '//*[@ng-click="data.onGiveFeedbackClick(rowKey);"]'
 }
 
 FEEDBACK = {
