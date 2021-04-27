@@ -12,6 +12,7 @@ class ChangeStatus:
     __e_status_field_xpath = Locators.CHANGE_STATUS['status']
     __e_comment_xpath = Locators.CHANGE_STATUS['comment']
     __e_button_xpath = Locators.BUTTONS['button'].format('Change')
+    __e_select_int_xpath = Locators.TITLE['title'].format('Select Interviewers')
 
     def __init__(self, driver):
         self.driver = driver
@@ -31,6 +32,15 @@ class ChangeStatus:
         try:
             self.wait.web_element_wait_send_keys(By.XPATH, self.__e_status_field_xpath, status,
                                                  'Applicant_status_field')
+            return True
+        except Exception as error:
+            ui_logger.error(error)
+
+    def select_interviewers(self):
+        try:
+            self.wait.web_element_wait_click(By.XPATH, self.__e_select_int_xpath, 'select_interviewers')
+            print('Select Interviewers - Selected')
+            time.sleep(2)
             return True
         except Exception as error:
             ui_logger.error(error)
