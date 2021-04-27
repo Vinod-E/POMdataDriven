@@ -8,16 +8,16 @@ from utilities.uiNotifier import Notifier
 
 
 class LiveIntSchedulePage:
-    __e_live_stage_xpath = '//*[@ng-model="vm.selectedInterviewStage"]'
+    __e_live_stage_xpath = Locators.LIVE_INTERVIEW['stage_selection']
     __e_live_app_xpath = Locators.PLACEHOLDER['text_ph'].format('Candidate Name')
-    __e_live_search_app_xpath = '//*[@ng-click="vm.searchApplicants();"]'
+    __e_live_search_app_xpath = Locators.LIVE_INTERVIEW['app_search']
     __e_check_xpath = Locators.CHECKBOX['type']
-    __e_validate_class = 'modal-header'
-    __e_select_int_xpath = '//*[@ng-readonly="vm.config.readonly"]'
+    __e_validate_class = Locators.LIVE_INTERVIEW['int_screen']
+    __e_select_int_xpath = Locators.LIVE_INTERVIEW['select_int']
     __e_live_schedule_select_xpath = Locators.BUTTONS['button'].format('Schedule Selected')
     __e_live_schedule_xpath = Locators.BUTTONS['button'].format(' Schedule')
-    __e_arrow_down_class = 'fa-chevron-down'
-    __e_feedback_action_xpath = '//*[@ng-click="data.onGiveFeedbackClick(rowKey);"]'
+    __e_arrow_down_class = Locators.LIVE_INTERVIEW['arrow_down']
+    __e_feedback_action_xpath = Locators.LIVE_INTERVIEW['feedback_button']
 
     def __init__(self, driver):
         self.driver = driver
