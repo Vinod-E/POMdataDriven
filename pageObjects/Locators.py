@@ -193,6 +193,7 @@ FEEDBACK = {
     'comments': '//textarea[@ng-model="row.rowOptions.skillComment"]',
     'overall': '//*[@ng-model="vm.finalTranscript"]',
     'submit': '//*[@ng-click="vm.submitFeedback(vm.isUpdateFeedback);"]',
+    'new_form_drop_down': '//*[@ng-model="question.answer.dropdownCode"]',
 }
 
 INTERVIEWER_LOBBY = {

@@ -10,7 +10,7 @@ from Scripts.LiveInterview.crpo_live_feedback_int2 import CrpoInt2Feedback
 from Scripts.Output_scripts import LiveInterviewReport
 
 
-class MassInterviewFlow:
+class LiveInterviewFlow:
     """
         Required class Objects are created
     """
@@ -80,7 +80,7 @@ class MassInterviewFlow:
         self.LIVE_OUTPUT.interviewer2_provide_feedback_report(self.int2_feed.pf2_collection)
 
 
-Object = MassInterviewFlow()
+Object = LiveInterviewFlow()
 Object.crpo_login()
 
 if Object.login_success:

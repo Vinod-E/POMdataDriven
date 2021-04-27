@@ -10,7 +10,7 @@ from Scripts.QuickInterview.crpo_quick_feedback_int2 import CrpoInt2Feedback
 from Scripts.Output_scripts import QuickInterviewReport
 
 
-class MassInterviewFlow:
+class QuickInterviewFlow:
     """
         Required class Objects are created
     """
@@ -63,7 +63,7 @@ class MassInterviewFlow:
         self.int1.interviewer1_login()
         self.QUICK_OUTPUT.interviewer1_login_report(self.int1.int1_collection)
 
-    def interviewer_one_live_feedback(self):
+    def interviewer_one_quick_feedback(self):
         self.int1_feed.quick_interview1_feedback()
         self.QUICK_OUTPUT.interviewer1_feedback_action_report(self.int1_feed.int1_feedback_collection)
 
@@ -75,7 +75,7 @@ class MassInterviewFlow:
         self.int2.interviewer2_login()
         self.QUICK_OUTPUT.interviewer2_login_report(self.int2.int2_collection)
 
-    def interviewer_two_live_feedback(self):
+    def interviewer_two_quick_feedback(self):
         self.int2_feed.quick_interview2_feedback()
         self.QUICK_OUTPUT.interviewer2_feedback_action_report(self.int1_feed.int1_feedback_collection)
 
@@ -84,7 +84,7 @@ class MassInterviewFlow:
         self.QUICK_OUTPUT.interviewer2_provide_feedback_report(self.int2_feed.pf2_collection)
 
 
-Object = MassInterviewFlow()
+Object = QuickInterviewFlow()
 Object.crpo_login()
 
 if Object.login_success:
@@ -92,10 +92,10 @@ if Object.login_success:
     Object.schedule_quick_interview_config()
     Object.schedule_quick_interview()
     Object.interviewer_one_login()
-    Object.interviewer_one_live_feedback()
+    Object.interviewer_one_quick_feedback()
     Object.interviewer_one_provide_feedback()
     Object.interviewer_two_login()
-    Object.interviewer_two_live_feedback()
+    Object.interviewer_two_quick_feedback()
     Object.interviewer_two_provide_feedback()
     Object.QUICK_OUTPUT.overall_status()
     Object.environment.close()
