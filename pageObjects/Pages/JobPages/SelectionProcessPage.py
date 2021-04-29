@@ -18,7 +18,7 @@ class SelectionProcessPage:
     def job_sp(self, selection_process):
         try:
             time.sleep(2)
-            self.wait.web_element_wait_send_keys(By.XPATH, self.__e_job_sp_xpath.format(selection_process),
+            self.wait.web_element_wait_send_keys(By.XPATH, self.__e_job_sp_xpath,
                                                  selection_process, 'Send_Selection_Process')
             self.wait.drop_down_selection()
             print(f'selected - {selection_process} selection process')

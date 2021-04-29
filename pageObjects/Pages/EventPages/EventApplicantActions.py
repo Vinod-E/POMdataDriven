@@ -12,6 +12,8 @@ class EventApplicantActions:
     __e_more_button_xpath = Locators.ACTIONS['app_more']
     __e_app_action_xpath = Locators.BUTTONS['all_buttons']
     __e_provide_feedback_id = Locators.ACTIONS['provide_feedback']
+    __e_cancel_request_id = Locators.ACTIONS['cancel_request']
+    __e_cancel_interview_id = Locators.ACTIONS['cancel_interview']
 
     def __init__(self, driver):
         self.driver = driver
@@ -59,6 +61,28 @@ class EventApplicantActions:
             self.wait.web_element_wait_click(By.ID, self.__e_provide_feedback_id, 'provide_feedback_action')
             time.sleep(2)
             print('Provide Feedback Action - Clicked')
+            self.wait.loading()
+            return True
+        except Exception as error:
+            ui_logger.error(error)
+
+    def cancel_interview_request_action(self):
+        try:
+            self.scroll.down(0, -50)
+            self.wait.web_element_wait_click(By.ID, self.__e_cancel_request_id, 'cancel_interview_request_action')
+            time.sleep(2)
+            print('Cancel Request Action - Clicked')
+            self.wait.loading()
+            return True
+        except Exception as error:
+            ui_logger.error(error)
+
+    def cancel_interview_action(self):
+        try:
+            self.scroll.down(0, -50)
+            self.wait.web_element_wait_click(By.ID, self.__e_cancel_interview_id, 'cancel_interview_action')
+            time.sleep(2)
+            print('Cancel Interview Action - Clicked')
             self.wait.loading()
             return True
         except Exception as error:

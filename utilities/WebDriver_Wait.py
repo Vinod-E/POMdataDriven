@@ -22,7 +22,7 @@ class WebElementWait:
         self.text_value = ''
         self.element_failure_image = FailureImage(self.driver)
 
-    def __web_element_wait(self, by_locator, element, failure_name):
+    def web_element_wait(self, by_locator, element, failure_name):
         result = False
         attempts = 0
         while attempts < 10:
@@ -99,15 +99,15 @@ class WebElementWait:
         print('***--------->>> Uploading File Completed <<<---------***')
 
     def web_element_wait_send_keys(self, by_locator, element, keys, failure_name):
-        self.__web_element_wait(by_locator, element, failure_name)
+        self.web_element_wait(by_locator, element, failure_name)
         self.perform.send_keys(keys)
 
     def web_element_wait_click(self, by_locator, element, failure_name):
-        self.__web_element_wait(by_locator, element, failure_name)
+        self.web_element_wait(by_locator, element, failure_name)
         self.perform.click()
 
     def web_element_wait_text(self, by_locator, element, failure_name):
-        self.__web_element_wait(by_locator, element, failure_name)
+        self.web_element_wait(by_locator, element, failure_name)
         self.text_value = self.perform.text
 
     def web_elements_wait_text(self, by_locator, element, value):
@@ -148,7 +148,7 @@ class WebElementWait:
                 time.sleep(1)
 
     def clear(self, by_locator, element, failure_name):
-        self.__web_element_wait(by_locator, element, failure_name)
+        self.web_element_wait(by_locator, element, failure_name)
         self.perform.clear()
 
     def drop_down_selection(self):

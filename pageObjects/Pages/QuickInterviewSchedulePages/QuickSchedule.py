@@ -10,7 +10,7 @@ class QuickIntSchedulePage:
     __e_live_stage_xpath = Locators.LIVE_INTERVIEW['stage_selection']
     __e_interviewer_select_xpath = Locators.TITLE['title'].format('Interviewers')
     __e_interview_round_xpath = Locators.PLACEHOLDER['text_ph'].format('Select Interview Round')
-    __e_comment_xpath = Locators.PLACEHOLDER['place_holder'].format('Your Comments')
+    __e_comment_xpath = Locators.PLACEHOLDER['all_place_holder'].format('Your Comments')
     __e_schedule_xpath = Locators.BUTTONS['actionClicked'].format("'", 'scheduleInterview', "'")
 
     def __init__(self, driver):
