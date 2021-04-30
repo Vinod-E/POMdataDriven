@@ -2,6 +2,7 @@ import time
 from pageObjects import Locators
 from selenium.webdriver.common.by import By
 from Listeners.logger_settings import ui_logger
+from utilities.PageScroll import PageScroll
 from utilities.WebDriver_Wait import WebElementWait
 from utilities.uiNotifier import Notifier
 from utilities.BrowserBackwardForward import ForwardBackward
@@ -20,6 +21,7 @@ class EventCancelRequest:
         self.wait = WebElementWait(self.driver)
         self.notifier = Notifier(self.driver)
         self.for_back = ForwardBackward(self.driver)
+        self.scroll = PageScroll(self.driver)
 
     def accept_cancellation(self):
         try:
@@ -55,7 +57,7 @@ class EventCancelRequest:
 
     def lobby_confirm_request(self):
         try:
-            self.wait.web_element_wait_click(By.XPATH, self.__e_ahead_xpath, 'go_ahead_with_lobby_screen')
+            self.wait.web_element_wait_click(By.XPATH, self.__e_confirm_xpath, 'go_ahead_with_lobby_screen')
             print('Confirm Lobby - Cancel request by administrator')
             return True
         except Exception as error:
@@ -63,7 +65,8 @@ class EventCancelRequest:
 
     def lobby_accept_cancellation(self):
         try:
-            self.wait.web_element_wait_click(By.XPATH, self.__e_approve_xpath, 'accept_cancellation')
+            self.scroll.up(0, -50)
+            self.wait.web_element_wait_click(By.XPATH, self.__e_approve_tool_xpath, 'accept_cancellation')
             print('Approved - Cancel request from interviewer')
             return True
         except Exception as error:
