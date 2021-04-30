@@ -190,6 +190,7 @@ CANDIDATE_LOBBY_LOGIN = {
 LIVE_INTERVIEW = {
     'stage_selection': '//*[@ng-model="vm.selectedInterviewStage"]',
     'app_search': '//*[@ng-click="vm.searchApplicants();"]',
+    'clear_search': '//button[@ng-click="vm.clearSearch();"]',
     'int_screen': 'modal-header',
     'select_int': '//*[@ng-readonly="vm.config.readonly"]',
     'arrow_down': 'fa-chevron-down',
@@ -200,9 +201,11 @@ FEEDBACK = {
     'select_drop_down': '//select[@ng-model="row.rowOptions.selectedRating"]',
     'decision_button': '//*[@ng-repeat="option in vm.resultStatusOptions"]',
     'comments': '//textarea[@ng-model="row.rowOptions.skillComment"]',
+    'select_int': '//*[@ng-readonly="vm.config.readonly"]',
     'overall': '//*[@ng-model="vm.finalTranscript"]',
     'submit': '//*[@ng-click="vm.submitFeedback(vm.isUpdateFeedback);"]',
     'new_form_drop_down': '//*[@ng-model="question.answer.dropdownCode"]',
+    'save_draft': '//button[@ng-click="vm.saveDraft();"]'
 }
 
 INTERVIEWER_LOBBY = {

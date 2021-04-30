@@ -11,6 +11,7 @@ class LiveIntSchedulePage:
     __e_live_stage_xpath = Locators.LIVE_INTERVIEW['stage_selection']
     __e_live_app_xpath = Locators.PLACEHOLDER['text_ph'].format('Candidate Name')
     __e_live_search_app_xpath = Locators.LIVE_INTERVIEW['app_search']
+    __e_live_clear_search_app_xpath = Locators.LIVE_INTERVIEW['clear_search']
     __e_check_xpath = Locators.CHECKBOX['type']
     __e_validate_class = Locators.LIVE_INTERVIEW['int_screen']
     __e_select_int_xpath = Locators.LIVE_INTERVIEW['select_int']
@@ -49,6 +50,16 @@ class LiveIntSchedulePage:
         try:
             self.wait.web_element_wait_click(By.XPATH, self.__e_live_search_app_xpath, 'schedule_applicant_search')
             print('schedule applicant - searched')
+            self.wait.loading()
+            return True
+        except Exception as error:
+            ui_logger.error(error)
+
+    def clear_applicant_search(self):
+        try:
+            time.sleep(0.7)
+            self.wait.web_element_wait_click(By.XPATH, self.__e_live_clear_search_app_xpath, 'clear_applicant_search')
+            print('clear applicant - searched')
             self.wait.loading()
             return True
         except Exception as error:
@@ -120,6 +131,7 @@ class LiveIntSchedulePage:
 
     def arrow_down_for_feedback(self):
         try:
+            time.sleep(0.5)
             self.wait.web_element_wait_click(By.CLASS_NAME, self.__e_arrow_down_class, 'arrow_down_for_feedback')
             self.wait.loading()
             print('Arrow down for feedback- Clicked')
