@@ -1,8 +1,9 @@
 from Config import inputFile
+from pageObjects.Pages.SearchPages import AdvanceSearchPage
 from utilities import excelRead, SwitchWindow
 from pageObjects.Pages.StatusChangePage.StatusChange import ChangeStatus
 from pageObjects.Pages.CandidatePages import CandidateDetailsPage
-from pageObjects.Pages.EventPages import EventApplicantPage
+from pageObjects.Pages.EventPages import EventApplicantPage, EventActionsPage
 from pageObjects.Pages.MultiSearchAddValue.multiSelectValues import MultiSelectValues
 
 
@@ -15,6 +16,8 @@ class CrpoEventApplicantSchedule:
         self.status_change = ChangeStatus(self.driver)
         self.window_switch = SwitchWindow.SwitchWindowClose(self.driver)
         self.multi_select = MultiSelectValues(self.driver)
+        self.event_action = EventActionsPage.Actions(self.driver)
+        self.search = AdvanceSearchPage.Search(self.driver)
 
         """
         ----------------- EXCEL READ AND TO ASSIGN VALUES TO RESPECTIVE INIT VARIABLES ------>>>>
@@ -29,6 +32,22 @@ class CrpoEventApplicantSchedule:
         self.xl_message = xl['live_message'][0]
 
         self.applicant_status_collection = []
+        self.event_action_collection = []
+
+    def event_action_view_candidates(self):
+        self.event_action_collection = []
+
+        __list = [self.event_action.event_actions_click(),
+                  self.event_action.event_view_candidates(),
+                  self.search.advance_search(),
+                  self.search.name_field_applicant(self.xl_event_name),
+                  self.search.search_button()
+                  ]
+        for func in __list:
+            if func:
+                self.event_action_collection.append(func)
+            else:
+                self.event_action_collection.append(func)
 
     def event_change_applicant_status(self):
         self.applicant_status_collection = []

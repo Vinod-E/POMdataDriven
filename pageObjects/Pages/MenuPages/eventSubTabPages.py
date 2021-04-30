@@ -47,6 +47,7 @@ class EventSubTabs:
 
     def tracking(self):
         try:
+            self.scroll.up(0, -60)
             self.wait.web_element_wait_click(By.XPATH, self.__e_event_tracking_xpath, 'event_tracking')
             return True
         except Exception as error:

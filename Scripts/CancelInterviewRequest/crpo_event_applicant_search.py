@@ -26,7 +26,7 @@ class CrpoCancelRequestEvent:
 
         self.event_search_collection = []
 
-    def new_feed_event_applicant_search(self):
+    def event_applicant_search(self):
         self.event_search_collection = []
         __list = [self.menu.event_tab(self.xl_menu_name, self.xl_tab_title),
                   self.search.advance_search(),

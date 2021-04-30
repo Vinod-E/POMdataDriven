@@ -7,5 +7,6 @@ OUTPUT_PATH = {
     'Mass_Interview_output': GENERIC_OUTPUT_PATH + 'UI_MASS_INTERVIEW.xls',
     'Live_Interview_output': GENERIC_OUTPUT_PATH + 'UI_LIVE_INTERVIEW.xls',
     'Quick_Interview_output': GENERIC_OUTPUT_PATH + 'UI_QUICK_INTERVIEW.xls',
-    'New_Interview_output': GENERIC_OUTPUT_PATH + 'UI_NEW_INTERVIEW.xls'
+    'New_Interview_output': GENERIC_OUTPUT_PATH + 'UI_NEW_INTERVIEW.xls',
+    'Cancel_Interview_output': GENERIC_OUTPUT_PATH + 'UI_INTERVIEW_CANCELLATION.xls'
 }
