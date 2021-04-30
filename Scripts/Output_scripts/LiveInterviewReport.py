@@ -9,11 +9,11 @@ class LiveOutputReport:
         self.start_date_time = start_date_time
         self.__path = outputFile.OUTPUT_PATH['Live_Interview_output']
         test_cases = 76
-        excel_headers_1 = ['Event Search', 'Status', 'Live Schedule', 'Status', 'Interviewer_1 Login', 'Status',
+        excel_headers_1 = ['Event Search', 'Status', 'Live Schedule', 'Status', 'Interviewer-1 Login', 'Status',
                            'Applicant (stage feedback)', 'Status', 'Interviewer-1 (Feedback)', 'Status',
                            'Interviewer-2 Login', 'Status', 'Applicant (stage feedback)', 'Status',
                            'Interviewer-2 (Feedback)', 'Status']
-        color_headers_1 = ['Status', 'Event Search', 'Live Schedule', 'Interviewer_1 Login', 'Interviewer_2 Login',
+        color_headers_1 = ['Status', 'Event Search', 'Live Schedule', 'Interviewer-1 Login', 'Interviewer-2 Login',
                            'Applicant (stage feedback)', 'Interviewer-1 (Feedback)', 'Interviewer-2 (Feedback)']
 
         self.xlw = excelWrite.ExcelReportWrite(version=version, test_cases=test_cases)

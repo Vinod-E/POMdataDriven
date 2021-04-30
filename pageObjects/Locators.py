@@ -29,6 +29,8 @@ MENU = {
 SUB_MENU = {
     'configurations': '//*[@ui-sref="crpo.events.details.configurations"]',
     'owners': '//*[@crpo.events.details.owners]',
+    'event_tracking': '//*[@ui-sref="crpo.events.details.tracking"]',
+    'cancel_request': '//*[@ui-sref="crpo.events.details.tracking.interviewCancelRequest"]',
     'job_configurations': '//*[@ui-sref="crpo.jobRole.details.configurations"]',
     'automations': '//*[@ui-sref="crpo.jobRole.details.automations.applicants"]',
     'job_owners': '//*[@ui-sref="crpo.jobRole.details.interviewers"]',
@@ -47,7 +49,8 @@ NOTIFIER = {
 }
 
 PLACEHOLDER = {
-    'place_holder': '//*[@placeholder="{}"]',
+    'place_holder': '//input[@placeholder="{}"]',
+    'all_place_holder': '//*[@placeholder="{}"]',
     'text_ph': '//input[@type="text"][@placeholder="{}"]',
     'num_ph': '//input[@type="number"][@placeholder="{}"]'
 }
@@ -94,6 +97,8 @@ ACTIONS = {
     'clone_assessment': 'Assessment-Details-Clone-Assessment',
     'app_more': '//*[@data-toggle="dropdown"]',
     'provide_feedback': 'cardlist-view-Provide-Interview Feedback',
+    'cancel_request': 'cardlist-view-Cancel-Interview Request',
+    'cancel_interview': 'cardlist-view-Cancel-Interview',
     'float_click_class': 'fa-angle-right',
 }
 
@@ -160,6 +165,10 @@ CANDIDATE = {
     'save_info': '//*[@data-ng-click="vm.validateSingleCandidate(entity);"]',
     'Upload_count': '.status-card.bg-success.ng-binding',
     'save': '//*[@data-ng-click="vm.consolidateCandidateInfo();"]'
+}
+
+EVENT = {
+    'comment_cancel_request': '//textarea[@ng-model="data.comments"]'
 }
 
 EVENT_LOBBY = {

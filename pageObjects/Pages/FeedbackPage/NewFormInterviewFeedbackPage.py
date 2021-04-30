@@ -8,7 +8,7 @@ from utilities.WebDriver_Wait import WebElementWait
 class InterviewFeedback:
 
     __e_provide_select_drop_css = Locators.FEEDBACK['new_form_drop_down']
-    __e_provide_comment_xpath = Locators.PLACEHOLDER['place_holder'].format('Enter text here')
+    __e_provide_comment_xpath = Locators.PLACEHOLDER['all_place_holder'].format('Enter text here')
     __e_provide_overall_xpath = Locators.FEEDBACK['overall']
     __e_decision_button_xpath = Locators.BUTTONS['all_buttons']
     __e_feedback_submit_xpath = Locators.BUTTONS['button'].format('Submit Feedback')
