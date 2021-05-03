@@ -75,7 +75,7 @@ class LiveIntSchedulePage:
 
     def schedule_select(self):
         try:
-            time.sleep(1)
+            time.sleep(1.5)
             self.wait.web_element_wait_click(By.XPATH, self.__e_live_schedule_select_xpath, 'schedule_select')
             self.wait.loading()
             print('schedule_select button - selected')
