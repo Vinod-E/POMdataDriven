@@ -36,10 +36,12 @@ class CrpoInt2Feedback:
         self.xl_shortlist_decision = xl['shortlist'][0]
         self.xl_rating = xl['rating'][0]
         self.xl_comment = xl['new_comment'][0]
+        self.xl_draft_message = xl['new_form_save_draft_message'][0]
         self.xl_overall = xl['new_overall'][0]
 
         self.int2_feedback_collection = []
         self.pf2_collection = []
+        self.draft_collection = []
 
     def new_form_interview2_feedback(self):
         self.int2_feedback_collection = []
@@ -58,12 +60,30 @@ class CrpoInt2Feedback:
             else:
                 self.int2_feedback_collection.append(func)
 
-    def int2_provide_feedback(self):
-        self.pf2_collection = []
+    def int2_save_draft_feedback(self):
+        self.draft_collection = []
         __list = [self.feedback.feedback_select_drop_down(self.xl_rating),
                   self.feedback.feedback_comments(self.xl_comment),
                   self.feedback.feedback_decision(self.xl_shortlist_decision),
+                  self.feedback.overall_comment(self.xl_draft_message),
+                  self.feedback.save_draft_new_feedback(),
+                  self.feedback.save_draft_notifier(self.xl_draft_message),
+                  self.feedback.save_draft_notifier_dismiss(),
+                  self.new_tab.window_close(),
+                  self.new_tab.switch_to_window(0),
+                  ]
+        for func in __list:
+            if func:
+                self.draft_collection.append(func)
+            else:
+                self.draft_collection.append(func)
+
+    def int2_provide_feedback(self):
+        self.pf2_collection = []
+        __list = [self.applicant_action.provide_feedback_action(),
+                  self.new_tab.switch_to_window(1),
                   self.feedback.overall_comment(self.xl_overall),
+                  self.feedback.feedback_decision(self.xl_shortlist_decision),
                   self.feedback.submit_feedback(),
                   self.feedback.agree_and_submit(),
                   self.new_tab.switch_to_window(0),
