@@ -3,6 +3,7 @@ from pageObjects import Locators
 from selenium.webdriver.common.by import By
 from Listeners.logger_settings import ui_logger
 from utilities.WebDriver_Wait import WebElementWait
+from utilities.uiNotifier import Notifier
 
 
 class InterviewFeedback:
@@ -13,10 +14,12 @@ class InterviewFeedback:
     __e_decision_button_xpath = Locators.BUTTONS['all_buttons']
     __e_feedback_submit_xpath = Locators.BUTTONS['button'].format('Submit Feedback')
     __e_agree_xpath = Locators.BUTTONS['button'].format('Agree and Submit')
+    __e_save_draft_xpath = Locators.BUTTONS['button'].format('Save as Draft')
 
     def __init__(self, driver):
         self.driver = driver
         self.wait = WebElementWait(self.driver)
+        self.notifier = Notifier(self.driver)
 
     def feedback_select_drop_down(self, value):
         try:
@@ -54,6 +57,15 @@ class InterviewFeedback:
         except Exception as error:
             ui_logger.error(error)
 
+    def save_draft_new_feedback(self):
+        try:
+            self.wait.web_element_wait_click(By.XPATH, self.__e_save_draft_xpath, 'submit_feedback_button')
+            print('Save Draft - Submitted')
+            self.wait.loading()
+            return True
+        except Exception as error:
+            ui_logger.error(error)
+
     def submit_feedback(self):
         try:
             self.wait.web_element_wait_click(By.XPATH, self.__e_feedback_submit_xpath, 'submit_feedback_button')
@@ -68,6 +80,20 @@ class InterviewFeedback:
             self.wait.web_element_wait_click(By.XPATH, self.__e_agree_xpath, 'feedback_form_validation')
             print('Agree and submit - Submitted')
             time.sleep(1)
+            return True
+        except Exception as error:
+            ui_logger.error(error)
+
+    def save_draft_notifier(self, message):
+        try:
+            self.notifier.glowing_messages(message)
+            return True
+        except Exception as error:
+            ui_logger.error(error)
+
+    def save_draft_notifier_dismiss(self):
+        try:
+            self.notifier.dismiss_message()
             return True
         except Exception as error:
             ui_logger.error(error)

@@ -59,7 +59,7 @@ class CrpoInt2Feedback:
         __list = [self.feedback.feedback_decision(self.xl_shortlist_decision),
                   self.feedback.feedback_select_drop_down(self.xl_rating),
                   self.feedback.feedback_comments(self.xl_comment),
-                  self.feedback.overall_comment(self.xl_overall),
+                  self.feedback.overall_comment(self.xl_draft_message),
                   self.feedback.save_draft_old_feedback(),
                   self.feedback.save_draft_notifier(self.xl_draft_message),
                   self.feedback.save_draft_notifier_dismiss(),

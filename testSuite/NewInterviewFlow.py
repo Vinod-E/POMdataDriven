@@ -76,6 +76,10 @@ class NewFeedbackInterviewFlow:
         self.int2_feed.new_form_interview2_feedback()
         self.NEW_OUTPUT.interviewer2_feedback_action_report(self.int1_feed.int1_feedback_collection)
 
+    def interviewer_two_save_draft(self):
+        self.int2_feed.int2_save_draft_feedback()
+        self.NEW_OUTPUT.draft_report(self.int2_feed.draft_collection)
+
     def interviewer_two_provide_feedback(self):
         self.int2_feed.int2_provide_feedback()
         self.NEW_OUTPUT.interviewer2_provide_feedback_report(self.int2_feed.pf2_collection)
@@ -92,6 +96,7 @@ if Object.login_success:
     Object.interviewer_one_provide_feedback()
     Object.interviewer_two_login()
     Object.interviewer_two_new_feedback()
+    Object.interviewer_two_save_draft()
     Object.interviewer_two_provide_feedback()
     Object.NEW_OUTPUT.overall_status()
     Object.environment.close()
