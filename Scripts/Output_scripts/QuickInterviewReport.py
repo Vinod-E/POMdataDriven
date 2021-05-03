@@ -27,7 +27,7 @@ class QuickOutputReport:
 
     def overall_status(self):
         self.xlw.status(start_date_time=self.start_date_time, version=self.version, server=self.server,
-                        path=self.__path, excel_save_name='Quick INTERVIEW FLOW')
+                        path=self.__path, excel_save_name='QUICK INTERVIEW FLOW')
 
     def event_app_report(self, event_coll):
         testdata_headers = ['Event Tab', 'Advance Search Action', 'Advance Name Field', 'Search Button',
