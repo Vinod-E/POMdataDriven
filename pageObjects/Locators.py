@@ -102,6 +102,10 @@ ACTIONS = {
     'float_click_class': 'fa-angle-right',
 }
 
+BUCKET = {
+    'event_interviews': '//select[@ng-model="vm.config.selectedEntityType"]'
+}
+
 SEARCH = {
     'advance_search': 'cardlist-view-filter',
     'Name': 'Name',
@@ -205,7 +209,8 @@ FEEDBACK = {
     'overall': '//*[@ng-model="vm.finalTranscript"]',
     'submit': '//*[@ng-click="vm.submitFeedback(vm.isUpdateFeedback);"]',
     'new_form_drop_down': '//*[@ng-model="question.answer.dropdownCode"]',
-    'save_draft': '//button[@ng-click="vm.saveDraft();"]'
+    'save_draft': '//button[@ng-click="vm.saveDraft();"]',
+    'partial': '//button[@ng-click="vm.partialSubmitFeedback();"]'
 }
 
 INTERVIEWER_LOBBY = {

@@ -79,6 +79,10 @@ class QuickInterviewFlow:
         self.int2_feed.quick_interview2_feedback()
         self.QUICK_OUTPUT.interviewer2_feedback_action_report(self.int1_feed.int1_feedback_collection)
 
+    def interviewer_two_partial_submission(self):
+        self.int2_feed.int2_partial_submission()
+        self.QUICK_OUTPUT.interviewer2_partial_report(self.int2_feed.partial_collection)
+
     def interviewer_two_provide_feedback(self):
         self.int2_feed.int2_provide_feedback()
         self.QUICK_OUTPUT.interviewer2_provide_feedback_report(self.int2_feed.pf2_collection)
@@ -96,6 +100,7 @@ if Object.login_success:
     Object.interviewer_one_provide_feedback()
     Object.interviewer_two_login()
     Object.interviewer_two_quick_feedback()
+    Object.interviewer_two_partial_submission()
     Object.interviewer_two_provide_feedback()
     Object.QUICK_OUTPUT.overall_status()
     Object.environment.close()
