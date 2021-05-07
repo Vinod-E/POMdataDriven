@@ -5,6 +5,7 @@ from pageObjects.Pages.SearchPages.AdvanceSearchPage import Search
 from pageObjects.Pages.EventPages.EventApplicantPage import EventApplicant
 from pageObjects.Pages.EventPages.EventApplicantActions import EventApplicantActions
 from pageObjects.Pages.FeedbackPage.InterviewFeedbackPage import InterviewFeedback
+from pageObjects.Pages.BucketSelectPages.BucketPage import BucketSelectionPage
 from pageObjects.Pages.LiveInterviewSchedulePages.liveSchedulePage import LiveIntSchedulePage
 
 
@@ -19,6 +20,7 @@ class CrpoInt2Feedback:
         self.search = Search(self.driver)
         self.applicant_grid = EventApplicant(self.driver)
         self.applicant_action = EventApplicantActions(self.driver)
+        self.bucket = BucketSelectionPage(self.driver)
 
         """
         ----------------- EXCEL READ AND TO ASSIGN VALUES TO RESPECTIVE INIT VARIABLES ------>>>>
@@ -37,9 +39,11 @@ class CrpoInt2Feedback:
         self.xl_rating = xl['rating'][0]
         self.xl_comment = xl['quick_comment'][0]
         self.xl_overall = xl['quick_overall'][0]
+        self.xl_bucket = xl['partial_bucket'][0]
 
         self.int2_feedback_collection = []
         self.pf2_collection = []
+        self.partial_collection = []
 
     def quick_interview2_feedback(self):
         self.int2_feedback_collection = []
@@ -58,12 +62,29 @@ class CrpoInt2Feedback:
             else:
                 self.int2_feedback_collection.append(func)
 
-    def int2_provide_feedback(self):
-        self.pf2_collection = []
+    def int2_partial_submission(self):
+        self.partial_collection = []
         __list = [self.feedback.feedback_decision(self.xl_shortlist_decision),
                   self.feedback.feedback_select_drop_down(self.xl_rating),
                   self.feedback.feedback_comments(self.xl_comment),
                   self.feedback.overall_comment(self.xl_overall),
+                  self.feedback.partial_submission(),
+                  self.feedback.agree_and_submit(),
+                  self.new_tab.window_close(),
+                  self.new_tab.switch_to_window(0),
+                  ]
+        for func in __list:
+            if func:
+                self.partial_collection.append(func)
+            else:
+                self.partial_collection.append(func)
+
+    def int2_provide_feedback(self):
+        self.pf2_collection = []
+        __list = [self.bucket.bucket_select(self.xl_bucket),
+                  self.applicant_grid.select_applicant(),
+                  self.applicant_action.provide_feedback_action(),
+                  self.new_tab.switch_to_window(1),
                   self.feedback.submit_feedback(),
                   self.feedback.agree_and_submit(),
                   self.feedback.agree_and_submit(),

@@ -17,6 +17,7 @@ class InterviewFeedback:
     __e_agree_xpath = Locators.BUTTONS['button'].format('Agree and Submit')
     __e_select_int_xpath = Locators.FEEDBACK['select_int']
     __e_save_draft_xpath = Locators.FEEDBACK['save_draft']
+    __e_partial_submission_xpath = Locators.FEEDBACK['partial']
 
     def __init__(self, driver):
         self.driver = driver
@@ -70,6 +71,15 @@ class InterviewFeedback:
         except Exception as error:
             ui_logger.error(error)
 
+    def partial_submission(self):
+        try:
+            self.wait.web_element_wait_click(By.XPATH, self.__e_partial_submission_xpath, 'partial_submission')
+            print('Partial - Submitted')
+            self.wait.loading()
+            return True
+        except Exception as error:
+            ui_logger.error(error)
+
     def submit_feedback(self):
         try:
             self.wait.loading()
@@ -83,7 +93,7 @@ class InterviewFeedback:
     def save_draft_old_feedback(self):
         try:
             self.wait.web_element_wait_click(By.XPATH, self.__e_save_draft_xpath, 'submit_feedback_button')
-            print('Feedback - Submitted')
+            print('Save Draft - Submitted')
             self.wait.loading()
             return True
         except Exception as error:
