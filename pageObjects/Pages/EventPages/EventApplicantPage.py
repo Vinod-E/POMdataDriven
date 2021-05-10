@@ -21,7 +21,6 @@ class EventApplicant:
 
     def select_applicant(self):
         try:
-            time.sleep(1)
             self.wait.web_element_wait_click(By.NAME, self.__e_applicant_check_name, 'Applicant_check_box')
             return True
         except Exception as error:

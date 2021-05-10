@@ -74,7 +74,7 @@ class NewFeedbackInterviewFlow:
 
     def interviewer_two_new_feedback(self):
         self.int2_feed.new_form_interview2_feedback()
-        self.NEW_OUTPUT.interviewer2_feedback_action_report(self.int1_feed.int1_feedback_collection)
+        self.NEW_OUTPUT.interviewer2_feedback_action_report(self.int2_feed.int2_feedback_collection)
 
     def interviewer_two_save_draft(self):
         self.int2_feed.int2_save_draft_feedback()

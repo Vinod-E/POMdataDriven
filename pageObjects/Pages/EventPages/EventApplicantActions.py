@@ -14,6 +14,7 @@ class EventApplicantActions:
     __e_provide_feedback_id = Locators.ACTIONS['provide_feedback']
     __e_cancel_request_id = Locators.ACTIONS['cancel_request']
     __e_cancel_interview_id = Locators.ACTIONS['cancel_interview']
+    __e_unlock_feedback_id = Locators.ACTIONS['unlock_feedback']
 
     def __init__(self, driver):
         self.driver = driver
@@ -84,6 +85,15 @@ class EventApplicantActions:
             time.sleep(2)
             print('Cancel Interview Action - Clicked')
             self.wait.loading()
+            return True
+        except Exception as error:
+            ui_logger.error(error)
+
+    def unlock_feedback_action(self):
+        try:
+            self.scroll.down(0, -50)
+            self.wait.web_element_wait_click(By.ID, self.__e_unlock_feedback_id, 'unlock_feedback_action')
+            print('Unlock Feedback Action - Clicked')
             return True
         except Exception as error:
             ui_logger.error(error)

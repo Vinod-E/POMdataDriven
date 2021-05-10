@@ -62,6 +62,7 @@ class Login:
     def login_account_click(self, user_name):
         try:
             self.wait.web_elements_wait_click(By.TAG_NAME, self.__e_anchor_tag, user_name)
+            print(f'Current account name is - {user_name}')
             return True
         except Exception as error:
             ui_logger.error(error)
@@ -70,6 +71,7 @@ class Login:
         try:
             time.sleep(1)
             self.wait.web_element_wait_click(By.ID, self.__e_logout_id, 'Logout from account')
+            print('Logging Out - from application')
             return True
         except Exception as error:
             ui_logger.error(error)
@@ -78,6 +80,7 @@ class Login:
         try:
             time.sleep(2)
             self.wait.web_element_wait_click(By.XPATH, self.__e_click_xpath, 'Logout from account')
+            print('Re-login - Clicked for login screen')
             return True
         except Exception as error:
             ui_logger.error(error)
