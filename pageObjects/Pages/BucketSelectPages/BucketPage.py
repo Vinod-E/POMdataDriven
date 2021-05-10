@@ -18,6 +18,8 @@ class BucketSelectionPage:
     def bucket_select(self, bucket_name):
         try:
             self.wait.web_element_wait_send_keys(By.XPATH, self.__e_bucket_xpath, bucket_name, 'bucket_select')
+            print(f'Chosen bucket is - {bucket_name}')
+            self.wait.loading()
             return True
         except Exception as error:
             ui_logger.error(error)

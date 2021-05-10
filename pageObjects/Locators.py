@@ -62,7 +62,8 @@ TITLE = {
 
 CHECKBOX = {
     'check': 'grid_items',
-    'type': '//*[@type="checkbox"]'
+    'type': '//*[@type="checkbox"]',
+    'all': '//*[@ng-model="vm.isAllSelected"]'
 }
 
 BUTTONS = {
@@ -99,6 +100,7 @@ ACTIONS = {
     'provide_feedback': 'cardlist-view-Provide-Interview Feedback',
     'cancel_request': 'cardlist-view-Cancel-Interview Request',
     'cancel_interview': 'cardlist-view-Cancel-Interview',
+    'unlock_feedback': 'cardlist-view-Unlock-Interviewer Feedback',
     'float_click_class': 'fa-angle-right',
 }
 
@@ -210,7 +212,8 @@ FEEDBACK = {
     'submit': '//*[@ng-click="vm.submitFeedback(vm.isUpdateFeedback);"]',
     'new_form_drop_down': '//*[@ng-model="question.answer.dropdownCode"]',
     'save_draft': '//button[@ng-click="vm.saveDraft();"]',
-    'partial': '//button[@ng-click="vm.partialSubmitFeedback();"]'
+    'partial': '//button[@ng-click="vm.partialSubmitFeedback();"]',
+    'update': '//*[@ng-click="vm.submitFeedback(vm.isUpdateFeedback);"]'
 }
 
 INTERVIEWER_LOBBY = {

@@ -83,7 +83,7 @@ class LiveInterviewFlow:
 
     def interviewer_two_live_feedback(self):
         self.int2_feed.live_interview2_feedback()
-        self.LIVE_OUTPUT.interviewer2_feedback_action_report(self.int1_feed.int1_feedback_collection)
+        self.LIVE_OUTPUT.interviewer2_feedback_action_report(self.int2_feed.int2_feedback_collection)
 
     def save_draft(self):
         self.int2_feed.int2_save_draft()

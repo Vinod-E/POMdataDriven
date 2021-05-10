@@ -14,6 +14,7 @@ class InterviewFeedback:
     __e_provide_overall_xpath = Locators.FEEDBACK['overall']
     __e_decision_button_xpath = Locators.FEEDBACK['decision_button']
     __e_feedback_submit_xpath = Locators.FEEDBACK['submit']
+    __e_update_submit_xpath = Locators.FEEDBACK['update']
     __e_agree_xpath = Locators.BUTTONS['button'].format('Agree and Submit')
     __e_select_int_xpath = Locators.FEEDBACK['select_int']
     __e_save_draft_xpath = Locators.FEEDBACK['save_draft']
@@ -90,6 +91,14 @@ class InterviewFeedback:
         except Exception as error:
             ui_logger.error(error)
 
+    def update_feedback(self):
+        try:
+            self.wait.web_element_wait_click(By.XPATH, self.__e_update_submit_xpath, 'update_feedback')
+            print('Update - Submitted')
+            return True
+        except Exception as error:
+            ui_logger.error(error)
+
     def save_draft_old_feedback(self):
         try:
             self.wait.web_element_wait_click(By.XPATH, self.__e_save_draft_xpath, 'submit_feedback_button')
@@ -101,7 +110,7 @@ class InterviewFeedback:
 
     def agree_and_submit(self):
         try:
-            time.sleep(0.7)
+            time.sleep(1)
             self.wait.web_element_wait_click(By.XPATH, self.__e_agree_xpath, 'feedback_form_validation')
             print('Agree and submit - Submitted')
             time.sleep(1)
