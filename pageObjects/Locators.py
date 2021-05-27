@@ -52,7 +52,8 @@ PLACEHOLDER = {
     'place_holder': '//input[@placeholder="{}"]',
     'all_place_holder': '//*[@placeholder="{}"]',
     'text_ph': '//input[@type="text"][@placeholder="{}"]',
-    'num_ph': '//input[@type="number"][@placeholder="{}"]'
+    'num_ph': '//input[@type="number"][@placeholder="{}"]',
+    'num': '//input[@type="number"]'
 }
 
 TITLE = {
@@ -230,4 +231,21 @@ EMBRACE = {
     'candidate_tab': '/html/body/div[1]/header[2]/div/div/div[2]/div/ul/li[2]/a',
     'candidate_name_search_field': '//*[@ng-model="vm.candidateSearchCriteria.CandidatName"]',
     'candidate_acceptance_yes': 'testacceprtanceoffer'
+}
+
+HELPDESK = {
+    'job_category': '//*[@id="mainBodyElement"]/div[3]/div/div[2]/div[2]/ui-view/div/div[2]/ui-view/div/div[1]'
+                    '/div[2]/div/div/table/tbody/tr/td[1]/div/span/span/span[1]',
+    'event_category': '//*[@id="mainBodyElement"]/div[3]/div/div[2]/div[2]/ui-view/div/div[2]/ui-view/div/div[1]'
+                      '/div[3]/div/div/table/tbody/tr/td[1]/div/span/span/span[1]',
+    'job_sla': '//*[@id="mainBodyElement"]/div[3]/div/div[2]/div[2]/ui-view/div/div[2]/ui-view/div/div[1]/div[2]'
+               '/div/div/table/tbody/tr/td[4]/input',
+    'event_sla': '//*[@id="mainBodyElement"]/div[3]/div/div[2]/div[2]/ui-view/div/div[2]/ui-view/div/div[1]/div[3]'
+                 '/div/div/table/tbody/tr/td[5]/input',
+    'job_user': '//*[@id="mainBodyElement"]/div[3]/div/div[2]/div[2]/ui-view/div/div[2]/ui-view/div/div[1]/div[2]'
+                '/div/div/table/tbody/tr/td[3]/div/span/span/span[1]',
+    'event_user': '//*[@id="mainBodyElement"]/div[3]/div/div[2]/div[2]/ui-view/div/div[2]/ui-view/div/div[1]/div[3]'
+                  '/div/div/table/tbody/tr/td[4]/div/span/span/span[1]',
+    'event_job': '//*[@id="mainBodyElement"]/div[3]/div/div[2]/div[2]/ui-view/div/div[2]/ui-view/div/div[1]/div[3]'
+                 '/div/div/table/tbody/tr/td[2]/div/span/span/span[1]'
 }

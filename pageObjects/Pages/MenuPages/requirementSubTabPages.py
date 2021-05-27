@@ -31,7 +31,7 @@ class RequirementSubTabs:
 
     def requirement_query(self):
         try:
-            self.wait.web_element_wait_click(By.XPATH, self.__e_req_query_xpath, 'requirement_duplicity')
+            self.wait.web_element_wait_click(By.XPATH, self.__e_req_query_xpath, 'requirement_query')
             print('Requirement Query Configuration tab - Clicked')
             return True
         except Exception as error:

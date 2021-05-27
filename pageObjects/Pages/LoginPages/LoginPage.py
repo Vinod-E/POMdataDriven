@@ -3,6 +3,7 @@ from pageObjects import Locators
 from selenium.webdriver.common.by import By
 from utilities.WebDriver_Wait import WebElementWait
 from Listeners.logger_settings import ui_logger
+from utilities.PageScroll import PageScroll
 
 
 class Login:
@@ -21,6 +22,7 @@ class Login:
     def __init__(self, driver):
         self.driver = driver
         self.wait = WebElementWait(self.driver)
+        self.scroll = PageScroll(self.driver)
 
     def tenant(self, tenant_name):
         self.wait.web_element_wait_send_keys(By.NAME, self.__e_tenant_name, tenant_name, 'login_tenant_field')
@@ -69,7 +71,9 @@ class Login:
 
     def login_out(self):
         try:
-            time.sleep(1)
+            time.sleep(0.5)
+            self.scroll.up(0, 60)
+            time.sleep(0.5)
             self.wait.web_element_wait_click(By.ID, self.__e_logout_id, 'Logout from account')
             print('Logging Out - from application')
             return True
