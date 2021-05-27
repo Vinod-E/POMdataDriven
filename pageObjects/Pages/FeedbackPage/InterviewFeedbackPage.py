@@ -87,6 +87,7 @@ class InterviewFeedback:
             self.scroll.down(0, -80)
             self.wait.web_element_wait_click(By.XPATH, self.__e_feedback_submit_xpath, 'submit_feedback_button')
             print('Feedback - Submitted')
+            self.wait.loading()
             return True
         except Exception as error:
             ui_logger.error(error)
@@ -95,6 +96,7 @@ class InterviewFeedback:
         try:
             self.wait.web_element_wait_click(By.XPATH, self.__e_update_submit_xpath, 'update_feedback')
             print('Update - Submitted')
+            self.wait.loading()
             return True
         except Exception as error:
             ui_logger.error(error)

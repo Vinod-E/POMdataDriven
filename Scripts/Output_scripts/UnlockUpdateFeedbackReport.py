@@ -8,7 +8,7 @@ class UnlockUpdateOutputReport:
         self.server = server
         self.start_date_time = start_date_time
         self.__path = outputFile.OUTPUT_PATH['Unlock_update_output']
-        test_cases = 160
+        test_cases = 165
         excel_headers_1 = ['Event (Applicants)', 'Status', 'Applicant (Status change)', 'Status', 'Interview_1 (Login)',
                            'Status', 'Interview_1 (Feedback)', 'Status', 'Interview_2 (Login)', 'Status',
                            'Interview_2 (Feedback)', 'Status']

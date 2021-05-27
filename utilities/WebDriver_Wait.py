@@ -57,7 +57,7 @@ class WebElementWait:
         return result
 
     def loading(self):
-        attempts = 1000
+        attempts = 10000
         for i in range(0, attempts):
             try:
                 if self.driver.find_element(By.CLASS_NAME, self.load):
