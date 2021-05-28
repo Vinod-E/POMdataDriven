@@ -9,6 +9,7 @@ LOADING = {
     'load_text': 'dw-loading-text',
     'upload': '//*[@ng-disabled="vm.loadingOptions.active"]',
     'embrace_load': '//*[@aria-busy="true"]',
+    'candidate_load': 'block-ui-message'
 }
 
 TAG = {
@@ -130,6 +131,7 @@ LOGIN = {
     'alias': 'alias',
     'next': '.btn-default',
     'login_name': 'loginName',
+    'c_user_name': 'username',
     'password': '//input[@type="password"]',
     'login': 'login',
     'logout': 'crpo-settings-logout',
@@ -248,4 +250,8 @@ HELPDESK = {
                   '/div/div/table/tbody/tr/td[4]/div/span/span/span[1]',
     'event_job': '//*[@id="mainBodyElement"]/div[3]/div/div[2]/div[2]/ui-view/div/div[2]/ui-view/div/div[1]/div[3]'
                  '/div/div/table/tbody/tr/td[2]/div/span/span/span[1]'
+}
+
+QUERY = {
+    'more_queries': '//*[@ui-sref="candidate.helpdesk.raiseQuery"]'
 }

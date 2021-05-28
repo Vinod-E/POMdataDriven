@@ -23,5 +23,6 @@ INPUT_PATH = {
     'event_excel': GENERIC_INPUT_PATH + 'event_details.xls',
     'manage_task': GENERIC_INPUT_PATH + 'manage_task_details.xls',
     'embrace': GENERIC_INPUT_PATH + 'embrace.xls',
-    'help_desk': GENERIC_INPUT_PATH + 'Help_desk_config.xls'
+    'help_desk': GENERIC_INPUT_PATH + 'Help_desk_config.xls',
+    'candidate_queries': GENERIC_INPUT_PATH + 'candidate_query.xls'
 }
