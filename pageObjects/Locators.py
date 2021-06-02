@@ -135,7 +135,8 @@ LOGIN = {
     'password': '//input[@type="password"]',
     'login': 'login',
     'logout': 'crpo-settings-logout',
-    'click_to_login': '//a[@ng-click="vm.backToLogin()"]'
+    'click_to_login': '//a[@ng-click="vm.backToLogin()"]',
+    'e_login': '//*[@ng-click="vm.login()"]'
 }
 
 JOB = {

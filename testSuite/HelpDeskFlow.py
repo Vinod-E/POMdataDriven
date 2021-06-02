@@ -1,10 +1,11 @@
 from Config import Enviroment
 from Listeners.logger_settings import ui_logger
 from Scripts.Login.crpo_login_page import CRPOLogin
-from Scripts.Login.crpo_candidate_login import CRPOCandidateLogin
+from Scripts.HelpDesk.candidate_login import CrpoCandidateLogin
 from Scripts.HelpDesk.crpo_requirement_search import CrpoRequirementSearch
 from Scripts.HelpDesk.crpo_help_desk_configuration import CrpoRequirementHelpDeskConfig
 from Scripts.HelpDesk.candidate_raise_queries import CandidateQueryRaise
+from Scripts.HelpDesk.embrace_login import CrpoEmbraceLogin
 from Scripts.Output_scripts import HelpDeskReport
 
 
@@ -26,7 +27,8 @@ class CRPOHelpDesk:
         date_time = environment.start_date_time
 
         login = CRPOLogin(driver=driver, index=index)
-        candidate_login = CRPOCandidateLogin(driver=driver, index=index, version=version, server=server)
+        candidate_login = CrpoCandidateLogin(driver=driver, index=index, version=version, server=server)
+        embrace_login = CrpoEmbraceLogin(driver=driver, index=index, server=server)
         req = CrpoRequirementSearch(driver=driver, index=index, version=version)
         help_desk_config = CrpoRequirementHelpDeskConfig(driver=driver, index=index, version=version)
         query = CandidateQueryRaise(driver=driver, index=index)
@@ -41,13 +43,6 @@ class CRPOHelpDesk:
         try:
             self.login.crpo_login()
             self.login_success = True
-
-        except Exception as error:
-            ui_logger.error(error)
-
-    def crpo_candidate_login(self):
-        try:
-            self.candidate_login.candidate_login(self.candidate_email, self.candidate_password)
 
         except Exception as error:
             ui_logger.error(error)
@@ -67,6 +62,9 @@ class CRPOHelpDesk:
     def save_help_desk_configurations(self):
         self.help_desk_config.save_configurations()
 
+    def embrace_candidate_login(self):
+        self.candidate_login.candidate_login(self.candidate_email, self.candidate_password)
+
     def candidate_login_query_1(self):
         self.query.candidate_query_1()
 
@@ -75,6 +73,15 @@ class CRPOHelpDesk:
 
     def candidate_login_query_3(self):
         self.query.candidate_query_3()
+
+    def staffing_user_login_1(self):
+        self.embrace_login.embrace_user_1_login()
+
+    def staffing_user_login_2(self):
+        self.embrace_login.embrace_user_2_login()
+
+    def staffing_user_login_3(self):
+        self.embrace_login.embrace_user_3_login()
 
 
 Object = CRPOHelpDesk()
@@ -86,9 +93,12 @@ if Object.login_success:
     Object.job_help_desk_config()
     Object.event_help_desk_config()
     Object.save_help_desk_configurations()
-    Object.crpo_candidate_login()
+    Object.embrace_candidate_login()
     Object.candidate_login_query_1()
     Object.candidate_login_query_2()
     Object.candidate_login_query_3()
+    Object.staffing_user_login_1()
+    Object.staffing_user_login_2()
+    Object.staffing_user_login_3()
     Object.HELPDESK_output.overall_status()
     Object.environment.close()
