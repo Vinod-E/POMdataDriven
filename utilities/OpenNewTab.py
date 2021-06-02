@@ -12,3 +12,10 @@ class NewTab:
             self.driver.get(url_link)
         except Exception as error:
             ui_logger.error(error)
+
+    def open_in_same_tab(self, tab_index, url_link):
+        try:
+            self.driver.switch_to.window(self.driver.window_handles[tab_index])
+            self.driver.get(url_link)
+        except Exception as error:
+            ui_logger.error(error)
