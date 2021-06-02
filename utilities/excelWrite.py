@@ -12,6 +12,10 @@ class ExcelReportWrite(styles.FontColor):
         self.date_now = str(date.today())
         self.Expected_success_cases = list(map(lambda x: 'Pass', range(0, test_cases)))
         self.Actual_success_cases = []
+        self.total_cases = str(len(self.Expected_success_cases))
+        self.pass_cases = ''
+        self.failure_cases = ''
+        self.result = ''
 
         # -------------------------------------
         # Excel sheet write for Output results
@@ -59,7 +63,8 @@ class ExcelReportWrite(styles.FontColor):
 
     def status(self, path, excel_save_name, start_date_time, version, server):
         try:
-            failure_cases = len(self.Expected_success_cases) - len(self.Actual_success_cases)
+            self.failure_cases = len(self.Expected_success_cases) - len(self.Actual_success_cases)
+            self.pass_cases = len(self.Actual_success_cases)
             print('Expected Cases::', len(self.Expected_success_cases))
             print('Actual Cases::', len(self.Actual_success_cases))
             percentage = len(self.Actual_success_cases) * 100 / len(self.Expected_success_cases)
@@ -70,8 +75,10 @@ class ExcelReportWrite(styles.FontColor):
             self.ws.write(0, 0, excel_save_name, self.style4)
             if self.Expected_success_cases == self.Actual_success_cases:
                 self.ws.write(0, 1, 'Pass', self.style5)
+                self.result = 'Pass'
             else:
                 self.ws.write(0, 1, 'Fail', self.style6)
+                self.result = 'Fail'
 
             self.ws.write(0, 2, 'SPRINT VERSION', self.style4)
             self.ws.write(0, 3, 'Sprint_{}'.format(version), self.style5)
@@ -82,10 +89,10 @@ class ExcelReportWrite(styles.FontColor):
             self.ws.write(0, 8, 'Success Cases', self.style4)
             self.ws.write(0, 9, len(self.Actual_success_cases), self.style5)
             self.ws.write(0, 10, 'Failure Cases', self.style4)
-            if failure_cases == 0:
-                self.ws.write(0, 11, failure_cases, self.style5)
+            if self.failure_cases == 0:
+                self.ws.write(0, 11, self.failure_cases, self.style5)
             else:
-                self.ws.write(0, 11, failure_cases, self.style6)
+                self.ws.write(0, 11, self.failure_cases, self.style6)
             self.ws.write(0, 12, 'Success %', self.style4)
             self.ws.write(0, 13, percentage, self.style5)
             self.ws.write(0, 14, 'Time Taken (min)', self.style4)
