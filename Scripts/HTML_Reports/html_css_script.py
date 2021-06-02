@@ -4,31 +4,131 @@ class HTMLReport:
         self.outputFilePath = path
         self.file = open(self.outputFilePath, "wt")
 
-    def html_css(self, environment, sprint, date_time, use_case, result, total, success, fail):
-        self.file.write("""<style>
-    .marginZero {
+    def html_css(self, environment, sprint, date_time, use_case, result, total, success, fail, fail_color):
+        self.file.write("""
+        <html>
+        <head>
+<script type="text/javascript">
+window.onload = function () {
+
+var chart = new CanvasJS.Chart("chartContainer", {
+	animationEnabled: true,
+	title:{
+		text: "Sprint wise"
+	},
+	subtitles: [{
+		text: "Click Legend to Hide or Unhide Data Series"
+	}], 
+	axisX1: {
+		title: "Sprints",
+    lineColor: "white",
+	},
+	axisY: {
+		title: "Test cases",
+		titleFontColor: "#4F81BC",
+		lineColor: "white",
+		labelFontColor: "#4F81BC",
+		includeZero: true
+	},
+	axisY2: {
+		title: "",
+		titleFontColor: "white",
+		lineColor: "white",
+		labelFontColor: "white",
+		tickColor: "white",
+		includeZero: true
+	},
+	toolTip: {
+		shared: true
+	},
+	legend: {
+		cursor: "pointer",
+		itemclick: toggleDataSeries
+	},
+	data: [{
+		type: "column",
+		name: "AMSIN",
+		showInLegend: true,      
+		yValueFormatString: "#,##0.# Units",
+		dataPoints: [
+			{ label: "sprint1",  y: 19034.5 },
+			{ label: "sprint2", y: 20015 },
+			{ label: "sprint3", y: 25342 },
+			{ label: "sprint4",  y: 20088 },
+			{ label: "sprint5",  y: 28234 }
+		]
+	},
+  {
+		type: "column",
+		name: "Beta",
+		showInLegend: true,      
+		yValueFormatString: "#,##0.# Units",
+		dataPoints: [
+			{ label: "sprint1",  y: 2312.5 },
+			{ label: "sprint2", y: 2342 },
+			{ label: "sprint3", y: 2341 },
+			{ label: "sprint4",  y: 976 },
+			{ label: "sprint5",  y: 5553 }
+		]
+	},
+	{
+		type: "column",
+		name: "AMS",
+		axisYType: "secondary",
+		showInLegend: true,
+		yValueFormatString: "#,##0.# Units",
+		dataPoints: [
+			{ label: "sprint1", y: 210.5 },
+			{ label: "sprint2", y: 135 },
+			{ label: "sprint3", y: 425 },
+			{ label: "sprint4", y: 130 },
+			{ label: "sprint5", y: 528 }
+		]
+	},
+	{
+		type: "column",
+		name: "IndiaAMS",
+		showInLegend: true,      
+		yValueFormatString: "#,##0.# Units",
+		dataPoints: [
+			{ label: "sprint1",  y: 1212.5 },
+			{ label: "sprint2", y: 2342 },
+			{ label: "sprint3", y: 2341 },
+			{ label: "sprint4",  y: 976 },
+			{ label: "sprint5",  y: 5553 }
+		]
+	}]
+});
+chart.render();
+
+function toggleDataSeries(e) {
+	if (typeof (e.dataSeries.visible) === "undefined" || e.dataSeries.visible) {
+		e.dataSeries.visible = false;
+	} else {
+		e.dataSeries.visible = true;
+	}
+	e.chart.render();
+}
+}
+</script> 
+<style>.marginZero 
+    {
         margin: 0;
     }
-
     .zeroPad {
         padding: 0
     }
-
     .wid600 {
         max-width: 600px;
     }
-
     .tablee {
-
         border: 1px solid #e2e2e2;
         background: "white"
     }
-
     .fontF {
         font-family: Inter, Segoe UI, Roboto, Arial, verdana, geneva, sans-serif;
 
     }
-
     .footer {
         font-size: 11px;
         font-weight: 400;
@@ -36,16 +136,13 @@ class HTMLReport:
         text-align: left;
         color: #a6a6a6
     }
-
     .collapseBorder {
         border-collapse: collapse;
     }
-
     .line {
         line-height: 0;
 
     }
-
     .summaryHeads {
         padding: 6px 8px;
         font-size: 12px;
@@ -55,7 +152,6 @@ class HTMLReport:
         color: #6b6b6b;
         border-top: 1px solid #ededed;
     }
-
     .summaryRow {
         padding: 6px 8px;
         font-size: 12px;
@@ -68,7 +164,6 @@ class HTMLReport:
         width: 124px;
         max-width: 124px
     }
-
     .emptyCell {
         border-top: 1px solid #ededed;
         width: 124px;
@@ -77,7 +172,6 @@ class HTMLReport:
         text-align: left;
         max-width: 124px
     }
-
     .summHeader {
         font-size: 16px;
         font-weight: 700;
@@ -85,7 +179,6 @@ class HTMLReport:
         letter-spacing: -.12px;
         text-align: left
     }
-
     .graphLabel {
         color: #000;
         font-size: 10px;
@@ -93,7 +186,6 @@ class HTMLReport:
         line-height: 20px;
         text-align: center
     }
-
     .latestSlot {
         border-radius: 3px;
         max-width: 32px;
@@ -103,7 +195,6 @@ class HTMLReport:
         background-color: #d51d11;
         height: 80px
     }
-
     .prevSlot {
         border-radius: 3px;
         max-width: 32px;
@@ -113,25 +204,20 @@ class HTMLReport:
         background-color: #e78b85;
         height: 80px
     }
-
     .fszero {
         font-size: 0
     }
-
     .pad48 {
         padding: 48px 48px 0 48px
     }
-
     .breakWord {
         word-break: break-word
     }
-
     .alink {
         cursor: pointer;
         color: #0265d2;
         text-decoration: none
     }
-
     .resultBtn {
         display: inline-block;
         background: #4ec1edf0;
@@ -167,36 +253,30 @@ class HTMLReport:
 }
 .Pass{
     color: green;
-    animation: blur .99s ease-out infinite;
-    text-shadow: 0px 0px 5px green, 0px 0px 7px #fff;
     font-size: 17px !important;
     font-weight: bold !important;
 }
 .Fail{
     color: red;
-    animation: blur .99s ease-out infinite;
-    text-shadow: 0px 0px 5px red, 0px 0px 7px #fff;
     font-size: 17px !important;
     font-weight: bold !important;
 }
-@keyframes blur {
-  from {
-    text-shadow:0px 0px 10px #fff,
-      0px 0px 1px #fff, 
-      0px 0px 5px #fff,
-      0px 0px 10px #fff,
-      0px 0px 15px #fff,
-      0px 0px 20px #fff,
-      0px 0px 25px #fff,
-      0px 0px 25px #fff,
-      0px 0px 50px #fff,
-      0px 0px 50px #7B96B8,
-      0px 10px 100px #7B96B8,
-      0px -10px 100px #7B96B8,
-      0px -10px 100px #7B96B8;
-  }
+.summaryPass{
+color: green;
+font-weight: bold !important;
+}
+.summaryFail{
+color: red;
+font-weight: bold !important;
+}
+.canvasjs-chart-credit
+{
+    display: none !important;
 }
 </style>
+</head>
+<body>
+
 <div class="marginZero zeroPad fontF">
     <center>
         <div class="wid600 marginZero tablee">
@@ -223,7 +303,7 @@ class HTMLReport:
                                                         <td class="fontF collapseBorder" style="padding-top:32px">
                                                             <div class="breakWord fontF"
                                                                 style="font-size:20px;font-weight:700;line-height:24px;text-align:left;letter-spacing:-.56px">
-                                                                Automated Test Reporting - """+str(date_time)+"""</div>
+                                                                Automated Test Reporting - """ + str(date_time) + """</div>
                                                         </td>
                                                     </tr>
                                                     <tr>
@@ -291,7 +371,7 @@ class HTMLReport:
                                                                                                 <div
                                                                                                     style="word-break:break-all;word-wrap:break-word;overflow:hidden;font-family:Inter,Segoe UI,Roboto,Arial,verdana,geneva,sans-serif;font-size:12px;font-style:normal;font-weight:400;line-height:16px;text-align:left;color:#000">
                                                                                                     <a
-                                                                                                        class="alink">"""+use_case+"""</a>
+                                                                                                        class="alink">""" + use_case + """</a>
                                                                                                 </div>
                                                                                             </td>
                                                                                         </tr>
@@ -325,7 +405,7 @@ class HTMLReport:
                                                                                                 <div
                                                                                                     style="word-break:break-all;word-wrap:break-word;overflow:hidden;font-family:Inter,Segoe UI,Roboto,Arial,verdana,geneva,sans-serif;font-size:12px;font-style:normal;font-weight:400;line-height:16px;text-align:left;color:#000">
                                                                                                     <a
-                                                                                                        class="alink">"""+environment+"""</a>
+                                                                                                        class="alink">""" + environment + """</a>
                                                                                                 </div>
                                                                                             </td>
                                                                                         </tr>
@@ -392,7 +472,7 @@ class HTMLReport:
                                                                                                 <div
                                                                                                     style="font-family:Inter,Segoe UI,Roboto,Arial,verdana,geneva,sans-serif;font-size:12px;font-style:normal;font-weight:400;line-height:16px;text-align:left;color:#000">
                                                                                                    
-                                                                                                     <a class="alink"> """+sprint+"""</a>
+                                                                                                     <a class="alink"> """ + sprint + """</a>
                                                                                                      </div>
                                                                                             </td>
                                                                                         </tr>
@@ -423,8 +503,8 @@ class HTMLReport:
                                                                                                 style="border-collapse:collapse;font-size:0;padding:6px 8px;word-break:break-word;vertical-align:middle;width:249px"
                                                                                                 valign="middle"
                                                                                                 width="249">
-                                                                                                <div style="font-size:12px;font-style:normal;line-height:16px;text-align:left" class="""+result+""">
-                                                                                                """+result+"""
+                                                                                                <div style="font-size:12px;font-style:normal;line-height:16px;text-align:left" class=""" + result + """>
+                                                                                                """ + result + """
                                                                                                 </div>
                                                                                             </td>
                                                                                         </tr>
@@ -478,7 +558,7 @@ class HTMLReport:
                                                             <!-- <a href=""
                                                                 class="resultBtn">Excel
                                                                 Download</a> -->
-                                                                <a href="" title="Download Excel Report" class="btn resultBtn" style=" border:none;padding-left: 10px;">               
+                                                                <a href="" title="Download Excel Report" class="btn resultBtn" style=" border:none;padding-left: 10px;">
                                                                     <div id="btn_container"><img  src="https://image.flaticon.com/icons/png/512/3325/3325366.png" width="25" height="25"/><span class="btn-txt">Excel
                                                                         Download</span></div>
                                                                 </a>
@@ -487,7 +567,7 @@ class HTMLReport:
                                                             style="border:none;border-radius:3px;background:#4ec1edf0">
                                                             <!-- <a href=""
                                                                 class="resultBtn">Google Drive</a> -->
-                                                                <a title="sprint wise automation reports" href="https://drive.google.com/drive/u/1/folders/186nL7DWI_ZoMklgcwIUykC4tSQuECtGH" target="_blank"  class="btn resultBtn" style=" border:none;padding-left: 10px;">               
+                                                                <a title="sprint wise automation reports" href="https://drive.google.com/drive/u/1/folders/186nL7DWI_ZoMklgcwIUykC4tSQuECtGH" target="_blank"  class="btn resultBtn" style=" border:none;padding-left: 10px;">
                                                                     <div id="btn_container"><img  src="https://image.flaticon.com/icons/png/512/2111/2111436.png" width="25" height="25"/><span class="btn-txt">Google
                                                                         Drive</span></div>
                                                                 </a>
@@ -620,6 +700,7 @@ class HTMLReport:
                 </table>
             </div>
             <div style="padding:0 48px 48px 48px">
+                <div id="chartContainer" style="margin-top:2rem;height: 300px; width: 100%;"></div>
                 <table style="border-collapse:collapse">
                     <tbody>
                         <tr>
@@ -640,16 +721,17 @@ class HTMLReport:
                                         </tr>
                                         <tr>
                                             <td class="summaryHeads" style="border-bottom:1px solid #ededed;">Tests</td>
-                                            <td class="summaryRow">"""+str(success)+"""</td>
-                                            <td class="summaryRow">"""+str(fail)+"""</td>
-                                            <td class="summaryRow">"""+str(total)+"""</td>
+                                            <td class="summaryRow summaryPass">""" + str(success) + """</td>
+                                            <td class="summaryRow """ + fail_color + """ ">""" + str(fail) + """</td>
+                                            <td class="summaryRow" style="font-weight:bold;color: black;">""" + str(
+            total) + """</td>
                                         </tr>
                                     </tbody>
                                 </table>
                             </td>
                         </tr>
                         <tr>
-                            <td style="padding:18px 0 15px 0;">
+                            <td style="padding:2rem 0 15px 0;">
                                 <p style="border-top:solid 2px #ededed;font-size:1px;margin:0 auto;width:100%">
                                 </p>
                             </td>
@@ -668,4 +750,7 @@ class HTMLReport:
         </div>
     </center>
 </div>
+ <script type="text/javascript" src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
+</body>
+</html>
         """)

@@ -6,6 +6,7 @@ from Scripts.HTML_Reports.html_css_script import HTMLReport
 class E2EOutputReport:
     """Number of Test cases """
     TestCases = 269
+    fail_color = ''
 
     def __init__(self, version, server, start_date_time):
         self.version = version
@@ -47,12 +48,17 @@ class E2EOutputReport:
                         path=self.__path, excel_save_name='E2E REGRESSION FLOW')
 
     def html_report_generation(self):
+        if self.xlw.failure_cases != 0:
+            self.fail_color = 'summaryFail'
+        else:
+            self.fail_color = 'summaryPass'
+
         self.html_generator.html_css(self.server, self.version, self.xlw.date_now,
                                      'E2E REGRESSION FLOW',
                                      self.xlw.result,
                                      self.xlw.total_cases,
                                      self.xlw.pass_cases,
-                                     self.xlw.failure_cases)
+                                     self.xlw.failure_cases, self.fail_color)
 
     def job_creation_report(self, job_creation_coll):
         testdata_headers = ['Job Tab', 'Job Create Button', 'Job Name', 'Job Attachment', 'Job Notifier', 'Description',
