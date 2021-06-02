@@ -1,3 +1,5 @@
+import time
+
 from Listeners.logger_settings import ui_logger
 from pageObjects import Locators
 from selenium.webdriver.common.by import By
@@ -19,6 +21,8 @@ class CandidateLoginMenus:
         try:
             self.wait.web_element_wait_click(By.XPATH, self.__e_menu.format(menu_name), 'help_tab')
             print(f'Clicked on - {menu_name}')
+            time.sleep(2)
+            self.wait.refresh_page()
             self.wait.candidate_login_loading()
             return True
         except Exception as error:
