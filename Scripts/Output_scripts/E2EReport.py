@@ -1,5 +1,6 @@
 from utilities import excelWrite
 from Config import outputFile
+from Scripts.HTML_Reports.html_css_script import HTMLReport
 
 
 class E2EOutputReport:
@@ -11,6 +12,8 @@ class E2EOutputReport:
         self.server = server
         self.start_date_time = start_date_time
         self.__path = outputFile.OUTPUT_PATH['E2E_output']
+        self.__html_path = outputFile.OUTPUT_PATH['E2E_output_html']
+        self.html_generator = HTMLReport(self.__html_path)
 
         self.xlw = excelWrite.ExcelReportWrite(version=self.version, test_cases=self.TestCases)
 
@@ -42,6 +45,14 @@ class E2EOutputReport:
     def overall_status(self):
         self.xlw.status(start_date_time=self.start_date_time, version=self.version, server=self.server,
                         path=self.__path, excel_save_name='E2E REGRESSION FLOW')
+
+    def html_report_generation(self):
+        self.html_generator.html_css(self.server, self.version, self.xlw.date_now,
+                                     'E2E REGRESSION FLOW',
+                                     self.xlw.result,
+                                     self.xlw.total_cases,
+                                     self.xlw.pass_cases,
+                                     self.xlw.failure_cases)
 
     def job_creation_report(self, job_creation_coll):
         testdata_headers = ['Job Tab', 'Job Create Button', 'Job Name', 'Job Attachment', 'Job Notifier', 'Description',
