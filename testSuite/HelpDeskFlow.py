@@ -1,5 +1,3 @@
-import time
-
 from Config import Enviroment
 from Listeners.logger_settings import ui_logger
 from Scripts.Login.crpo_login_page import CRPOLogin
@@ -7,15 +5,15 @@ from Scripts.Login.crpo_candidate_login import CRPOCandidateLogin
 from Scripts.HelpDesk.crpo_requirement_search import CrpoRequirementSearch
 from Scripts.HelpDesk.crpo_help_desk_configuration import CrpoRequirementHelpDeskConfig
 from Scripts.HelpDesk.candidate_raise_queries import CandidateQueryRaise
-from Scripts.Output_scripts import E2EReport
+from Scripts.Output_scripts import HelpDeskReport
 
 
 class CRPOHelpDesk:
     """
         Required class Objects are created
     """
-    candidate_email = input("Enter Candidate Email::")
-    candidate_password = input("Enter Candidate Password::")
+    candidate_email = input("Enter Candidate Email:: ")
+    candidate_password = input("Enter Candidate Password:: ")
     environment = ''
     login_success = ''
 
@@ -31,9 +29,9 @@ class CRPOHelpDesk:
         candidate_login = CRPOCandidateLogin(driver=driver, index=index, version=version, server=server)
         req = CrpoRequirementSearch(driver=driver, index=index, version=version)
         help_desk_config = CrpoRequirementHelpDeskConfig(driver=driver, index=index, version=version)
-        query = CandidateQueryRaise(driver=driver, index=index, version=version)
+        query = CandidateQueryRaise(driver=driver, index=index)
 
-        E2E_output = E2EReport.E2EOutputReport(version=version, server=server, start_date_time=date_time)
+        HELPDESK_output = HelpDeskReport.HelpDeskOutputReport(version=version, server=server, start_date_time=date_time)
 
     except Exception as error:
         ui_logger.error(error)
@@ -69,8 +67,14 @@ class CRPOHelpDesk:
     def save_help_desk_configurations(self):
         self.help_desk_config.save_configurations()
 
-    def candidate_queries_from_login(self):
-        self.query.candidate_queries()
+    def candidate_login_query_1(self):
+        self.query.candidate_query_1()
+
+    def candidate_login_query_2(self):
+        self.query.candidate_query_2()
+
+    def candidate_login_query_3(self):
+        self.query.candidate_query_3()
 
 
 Object = CRPOHelpDesk()
@@ -83,6 +87,8 @@ if Object.login_success:
     Object.event_help_desk_config()
     Object.save_help_desk_configurations()
     Object.crpo_candidate_login()
-    Object.candidate_queries_from_login()
-    Object.E2E_output.overall_status()
+    Object.candidate_login_query_1()
+    Object.candidate_login_query_2()
+    Object.candidate_login_query_3()
+    Object.HELPDESK_output.overall_status()
     Object.environment.close()
