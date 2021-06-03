@@ -102,5 +102,9 @@ if Object.login_success:
     Object.interviewer_two_quick_feedback()
     Object.interviewer_two_partial_submission()
     Object.interviewer_two_provide_feedback()
+    """
+     <<=========== OUTPUT REPORTS GENERATOR PARTS HERE BELOWn =============>>
+    """
     Object.QUICK_OUTPUT.overall_status()
+    Object.QUICK_OUTPUT.html_report_generation()
     Object.environment.close()

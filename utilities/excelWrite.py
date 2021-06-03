@@ -1,6 +1,7 @@
 import xlwt
 import datetime
 from datetime import date
+from datetime import datetime
 from utilities import styles
 from Listeners.logger_settings import ui_logger
 
@@ -10,12 +11,14 @@ class ExcelReportWrite(styles.FontColor):
         super(ExcelReportWrite, self).__init__()
 
         self.date_now = str(date.today())
+        self.time = datetime.now()
         self.Expected_success_cases = list(map(lambda x: 'Pass', range(0, test_cases)))
         self.Actual_success_cases = []
         self.total_cases = str(len(self.Expected_success_cases))
         self.pass_cases = ''
         self.failure_cases = ''
         self.result = ''
+        self.minutes = ''
 
         # -------------------------------------
         # Excel sheet write for Output results
@@ -70,7 +73,7 @@ class ExcelReportWrite(styles.FontColor):
             percentage = len(self.Actual_success_cases) * 100 / len(self.Expected_success_cases)
             end_date_time = datetime.datetime.now()
             time_taken = end_date_time - start_date_time
-            minutes = time_taken.total_seconds() / 60
+            self.minutes = time_taken.total_seconds() / 60
 
             self.ws.write(0, 0, excel_save_name, self.style4)
             if self.Expected_success_cases == self.Actual_success_cases:
@@ -96,7 +99,7 @@ class ExcelReportWrite(styles.FontColor):
             self.ws.write(0, 12, 'Success %', self.style4)
             self.ws.write(0, 13, percentage, self.style5)
             self.ws.write(0, 14, 'Time Taken (min)', self.style4)
-            self.ws.write(0, 15, minutes, self.style5)
+            self.ws.write(0, 15, self.minutes, self.style5)
             self.wb_Result.save(path)
 
         except Exception as error:

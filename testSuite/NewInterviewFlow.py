@@ -98,5 +98,9 @@ if Object.login_success:
     Object.interviewer_two_new_feedback()
     Object.interviewer_two_save_draft()
     Object.interviewer_two_provide_feedback()
+    """
+     <<=========== OUTPUT REPORTS GENERATOR PARTS HERE BELOWn =============>>
+    """
     Object.NEW_OUTPUT.overall_status()
+    Object.NEW_OUTPUT.html_report_generation()
     Object.environment.close()

@@ -1,11 +1,13 @@
 from utilities import excelWrite
 from Config import outputFile
 from Scripts.HTML_Reports.html_css_script import HTMLReport
+from utilities.HistoryexcelWriter import HistoryOutput
 
 
 class E2EOutputReport:
-    """Number of Test cases """
+    """ Number of Test cases / use cases name """
     TestCases = 269
+    use_case_name = 'E2E REGRESSION FLOW'
     fail_color = ''
 
     def __init__(self, version, server, start_date_time):
@@ -13,9 +15,6 @@ class E2EOutputReport:
         self.server = server
         self.start_date_time = start_date_time
         self.__path = outputFile.OUTPUT_PATH['E2E_output']
-        self.__html_path = outputFile.OUTPUT_PATH['E2E_output_html']
-        self.html_generator = HTMLReport(self.__html_path)
-
         self.xlw = excelWrite.ExcelReportWrite(version=self.version, test_cases=self.TestCases)
 
         excel_headers_1 = ['Create Job', 'Status', 'Job (SP / EC)', 'Status', 'Job (Task)', 'Status',
@@ -43,9 +42,11 @@ class E2EOutputReport:
         self.xlw.excel_header_by_index(row=39, col=0, excel_headers_list=excel_headers_3,
                                        color_headers_list=color_headers_3)
 
-    def overall_status(self):
-        self.xlw.status(start_date_time=self.start_date_time, version=self.version, server=self.server,
-                        path=self.__path, excel_save_name='E2E REGRESSION FLOW')
+        """ <<<================== HTML / History Report Generator =================================>>> """
+        self.__history_path = outputFile.OUTPUT_PATH['E2E_output_history']
+        self.history = HistoryOutput(self.__history_path)
+        self.__html_path = outputFile.OUTPUT_PATH['E2E_output_html']
+        self.html_generator = HTMLReport(self.__html_path)
 
     def html_report_generation(self):
         if self.xlw.failure_cases != 0:
@@ -54,11 +55,17 @@ class E2EOutputReport:
             self.fail_color = 'summaryPass'
 
         self.html_generator.html_css(self.server, self.version, self.xlw.date_now,
-                                     'E2E REGRESSION FLOW',
-                                     self.xlw.result,
-                                     self.xlw.total_cases,
-                                     self.xlw.pass_cases,
+                                     self.use_case_name, self.xlw.result,
+                                     self.xlw.total_cases, self.xlw.pass_cases,
                                      self.xlw.failure_cases, self.fail_color)
+
+        self.history.create_pandas_excel(self.server, self.xlw.date_now, self.xlw.time,
+                                         self.version, self.xlw.total_cases, self.xlw.pass_cases,
+                                         self.xlw.failure_cases, self.xlw.minutes)
+
+    def overall_status(self):
+        self.xlw.status(start_date_time=self.start_date_time, version=self.version, server=self.server,
+                        path=self.__path, excel_save_name=self.use_case_name)
 
     def job_creation_report(self, job_creation_coll):
         testdata_headers = ['Job Tab', 'Job Create Button', 'Job Name', 'Job Attachment', 'Job Notifier', 'Description',

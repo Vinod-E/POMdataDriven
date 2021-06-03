@@ -146,5 +146,9 @@ if Object.login_success:
     Object.int2_completed_bucket()
     Object.interviewer_two_feedback1()
     Object.interviewer_two_update_feedback_decision()
+    """
+     <<=========== OUTPUT REPORTS GENERATOR PARTS HERE BELOWn =============>>
+    """
     Object.UNLOCK_OUTPUT.overall_status()
+    Object.UNLOCK_OUTPUT.html_report_generation()
     Object.environment.close()
