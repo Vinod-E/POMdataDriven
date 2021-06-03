@@ -127,5 +127,9 @@ if Object.login_success:
     Object.candidate_selection()
     Object.feedback_provide()
     Object.candidate_invitation()
+    """
+     <<=========== OUTPUT REPORTS GENERATOR PARTS HERE BELOWn =============>>
+    """
     Object.MASS_OUTPUT.overall_status()
+    Object.MASS_OUTPUT.html_report_generation()
     Object.environment.close()

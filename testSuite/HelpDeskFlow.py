@@ -33,7 +33,7 @@ class CRPOHelpDesk:
         help_desk_config = CrpoRequirementHelpDeskConfig(driver=driver, index=index, version=version)
         query = CandidateQueryRaise(driver=driver, index=index)
 
-        HELPDESK_output = HelpDeskReport.HelpDeskOutputReport(version=version, server=server, start_date_time=date_time)
+        HELPDESK_OUTPUT = HelpDeskReport.HelpDeskOutputReport(version=version, server=server, start_date_time=date_time)
 
     except Exception as error:
         ui_logger.error(error)
@@ -100,5 +100,9 @@ if Object.login_success:
     Object.staffing_user_login_1()
     Object.staffing_user_login_2()
     Object.staffing_user_login_3()
-    Object.HELPDESK_output.overall_status()
+    """
+     <<=========== OUTPUT REPORTS GENERATOR PARTS HERE BELOWn =============>>
+    """
+    Object.HELPDESK_OUTPUT.overall_status()
+    Object.HELPDESK_OUTPUT.html_report_generation()
     Object.environment.close()

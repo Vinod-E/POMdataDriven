@@ -108,5 +108,9 @@ if Object.login_success:
     Object.event_applicant_change_status_schedule2()
     Object.interview_two_login()
     Object.interview_two_cancel_interview()
+    """
+     <<=========== OUTPUT REPORTS GENERATOR PARTS HERE BELOWn =============>>
+    """
     Object.CANCEL_OUTPUT.overall_status()
+    Object.CANCEL_OUTPUT.html_report_generation()
     Object.environment.close()

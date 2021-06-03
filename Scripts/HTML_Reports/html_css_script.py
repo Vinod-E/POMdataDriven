@@ -110,6 +110,73 @@ function toggleDataSeries(e) {
 	e.chart.render();
 }
 }
+var barChartData = {
+  labels: [
+    "Sprint 1",
+    "Sprint 2",
+    "Sprint 3",
+    "Sprint 4",
+    "Sprint 5"
+  ],
+  datasets: [
+    {
+      label: "AMSIN",
+      backgroundColor: "#5972bf",
+      borderColor: "#5972bf",
+      borderWidth: 1,
+      data: [3, 5, 6, 7,3]
+    },
+    {
+      label: "BETA",
+      backgroundColor: "#c53f45",
+      borderColor: "#c53f45",
+      borderWidth: 1,
+      data: [4, 7, 3, 6, 10]
+    },
+    {
+      label: "AMS",
+      backgroundColor: "#00c9ad",
+      borderColor: "#00c9ad",
+      borderWidth: 1,
+      data: [10,7,4,6,9]
+    },
+    {
+     label: "INDIA",
+      backgroundColor: "#8fcb54",
+      borderColor: "#8fcb54",
+      borderWidth: 1,
+      data: [6,9,7,3,10]
+    }
+  ]
+};
+
+var chartOptions = {
+  responsive: true,
+  legend: {
+    position: "bottom"
+  },
+  title: {
+    display: true,
+    text: "Last 5 Sprints Report"
+  },
+  scales: {
+    yAxes: [{
+      ticks: {
+        beginAtZero: true
+      }
+    }]
+  }
+}
+
+window.onload = function() {
+  var ctx = document.getElementById("canvas").getContext("2d");
+  window.myBar = new Chart(ctx, {
+    type: "bar",
+    data: barChartData,
+    options: chartOptions
+  });
+};
+
 </script> 
 <style>.marginZero 
     {
@@ -700,7 +767,9 @@ font-weight: bold !important;
                 </table>
             </div>
             <div style="padding:0 48px 48px 48px">
-                <div id="chartContainer" style="margin-top:2rem;height: 300px; width: 100%;"></div>
+               <div id="container" style="margin-top:2rem;height: 300px; width: 100%;">
+                  <canvas id="canvas"></canvas>
+                </div>
                 <table style="border-collapse:collapse">
                     <tbody>
                         <tr>
@@ -750,7 +819,7 @@ font-weight: bold !important;
         </div>
     </center>
 </div>
- <script type="text/javascript" src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.3.0/Chart.bundle.js"></script>
 </body>
 </html>
         """)

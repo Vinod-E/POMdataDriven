@@ -200,6 +200,9 @@ if Object.login_success:
     Object.crpo_event_applicant_manage_details()
     Object.crpo_embrace_behalf_of_candidate()
     Object.crpo_event_applicant_manage_details_submitted_task()
+    """
+     <<=========== OUTPUT REPORTS GENERATOR PARTS HERE BELOWn =============>>
+    """
     Object.E2E_output.overall_status()
     Object.E2E_output.html_report_generation()
     Object.environment.close()
