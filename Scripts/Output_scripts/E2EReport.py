@@ -62,7 +62,7 @@ class E2EOutputReport:
                                      self.xlw.failure_cases, self.fail_color)
 
         self.history.create_pandas_excel(self.server, self.xlw.date_now, self.time,
-                                         self.version, self.xlw.total_cases, self.xlw.pass_cases,
+                                         self.version, int(self.xlw.total_cases), self.xlw.pass_cases,
                                          self.xlw.failure_cases, self.xlw.minutes)
 
     def overall_status(self):
