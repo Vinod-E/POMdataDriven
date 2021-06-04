@@ -1,115 +1,23 @@
+from Config import outputFile
+from Scripts.HTML_Reports.history_data_read import HistoryDataRead
+
+
 class HTMLReport:
 
     def __init__(self, path):
         self.outputFilePath = path
         self.file = open(self.outputFilePath, "wt")
 
+        self.__history_data_path = outputFile.OUTPUT_PATH['E2E_output_history']
+        self.history_dict = HistoryDataRead(self.__history_data_path)
+        self.history_dict.excel_data_dict()
+
     def html_css(self, environment, sprint, date_time, use_case, result, total, success, fail, fail_color):
         self.file.write("""
         <html>
         <head>
 <script type="text/javascript">
-window.onload = function () {
 
-var chart = new CanvasJS.Chart("chartContainer", {
-	animationEnabled: true,
-	title:{
-		text: "Sprint wise"
-	},
-	subtitles: [{
-		text: "Click Legend to Hide or Unhide Data Series"
-	}], 
-	axisX1: {
-		title: "Sprints",
-    lineColor: "white",
-	},
-	axisY: {
-		title: "Test cases",
-		titleFontColor: "#4F81BC",
-		lineColor: "white",
-		labelFontColor: "#4F81BC",
-		includeZero: true
-	},
-	axisY2: {
-		title: "",
-		titleFontColor: "white",
-		lineColor: "white",
-		labelFontColor: "white",
-		tickColor: "white",
-		includeZero: true
-	},
-	toolTip: {
-		shared: true
-	},
-	legend: {
-		cursor: "pointer",
-		itemclick: toggleDataSeries
-	},
-	data: [{
-		type: "column",
-		name: "AMSIN",
-		showInLegend: true,      
-		yValueFormatString: "#,##0.# Units",
-		dataPoints: [
-			{ label: "sprint1",  y: 19034.5 },
-			{ label: "sprint2", y: 20015 },
-			{ label: "sprint3", y: 25342 },
-			{ label: "sprint4",  y: 20088 },
-			{ label: "sprint5",  y: 28234 }
-		]
-	},
-  {
-		type: "column",
-		name: "Beta",
-		showInLegend: true,      
-		yValueFormatString: "#,##0.# Units",
-		dataPoints: [
-			{ label: "sprint1",  y: 2312.5 },
-			{ label: "sprint2", y: 2342 },
-			{ label: "sprint3", y: 2341 },
-			{ label: "sprint4",  y: 976 },
-			{ label: "sprint5",  y: 5553 }
-		]
-	},
-	{
-		type: "column",
-		name: "AMS",
-		axisYType: "secondary",
-		showInLegend: true,
-		yValueFormatString: "#,##0.# Units",
-		dataPoints: [
-			{ label: "sprint1", y: 210.5 },
-			{ label: "sprint2", y: 135 },
-			{ label: "sprint3", y: 425 },
-			{ label: "sprint4", y: 130 },
-			{ label: "sprint5", y: 528 }
-		]
-	},
-	{
-		type: "column",
-		name: "IndiaAMS",
-		showInLegend: true,      
-		yValueFormatString: "#,##0.# Units",
-		dataPoints: [
-			{ label: "sprint1",  y: 1212.5 },
-			{ label: "sprint2", y: 2342 },
-			{ label: "sprint3", y: 2341 },
-			{ label: "sprint4",  y: 976 },
-			{ label: "sprint5",  y: 5553 }
-		]
-	}]
-});
-chart.render();
-
-function toggleDataSeries(e) {
-	if (typeof (e.dataSeries.visible) === "undefined" || e.dataSeries.visible) {
-		e.dataSeries.visible = false;
-	} else {
-		e.dataSeries.visible = true;
-	}
-	e.chart.render();
-}
-}
 var barChartData = {
   labels: [
     "Sprint 1",
@@ -121,35 +29,73 @@ var barChartData = {
   datasets: [
     {
       label: "AMSIN",
-      backgroundColor: "#5972bf",
-      borderColor: "#5972bf",
+      backgroundColor: "#9caad6",
+      borderColor: "#9caad6",
       borderWidth: 1,
       data: [3, 5, 6, 7,3]
     },
     {
       label: "BETA",
-      backgroundColor: "#c53f45",
-      borderColor: "#c53f45",
+      backgroundColor: "#d88589",
+      borderColor: "#d88589",
       borderWidth: 1,
       data: [4, 7, 3, 6, 10]
     },
     {
       label: "AMS",
-      backgroundColor: "#00c9ad",
-      borderColor: "#00c9ad",
+      backgroundColor: "#98e1d2",
+      borderColor: "#98e1d2",
       borderWidth: 1,
       data: [10,7,4,6,9]
     },
     {
      label: "INDIA",
-      backgroundColor: "#8fcb54",
-      borderColor: "#8fcb54",
+      backgroundColor: "#b9de94",
+      borderColor: "#b9de94",
       borderWidth: 1,
       data: [6,9,7,3,10]
     }
   ]
 };
-
+var timer_barChartData = {
+  labels: [
+    "Sprint 1",
+    "Sprint 2",
+    "Sprint 3",
+    "Sprint 4",
+    "Sprint 5"
+  ],
+  datasets: [
+    {
+      label: "AMSIN",
+      backgroundColor: "#9caad6",
+      borderColor: "#9caad6",
+      borderWidth: 1,
+      data: [3, 5, 6, 7,3]
+    },
+    {
+      label: "BETA",
+      backgroundColor: "#d88589",
+      borderColor: "#d88589",
+      borderWidth: 1,
+      data: [4, 7, 3, 6, 10]
+    },
+    {
+      label: "AMS",
+      backgroundColor: "#98e1d2",
+      borderColor: "#98e1d2",
+      borderWidth: 1,
+      data: [10,7,4,6,9]
+    },
+    {
+     label: "INDIA",
+      backgroundColor: "#b9de94",
+      borderColor: "#b9de94",
+      borderWidth: 1,
+      data: [6,9,7,3,10]
+    }
+  ]
+};
 var chartOptions = {
   responsive: true,
   legend: {
@@ -157,23 +103,53 @@ var chartOptions = {
   },
   title: {
     display: true,
-    text: "Last 5 Sprints Report"
+    text: "Last 5 Sprints (Use Cases) Report"
   },
   scales: {
     yAxes: [{
+    scaleLabel: {
+        display: true,
+        labelString: 'Use Cases'
+      },
       ticks: {
         beginAtZero: true
       }
     }]
   }
 }
-
+var chart_time_Options = {
+  responsive: true,
+  legend: {
+    position: "bottom"
+  },
+  title: {
+    display: true,
+    text: "Last 5 Sprints (Time Taken) Report"
+  },
+  scales: {
+    yAxes: [{
+    scaleLabel: {
+        display: true,
+        labelString: 'Time (min)'
+      },
+      ticks: {
+        beginAtZero: true
+      }
+    }]
+  }
+}
 window.onload = function() {
   var ctx = document.getElementById("canvas").getContext("2d");
+  var ctx_time = document.getElementById("canvas_time").getContext("2d");
   window.myBar = new Chart(ctx, {
     type: "bar",
     data: barChartData,
     options: chartOptions
+  });
+  window.myBar = new Chart(ctx_time, {
+    type: "bar",
+    data: timer_barChartData,
+    options: chart_time_Options
   });
 };
 
@@ -652,123 +628,18 @@ font-weight: bold !important;
                 </tbody>
             </table>
         </div>
-            <div style="background:#F9F9F9;padding:32px 48px 32px 40px;max-width:598px">
-                <table style="border-collapse:collapse">
-                    <tbody>
-                        <tr valign="top">
-                            <td align="left"
-                                style="padding-left:8px;line-height:20px;font-size:16px;max-width:480px;min-height:16px">
-                                <div
-                                    style="font-size:16px;font-weight:700;letter-spacing:-.12px;text-align:left;color:#000">
-                                    Last 10 runs</div>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td style="padding-top:16px;max-width:480px;width:480px" width="480">
-                                <table align="left" width="480" style="width:480px;max-width:480px">
-                                    <tbody>
-                                        <tr valign="top">
-                                            <td width="48" style="width:48px;min-width:48px;word-break:break-word">
-                                                <table width="32" style="width:32px;max-width:32px;min-width:32px">
-                                                    <tbody>
-                                                        <tr>
-                                                            <td width="32px" style="border-collapse:collapse">
-                                                                <div class="prevSlot">&hairsp;</div>
-                                                            </td>
-                                                        </tr>
-                                                    </tbody>
-                                                </table>
-                                                <div style="padding-top:2px;text-align:left;width:100%">
-                                                    <table class="collapseBorder">
-                                                        <tbody>
-                                                            <tr>
-                                                                <td class="graphLabel">10:&zwnj;37 </td>
-                                                            </tr>
-                                                            <tr>
-                                                                <td class="graphLabel">AM </td>
-                                                            </tr>
-                                                            <tr>
-                                                                <td class="graphLabel">Jun </td>
-                                                            </tr>
-                                                            <tr>
-                                                                <td class="graphLabel">1 </td>
-                                                            </tr>
-                                                        </tbody>
-                                                    </table>
-                                                </div>
-                                            </td>
-                                            <td width="48" style="width:48px;min-width:48px;word-break:break-word">
-                                                <table width="32" style="width:32px;max-width:32px;min-width:32px">
-                                                    <tbody>
-                                                        <tr>
-                                                            <td>
-                                                                <div class="prevSlot">&hairsp;</div>
-                                                            </td>
-                                                        </tr>
-                                                    </tbody>
-                                                </table>
-                                                <div style="padding-top:2px;text-align:left;width:100%">
-                                                    <table class="collapseBorder">
-                                                        <tbody>
-                                                            <tr>
-                                                                <td class="graphLabel">
-                                                                    10:&zwnj;37 </td>
-                                                            </tr>
-                                                            <tr>
-                                                                <td class="graphLabel">
-                                                                    AM </td>
-                                                            </tr>
-                                                            <tr>
-                                                                <td class="graphLabel"></td>
-                                                            </tr>
-                                                            <tr>
-                                                                <td class="graphLabel"></td>
-                                                            </tr>
-                                                        </tbody>
-                                                    </table>
-                                                </div>
-                                            </td>
-                                            <td style="width:48px;min-width:48px;word-break:break-word">
-                                                <table style="width:32px;max-width:32px;min-width:32px">
-                                                    <tbody>
-                                                        <tr>
-                                                            <td class="collapseBorder">
-                                                                <div class="latestSlot">&hairsp;</div>
-                                                            </td>
-                                                        </tr>
-                                                    </tbody>
-                                                </table>
-                                                <div style="padding-top:2px;text-align:left;width:100%">
-                                                    <table class="collapseBorder">
-                                                        <tbody>
-                                                            <tr>
-                                                                <td class="graphLabel">10:&zwnj;40 </td>
-                                                            </tr>
-                                                            <tr>
-                                                                <td class="graphLabel">AM </td>
-                                                            </tr>
-                                                            <tr>
-                                                                <td class="graphLabel"></td>
-                                                            </tr>
-                                                            <tr>
-                                                                <td class="graphLabel"></td>
-                                                            </tr>
-                                                        </tbody>
-                                                    </table>
-                                                </div>
-                                            </td>
-                                            <td style="font-size:1px;line-height:1px">&nbsp;</td>
-                                        </tr>
-                                    </tbody>
-                                </table>
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
+            <div style="padding:32px 48px 32px 40px;max-width:598px">
+                <div id="container" style="margin-top:2rem;height: 300px; width: 100%;">
+                  <canvas id="canvas_time"></canvas>
+                  <div style="font-size:12px;font-family: 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif;
+    font-weight: 600;"> <p> Chart legends are clickable to view the specific items </p> </div>
+                </div>
             </div>
             <div style="padding:0 48px 48px 48px">
                <div id="container" style="margin-top:2rem;height: 300px; width: 100%;">
                   <canvas id="canvas"></canvas>
+                  <div style="font-size:12px;font-family: 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif;
+    font-weight: 600;"> <p> Chart legends are clickable to view the specific items </p> </div>
                 </div>
                 <table style="border-collapse:collapse">
                     <tbody>
