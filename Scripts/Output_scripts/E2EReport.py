@@ -1,3 +1,4 @@
+from datetime import datetime
 from utilities import excelWrite
 from Config import outputFile
 from Scripts.HTML_Reports.html_css_script import HTMLReport
@@ -14,6 +15,7 @@ class E2EOutputReport:
         self.version = version
         self.server = server
         self.start_date_time = start_date_time
+        self.time = datetime.now()
         self.__path = outputFile.OUTPUT_PATH['E2E_output']
         self.xlw = excelWrite.ExcelReportWrite(version=self.version, test_cases=self.TestCases)
 
@@ -59,7 +61,7 @@ class E2EOutputReport:
                                      self.xlw.total_cases, self.xlw.pass_cases,
                                      self.xlw.failure_cases, self.fail_color)
 
-        self.history.create_pandas_excel(self.server, self.xlw.date_now, self.xlw.time,
+        self.history.create_pandas_excel(self.server, self.xlw.date_now, self.time,
                                          self.version, self.xlw.total_cases, self.xlw.pass_cases,
                                          self.xlw.failure_cases, self.xlw.minutes)
 

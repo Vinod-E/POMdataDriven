@@ -1,7 +1,6 @@
 import xlwt
 import datetime
 from datetime import date
-from datetime import datetime
 from utilities import styles
 from Listeners.logger_settings import ui_logger
 
@@ -11,7 +10,6 @@ class ExcelReportWrite(styles.FontColor):
         super(ExcelReportWrite, self).__init__()
 
         self.date_now = str(date.today())
-        self.time = datetime.now()
         self.Expected_success_cases = list(map(lambda x: 'Pass', range(0, test_cases)))
         self.Actual_success_cases = []
         self.total_cases = str(len(self.Expected_success_cases))

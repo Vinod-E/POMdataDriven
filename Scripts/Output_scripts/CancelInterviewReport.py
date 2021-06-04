@@ -1,6 +1,8 @@
+from datetime import datetime
 from Scripts.HTML_Reports.html_css_script import HTMLReport
 from utilities import excelWrite
 from Config import outputFile
+from utilities.HistoryexcelWriter import HistoryOutput
 
 
 class CancelInterviewOutputReport:
@@ -14,6 +16,7 @@ class CancelInterviewOutputReport:
         self.version = version
         self.server = server
         self.start_date_time = start_date_time
+        self.time = datetime.now()
         self.__path = outputFile.OUTPUT_PATH['Cancel_Interview_output']
         self.xlw = excelWrite.ExcelReportWrite(version=version, test_cases=self.TestCases)
 
@@ -33,7 +36,9 @@ class CancelInterviewOutputReport:
         self.xlw.excel_header_by_index(row=17, col=0, excel_headers_list=excel_headers_2,
                                        color_headers_list=color_headers_2)
 
-        """ <<<================== HTML Report Generator =================================>>> """
+        """ <<<================== HTML / History Report Generator =================================>>> """
+        self.__history_path = outputFile.OUTPUT_PATH['Cancel_Interview_output_history']
+        self.history = HistoryOutput(self.__history_path)
         self.__html_path = outputFile.OUTPUT_PATH['Cancel_Interview_output_html']
         self.html_generator = HTMLReport(self.__html_path)
 
@@ -47,6 +52,10 @@ class CancelInterviewOutputReport:
                                      self.use_case_name, self.xlw.result,
                                      self.xlw.total_cases, self.xlw.pass_cases,
                                      self.xlw.failure_cases, self.fail_color)
+
+        self.history.create_pandas_excel(self.server, self.xlw.date_now, self.time,
+                                         self.version, self.xlw.total_cases, self.xlw.pass_cases,
+                                         self.xlw.failure_cases, self.xlw.minutes)
 
     def overall_status(self):
         self.xlw.status(start_date_time=self.start_date_time, version=self.version, server=self.server,
