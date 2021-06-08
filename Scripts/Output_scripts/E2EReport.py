@@ -1,15 +1,13 @@
 from datetime import datetime
 from utilities import excelWrite
 from Config import outputFile
-from Scripts.HTML_Reports.html_css_script import HTMLReport
-from utilities.HistoryexcelWriter import HistoryOutput
+from Scripts.HTML_Reports.history_data_html_generator import HistoryDataHTMLGenerator
 
 
 class E2EOutputReport:
     """ Number of Test cases / use cases name """
     TestCases = 269
     use_case_name = 'E2E REGRESSION FLOW'
-    fail_color = ''
 
     def __init__(self, version, server, start_date_time):
         self.version = version
@@ -44,26 +42,21 @@ class E2EOutputReport:
         self.xlw.excel_header_by_index(row=39, col=0, excel_headers_list=excel_headers_3,
                                        color_headers_list=color_headers_3)
 
-        """ <<<================== HTML / History Report Generator =================================>>> """
+        """ <<<================== HTML / History Report Generator ==============================>>> """
         self.__history_path = outputFile.OUTPUT_PATH['E2E_output_history']
-        self.history = HistoryOutput(self.__history_path)
         self.__html_path = outputFile.OUTPUT_PATH['E2E_output_html']
-        self.html_generator = HTMLReport(self.__html_path)
+        self.history_data_with_html_report = HistoryDataHTMLGenerator(self.__history_path, self.__html_path)
 
-    def html_report_generation(self):
-        if self.xlw.failure_cases != 0:
-            self.fail_color = 'summaryFail'
-        else:
-            self.fail_color = 'summaryPass'
+    def history_html_generator(self):
+        self.history_data_with_html_report.history_data_save_read(self.server, self.xlw.date_now, self.time,
+                                                                  self.version, self.xlw.total_cases,
+                                                                  self.xlw.pass_cases,
+                                                                  self.xlw.failure_cases, self.xlw.minutes)
 
-        self.html_generator.html_css(self.server, self.version, self.xlw.date_now,
-                                     self.use_case_name, self.xlw.result,
-                                     self.xlw.total_cases, self.xlw.pass_cases,
-                                     self.xlw.failure_cases, self.fail_color)
-
-        self.history.create_pandas_excel(self.server, self.xlw.date_now, self.time,
-                                         self.version, int(self.xlw.total_cases), self.xlw.pass_cases,
-                                         self.xlw.failure_cases, self.xlw.minutes)
+        self.history_data_with_html_report.html_report_generation(self.server, self.version, self.xlw.date_now,
+                                                                  self.use_case_name, self.xlw.result,
+                                                                  self.xlw.total_cases, self.xlw.pass_cases,
+                                                                  self.xlw.failure_cases)
 
     def overall_status(self):
         self.xlw.status(start_date_time=self.start_date_time, version=self.version, server=self.server,

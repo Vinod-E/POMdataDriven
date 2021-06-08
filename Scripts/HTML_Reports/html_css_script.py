@@ -1,6 +1,3 @@
-from Config import outputFile
-from Scripts.HTML_Reports.history_data_read import HistoryDataRead
-
 
 class HTMLReport:
 
@@ -8,11 +5,8 @@ class HTMLReport:
         self.outputFilePath = path
         self.file = open(self.outputFilePath, "wt")
 
-        self.__history_data_path = outputFile.OUTPUT_PATH['E2E_output_history']
-        self.history_dict = HistoryDataRead(self.__history_data_path)
-        self.history_dict.excel_data_dict()
-
     def html_css(self, environment, sprint, date_time, use_case, result, total, success, fail, fail_color):
+        print('**----->> Start the Printing of HTML report')
         self.file.write("""
         <html>
         <head>

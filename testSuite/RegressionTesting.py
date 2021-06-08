@@ -204,5 +204,5 @@ if Object.login_success:
      <<=========== OUTPUT REPORTS GENERATOR PARTS HERE BELOWn =============>>
     """
     Object.E2E_output.overall_status()
-    Object.E2E_output.html_report_generation()
+    Object.E2E_output.history_html_generator()
     Object.environment.close()

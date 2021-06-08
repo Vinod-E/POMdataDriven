@@ -75,3 +75,4 @@ class HistoryOutput:
         df.to_excel(writer, sheet_name=sheet_name, index=False, header=False, startrow=length + 1)
         writer.save()
         writer.close()
+        print('**----->> Excel History Data - Saved')

@@ -22,7 +22,7 @@ class ExcelReportWrite(styles.FontColor):
         # Excel sheet write for Output results
         # -------------------------------------
         self.wb_Result = xlwt.Workbook()
-        self.ws = self.wb_Result.add_sheet('UI_Automation_{}'.format(version))
+        self.ws = self.wb_Result.add_sheet('UI_{}'.format(version))
 
     def excel_header_by_index(self, row, col, excel_headers_list, color_headers_list):
         column = col
