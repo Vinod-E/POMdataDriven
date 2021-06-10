@@ -28,8 +28,8 @@ class HistoryDataHTMLGenerator:
         self.history_dict.ams_dict_data(version)
         self.history_dict.india_dict_data(version)
 
-    def html_report_generation(self, environment, version, date, use_case_name, result, total_cases,
-                               pass_cases, failure_cases, success_percentage, execution_time, time):
+    def html_report_generation(self, environment, version, date_time, use_case_name, result, total_cases,
+                               pass_cases, failure_cases, success_percentage, execution_time, time, date):
         """
          =============>> Calling above function for data pulling from different dicts <<==============
         """
@@ -41,7 +41,7 @@ class HistoryDataHTMLGenerator:
         else:
             self.fail_color = 'summaryPass'
 
-        self.html_generator.html_css(environment, version, date, use_case_name, result, total_cases,
+        self.html_generator.html_css(environment, version, date_time, use_case_name, result, total_cases,
                                      pass_cases, failure_cases, self.fail_color,
                                      self.history_dict.graph_sprint_names, self.history_dict.amsin_pass_cases,
                                      self.history_dict.beta_pass_cases, self.history_dict.ams_pass_cases,
