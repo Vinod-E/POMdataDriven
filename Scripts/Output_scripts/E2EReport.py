@@ -48,15 +48,11 @@ class E2EOutputReport:
         self.history_data_with_html_report = HistoryDataHTMLGenerator(self.__history_path, self.__html_path)
 
     def history_html_generator(self):
-        self.history_data_with_html_report.history_data_save_read(self.server, self.xlw.date_now, self.time,
-                                                                  self.version, self.xlw.total_cases,
-                                                                  self.xlw.pass_cases,
-                                                                  self.xlw.failure_cases, self.xlw.minutes)
-
-        self.history_data_with_html_report.html_report_generation(self.server, self.version, self.xlw.date_now,
+        self.history_data_with_html_report.html_report_generation(self.server, self.version, self.start_date_time,
                                                                   self.use_case_name, self.xlw.result,
                                                                   self.xlw.total_cases, self.xlw.pass_cases,
-                                                                  self.xlw.failure_cases)
+                                                                  self.xlw.failure_cases, self.xlw.percentage,
+                                                                  self.xlw.minutes, self.time)
 
     def overall_status(self):
         self.xlw.status(start_date_time=self.start_date_time, version=self.version, server=self.server,

@@ -17,6 +17,7 @@ class ExcelReportWrite(styles.FontColor):
         self.failure_cases = ''
         self.result = ''
         self.minutes = ''
+        self.percentage = ''
 
         # -------------------------------------
         # Excel sheet write for Output results
@@ -68,7 +69,7 @@ class ExcelReportWrite(styles.FontColor):
             self.pass_cases = len(self.Actual_success_cases)
             print('Expected Cases::', len(self.Expected_success_cases))
             print('Actual Cases::', len(self.Actual_success_cases))
-            percentage = len(self.Actual_success_cases) * 100 / len(self.Expected_success_cases)
+            self.percentage = len(self.Actual_success_cases) * 100 / len(self.Expected_success_cases)
             end_date_time = datetime.datetime.now()
             time_taken = end_date_time - start_date_time
             self.minutes = time_taken.total_seconds() / 60
@@ -95,7 +96,7 @@ class ExcelReportWrite(styles.FontColor):
             else:
                 self.ws.write(0, 11, self.failure_cases, self.style6)
             self.ws.write(0, 12, 'Success %', self.style4)
-            self.ws.write(0, 13, percentage, self.style5)
+            self.ws.write(0, 13, self.percentage, self.style5)
             self.ws.write(0, 14, 'Time Taken (min)', self.style4)
             self.ws.write(0, 15, self.minutes, self.style5)
             self.wb_Result.save(path)
