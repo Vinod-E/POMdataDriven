@@ -81,3 +81,13 @@ class ReadConfig:
     def get_indiaams_embrace_url():
         url = config.get('embraceLoginUrls', 'INDIAAMS')
         return url
+
+    @staticmethod
+    def file_handler_api():
+        handler = config.get('AWS', 'HANDLER')
+        return handler
+
+    @staticmethod
+    def login_api():
+        login = config.get('AWS', 'LOGIN')
+        return login

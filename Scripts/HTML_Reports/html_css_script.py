@@ -309,11 +309,11 @@ style="border:0;display:block;outline:0;text-decoration:none;height:auto">
 <button type="button" id="btnSubmit" title="HTML Web Report" class="btn btn-primary btn-sm custBtn"><img  
 src="https://image.flaticon.com/icons/png/512/2353/2353373.png" width="25" height="25"/> View Run Results</button>
 <button type="button" id="btnCancel" title="Download Excel Report" class="btn btn-primary btn-sm custBtn"><img  
-src="https://image.flaticon.com/icons/png/512/3325/3325366.png" width="25" height="25"/> Excel Download</button>
+src="https://image.flaticon.com/icons/png/512/1053/1053166.png" width="25" height="25"/> Excel Download</button>
 <a title="sprint wise automation reports" 
 href="https://drive.google.com/drive/u/1/folders/186nL7DWI_ZoMklgcwIUykC4tSQuECtGH" target="_blank" type="button" 
 id="btnCancel" class="btn btn-primary btn-sm custBtn"><img  
-src="https://image.flaticon.com/icons/png/512/2111/2111436.png" width="25" height="25"/> Google Drive</a>
+src="https://image.flaticon.com/icons/png/512/2965/2965323.png" width="25" height="25"/> Google Drive</a>
 				</div>
         	</div>
             </div>

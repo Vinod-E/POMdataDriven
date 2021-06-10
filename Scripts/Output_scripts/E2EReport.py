@@ -1,6 +1,7 @@
 from datetime import datetime
 from utilities import excelWrite
 from Config import outputFile
+from Scripts.HTML_Reports.amazon_aws_s3 import AWS
 from Scripts.HTML_Reports.history_data_html_generator import HistoryDataHTMLGenerator
 
 
@@ -46,13 +47,15 @@ class E2EOutputReport:
         self.__history_path = outputFile.OUTPUT_PATH['E2E_output_history']
         self.__html_path = outputFile.OUTPUT_PATH['E2E_output_html']
         self.history_data_with_html_report = HistoryDataHTMLGenerator(self.__history_path, self.__html_path)
+        self.amazon_s3 = AWS(self.use_case_name, self.__html_path)
 
     def history_html_generator(self):
         self.history_data_with_html_report.html_report_generation(self.server, self.version, self.start_date_time,
                                                                   self.use_case_name, self.xlw.result,
                                                                   self.xlw.total_cases, self.xlw.pass_cases,
                                                                   self.xlw.failure_cases, self.xlw.percentage,
-                                                                  self.xlw.minutes, self.time)
+                                                                  self.xlw.minutes, self.time, self.xlw.date_now)
+        self.amazon_s3.file_handler()
 
     def overall_status(self):
         self.xlw.status(start_date_time=self.start_date_time, version=self.version, server=self.server,
