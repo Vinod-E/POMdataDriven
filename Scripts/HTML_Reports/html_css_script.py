@@ -1,3 +1,6 @@
+from Scripts.HTML_Reports.amazon_aws_s3 import AWS
+
+
 class HTMLReport:
 
     def __init__(self, path):
@@ -6,7 +9,11 @@ class HTMLReport:
 
     def html_css(self, environment, sprint, date_time, use_case, result, total, success, fail, fail_color,
                  sprint_names, qa_data, beta_data, prod_data, india_data,
-                 qa_time, beta_time, prod_time, india_time, success_percentage, execution_time):
+                 qa_time, beta_time, prod_time, india_time, success_percentage, execution_time, download_file):
+
+        self.amazon_s3 = AWS('{}.xls'.format(sprint), download_file)
+        self.amazon_s3.file_handler()
+
         print('**----->> Start the Printing of HTML report')
         self.file.write("""
         <html>
@@ -221,6 +228,7 @@ window.onload = function() {
 
     body {
         font-family: Inter, Segoe UI, Roboto, Arial, verdana, geneva, sans-serif;
+        background: #f5f2f2;
 
     }
     .tableStyle{
@@ -294,7 +302,7 @@ font-weight: bold !important;
 </style>
 </head>
 <body>
-<div class="container" style="border: 1px solid #e2e2e2;margin-top: 1rem; margin-bottom: 1rem;">
+<div class="container" style="background: #ffff !important;border: 1px solid #e2e2e2;margin-top: 1rem; margin-bottom: 1rem;">
 <div class="row" style="    padding: 20px;">
 <a href="">
 <img width="142"
@@ -302,14 +310,21 @@ src="https://hirepro.in/wp-content/uploads/2020/08/hirepro-new-logo-dark-slim.pn
 style="border:0;display:block;outline:0;text-decoration:none;height:auto">
 </a>
     <div class="row" style="margin-top: 3rem">
-<div class="col-xs-12 col-sm-6 subHeader"> Automated Test Reporting
+<div class="col-xs-12 col-sm-12 col-lg-6 subHeader"> Automated Test Reporting
 </div>
-<div class="col-xs-12 col-sm-6">
+<div class="col-xs-12 col-sm-12 col-lg-6">
 <div class="btn-toolbar" style="float: right;">
-<button type="button" id="btnSubmit" title="HTML Web Report" class="btn btn-primary btn-sm custBtn"><img  
-src="https://image.flaticon.com/icons/png/512/2353/2353373.png" width="25" height="25"/> View Run Results</button>
-<button type="button" id="btnCancel" title="Download Excel Report" class="btn btn-primary btn-sm custBtn"><img  
-src="https://image.flaticon.com/icons/png/512/1053/1053166.png" width="25" height="25"/> Excel Download</button>
+
+<a href=""  
+type="button" id="btnSubmit" title="HTML Web Report" class="btn btn-primary btn-sm custBtn"><img  
+src="https://image.flaticon.com/icons/png/512/2353/2353373.png" width="25" height="25"/> View Run Results</a>
+
+
+<a href=""" + self.amazon_s3.one_day_link + """ target="_blank" 
+type="button" id="btnCancel" title="Download Excel Report" class="btn btn-primary btn-sm custBtn"><img  
+src="https://image.flaticon.com/icons/png/512/1053/1053166.png" width="25" height="25"/> Excel Download</a>
+
+
 <a title="sprint wise automation reports" 
 href="https://drive.google.com/drive/u/1/folders/186nL7DWI_ZoMklgcwIUykC4tSQuECtGH" target="_blank" type="button" 
 id="btnCancel" class="btn btn-primary btn-sm custBtn"><img  
@@ -326,7 +341,7 @@ src="https://image.flaticon.com/icons/png/512/2965/2965323.png" width="25" heigh
           </p>
          
           <div class="row">
-            <div class="col-xs-6 ">
+            <div class="col-xs-12 col-lg-6 ">
              <table class="table table-sm tableStyle" >
 			  
 			  <tbody>
@@ -367,8 +382,8 @@ src="https://image.flaticon.com/icons/png/512/2965/2965323.png" width="25" heigh
                     </div>
                 	</td>
 			      
-			    </tr> <tr>
-			      
+			    </tr> 
+			    <tr style="border-bottom: 1px solid #ddd;"> 		      
 			      <td>Run Date&Time</td>
 			      <td>	
 					<div class="tbltd">
@@ -379,7 +394,7 @@ src="https://image.flaticon.com/icons/png/512/2965/2965323.png" width="25" heigh
 			  </tbody>
 			</table>
             </div>
-            <div class="col-xs-6 ">
+            <div class="col-xs-12 col-lg-6">
               <table class="table table-sm tableStyle" >
 			  
 			  <tbody>
@@ -412,20 +427,13 @@ src="https://image.flaticon.com/icons/png/512/2965/2965323.png" width="25" heigh
 			    <tr>
 			      <td>Success %</td>
 			      <td>	
-	
+
 					<div class="tbltd">
-						<div style="font-size:12px;
-						font-style:normal;
-						line-height:16px;
-						text-align:left" 
-						class="Pass">""" + str(success_percentage) + """  %</div>
-<!--                         <a class="alink">100 %</a>
- -->                    </div>
+						<div style="font-size:12px;font-style:normal;line-height:16px;
+						text-align:left" class=""" + result + """>""" + str(success_percentage) + """  %</div>
 					</td>
-			      
 			    </tr>
-			    <tr>
-			      
+			    <tr style="border-bottom: 1px solid #ddd;"> 
 			      <td>Result</td>
 			      <td>	
 					<div class="tbltd">
@@ -442,7 +450,10 @@ src="https://image.flaticon.com/icons/png/512/2965/2965323.png" width="25" heigh
       </div>
      
        <div class="row row-offcanvas row-offcanvas-right">
-	        <div class="col-xs-12 col-sm-6">
+       <div style="margin-bottom: 0rem;text-align: left;margin-top: 3rem;margin-left: 2rem;">
+         <div class="summHeader" style="color: #6b6b6b;">Historical Summary</div>
+     	</div>
+	        <div class="col-xs-12 col-sm-12 col-lg-6">
 			<div style="padding:32px 48px 0px 40px;">
 				<div id="container" style="margin-top:2rem;height: 300px; width: 100%;">
 					<canvas id="canvas"></canvas>
@@ -451,7 +462,7 @@ src="https://image.flaticon.com/icons/png/512/2965/2965323.png" width="25" heigh
 				</div>
 			</div>
 	        </div>
-	        <div class="col-xs-12 col-sm-6">
+	        <div class="col-xs-12 col-sm-12 col-lg-6">
 	        	<div style="padding:32px 48px 0px 40px;">
                 <div id="container" style="margin-top:2rem;height: 300px; width: 100%;">
                   <canvas id="canvas_time"></canvas>
@@ -462,9 +473,9 @@ src="https://image.flaticon.com/icons/png/512/2965/2965323.png" width="25" heigh
     	</div>
   </div>
    <div class="row row-offcanvas row-offcanvas-right">
-   	<div class="col-xs-12 col-sm-6">
-   		<div style="margin-bottom: 3rem;text-align: left;margin-top: 5rem;">
-         <div class="summHeader">Last run summary</div>
+   	<div class="col-xs-12 col-sm-12 col-lg-6">
+   		<div style="margin-bottom: 3rem;text-align: left;margin-top: 0rem;">
+         <div class="summHeader" style="color: #6b6b6b;"> Last run summary</div>
      	</div>
    		<table class="table table-sm tableStyle" >
 			 <tbody>
@@ -477,14 +488,14 @@ src="https://image.flaticon.com/icons/png/512/2965/2965323.png" width="25" heigh
                 </tr>
                 <tr>
                 <td class="summaryHeads" style="border-bottom:1px solid #ededed;">Tests</td>
-                <td class="summaryRow summaryPass">""" + str(success) + """</td>
-                <td class="summaryRow """ + fail_color + """ ">""" + str(fail) + """</td>
-                <td class="summaryRow" style="font-weight:bold;color: black;">""" + str(total) + """</td>
+                <td class="summaryRow summaryPass" style="border-bottom:1px solid #ededed;">""" + str(success) + """</td>
+                <td style="border-bottom:1px solid #ededed;" class="summaryRow """ + fail_color + """ ">""" + str(fail) + """</td>
+                <td style="border-bottom:1px solid #ededed;" class="summaryRow" style="font-weight:bold;color: black;">""" + str(total) + """</td>
                 </tr>
             </tbody>
 			</table>
    	</div>
-   	<div class="col-xs-12 col-sm-6"> 
+   	<div class="col-xs-12 col-sm-12 col-lg-6"> 
    		<div style="padding:32px 48px 0px 40px;">
                 <div id="container" style="height: 150px; width: 100%;">
                   <canvas id="myChart123"></canvas>

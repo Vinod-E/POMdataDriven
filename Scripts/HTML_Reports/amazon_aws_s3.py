@@ -11,6 +11,7 @@ class AWS:
         self.__html_path = path
         self.__file_name = save_file_name
         self.get_token = ''
+        self.one_day_link = ''
 
         """
          ----------------- EXCEL READ AND TO ASSIGN VALUES TO RESPECTIVE INIT VARIABLES ------>>>>
@@ -46,6 +47,15 @@ class AWS:
         }
         with open(self.__html_path, "rb") as a_file:
             file_context = a_file.read()
-            file_dict = {'{}_.html'.format(self.__file_name): file_context}
-        response = requests.post(url, headers=headers, files=file_dict)
-        print(response.text)
+            if 'html' in self.__file_name:
+                file_dict = {'{}_.html'.format(self.__file_name): file_context}
+                response = requests.post(url, headers=headers, files=file_dict)
+                # print(response.text)
+            elif 'xls' in self.__file_name:
+                file_dict = {'{}_.xls'.format(self.__file_name): file_context}
+                response = requests.post(url, headers=headers, files=file_dict)
+                # print(response.text)
+        res = json.loads(response.content)
+        data = res.get('data')
+        self.one_day_link = data.get('fileUrl')
+        print('Expire In One Day:: ', self.one_day_link)

@@ -112,5 +112,5 @@ if Object.login_success:
      <<=========== OUTPUT REPORTS GENERATOR PARTS HERE BELOWn =============>>
     """
     Object.CANCEL_OUTPUT.overall_status()
-    Object.CANCEL_OUTPUT.html_report_generation()
+    Object.CANCEL_OUTPUT.history_html_generator()
     Object.environment.close()

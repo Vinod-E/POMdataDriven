@@ -14,7 +14,7 @@ const myChartData = {
         labels: ["PASS", "FAIL"],
         datasets: [{
             label: "Test",
-            data: [0,269],
+            data: [268,1],
             backgroundColor: [
                 'green',
                 'red'
@@ -50,40 +50,40 @@ var barChartData = {
   labels: ['AMSIN', 'BETA', 'AMS', 'INDIA'],
   datasets: [
     {
-      label: "Sprint_142",
+      label: "Sprint_144",
       backgroundColor: "#9caad6",
       borderColor: "#9caad6",
       borderWidth: 1,
-      data: [0,269,269,269]
+      data: [200,200,269,269]
       
     },
     {
-      label: "Sprint_141",
+      label: "Sprint_143",
       backgroundColor: "#d88589",
       borderColor: "#d88589",
       borderWidth: 1,
-      data: [0,269,269,269]
+      data: [260,260,260,269]
     },
     {
-      label: "Sprint_140",
+      label: "Sprint_142",
       backgroundColor: "#98e1d2",
       borderColor: "#98e1d2",
       borderWidth: 1,
-      data: [0,269,269,269]
+      data: [269,209,269,269]
     },
     {
-     label: "Sprint_139",
+     label: "Sprint_141",
       backgroundColor: "#b9de94",
       borderColor: "#b9de94",
       borderWidth: 1,
-      data: [0,269,269,269]
+      data: [269,269,269,269]
     },
     {
-     label: "Sprint_138",
+     label: "Sprint_140",
       backgroundColor: "pink",
       borderColor: "pink",
       borderWidth: 1,
-      data: [0,269,268,269]
+      data: [268,268,268,269]
     }
   ]
 };
@@ -91,39 +91,39 @@ var timer_barChartData = {
   labels: ['AMSIN', 'BETA', 'AMS', 'INDIA'],
   datasets: [
     {
-      label: "Sprint_142",
+      label: "Sprint_144",
       backgroundColor: "#9caad6",
       borderColor: "#9caad6",
       borderWidth: 1,
-      data: [0.4801402667,4,2.0,4]
+      data: [4.66,4.66,4.66,4.66]
     },
     {
-      label: "Sprint_141",
+      label: "Sprint_143",
       backgroundColor: "#d88589",
       borderColor: "#d88589",
       borderWidth: 1,
-      data: [0.1526200167,4,4.0,4]
+      data: [4.0,5.0,5.0,5.0]
     },
     {
-      label: "Sprint_140",
+      label: "Sprint_142",
       backgroundColor: "#98e1d2",
       borderColor: "#98e1d2",
       borderWidth: 1,
-      data: [0.1406365,4,4.0,3]
+      data: [4.11,4.11,4.11,4.11]
     },
     {
-     label: "Sprint_139",
+     label: "Sprint_141",
       backgroundColor: "#b9de94",
       borderColor: "#b9de94",
       borderWidth: 1,
-      data: [0.1536477667,4,4.0,4]
+      data: [3.99,3.99,3.99,3.99]
     },
     {
-     label: "Sprint_138",
+     label: "Sprint_140",
       backgroundColor: "pink",
       borderColor: "pink",
       borderWidth: 1,
-      data: [0.4838794667,4,3.9120415833,4]
+      data: [4.22,5.2,5.2,5.2]
     }
   ]
 };
@@ -201,6 +201,7 @@ window.onload = function() {
 
     body {
         font-family: Inter, Segoe UI, Roboto, Arial, verdana, geneva, sans-serif;
+        background: #f5f2f2;
 
     }
     .tableStyle{
@@ -274,7 +275,7 @@ font-weight: bold !important;
 </style>
 </head>
 <body>
-<div class="container" style="border: 1px solid #e2e2e2;margin-top: 1rem; margin-bottom: 1rem;">
+<div class="container" style="background: #ffff !important;border: 1px solid #e2e2e2;margin-top: 1rem; margin-bottom: 1rem;">
 <div class="row" style="    padding: 20px;">
 <a href="">
 <img width="142"
@@ -282,14 +283,21 @@ src="https://hirepro.in/wp-content/uploads/2020/08/hirepro-new-logo-dark-slim.pn
 style="border:0;display:block;outline:0;text-decoration:none;height:auto">
 </a>
     <div class="row" style="margin-top: 3rem">
-<div class="col-xs-12 col-sm-6 subHeader"> Automated Test Reporting
+<div class="col-xs-12 col-sm-12 col-lg-6 subHeader"> Automated Test Reporting
 </div>
-<div class="col-xs-12 col-sm-6">
+<div class="col-xs-12 col-sm-12 col-lg-6">
 <div class="btn-toolbar" style="float: right;">
-<button type="button" id="btnSubmit" title="HTML Web Report" class="btn btn-primary btn-sm custBtn"><img  
-src="https://image.flaticon.com/icons/png/512/2353/2353373.png" width="25" height="25"/> View Run Results</button>
-<button type="button" id="btnCancel" title="Download Excel Report" class="btn btn-primary btn-sm custBtn"><img  
-src="https://image.flaticon.com/icons/png/512/1053/1053166.png" width="25" height="25"/> Excel Download</button>
+
+<a href=""  
+type="button" id="btnSubmit" title="HTML Web Report" class="btn btn-primary btn-sm custBtn"><img  
+src="https://image.flaticon.com/icons/png/512/2353/2353373.png" width="25" height="25"/> View Run Results</a>
+
+
+<a href=https://s3-ap-southeast-1.amazonaws.com/ams-in-self-expiring-files/1-24h/accenturetest/uploaded/e5c5cef4-8baf-4d1b-bb04-3d93d3473e0epavan_demo_145.xls_.xls target="_blank" 
+type="button" id="btnCancel" title="Download Excel Report" class="btn btn-primary btn-sm custBtn"><img  
+src="https://image.flaticon.com/icons/png/512/1053/1053166.png" width="25" height="25"/> Excel Download</a>
+
+
 <a title="sprint wise automation reports" 
 href="https://drive.google.com/drive/u/1/folders/186nL7DWI_ZoMklgcwIUykC4tSQuECtGH" target="_blank" type="button" 
 id="btnCancel" class="btn btn-primary btn-sm custBtn"><img  
@@ -306,7 +314,7 @@ src="https://image.flaticon.com/icons/png/512/2965/2965323.png" width="25" heigh
           </p>
          
           <div class="row">
-            <div class="col-xs-6 ">
+            <div class="col-xs-12 col-lg-6 ">
              <table class="table table-sm tableStyle" >
 			  
 			  <tbody>
@@ -333,7 +341,7 @@ src="https://image.flaticon.com/icons/png/512/2965/2965323.png" width="25" heigh
 			      <td>	
 	
 					<div class="tbltd">
-                        <a class="alink">amsin</a>
+                        <a class="alink">ams</a>
                     </div>
 					</td>
 			      
@@ -343,23 +351,23 @@ src="https://image.flaticon.com/icons/png/512/2965/2965323.png" width="25" heigh
 			      <td>Sprint</td>
 			      <td>	
 					<div class="tbltd">
-                        <a class="alink">regression_143</a>
+                        <a class="alink">pavan_demo_145</a>
                     </div>
                 	</td>
 			      
-			    </tr> <tr>
-			      
+			    </tr> 
+			    <tr style="border-bottom: 1px solid #ddd;"> 		      
 			      <td>Run Date&Time</td>
 			      <td>	
 					<div class="tbltd">
-                        <a class="alink">2021-06-10 21:01:02.310733</a>
+                        <a class="alink">2021-06-11 14:14:18.808637</a>
                     </div>
                 </td>
 			    </tr>
 			  </tbody>
 			</table>
             </div>
-            <div class="col-xs-6 ">
+            <div class="col-xs-12 col-lg-6">
               <table class="table table-sm tableStyle" >
 			  
 			  <tbody>
@@ -376,7 +384,7 @@ src="https://image.flaticon.com/icons/png/512/2965/2965323.png" width="25" heigh
 			      <td>Execution Time</td>
 					<td>	
 			      	<div class="tbltd">
-                        <a class="alink">0.13929418333333335 min</a>
+                        <a class="alink">3.78 min</a>
                     </div>
 				  </td>
 			    </tr>
@@ -392,20 +400,13 @@ src="https://image.flaticon.com/icons/png/512/2965/2965323.png" width="25" heigh
 			    <tr>
 			      <td>Success %</td>
 			      <td>	
-	
+
 					<div class="tbltd">
-						<div style="font-size:12px;
-						font-style:normal;
-						line-height:16px;
-						text-align:left" 
-						class="Pass">0.0  %</div>
-<!--                         <a class="alink">100 %</a>
- -->                    </div>
+						<div style="font-size:12px;font-style:normal;line-height:16px;
+						text-align:left" class=Fail>99.63  %</div>
 					</td>
-			      
 			    </tr>
-			    <tr>
-			      
+			    <tr style="border-bottom: 1px solid #ddd;"> 
 			      <td>Result</td>
 			      <td>	
 					<div class="tbltd">
@@ -422,7 +423,10 @@ src="https://image.flaticon.com/icons/png/512/2965/2965323.png" width="25" heigh
       </div>
      
        <div class="row row-offcanvas row-offcanvas-right">
-	        <div class="col-xs-12 col-sm-6">
+       <div style="margin-bottom: 0rem;text-align: left;margin-top: 3rem;margin-left: 2rem;">
+         <div class="summHeader" style="color: #6b6b6b;">Historical Summary</div>
+     	</div>
+	        <div class="col-xs-12 col-sm-12 col-lg-6">
 			<div style="padding:32px 48px 0px 40px;">
 				<div id="container" style="margin-top:2rem;height: 300px; width: 100%;">
 					<canvas id="canvas"></canvas>
@@ -431,7 +435,7 @@ src="https://image.flaticon.com/icons/png/512/2965/2965323.png" width="25" heigh
 				</div>
 			</div>
 	        </div>
-	        <div class="col-xs-12 col-sm-6">
+	        <div class="col-xs-12 col-sm-12 col-lg-6">
 	        	<div style="padding:32px 48px 0px 40px;">
                 <div id="container" style="margin-top:2rem;height: 300px; width: 100%;">
                   <canvas id="canvas_time"></canvas>
@@ -442,9 +446,9 @@ src="https://image.flaticon.com/icons/png/512/2965/2965323.png" width="25" heigh
     	</div>
   </div>
    <div class="row row-offcanvas row-offcanvas-right">
-   	<div class="col-xs-12 col-sm-6">
-   		<div style="margin-bottom: 3rem;text-align: left;margin-top: 5rem;">
-         <div class="summHeader">Last run summary</div>
+   	<div class="col-xs-12 col-sm-12 col-lg-6">
+   		<div style="margin-bottom: 3rem;text-align: left;margin-top: 0rem;">
+         <div class="summHeader" style="color: #6b6b6b;"> Last run summary</div>
      	</div>
    		<table class="table table-sm tableStyle" >
 			 <tbody>
@@ -457,14 +461,14 @@ src="https://image.flaticon.com/icons/png/512/2965/2965323.png" width="25" heigh
                 </tr>
                 <tr>
                 <td class="summaryHeads" style="border-bottom:1px solid #ededed;">Tests</td>
-                <td class="summaryRow summaryPass">0</td>
-                <td class="summaryRow summaryFail ">269</td>
-                <td class="summaryRow" style="font-weight:bold;color: black;">269</td>
+                <td class="summaryRow summaryPass" style="border-bottom:1px solid #ededed;">268</td>
+                <td style="border-bottom:1px solid #ededed;" class="summaryRow summaryFail ">1</td>
+                <td style="border-bottom:1px solid #ededed;" class="summaryRow" style="font-weight:bold;color: black;">269</td>
                 </tr>
             </tbody>
 			</table>
    	</div>
-   	<div class="col-xs-12 col-sm-6"> 
+   	<div class="col-xs-12 col-sm-12 col-lg-6"> 
    		<div style="padding:32px 48px 0px 40px;">
                 <div id="container" style="height: 150px; width: 100%;">
                   <canvas id="myChart123"></canvas>
