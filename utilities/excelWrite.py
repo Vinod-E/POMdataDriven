@@ -69,10 +69,10 @@ class ExcelReportWrite(styles.FontColor):
             self.pass_cases = len(self.Actual_success_cases)
             print('Expected Cases::', len(self.Expected_success_cases))
             print('Actual Cases::', len(self.Actual_success_cases))
-            self.percentage = len(self.Actual_success_cases) * 100 / len(self.Expected_success_cases)
+            self.percentage = round(len(self.Actual_success_cases) * 100 / len(self.Expected_success_cases), 2)
             end_date_time = datetime.datetime.now()
             time_taken = end_date_time - start_date_time
-            self.minutes = time_taken.total_seconds() / 60
+            self.minutes = round(time_taken.total_seconds() / 60, 2)
 
             self.ws.write(0, 0, excel_save_name, self.style4)
             if self.Expected_success_cases == self.Actual_success_cases:

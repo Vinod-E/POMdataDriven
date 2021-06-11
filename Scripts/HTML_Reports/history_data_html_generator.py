@@ -29,7 +29,8 @@ class HistoryDataHTMLGenerator:
         self.history_dict.india_dict_data(version)
 
     def html_report_generation(self, environment, version, date_time, use_case_name, result, total_cases,
-                               pass_cases, failure_cases, success_percentage, execution_time, time, date):
+                               pass_cases, failure_cases, success_percentage, execution_time, time, date,
+                               download_file):
         """
          =============>> Calling above function for data pulling from different dicts <<==============
         """
@@ -47,4 +48,5 @@ class HistoryDataHTMLGenerator:
                                      self.history_dict.beta_pass_cases, self.history_dict.ams_pass_cases,
                                      self.history_dict.india_pass_cases, self.history_dict.amsin_execute_time,
                                      self.history_dict.beta_execute_time, self.history_dict.ams_execute_time,
-                                     self.history_dict.india_execute_time, success_percentage, execution_time)
+                                     self.history_dict.india_execute_time, success_percentage, execution_time,
+                                     download_file)

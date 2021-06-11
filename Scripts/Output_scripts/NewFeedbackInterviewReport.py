@@ -1,4 +1,7 @@
 from datetime import datetime
+
+from Scripts.HTML_Reports.amazon_aws_s3 import AWS
+from Scripts.HTML_Reports.history_data_html_generator import HistoryDataHTMLGenerator
 from Scripts.HTML_Reports.html_css_script import HTMLReport
 from utilities import excelWrite
 from Config import outputFile
@@ -34,26 +37,20 @@ class NewFeedbackOutputReport:
         self.xlw.excel_header_by_index(row=17, col=0, excel_headers_list=excel_headers_2,
                                        color_headers_list=color_headers_2)
 
-        """ <<<================== HTML / History Report Generator =================================>>> """
+        """ <<<================== HTML / History Report Generator ==============================>>> """
         self.__history_path = outputFile.OUTPUT_PATH['New_Interview_output_history']
-        self.history = HistoryOutput(self.__history_path)
         self.__html_path = outputFile.OUTPUT_PATH['New_Interview_output_html']
-        self.html_generator = HTMLReport(self.__html_path)
+        self.history_data_with_html_report = HistoryDataHTMLGenerator(self.__history_path, self.__html_path)
+        self.amazon_s3 = AWS('{}.html'.format(self.use_case_name), self.__html_path)
 
-    def html_report_generation(self):
-        if self.xlw.failure_cases != 0:
-            self.fail_color = 'summaryFail'
-        else:
-            self.fail_color = 'summaryPass'
-
-        self.html_generator.html_css(self.server, self.version, self.xlw.date_now,
-                                     self.use_case_name, self.xlw.result,
-                                     self.xlw.total_cases, self.xlw.pass_cases,
-                                     self.xlw.failure_cases, self.fail_color)
-
-        self.history.create_pandas_excel(self.server, self.xlw.date_now, self.time,
-                                         self.version, self.xlw.total_cases, self.xlw.pass_cases,
-                                         self.xlw.failure_cases, self.xlw.minutes)
+    def history_html_generator(self):
+        self.history_data_with_html_report.html_report_generation(self.server, self.version, self.start_date_time,
+                                                                  self.use_case_name, self.xlw.result,
+                                                                  self.xlw.total_cases, self.xlw.pass_cases,
+                                                                  self.xlw.failure_cases, self.xlw.percentage,
+                                                                  self.xlw.minutes, self.time, self.xlw.date_now,
+                                                                  self.__path)
+        self.amazon_s3.file_handler()
 
     def overall_status(self):
         self.xlw.status(start_date_time=self.start_date_time, version=self.version, server=self.server,

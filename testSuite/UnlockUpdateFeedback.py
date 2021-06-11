@@ -150,5 +150,5 @@ if Object.login_success:
      <<=========== OUTPUT REPORTS GENERATOR PARTS HERE BELOWn =============>>
     """
     Object.UNLOCK_OUTPUT.overall_status()
-    Object.UNLOCK_OUTPUT.html_report_generation()
+    Object.UNLOCK_OUTPUT.history_html_generator()
     Object.environment.close()

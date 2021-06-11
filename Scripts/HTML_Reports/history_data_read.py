@@ -83,7 +83,7 @@ class HistoryDataRead:
             self.graph_sprint_names.append('Sprint_{}'.format(int(number)-1))
             number = int(number) - 1
             attempts += 1
-        print('Sprint Names:: ', self.graph_sprint_names)
+        # print('Sprint Names:: ', self.graph_sprint_names)
 
         self.pass_cases = []
         self.time_taken = []
