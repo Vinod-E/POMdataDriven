@@ -1,7 +1,7 @@
 from Config import inputFile
 from utilities import excelRead
 from pageObjects.Pages.MenuPages.candidateLoginTabPages import CandidateLoginMenus
-from pageObjects.Pages.EmbraceCandidatePages.RaiseQuery import CandidateQueryPage
+from pageObjects.Pages.EmbraceCandidatePages.RaiseQueryPage import CandidateQueryPage
 
 
 class CandidateQueryRaise:

@@ -257,5 +257,6 @@ QUERY = {
     'more_queries': '//*[@ui-sref="candidate.helpdesk.raiseQuery"]',
     'category_select': '//*[@ng-change="vm.processQueries();"]',
     'subject_field': '//*[@ng-model="vm.subject"]',
-    'message_field': '//*[@ng-model="vm.messasge"]'
+    'message_field': '//*[@ng-model="vm.messasge"]',
+    'status_bucket': '//*[@ng-model="vm.querySearchCriteria.QueryStatus"]'
 }
