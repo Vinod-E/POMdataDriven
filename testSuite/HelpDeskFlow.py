@@ -101,7 +101,7 @@ if Object.login_success:
     Object.staffing_user_login_2()
     Object.staffing_user_login_3()
     """
-     <<=========== OUTPUT REPORTS GENERATOR PARTS HERE BELOWn =============>>
+     <<=========== OUTPUT REPORTS GENERATOR PARTS HERE BELOW =============>>
     """
     Object.HELPDESK_OUTPUT.overall_status()
     Object.HELPDESK_OUTPUT.history_html_generator()

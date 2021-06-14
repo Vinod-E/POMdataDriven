@@ -72,7 +72,7 @@ class HistoryDataRead:
         self.india_execute_time = self.time_taken
 
     def last_five_history_data(self, current_sprint_number, dicts):
-        self.graph_sprint_names = []
+        sort_sprint_names = []
         self.pass_cases = []
         self.time_taken = []
 
@@ -80,9 +80,10 @@ class HistoryDataRead:
         number = self.version_number
         attempts = 0
         while attempts < 5:
-            self.graph_sprint_names.append('Sprint_{}'.format(int(number)-1))
+            sort_sprint_names.append('Sprint_{}'.format(int(number)-1))
             number = int(number) - 1
             attempts += 1
+        self.graph_sprint_names = [i for i in sorted(sort_sprint_names)]
         # print('Sprint Names:: ', self.graph_sprint_names)
 
         self.pass_cases = []

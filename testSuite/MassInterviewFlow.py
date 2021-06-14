@@ -128,7 +128,7 @@ if Object.login_success:
     Object.feedback_provide()
     Object.candidate_invitation()
     """
-     <<=========== OUTPUT REPORTS GENERATOR PARTS HERE BELOWn =============>>
+     <<=========== OUTPUT REPORTS GENERATOR PARTS HERE BELOW =============>>
     """
     Object.MASS_OUTPUT.overall_status()
     Object.MASS_OUTPUT.history_html_generator()
