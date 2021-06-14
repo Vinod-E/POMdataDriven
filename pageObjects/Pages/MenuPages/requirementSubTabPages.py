@@ -2,6 +2,7 @@ from Listeners.logger_settings import ui_logger
 from pageObjects import Locators
 from selenium.webdriver.common.by import By
 from utilities.WebDriver_Wait import WebElementWait
+from utilities.PageScroll import PageScroll
 
 
 class RequirementSubTabs:
@@ -12,9 +13,11 @@ class RequirementSubTabs:
     def __init__(self, driver):
         self.driver = driver
         self.wait = WebElementWait(self.driver)
+        self.scroll = PageScroll(self.driver)
 
     def requirement_configurations(self):
         try:
+            self.scroll.up(0, 50)
             self.wait.web_element_wait_click(By.XPATH, self.__e_req_config_xpath, 'job_configuration_tab')
             print('Job Configuration Tab - Clicked')
             return True
