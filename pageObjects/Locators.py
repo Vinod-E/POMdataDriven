@@ -15,6 +15,8 @@ LOADING = {
 TAG = {
     'anchor': 'a',
     'h4': 'h4',
+    'h5': 'h5',
+    'h6': 'h6',
     'href': 'href'
 }
 
@@ -37,7 +39,8 @@ SUB_MENU = {
     'job_owners': '//*[@ui-sref="crpo.jobRole.details.interviewers"]',
     'req_configurations': '//*[@ng-click="vm.goToConfiguration()"]',
     'req_duplicity': '//*[@ui-sref="crpo.requirements.details.configuration.candidateDuplicity"]',
-    'req_query': '//*[@ui-sref="crpo.requirements.details.configuration.queryConfiguration"]'
+    'req_query': '//*[@ui-sref="crpo.requirements.details.configuration.queryConfiguration"]',
+    'nominations': '//*[@ui-sref="crpo.events.interviewers.nominations"]'
 }
 
 ATTACHMENT = {
@@ -80,7 +83,10 @@ BUTTONS = {
     'new_form_search': '.form-control.btn-submit',
     'ec_save': '//button[@ng-click="vm.saveEcConfig();"]',
     'task_configure': '//*[@ng-click="vm.getTaskConfigurationModal()"]',
-    'close': '//*[@ng-click="vm.cancelClicked()"]'
+    'close': '//*[@ng-click="vm.cancelClicked()"]',
+    'add_criteria': '//button[@ng-click="vm.addCriteria()"]',
+    'nomination_int_search': '//button[@ng-click="criterion.searchInterviewers()"]',
+    'nomination_mail': '//button[@ng-click="vm.sendMailToAll()"]',
 }
 
 ACTIONS = {
@@ -88,6 +94,7 @@ ACTIONS = {
     'view_candidates': 'Event-Details-View-Candidates',
     'upload_candidate': 'Event-Details-Upload-Candidates',
     'event_owners': 'Event-Details-Manage-Event-Owners',
+    'manage_interviewers': 'Event-Details-Manage-Interviewers',
     'live_interviews': 'Event-Details-Live-Schedule-Interviews',
     'event_interviews': 'Event-Details-View-Event-Interviews',
     'slot_config': 'Event-Details-Configure-Interview-Slots',
@@ -259,4 +266,22 @@ QUERY = {
     'subject_field': '//*[@ng-model="vm.subject"]',
     'message_field': '//*[@ng-model="vm.messasge"]',
     'status_bucket': '//*[@ng-model="vm.querySearchCriteria.QueryStatus"]'
+}
+
+NOMINATIONS = {
+    'panel_1': "//input[@type='text']",
+    'panel_2': '//*[@id="mainBodyElement"]/div[3]/div/div/div[3]/section/div[2]/'
+               'transcluded-input/div/div/div/div/div[1]/ta-dropdown/div/div/input',
+    'search': '//*[@id="mainBodyElement"]/div[3]/div/div/div[3]/section/div[2]/'
+              'transcluded-input/div/div/div/div/div[4]/button',
+    'skill1_int': '//input[@ng-model="criterion.requiredInterviewers"]',
+    'skill2_int': '//*[@id="mainBodyElement"]/div[3]/div/div/div[3]/section/div[2]/'
+                  'transcluded-input/div/div/div[1]/div[2]/div/div[1]/input',
+    'skill1_nom': '//input[@ng-model="criterion.requiredNominations"]',
+    'skill2_nom': '//*[@id="mainBodyElement"]/div[3]/div/div/div[3]/section/div[2]/'
+                  'transcluded-input/div/div/div[1]/div[2]/div/div[2]/input',
+    'dropdown': 'fa-chevron-down',
+    'panel_select': '//select[@ng-model="vm.selectedSearchPanelType"]',
+    'actions': 'btn-submit',
+    'approve': '//*[@id="mainBodyElement"]/div[3]/div/div/div[3]/section/div[2]/div[1]/div[2]/ul/li[1]/a'
 }

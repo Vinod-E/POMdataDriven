@@ -56,6 +56,15 @@ class Menu:
         except Exception as error:
             ui_logger.error(error)
 
+    def nominations_tab(self, nom_menu_name, tab_title):
+        try:
+            self.wait.web_element_wait_click(By.XPATH, self.__e_menu.format(nom_menu_name), 'not_in_job_roles')
+            assert self.tab_title.tab_title(tab_title) == tab_title, 'Webdriver is in wrong tab'
+            time.sleep(2)
+            return True
+        except Exception as error:
+            ui_logger.error(error)
+
     def more_tab(self, more_menu_name):
         try:
             self.wait.web_element_wait_click(By.XPATH, self.__e_menu.format(more_menu_name), 'not_in_More')

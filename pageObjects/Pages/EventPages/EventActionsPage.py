@@ -16,6 +16,7 @@ class Actions:
     __e_event_owners_id = Locators.ACTIONS['event_owners']
     __e_event_live_int_id = Locators.ACTIONS['live_interviews']
     __e_event_interviews_id = Locators.ACTIONS['event_interviews']
+    __e_manage_interviewers_id = Locators.ACTIONS['manage_interviewers']
 
     def __init__(self, driver):
         self.driver = driver
@@ -103,6 +104,15 @@ class Actions:
             self.wait.web_element_wait_click(By.ID, self.__e_event_interviews_id, 'event_interviews')
             self.wait.loading()
             print('Event interviews - Screen')
+            return True
+        except Exception as error:
+            ui_logger.error(error)
+
+    def manage_interviewers(self):
+        try:
+            self.wait.web_element_wait_click(By.ID, self.__e_manage_interviewers_id, 'manage_interviewers')
+            print('manage_interviewers - Screen')
+            self.wait.loading()
             return True
         except Exception as error:
             ui_logger.error(error)

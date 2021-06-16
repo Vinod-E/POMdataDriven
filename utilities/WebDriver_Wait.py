@@ -57,12 +57,12 @@ class WebElementWait:
             self.element_failure_image.screen_shot(f'{attempts}{element}')
         return result
 
-    def loading(self):
+    def loading_pages(self, by_locator, element):
         attempts = 10000
         for i in range(0, attempts):
             try:
-                if self.driver.find_element(By.CLASS_NAME, self.load):
-                    self.perform = self.driver.find_element(By.CLASS_NAME, self.load)
+                if self.driver.find_element(by_locator, element):
+                    self.perform = self.driver.find_element(by_locator, element)
                     if self.perform:
                         # print(f'{self.perform.text}............!!')
                         time.sleep(0.5)
@@ -70,34 +70,18 @@ class WebElementWait:
                 # ui_logger.error(error)
                 break
         print('***--------->>> Page Loading Completed <<<---------***')
+
+    def loading(self):
+        self.loading_pages(by_locator=By.CLASS_NAME, element=self.load)
+
+    def loading_text(self):
+        self.loading_pages(by_locator=By.CLASS_NAME, element=self.load_text)
 
     def candidate_login_loading(self):
-        attempts = 10000
-        for i in range(0, attempts):
-            try:
-                if self.driver.find_element(By.CLASS_NAME, self.candidate_load):
-                    self.perform = self.driver.find_element(By.CLASS_NAME, self.candidate_load)
-                    if self.perform:
-                        # print(f'{self.perform.text}............!!')
-                        time.sleep(0.5)
-            except Exception as error:
-                # ui_logger.error(error)
-                break
-        print('***--------->>> Page Loading Completed <<<---------***')
+        self.loading_pages(by_locator=By.CLASS_NAME, element=self.candidate_load)
 
     def embrace_loading(self):
-        attempts = 1000
-        for i in range(0, attempts):
-            try:
-                if self.driver.find_element(By.XPATH, self.embrace_load):
-                    self.perform = self.driver.find_element(By.XPATH, self.embrace_load)
-                    if self.perform:
-                        # print(f'{self.perform.text}............!!')
-                        time.sleep(0.5)
-            except Exception as error:
-                # ui_logger.error(error)
-                break
-        print('***--------->>> Page Loading Completed <<<---------***')
+        self.loading_pages(by_locator=By.XPATH, element=self.embrace_load)
 
     def uploading(self):
         attempts = 150
