@@ -1,6 +1,3 @@
-import sys
-import time
-
 from Config import Enviroment
 from Listeners.logger_settings import ui_logger
 from Scripts.Login.crpo_login_page import CRPOLogin
@@ -9,6 +6,7 @@ from Scripts.ManageInterviewers.criteria_configuration import CRPOCriteriaConfig
 from Scripts.ManageInterviewers.crpo_int1_login import CrpoInt1Login
 from Scripts.ManageInterviewers.crpo_int2_login import CrpoInt2Login
 from Scripts.ManageInterviewers.nomination_acceptance import CRPONominations
+from Scripts.ManageInterviewers.recruiter_login import CrpoRecruiterLogin
 from Scripts.ManageInterviewers.recruiter_approval import CRPORecruiterApproval
 from Scripts.Output_scripts import ManageInterviewersReport
 
@@ -34,6 +32,7 @@ class CRPOManageInterviewers:
         int1 = CrpoInt1Login(driver=driver, index=index)
         int2 = CrpoInt2Login(driver=driver, index=index)
         nom = CRPONominations(driver=driver, index=index, version=version)
+        recruiter = CrpoRecruiterLogin(driver=driver, index=index)
         approval = CRPORecruiterApproval(driver=driver, index=index)
 
         MANAGE_OUTPUT = ManageInterviewersReport.ManageInterviewersOutputReport(version=version,
@@ -82,6 +81,10 @@ class CRPOManageInterviewers:
         self.nom.nomination_confirmation()
         self.MANAGE_OUTPUT.interviewer2_confirm_report(self.nom.int_acceptance_collection)
 
+    def recruiter_login(self):
+        self.recruiter.recruiter_login()
+        self.MANAGE_OUTPUT.recruiter_login_report(self.recruiter.rec_collection)
+
     def recruiter_approval(self):
         self.event.event_applicant_search()
         self.MANAGE_OUTPUT.event_report(self.event.event_collection)
@@ -104,6 +107,7 @@ if Object.login_success:
     Object.interviewer_one_nom_confirm()
     Object.interviewer_two_login()
     Object.interviewer_two_nom_confirm()
+    Object.recruiter_login()
     Object.recruiter_approval()
     Object.interviewers_tag_by_sync()
     """

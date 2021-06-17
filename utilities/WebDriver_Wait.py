@@ -57,7 +57,7 @@ class WebElementWait:
             self.element_failure_image.screen_shot(f'{attempts}{element}')
         return result
 
-    def loading_pages(self, by_locator, element):
+    def __loading_pages(self, by_locator, element):
         attempts = 10000
         for i in range(0, attempts):
             try:
@@ -72,16 +72,16 @@ class WebElementWait:
         print('***--------->>> Page Loading Completed <<<---------***')
 
     def loading(self):
-        self.loading_pages(by_locator=By.CLASS_NAME, element=self.load)
+        self.__loading_pages(by_locator=By.CLASS_NAME, element=self.load)
 
     def loading_text(self):
-        self.loading_pages(by_locator=By.CLASS_NAME, element=self.load_text)
+        self.__loading_pages(by_locator=By.CLASS_NAME, element=self.load_text)
 
     def candidate_login_loading(self):
-        self.loading_pages(by_locator=By.CLASS_NAME, element=self.candidate_load)
+        self.__loading_pages(by_locator=By.CLASS_NAME, element=self.candidate_load)
 
     def embrace_loading(self):
-        self.loading_pages(by_locator=By.XPATH, element=self.embrace_load)
+        self.__loading_pages(by_locator=By.XPATH, element=self.embrace_load)
 
     def uploading(self):
         attempts = 150

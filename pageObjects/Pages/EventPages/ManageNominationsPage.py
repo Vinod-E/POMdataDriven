@@ -79,6 +79,7 @@ class EventNominationsPage:
     def sync_interviewers(self):
         try:
             self.scroll.up(0, 90)
+            time.sleep(1.5)
             self.wait.web_element_wait_click(By.XPATH, self.__e_sync_xpath, 'sync_interviewers')
             print('sync_interviewers - Synced')
             return True
