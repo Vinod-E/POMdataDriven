@@ -66,7 +66,7 @@ class Search:
     def search_button(self):
         try:
             time.sleep(1)
-            self.page_scroll.up(0, 260)
+            self.page_scroll.up(0, 170)
             self.wait.web_element_wait_click(By.XPATH, self.__e_search_btn_xpath, 'search_button')
             self.wait.loading()
             return True

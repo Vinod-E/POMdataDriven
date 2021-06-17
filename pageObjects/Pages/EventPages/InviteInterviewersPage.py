@@ -28,6 +28,7 @@ class EventMangeInterviewersPage:
 
     def add_criteria(self):
         try:
+            time.sleep(1.5)
             self.wait.web_element_wait_click(By.XPATH, self.__e_add_criteria_xpath, 'add_criteria')
             print('Add new criteria - Clicked')
             return True
@@ -112,6 +113,7 @@ class EventMangeInterviewersPage:
 
     def send_mail_interviewers(self):
         try:
+            time.sleep(1)
             self.wait.web_element_wait_click(By.XPATH, self.__e_send_mail_xpath, 'send_mail_interviewers')
             print('Send mail to interviewers - Sent')
             return True
@@ -122,7 +124,6 @@ class EventMangeInterviewersPage:
         try:
             time.sleep(1)
             self.wait.web_element_wait_click(By.XPATH, self.__e_confirm_button_xpath, 'send_mail_interviewers')
-            self.wait.loading()
             print('Ok confirmation - Confirmed')
             return True
         except Exception as error:

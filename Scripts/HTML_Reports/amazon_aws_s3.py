@@ -34,7 +34,7 @@ class AWS:
                                   verify=False)
         response = json.loads(login_api.content)
         self.get_token = response.get("Token")
-        print(self.get_token)
+        print('Token:: ', self.get_token)
 
     def file_handler(self):
         """

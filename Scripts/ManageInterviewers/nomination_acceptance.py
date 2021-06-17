@@ -26,7 +26,7 @@ class CRPONominations:
     def nomination_confirmation(self):
         self.int_acceptance_collection = []
         __list = [self.menu.nominations_tab(self.xl_menu, self.xl_menu_title),
-                  self.nomination.event_row_arrow_down(),
+                  # self.nomination.event_row_arrow_down(),
                   self.nomination.nomination_job_validation(self.xl_jr),
                   self.nomination.confirm_interviewer_nomination(),
                   self.nomination.ok_confirm(),

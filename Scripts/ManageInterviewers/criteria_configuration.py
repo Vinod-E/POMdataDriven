@@ -60,6 +60,7 @@ class CRPOCriteriaConfig:
         __list = [self.interviewers.send_mail_interviewers(),
                   self.interviewers.confirm_button(),
                   self.interviewers.confirm_button(),
+                  self.interviewers.confirm_button(),
                   self.interviewers.criteria_notifier(self.xl_message),
                   self.interviewers.criteria_notifier_dismiss(),
                   self.nomination.nomination_tab(),
