@@ -65,6 +65,7 @@ class EmbraceLogin:
     def login_account_name_verification(self, user_name):
         try:
             self.wait.embrace_loading()
+            time.sleep(1)
             assert self.wait.web_elements_wait_text(By.CLASS_NAME, self.__e_login_verify_name, user_name) == \
                    user_name, 'Logged in different account please check the details'
             print(f'{user_name} logged in successfully')
