@@ -53,7 +53,7 @@ class CRPOEventApplicantStatusChange:
                   self.action.event_view_candidates(),
                   self.search.advance_search(),
                   self.search.name_field_applicant(self.xl_event_name),
-                  self.search.search_button(),
+                  self.search.applicant_search_button(),
                   self.applicant.applicant_get_name(self.xl_event_name, 1),
                   self.candidate_details.candidate_status(self.xl_hop_status),
                   self.switch_window.window_close(),
