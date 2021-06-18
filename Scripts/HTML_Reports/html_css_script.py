@@ -18,6 +18,8 @@ class HTMLReport:
         self.file.write("""
         <html>
         <head>
+        <title>""" + use_case + """</title>
+        <link rel="icon" type="image/x-icon" href="https://image.flaticon.com/icons/png/512/858/858799.png"/>
         <!-- Latest compiled and minified CSS -->
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 
@@ -304,7 +306,7 @@ font-weight: bold !important;
 <body>
 <div class="container" style="background: #ffff !important;border: 1px solid #e2e2e2;margin-top: 1rem; margin-bottom: 1rem;">
 <div class="row" style="    padding: 20px;">
-<a href="">
+<a>
 <img width="142"
 src="https://hirepro.in/wp-content/uploads/2020/08/hirepro-new-logo-dark-slim.png"
 style="border:0;display:block;outline:0;text-decoration:none;height:auto">
