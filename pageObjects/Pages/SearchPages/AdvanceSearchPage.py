@@ -73,6 +73,16 @@ class Search:
         except Exception as error:
             ui_logger.error(error)
 
+    def applicant_search_button(self):
+        try:
+            time.sleep(1)
+            self.page_scroll.up(0, 260)
+            self.wait.web_element_wait_click(By.XPATH, self.__e_search_btn_xpath, 'search_button')
+            self.wait.loading()
+            return True
+        except Exception as error:
+            ui_logger.error(error)
+
     def manage_candidate_search(self):
         try:
             self.wait.web_element_wait_click(By.CSS_SELECTOR, self.__e_manage_search_css, 'advance_search')

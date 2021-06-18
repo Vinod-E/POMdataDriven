@@ -14,7 +14,7 @@ const myChartData = {
         labels: ["PASS", "FAIL"],
         datasets: [{
             label: "Test",
-            data: [88,1],
+            data: [89,0],
             backgroundColor: [
                 'green',
                 'red'
@@ -54,7 +54,7 @@ var barChartData = {
       backgroundColor: "#9caad6",
       borderColor: "#9caad6",
       borderWidth: 1,
-      data: [260,200,87,269]
+      data: [269,200,89,269]
       
     },
     {
@@ -69,14 +69,14 @@ var barChartData = {
       backgroundColor: "#98e1d2",
       borderColor: "#98e1d2",
       borderWidth: 1,
-      data: [269,209,89,269]
+      data: [268,209,0,269]
     },
     {
      label: "Sprint_143",
       backgroundColor: "#b9de94",
       borderColor: "#b9de94",
       borderWidth: 1,
-      data: [268,269,0,269]
+      data: [89,269,88,269]
     },
     {
      label: "Sprint_144",
@@ -95,35 +95,35 @@ var timer_barChartData = {
       backgroundColor: "#9caad6",
       borderColor: "#9caad6",
       borderWidth: 1,
-      data: [4.0,4.66,2.32,4.66]
+      data: [4.11,4.66,5.27,4.66]
     },
     {
       label: "Sprint_141",
       backgroundColor: "#d88589",
       borderColor: "#d88589",
       borderWidth: 1,
-      data: [4.11,5.0,5.27,5.0]
+      data: [3.99,5.0,2.41,5.0]
     },
     {
       label: "Sprint_142",
       backgroundColor: "#98e1d2",
       borderColor: "#98e1d2",
       borderWidth: 1,
-      data: [3.99,4.11,2.41,4.11]
+      data: [4.22,4.11,0.16,4.11]
     },
     {
      label: "Sprint_143",
       backgroundColor: "#b9de94",
       borderColor: "#b9de94",
       borderWidth: 1,
-      data: [4.22,3.99,0.16,3.99]
+      data: [3.88,3.99,2.42,3.99]
     },
     {
      label: "Sprint_144",
       backgroundColor: "pink",
       borderColor: "pink",
       borderWidth: 1,
-      data: [3.88,5.2,2.42,5.2]
+      data: [2.31,5.2,2.44,5.2]
     }
   ]
 };
@@ -293,7 +293,7 @@ type="button" id="btnSubmit" title="HTML Web Report" class="btn btn-primary btn-
 src="https://image.flaticon.com/icons/png/512/2353/2353373.png" width="25" height="25"/> View Run Results</a>
 
 
-<a href=https://s3-ap-southeast-1.amazonaws.com/ams-in-self-expiring-files/1-24h/accenturetest/uploaded/f9ba2200-0bc2-43b9-b8d4-f084416a537c145_hstry_data.xls_.xls target="_blank" 
+<a href=https://s3-ap-southeast-1.amazonaws.com/ams-in-self-expiring-files/1-24h/accenturetest/uploaded/585885f7-11c3-4ba7-a058-0dd8afa2c64a145_frdyvn.xls_.xls target="_blank" 
 type="button" id="btnCancel" title="Download Excel Report" class="btn btn-primary btn-sm custBtn"><img  
 src="https://image.flaticon.com/icons/png/512/1053/1053166.png" width="25" height="25"/> Excel Download</a>
 
@@ -351,7 +351,7 @@ src="https://image.flaticon.com/icons/png/512/2965/2965323.png" width="25" heigh
 			      <td>Sprint</td>
 			      <td>	
 					<div class="tbltd">
-                        <a class="alink">145_hstry_data</a>
+                        <a class="alink">145_frdyvn</a>
                     </div>
                 	</td>
 			      
@@ -360,7 +360,7 @@ src="https://image.flaticon.com/icons/png/512/2965/2965323.png" width="25" heigh
 			      <td>Run Date&Time</td>
 			      <td>	
 					<div class="tbltd">
-                        <a class="alink">2021-06-17 14:06:27.101192</a>
+                        <a class="alink">2021-06-18 10:43:44.232506</a>
                     </div>
                 </td>
 			    </tr>
@@ -384,7 +384,7 @@ src="https://image.flaticon.com/icons/png/512/2965/2965323.png" width="25" heigh
 			      <td>Execution Time</td>
 					<td>	
 			      	<div class="tbltd">
-                        <a class="alink">2.44 min</a>
+                        <a class="alink">2.33 min</a>
                     </div>
 				  </td>
 			    </tr>
@@ -403,7 +403,7 @@ src="https://image.flaticon.com/icons/png/512/2965/2965323.png" width="25" heigh
 
 					<div class="tbltd">
 						<div style="font-size:12px;font-style:normal;line-height:16px;
-						text-align:left" class=Fail>98.88  %</div>
+						text-align:left" class=Pass>100.0  %</div>
 					</td>
 			    </tr>
 			    <tr style="border-bottom: 1px solid #ddd;"> 
@@ -411,7 +411,7 @@ src="https://image.flaticon.com/icons/png/512/2965/2965323.png" width="25" heigh
 			      <td>	
 					<div class="tbltd">
                         <div style="font-size:12px;font-style:normal;line-height:16px;
-                        text-align:left" class=Fail>Fail</div>
+                        text-align:left" class=Pass>Pass</div>
                     </div>
                 </td>
 			    </tr>
@@ -461,8 +461,8 @@ src="https://image.flaticon.com/icons/png/512/2965/2965323.png" width="25" heigh
                 </tr>
                 <tr>
                 <td class="summaryHeads" style="border-bottom:1px solid #ededed;">Tests</td>
-                <td class="summaryRow summaryPass" style="border-bottom:1px solid #ededed;">88</td>
-                <td style="border-bottom:1px solid #ededed;" class="summaryRow summaryFail ">1</td>
+                <td class="summaryRow summaryPass" style="border-bottom:1px solid #ededed;">89</td>
+                <td style="border-bottom:1px solid #ededed;" class="summaryRow summaryPass ">0</td>
                 <td style="border-bottom:1px solid #ededed;" class="summaryRow" style="font-weight:bold;color: black;">89</td>
                 </tr>
             </tbody>

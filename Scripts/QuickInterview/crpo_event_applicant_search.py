@@ -38,7 +38,7 @@ class CrpoQuickEvent:
                   self.event_action.event_view_candidates(),
                   self.search.advance_search(),
                   self.search.name_field_applicant(self.xl_event_name),
-                  self.search.search_button()
+                  self.search.applicant_search_button()
                   ]
         for func in __list:
             if func:
