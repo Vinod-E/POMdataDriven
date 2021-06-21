@@ -1,11 +1,8 @@
 from datetime import datetime
-
 from Scripts.HTML_Reports.amazon_aws_s3 import AWS
 from Scripts.HTML_Reports.history_data_html_generator import HistoryDataHTMLGenerator
-from Scripts.HTML_Reports.html_css_script import HTMLReport
 from utilities import excelWrite
 from Config import outputFile
-from utilities.HistoryexcelWriter import HistoryOutput
 
 
 class LiveOutputReport:
