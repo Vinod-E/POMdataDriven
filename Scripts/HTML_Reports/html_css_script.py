@@ -233,22 +233,22 @@ window.onload = function() {
         background: #f5f2f2;
 
     }
-    .tableStyle{
-    width: 100%;
-    max-width: 100%;
-    margin-bottom: 20px;
-    font-family: Inter,Segoe UI,Roboto,Arial,verdana,geneva,sans-serif;
-    font-size: 12px;
-    font-style: normal;
-    font-weight: 600;
-    line-height: 16px;
-    text-align: left;
-    color: #6b6b6b;
-    }
-    .alink {
-    cursor: pointer;
-    color: #0265d2;
-    text-decoration: none;
+.tableStyle{
+width: 100%;
+max-width: 100%;
+margin-bottom: 20px;
+font-family: Inter,Segoe UI,Roboto,Arial,verdana,geneva,sans-serif;
+font-size: 12px;
+font-style: normal;
+font-weight: 600;
+line-height: 16px;
+text-align: left;
+color: #6b6b6b;
+}
+.alink {
+cursor: pointer;
+color: #0265d2;
+text-decoration: none;
 }
 .tbltd{
 word-break:break-all;word-wrap:break-word;overflow:hidden;font-family:Inter,Segoe UI,Roboto,Arial,verdana,geneva,sans-serif;font-size:12px;font-style:normal;font-weight:400;line-height:16px;text-align:left;color:#000
@@ -257,36 +257,37 @@ word-break:break-all;word-wrap:break-word;overflow:hidden;font-family:Inter,Sego
 background: #1f8ae7 !important;
 border-color: #1f8ae7 !important;
 font-weight: 600;
+z-index: 9999;
 }
-   .subHeader{
-   margin-top: 1rem;
-   font-size:20px;
-   font-weight:700;
-   line-height:24px;
-   text-align:left;
-   letter-spacing:-.56px;
-   color: #6b6b6b;
-   }
-   .footer{
-   font-size: 11px;
-   font-weight: 400;
-   line-height: 18px;
-   text-align: left;
-   color: #a6a6a6;
-   margin-top: 1rem;
-   margin-bottom: 3rem;
-   }
-   .summHeader {
-        font-size: 16px;
-        font-weight: 700;
-        line-height: 20px;
-        letter-spacing: -.12px;
-        text-align: left
-    }
-    .Pass{
-    color: green;
-    font-size: 17px !important;
-    font-weight: bold !important;
+.subHeader{
+margin-top: 1rem;
+font-size:20px;
+font-weight:700;
+line-height:24px;
+text-align:left;
+letter-spacing:-.56px;
+color: #6b6b6b;
+}
+.footer{
+font-size: 11px;
+font-weight: 400;
+line-height: 18px;
+text-align: left;
+color: #a6a6a6;
+margin-top: 1rem;
+margin-bottom: 3rem;
+}
+.summHeader {
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 20px;
+    letter-spacing: -.12px;
+    text-align: left
+}
+.Pass{
+color: green;
+font-size: 17px !important;
+font-weight: bold !important;
 }
 .Fail{
     color: red;
@@ -301,10 +302,44 @@ font-weight: bold !important;
 color: red;
 font-weight: bold !important;
 }
+.gradient-border {
+  --borderWidth: 3px;
+  background: #1D1F20;
+  position: relative;
+  border-radius: var(--borderWidth);
+}
+.gradient-border:after {
+  content: '';
+  position: absolute;
+  top: calc(-1 * var(--borderWidth));
+  left: calc(-1 * var(--borderWidth));
+  height: calc(100% + var(--borderWidth) * 2);
+  width: calc(100% + var(--borderWidth) * 2);
+  background: linear-gradient(
+60deg
+, #f79533, #f37055, #4ec9ef, #58e70b, #eaf107, #1098ad, #07b39b, #6fba82);
+  border-radius: calc(2 * var(--borderWidth));
+  z-index: -1;
+  animation: animatedgradient 3s ease alternate infinite;
+  background-size: 300% 300%;
+}
+
+@keyframes animatedgradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
 </style>
 </head>
 <body>
-<div class="container" style="background: #ffff !important;border: 1px solid #e2e2e2;margin-top: 1rem; margin-bottom: 1rem;">
+<div class="container" style="position: relative; 
+background: #ffff !important;border: 1px solid #76ee68;margin-top: 1rem; margin-bottom: 1rem;">
 <div class="row" style="    padding: 20px;">
 <a>
 <img width="142"
@@ -317,9 +352,9 @@ style="border:0;display:block;outline:0;text-decoration:none;height:auto">
 <div class="col-xs-12 col-sm-12 col-lg-6">
 <div class="btn-toolbar" style="float: right;">
 
-<a href=""  
-type="button" id="btnSubmit" title="HTML Web Report" class="btn btn-primary btn-sm custBtn"><img  
-src="https://image.flaticon.com/icons/png/512/2353/2353373.png" width="25" height="25"/> View Run Results</a>
+<!-- <a href=""  
+type="button" id="btnSubmit" title="HTML Web Report" class="btn btn-primary btn-sm custBtn gradient-border"><img  
+src="https://image.flaticon.com/icons/png/512/2353/2353373.png" width="25" height="25"/> View Run Results</a> -->
 
 
 <a href=""" + self.amazon_s3.one_day_link + """ target="_blank" 
@@ -327,7 +362,7 @@ type="button" id="btnCancel" title="Download Excel Report" class="btn btn-primar
 src="https://image.flaticon.com/icons/png/512/1053/1053166.png" width="25" height="25"/> Excel Download</a>
 
 
-<a title="sprint wise automation reports" 
+<a style="margin-left: 15px;"  title="sprint wise automation reports" 
 href="https://drive.google.com/drive/u/1/folders/186nL7DWI_ZoMklgcwIUykC4tSQuECtGH" target="_blank" type="button" 
 id="btnCancel" class="btn btn-primary btn-sm custBtn"><img  
 src="https://image.flaticon.com/icons/png/512/2965/2965323.png" width="25" height="25"/> Google Drive</a>
