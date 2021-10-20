@@ -14,6 +14,7 @@ OUTPUT_PATH = {
     'Unlock_update_output': GENERIC_OUTPUT_PATH + 'UI_UNLOCK_UPDATE_INTERVIEW.xls',
     'Help_desk_output': GENERIC_OUTPUT_PATH + 'UI_HELP_DESK_QUERY.xls',
     'Manage_output': GENERIC_OUTPUT_PATH + 'UI_MANAGE_INTERVIEWERS.xls',
+    'Certi_output': GENERIC_OUTPUT_PATH + 'UI_CERTIFICATE_REGISTRATION.xls',
 
     'E2E_output_html': GENERIC_OUTPUT_PATH_HTML + 'UI_CRPO_E2E_REGRESSION.html',
     'Mass_Interview_output_html': GENERIC_OUTPUT_PATH_HTML + 'UI_MASS_INTERVIEW.html',
@@ -24,6 +25,7 @@ OUTPUT_PATH = {
     'Unlock_update_output_html': GENERIC_OUTPUT_PATH_HTML + 'UI_UNLOCK_UPDATE_INTERVIEW.html',
     'Help_desk_output_html': GENERIC_OUTPUT_PATH_HTML + 'UI_HELP_DESK_QUERY.html',
     'Manage_output_html': GENERIC_OUTPUT_PATH_HTML + 'UI_MANAGE_INTERVIEWERS.html',
+    'Certi_output_html': GENERIC_OUTPUT_PATH_HTML + 'UI_CERTIFICATE_REGISTRATION.html',
 
     'E2E_output_history': GENERIC_OUTPUT_PATH_HISTORY + 'E2E_REGRESSION_HISTORY_DATA.xlsx',
     'Mass_Interview_output_history': GENERIC_OUTPUT_PATH_HISTORY + 'MASS_INTERVIEW_HISTORY_DATA.xlsx',
@@ -34,4 +36,5 @@ OUTPUT_PATH = {
     'Unlock_update_output_history': GENERIC_OUTPUT_PATH_HISTORY + 'UNLOCK_UPDATE_INTERVIEW_HISTORY_DATA.xlsx',
     'Help_desk_output_history': GENERIC_OUTPUT_PATH_HISTORY + 'HELP_DESK_QUERY_HISTORY_DATA.xlsx',
     'Manage_output_history': GENERIC_OUTPUT_PATH_HISTORY + 'MANAGE_INTERVIEWERS_HISTORY_DATA.xlsx',
+    'Certi_output_history': GENERIC_OUTPUT_PATH_HISTORY + 'UI_CERTIFICATE_REGISTRATION_HISTORY_DATA.xlsx',
 }

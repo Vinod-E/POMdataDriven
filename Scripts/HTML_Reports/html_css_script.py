@@ -339,7 +339,7 @@ font-weight: bold !important;
 </head>
 <body>
 <div class="container" style="position: relative; 
-background: #ffff !important;border: 1px solid #76ee68;margin-top: 1rem; margin-bottom: 1rem;">
+background: #ffff !important;border: 1px solid #e9ede8;margin-top: 1rem; margin-bottom: 1rem;">
 <div class="row" style="    padding: 20px;">
 <a>
 <img width="142"
