@@ -13,6 +13,11 @@ class ReadConfig:
         return url
 
     @staticmethod
+    def get_qa_registration_url():
+        url = config.get('crpoUrls', 'QA_REGISTRATION')
+        return url
+
+    @staticmethod
     def get_beta_url():
         url = config.get('crpoUrls', 'BETA')
         return url

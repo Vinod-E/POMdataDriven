@@ -1,5 +1,6 @@
 from Config import inputFile
 from utilities import excelRead, appTitle
+from utilities.WebDriver_Wait import WebElementWait
 from pageObjects.Pages.LoginPages.LoginPage import Login
 
 
@@ -9,6 +10,7 @@ class CRPOLogin:
 
         self.LoginPage = Login(self.driver)
         self.title = appTitle.Title(self.driver)
+        self.wait = WebElementWait(self.driver)
 
         """
         ----------------- EXCEL READ AND TO ASSIGN VALUES TO RESPECTIVE INIT VARIABLES ------>>>>
@@ -34,3 +36,4 @@ class CRPOLogin:
         self.LoginPage.login_account_name_verification(self.xl_user)
         print(f'{self.xl_user} logged in successfully')
         self.title.tab_title(self.xl_title)
+        self.wait.loading()

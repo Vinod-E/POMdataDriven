@@ -25,5 +25,6 @@ INPUT_PATH = {
     'embrace': GENERIC_INPUT_PATH + 'embrace.xls',
     'help_desk': GENERIC_INPUT_PATH + 'Help_desk_config.xls',
     'candidate_queries': GENERIC_INPUT_PATH + 'candidate_query.xls',
-    'manage_interviewers': GENERIC_INPUT_PATH + 'Manage_interviewers.xls'
+    'manage_interviewers': GENERIC_INPUT_PATH + 'Manage_interviewers.xls',
+    'microsite': GENERIC_INPUT_PATH + 'Microsite.xls'
 }

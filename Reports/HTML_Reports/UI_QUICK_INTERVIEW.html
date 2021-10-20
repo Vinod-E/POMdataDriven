@@ -16,7 +16,7 @@ const myChartData = {
         labels: ["PASS", "FAIL"],
         datasets: [{
             label: "Test",
-            data: [0,96],
+            data: [96,0],
             backgroundColor: [
                 'green',
                 'red'
@@ -52,40 +52,40 @@ var barChartData = {
   labels: ['AMSIN', 'BETA', 'AMS', 'INDIA'],
   datasets: [
     {
-      label: "Sprint_18",
+      label: "Sprint_146",
       backgroundColor: "#9caad6",
       borderColor: "#9caad6",
       borderWidth: 1,
-      data: [90,96,0,96]
+      data: [95,96,96,96]
       
     },
     {
-      label: "Sprint_19",
+      label: "Sprint_147",
       backgroundColor: "#d88589",
       borderColor: "#d88589",
       borderWidth: 1,
-      data: [94,96,0,96]
+      data: [96,96,96,96]
     },
     {
-      label: "Sprint_20",
+      label: "Sprint_148",
       backgroundColor: "#98e1d2",
       borderColor: "#98e1d2",
       borderWidth: 1,
-      data: [94,96,0,96]
+      data: [96,96,94,96]
     },
     {
-     label: "Sprint_21",
+     label: "Sprint_149",
       backgroundColor: "#b9de94",
       borderColor: "#b9de94",
       borderWidth: 1,
-      data: [96,96,0,96]
+      data: [94,94,96,96]
     },
     {
-     label: "Sprint_22",
+     label: "Sprint_150",
       backgroundColor: "pink",
       borderColor: "pink",
       borderWidth: 1,
-      data: [95,94,0,94]
+      data: [96,94,96,94]
     }
   ]
 };
@@ -93,39 +93,39 @@ var timer_barChartData = {
   labels: ['AMSIN', 'BETA', 'AMS', 'INDIA'],
   datasets: [
     {
-      label: "Sprint_18",
+      label: "Sprint_146",
       backgroundColor: "#9caad6",
       borderColor: "#9caad6",
       borderWidth: 1,
-      data: [3.57,2.47,0.42,2.47]
+      data: [3.52,2.54,2.87,2.47]
     },
     {
-      label: "Sprint_19",
+      label: "Sprint_147",
       backgroundColor: "#d88589",
       borderColor: "#d88589",
       borderWidth: 1,
-      data: [2.51,2.54,0.41,2.54]
+      data: [3.02,2.87,2.65,2.54]
     },
     {
-      label: "Sprint_20",
+      label: "Sprint_148",
       backgroundColor: "#98e1d2",
       borderColor: "#98e1d2",
       borderWidth: 1,
-      data: [2.55,2.87,0.43,2.87]
+      data: [3.2,2.65,3.11,2.87]
     },
     {
-     label: "Sprint_21",
+     label: "Sprint_149",
       backgroundColor: "#b9de94",
       borderColor: "#b9de94",
       borderWidth: 1,
-      data: [2.52,2.65,0.49,2.65]
+      data: [3.42,3.11,3.11,2.65]
     },
     {
-     label: "Sprint_22",
+     label: "Sprint_150",
       backgroundColor: "pink",
       borderColor: "pink",
       borderWidth: 1,
-      data: [3.52,3.11,0.54,3.11]
+      data: [3.4,3.54,2.77,3.11]
     }
   ]
 };
@@ -312,7 +312,7 @@ font-weight: bold !important;
 </head>
 <body>
 <div class="container" style="position: relative; 
-background: #ffff !important;border: 1px solid #76ee68;margin-top: 1rem; margin-bottom: 1rem;">
+background: #ffff !important;border: 1px solid #e9ede8;margin-top: 1rem; margin-bottom: 1rem;">
 <div class="row" style="    padding: 20px;">
 <a>
 <img width="142"
@@ -330,14 +330,14 @@ type="button" id="btnSubmit" title="HTML Web Report" class="btn btn-primary btn-
 src="https://image.flaticon.com/icons/png/512/2353/2353373.png" width="25" height="25"/> View Run Results</a> -->
 
 
-<a href=https://s3-ap-southeast-1.amazonaws.com/ams-in-self-expiring-files/1-24h/accenturetest/uploaded/c890e197-85e3-4b25-a4f2-8eae29aa6df0d23j4.xls_.xls target="_blank" 
-type="button" id="btnCancel" title="Download Excel Report" class="btn btn-primary btn-sm custBtn gradient-border"><img  
+<a href=https://s3-ap-southeast-1.amazonaws.com/ams-in-self-expiring-files/1-24h/accenturetest/uploaded/e00c68bb-6d85-4b20-bc89-6218b78b7194151_fnlrgsn.xls_.xls target="_blank" 
+type="button" id="btnCancel" title="Download Excel Report" class="btn btn-primary btn-sm custBtn"><img  
 src="https://image.flaticon.com/icons/png/512/1053/1053166.png" width="25" height="25"/> Excel Download</a>
 
 
 <a style="margin-left: 15px;"  title="sprint wise automation reports" 
 href="https://drive.google.com/drive/u/1/folders/186nL7DWI_ZoMklgcwIUykC4tSQuECtGH" target="_blank" type="button" 
-id="btnCancel" class="btn btn-primary btn-sm custBtn gradient-border"><img  
+id="btnCancel" class="btn btn-primary btn-sm custBtn"><img  
 src="https://image.flaticon.com/icons/png/512/2965/2965323.png" width="25" height="25"/> Google Drive</a>
 				</div>
         	</div>
@@ -378,7 +378,7 @@ src="https://image.flaticon.com/icons/png/512/2965/2965323.png" width="25" heigh
 			      <td>	
 	
 					<div class="tbltd">
-                        <a class="alink">ams</a>
+                        <a class="alink">amsin</a>
                     </div>
 					</td>
 			      
@@ -388,7 +388,7 @@ src="https://image.flaticon.com/icons/png/512/2965/2965323.png" width="25" heigh
 			      <td>Sprint</td>
 			      <td>	
 					<div class="tbltd">
-                        <a class="alink">d23j4</a>
+                        <a class="alink">151_fnlrgsn</a>
                     </div>
                 	</td>
 			      
@@ -397,7 +397,7 @@ src="https://image.flaticon.com/icons/png/512/2965/2965323.png" width="25" heigh
 			      <td>Run Date&Time</td>
 			      <td>	
 					<div class="tbltd">
-                        <a class="alink">2021-07-14 14:12:43.695180</a>
+                        <a class="alink">2021-10-07 09:08:59.466461</a>
                     </div>
                 </td>
 			    </tr>
@@ -421,7 +421,7 @@ src="https://image.flaticon.com/icons/png/512/2965/2965323.png" width="25" heigh
 			      <td>Execution Time</td>
 					<td>	
 			      	<div class="tbltd">
-                        <a class="alink">3.33 min</a>
+                        <a class="alink">2.64 min</a>
                     </div>
 				  </td>
 			    </tr>
@@ -440,7 +440,7 @@ src="https://image.flaticon.com/icons/png/512/2965/2965323.png" width="25" heigh
 
 					<div class="tbltd">
 						<div style="font-size:12px;font-style:normal;line-height:16px;
-						text-align:left" class=Fail>0.0  %</div>
+						text-align:left" class=Pass>100.0  %</div>
 					</td>
 			    </tr>
 			    <tr style="border-bottom: 1px solid #ddd;"> 
@@ -448,7 +448,7 @@ src="https://image.flaticon.com/icons/png/512/2965/2965323.png" width="25" heigh
 			      <td>	
 					<div class="tbltd">
                         <div style="font-size:12px;font-style:normal;line-height:16px;
-                        text-align:left" class=Fail>Fail</div>
+                        text-align:left" class=Pass>Pass</div>
                     </div>
                 </td>
 			    </tr>
@@ -498,8 +498,8 @@ src="https://image.flaticon.com/icons/png/512/2965/2965323.png" width="25" heigh
                 </tr>
                 <tr>
                 <td class="summaryHeads" style="border-bottom:1px solid #ededed;">Tests</td>
-                <td class="summaryRow summaryPass" style="border-bottom:1px solid #ededed;">0</td>
-                <td style="border-bottom:1px solid #ededed;" class="summaryRow summaryFail ">96</td>
+                <td class="summaryRow summaryPass" style="border-bottom:1px solid #ededed;">96</td>
+                <td style="border-bottom:1px solid #ededed;" class="summaryRow summaryPass ">0</td>
                 <td style="border-bottom:1px solid #ededed;" class="summaryRow" style="font-weight:bold;color: black;">96</td>
                 </tr>
             </tbody>

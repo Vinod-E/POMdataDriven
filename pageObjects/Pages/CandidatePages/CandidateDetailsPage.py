@@ -4,11 +4,13 @@ from selenium.webdriver.common.by import By
 from Listeners.logger_settings import ui_logger
 from utilities.WebDriver_Wait import WebElementWait
 from utilities.SwitchWindow import SwitchWindowClose
+from utilities.PageScroll import PageScroll
 
 
 class CandidateDetailsPage:
     __e_title_xpath = Locators.TITLE['title']
     __e_id_xpath = Locators.CANDIDATE['id']
+    __e_certificate_xpath = Locators.CANDIDATE['certificates']
     __e_candidate_float_action_class = Locators.ACTIONS['float_click_class']
     __e_manage_task_xpath = Locators.TITLE['title'].format('Manage Task')
 
@@ -16,6 +18,7 @@ class CandidateDetailsPage:
         self.driver = driver
         self.wait = WebElementWait(self.driver)
         self.window = SwitchWindowClose(self.driver)
+        self.scroll = PageScroll(self.driver)
 
         self.candidate_id = ''
 
@@ -59,5 +62,18 @@ class CandidateDetailsPage:
             self.candidate_id = self.wait.text_value
             print(f'candidate id - {self.candidate_id}')
             return True
+        except Exception as error:
+            ui_logger.error(error)
+
+    def certificates_details_check(self, certificate_name):
+        try:
+            time.sleep(2)
+            self.wait.loading()
+            self.scroll.down(0, 300)
+            time.sleep(2)
+            self.wait.web_elements_wait_text(By.XPATH, self.__e_certificate_xpath, certificate_name)
+            if certificate_name in self.wait.text_value.strip():
+                print(f'Certificate name:: {self.wait.text_value}')
+                return True
         except Exception as error:
             ui_logger.error(error)

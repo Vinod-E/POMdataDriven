@@ -25,10 +25,18 @@ class Login:
         self.scroll = PageScroll(self.driver)
 
     def tenant(self, tenant_name):
-        self.wait.web_element_wait_send_keys(By.NAME, self.__e_tenant_name, tenant_name, 'login_tenant_field')
+        try:
+            self.wait.web_element_wait_send_keys(By.NAME, self.__e_tenant_name, tenant_name, 'login_tenant_field')
+            return True
+        except Exception as error:
+            ui_logger.error(error)
 
     def next_button(self):
-        self.wait.web_element_wait_click(By.CSS_SELECTOR, self.__e_next_button_css, 'login_next_button')
+        try:
+            self.wait.web_element_wait_click(By.CSS_SELECTOR, self.__e_next_button_css, 'login_next_button')
+            return True
+        except Exception as error:
+            ui_logger.error(error)
 
     def login_name(self, login_name):
         try:

@@ -14,10 +14,12 @@ LOADING = {
 
 TAG = {
     'anchor': 'a',
+    'h2': 'h2',
     'h4': 'h4',
     'h5': 'h5',
     'h6': 'h6',
-    'href': 'href'
+    'href': 'href',
+    'p': 'p'
 }
 
 CHECK_BOX = {
@@ -181,7 +183,8 @@ CANDIDATE = {
     'usn_field': '//*[@id="mainBodyElement"]/div[7]/div/div/div[2]/form/div[9]/div/input',
     'save_info': '//*[@data-ng-click="vm.validateSingleCandidate(entity);"]',
     'Upload_count': '.status-card.bg-success.ng-binding',
-    'save': '//*[@data-ng-click="vm.consolidateCandidateInfo();"]'
+    'save': '//*[@data-ng-click="vm.consolidateCandidateInfo();"]',
+    'certificates': '//*[@ng-repeat="certification in vm.data.certificationDetails"]'
 }
 
 EVENT = {
@@ -284,4 +287,18 @@ NOMINATIONS = {
     'panel_select': '//select[@ng-model="vm.selectedSearchPanelType"]',
     'actions': 'btn-submit',
     'approve': '//*[@id="mainBodyElement"]/div[3]/div/div/div[3]/section/div[2]/div[1]/div[2]/ul/li[1]/a'
+}
+
+MICROSITE = {
+    'certificationType': '(//select[@ng-model="certification.certificationType.value"])[{}]',
+    'certificateName': '(//select[@ng-model="certification.certificationName.value"])[{}]',
+    'certificateStatus': '(//select[@ng-model="certification.certificationStatus.value"])[{}]',
+    'institute': '(//select[@ng-model="certification.certificationInstitution.value"])[{}]',
+    'from_month': '(//select[@ng-model="certification.fromMonth.value"])[{}]',
+    'to_month': '(//select[@ng-model="certification.toMonth.value"])[{}]',
+    'from_year': '(//select[@ng-model="certification.fromYear.value"])[{}]',
+    'to_year': '(//select[@ng-model="certification.toYear.value"])[{}]',
+    'text_ph': '(//input[@type="text"][@placeholder="No Of Attempts"])[{}]',
+    'file': '//input[@type="file"][@file-model="vm.file"]',
+    'file2': '//*[@id="certification_1"]/div[2]/div[1]/div/div[10]/div/div[1]/upload-file/div/div/input'
 }

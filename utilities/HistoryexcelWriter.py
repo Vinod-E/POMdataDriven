@@ -11,6 +11,8 @@ class HistoryOutput:
 
         if sheet_name == 'amsin':
             sheet_name = 'AMSIN'
+        elif sheet_name == 'amsinc':
+            sheet_name = 'AMSIN'
         elif sheet_name == 'beta':
             sheet_name = 'BETA'
         elif sheet_name == 'ams':
