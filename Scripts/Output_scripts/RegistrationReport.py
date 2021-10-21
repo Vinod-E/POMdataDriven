@@ -7,7 +7,7 @@ from Scripts.HTML_Reports.history_data_html_generator import HistoryDataHTMLGene
 
 class CertOutputReport:
     """ Number of Test cases / use cases name """
-    TestCases = 50
+    TestCases = 51
     use_case_name = 'CERTIFICATE REGISTRATION FLOW'
 
     def __init__(self, version, server, start_date_time):
