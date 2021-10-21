@@ -64,8 +64,8 @@ class CRPOEventSearch:
                   self.search.name_field_applicant(self.xl_name),
                   self.search.applicant_search_button(),
                   self.applicant.applicant_get_name(self.xl_name, 1),
-                  self.candidate.certificates_details_check(self.xl_c1_name),
-                  self.candidate.certificates_details_check(self.xl_c2_name),
+                  self.candidate.certificates_details_check(self.xl_c1_name, 1),
+                  self.candidate.certificates_details_check(self.xl_c2_name, 2),
                   self.switch_window.window_close(),
                   self.switch_window.switch_to_window(0)
                   ]

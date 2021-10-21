@@ -65,13 +65,14 @@ class CandidateDetailsPage:
         except Exception as error:
             ui_logger.error(error)
 
-    def certificates_details_check(self, certificate_name):
+    def certificates_details_check(self, certificate_name, index):
         try:
             time.sleep(2)
             self.wait.loading()
             self.scroll.down(0, 300)
             time.sleep(2)
-            self.wait.web_elements_wait_text(By.XPATH, self.__e_certificate_xpath, certificate_name)
+            self.wait.web_element_wait_text(By.XPATH, self.__e_certificate_xpath.format(index),
+                                            certificate_name)
             if certificate_name in self.wait.text_value.strip():
                 print(f'Certificate name:: {self.wait.text_value}')
                 return True

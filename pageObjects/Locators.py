@@ -184,7 +184,7 @@ CANDIDATE = {
     'save_info': '//*[@data-ng-click="vm.validateSingleCandidate(entity);"]',
     'Upload_count': '.status-card.bg-success.ng-binding',
     'save': '//*[@data-ng-click="vm.consolidateCandidateInfo();"]',
-    'certificates': '//*[@ng-repeat="certification in vm.data.certificationDetails"]'
+    'certificates': '(//*[@ng-repeat="certification in vm.data.certificationDetails"])[{}]'
 }
 
 EVENT = {
