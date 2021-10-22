@@ -14,7 +14,7 @@ class JobAutomations:
     __e_offer_stage_xpath = Locators.JOB['offer_stage']
     __e_hopping_stage_xpath = Locators.JOB['hop_stage_field']
     __e_hopping_status_xpath = Locators.JOB['hop_status_field']
-    __e_toggle_buttons_css = Locators.JOB['toggle_buttons']
+    __e_toggle_buttons_xpath = Locators.JOB['toggle_buttons']
     __e_save_xpath = Locators.BUTTONS['button'].format('Save')
 
     def __init__(self, driver):
@@ -73,10 +73,13 @@ class JobAutomations:
         try:
             time.sleep(0.5)
             self.scroll.up(0, 100)
-            self.wait.web_elements_wait_multiple_click(By.CSS_SELECTOR, self.__e_toggle_buttons_css, '')
-            print('Auto Tag to test - ON')
-            print('Eligibility Criteria - ON')
-            print('Self Schedule - ON')
+            a = [9, 10, 12, 13, 15, 20]
+            for i in a:
+                self.wait.web_element_wait_click(By.XPATH, self.__e_toggle_buttons_xpath.format(i),
+                                                 'all_round_button_on')
+                print('Auto Tag to test - ON')
+                print('Eligibility Criteria - ON')
+                print('Self Schedule - ON')
             return True
         except Exception as error:
             ui_logger.error(error)
