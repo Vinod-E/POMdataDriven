@@ -166,7 +166,7 @@ JOB = {
     'offer_stage': '//*[@id="main-table"]/tbody[7]/tr[4]/td[1]/div/i',
     'hop_stage_field': '//*[@ng-model="vm.hopping[statusId].selectedStage"]',
     'hop_status_field': '//*[@ng-model="vm.hopping[statusId].selectedStatus"]',
-    'toggle_buttons': '.slider.round'
+    'toggle_buttons': '(//*[@class="switch"])[{}]'
 }
 
 CHANGE_STATUS = {
