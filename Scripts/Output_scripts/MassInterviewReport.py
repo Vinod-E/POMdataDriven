@@ -7,7 +7,7 @@ from Config import outputFile
 
 class MassOutputReport:
     """ Number of Test cases / use cases name """
-    TestCases = 154
+    TestCases = 155
     use_case_name = 'MASS INTERVIEW FLOW'
     fail_color = ''
 
@@ -91,7 +91,8 @@ class MassOutputReport:
                                      row=2, i_column=8, o_column=9, path=self.__path)
 
     def create_room_report(self, room_coll):
-        testdata_headers = ['Event Actions', 'Interview Lobby', 'Create room', 'Room Name Field', 'Select interviewers',
+        testdata_headers = ['Event Actions', 'Interview Lobby', 'Create room', 'Room Name Field',
+                            'Remove Available Interviewers', 'Select interviewers',
                             'Search Interviewers', 'Move all', 'Done', 'Select Participants', 'Search Participants',
                             'Move all', 'Done', 'Created Room Button', 'Activate Room Action', 'Activated-Ok']
         self.xlw.input_output_report(testdata_headers=testdata_headers, collection=room_coll,
