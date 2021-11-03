@@ -11,6 +11,10 @@ from pageObjects.Pages.MenuPages.eventSubTabPages import EventSubTabs
 class LobbyPage:
     __e_create_button_xpath = Locators.BUTTONS['button'].format('Create Room')
     __e_room_name_xpath = Locators.PLACEHOLDER['text_ph'].format('Room Name')
+    __e_remove_int_xpath = Locators.TITLE['tooltip'].format("'", 'Available Interviewers : '
+                                                                 'Those interviewers who have logged in and mark that '
+                                                                 'they are available for taking interviews '
+                                                                 'against this event.', "'")
     __e_interviewers_xpath = Locators.TITLE['title'].format('Select Interviewers')
     __e_participants_xpath = Locators.TITLE['title'].format('Select Participants')
     __e_search_xpath = Locators.TITLE['title'].format('Type here to search')
@@ -48,6 +52,14 @@ class LobbyPage:
     def room_name(self, room_name):
         try:
             self.wait.web_element_wait_send_keys(By.XPATH, self.__e_room_name_xpath, room_name, 'room_name_field')
+            return True
+        except Exception as error:
+            ui_logger.error(error)
+
+    def remove_available_interviewers(self):
+        try:
+            self.wait.web_element_wait_click(By.XPATH, self.__e_remove_int_xpath, 'remove_available_interviewers')
+            print('***---------->>> Check Box removed for available interviewers')
             return True
         except Exception as error:
             ui_logger.error(error)

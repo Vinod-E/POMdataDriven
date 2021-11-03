@@ -30,6 +30,7 @@ class Room:
                   self.action.event_lobby(),
                   self.lobby.create_room_button(),
                   self.lobby.room_name(self.xl_room_name),
+                  self.lobby.remove_available_interviewers(),
                   self.lobby.select_interviewers(),
                   self.lobby.search(self.xl_int1),
                   self.lobby.move_all(),
