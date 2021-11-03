@@ -13,11 +13,6 @@ class ReadConfig:
         return url
 
     @staticmethod
-    def get_qa_registration_url():
-        url = config.get('crpoUrls', 'QA_REGISTRATION')
-        return url
-
-    @staticmethod
     def get_beta_url():
         url = config.get('crpoUrls', 'BETA')
         return url
@@ -35,6 +30,16 @@ class ReadConfig:
     @staticmethod
     def get_indiaams_url():
         url = config.get('crpoUrls', 'INDIAAMS')
+        return url
+
+    @staticmethod
+    def get_qa_certificate_url():
+        url = config.get('RegistrationUrls', 'QA_CERTIFICATE')
+        return url
+
+    @staticmethod
+    def get_prod_registration_url():
+        url = config.get('RegistrationUrls', 'PROD_CERTIFICATE')
         return url
 
     @staticmethod
