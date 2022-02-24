@@ -290,6 +290,7 @@ NOMINATIONS = {
 }
 
 MICROSITE = {
+    'whatsapp_consent': '//select[@ng-model="vm.service.formData[property.id]"]',
     'certificationType': '(//select[@ng-model="certification.certificationType.value"])[{}]',
     'certificateName': '(//select[@ng-model="certification.certificationName.value"])[{}]',
     'certificateStatus': '(//select[@ng-model="certification.certificationStatus.value"])[{}]',
