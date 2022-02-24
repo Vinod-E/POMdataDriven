@@ -19,7 +19,7 @@ class HTMLReport:
         <html>
         <head>
         <title>""" + use_case + """</title>
-        <link rel="icon" type="image/x-icon" href="https://image.flaticon.com/icons/png/512/858/858799.png"/>
+        <link rel="icon" type="image/x-icon" href="https://cdn-icons-png.flaticon.com/128/4301/4301717.png"/>
         <!-- Latest compiled and minified CSS -->
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 
@@ -359,13 +359,13 @@ src="https://image.flaticon.com/icons/png/512/2353/2353373.png" width="25" heigh
 
 <a href=""" + self.amazon_s3.one_day_link + """ target="_blank" 
 type="button" id="btnCancel" title="Download Excel Report" class="btn btn-primary btn-sm custBtn"><img  
-src="https://image.flaticon.com/icons/png/512/1053/1053166.png" width="25" height="25"/> Excel Download</a>
+src="https://cdn-icons-png.flaticon.com/128/6635/6635127.png" width="25" height="25"/> Excel Download</a>
 
 
 <a style="margin-left: 15px;"  title="sprint wise automation reports" 
 href="https://drive.google.com/drive/u/1/folders/186nL7DWI_ZoMklgcwIUykC4tSQuECtGH" target="_blank" type="button" 
 id="btnCancel" class="btn btn-primary btn-sm custBtn"><img  
-src="https://image.flaticon.com/icons/png/512/2965/2965323.png" width="25" height="25"/> Google Drive</a>
+src="https://cdn-icons-png.flaticon.com/128/324/324107.png" width="25" height="25"/> Google Drive</a>
 				</div>
         	</div>
             </div>
