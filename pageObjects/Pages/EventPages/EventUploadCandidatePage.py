@@ -22,7 +22,7 @@ class EventUploadCandidate:
     __e_save_candidate_xpath = Locators.CANDIDATE['save']
     __e_upload_count_css = Locators.CANDIDATE['Upload_count']
     __e_close_button_xpath = Locators.BUTTONS['button'].format('Close')
-    __e_close_main_xpath = Locators.BUTTONS['close']
+    __e_close_main_xpath = Locators.BUTTONS['all_buttons'].format('Close')
     __e_confirm_close_main_xpath = Locators.BUTTONS['all_buttons'].format('OK')
 
     def __init__(self, driver):
@@ -138,6 +138,8 @@ class EventUploadCandidate:
             if self.wait.text_value.strip() == message:
                 print(f'Success {self.wait.text_value.strip()} - Count')
                 return True
+            else:
+                print(f'Failed {self.wait.text_value.strip()} - Count')
         except Exception as error:
             ui_logger.error(error)
 
