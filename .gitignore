@@ -4,4 +4,6 @@
 Scripts/geckodriver.log
 Config/config.ini
 Logs/ui_automation.log
+.idea/POMdataDriven.iml
+.idea/misc.xml
 *.png
