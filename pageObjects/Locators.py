@@ -46,7 +46,8 @@ SUB_MENU = {
 }
 
 ATTACHMENT = {
-    'file': '//input[@type="file"]'
+    'file': '//input[@type="file"]',
+    'multi_file': '(//input[@type="file"])[{}]'
 }
 
 NOTIFIER = {
@@ -300,6 +301,4 @@ MICROSITE = {
     'from_year': '(//select[@ng-model="certification.fromYear.value"])[{}]',
     'to_year': '(//select[@ng-model="certification.toYear.value"])[{}]',
     'text_ph': '(//input[@type="text"][@placeholder="No Of Attempts"])[{}]',
-    'file': '//input[@type="file"][@file-model="vm.file"]',
-    'file2': '//*[@id="certification_1"]/div[2]/div[1]/div/div[10]/div/div[1]/upload-file/div/div/input'
 }

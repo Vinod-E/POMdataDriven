@@ -17,8 +17,8 @@ class CertificateDetailsData:
     __e_from_year_xpath = Locators.MICROSITE['from_year']
     __e_to_year_xpath = Locators.MICROSITE['to_year']
     __e_attempts_xpath = Locators.MICROSITE['text_ph']
-    __e_file_path = Locators.ATTACHMENT['file']
-    __e_file2_path = Locators.MICROSITE['file2']
+    __e_file_path = Locators.ATTACHMENT['multi_file'].format(1)
+    __e_file2_path = Locators.ATTACHMENT['multi_file'].format(1)
     __e_add_certi_xpath = Locators.BUTTONS['btnActionClicked'].format("'", 'addCertification', "'")
 
     def __init__(self, driver):
