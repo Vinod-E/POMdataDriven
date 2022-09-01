@@ -1,5 +1,3 @@
-import time
-
 from Listeners.logger_settings import ui_logger
 from pageObjects import Locators
 from selenium.webdriver.common.by import By

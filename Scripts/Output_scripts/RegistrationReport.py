@@ -24,8 +24,9 @@ class CertOutputReport:
         self.xlw.excel_header_by_index(row=1, col=0, excel_headers_list=excel_headers,
                                        color_headers_list=color_headers)
 
-        excel_headers = ['Admin Login', 'Status', 'Event Search', 'Status', 'Applicant Search', 'Status']
-        color_headers = ['Status', 'Admin Login', 'Event Search', 'Applicant Search']
+        excel_headers = ['Admin Login', 'Status', 'Event Search', 'Status', 'Applicant Search', 'Status',
+                         'Certificate', 'Status']
+        color_headers = ['Status', 'Admin Login', 'Event Search', 'Applicant Search', 'Certificate']
         self.xlw.excel_header_by_index(row=13, col=0, excel_headers_list=excel_headers,
                                        color_headers_list=color_headers)
 
@@ -93,3 +94,8 @@ class CertOutputReport:
                             'Certificate-1 validate', 'Certificate-2 validate', 'Window Close', 'Switch To Window']
         self.xlw.input_output_report(testdata_headers=testdata_headers, collection=applicant_coll,
                                      row=14, i_column=4, o_column=5, path=self.__path)
+
+    def applicant_certificate_report(self, applicant_coll):
+        testdata_headers = ['Certificate-1 validate', 'Certificate-2 validate', 'Window Close', 'Switch To Window']
+        self.xlw.input_output_report(testdata_headers=testdata_headers, collection=applicant_coll,
+                                     row=14, i_column=6, o_column=7, path=self.__path)

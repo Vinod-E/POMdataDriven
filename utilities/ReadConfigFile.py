@@ -38,6 +38,11 @@ class ReadConfig:
         return url
 
     @staticmethod
+    def get_qa_educational_url():
+        url = config.get('RegistrationUrls', 'QA_EDUCATION')
+        return url
+
+    @staticmethod
     def get_prod_registration_url():
         url = config.get('RegistrationUrls', 'PROD_CERTIFICATE')
         return url

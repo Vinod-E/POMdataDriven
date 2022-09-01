@@ -31,7 +31,7 @@ class CRPOEventSearch:
         self.xl_tab_title = xl['tab_title'][0]
 
         certificate_excel = excelRead.ExcelRead()
-        certificate_excel.read(inputFile.INPUT_PATH['microsite'], index=index)
+        certificate_excel.read(inputFile.INPUT_PATH['microsite_certificate'], index=index)
         xl = certificate_excel.excel_dict
         self.xl_name = xl['candidate_name'][0].format(version)
         self.xl_event_name = xl['event_name'][0]
@@ -40,6 +40,8 @@ class CRPOEventSearch:
 
         self.event_search_collection = []
         self.applicant_search_collection = []
+        self.applicant_education_collection = []
+        self.applicant_certificate_collection = []
 
     def crpo_search_event(self):
         self.event_search_collection = []
@@ -63,14 +65,38 @@ class CRPOEventSearch:
         __list = [self.search.advance_search(),
                   self.search.name_field_applicant(self.xl_name),
                   self.search.applicant_search_button(),
-                  self.applicant.applicant_get_name(self.xl_name, 1),
-                  self.candidate.certificates_details_check(self.xl_c1_name, 1),
-                  self.candidate.certificates_details_check(self.xl_c2_name, 2),
-                  self.switch_window.window_close(),
-                  self.switch_window.switch_to_window(0)
+                  self.applicant.applicant_get_name(self.xl_name, 1)
                   ]
         for func in __list:
             if func:
                 self.applicant_search_collection.append(func)
             else:
                 self.applicant_search_collection.append(func)
+
+    def crpo_applicant_certificate(self):
+        self.applicant_certificate_collection = []
+        __list = [self.candidate.certificates_details_check(self.xl_c1_name, 1),
+                  self.candidate.certificates_details_check(self.xl_c2_name, 2),
+                  self.switch_window.window_close(),
+                  self.switch_window.switch_to_window(0)
+                  ]
+        for func in __list:
+            if func:
+                self.applicant_certificate_collection.append(func)
+            else:
+                self.applicant_certificate_collection.append(func)
+
+    def crpo_applicant_education(self):
+        self.applicant_education_collection = []
+        __list = [self.candidate.education_details_check("M.Tech.(Master of Technology)", 1),
+                  self.candidate.education_details_check("B.Tech.(Bachelor of Technology)", 2),
+                  self.candidate.education_details_check("12th", 3),
+                  self.candidate.education_details_check("10th", 4),
+                  self.switch_window.window_close(),
+                  self.switch_window.switch_to_window(0)
+                  ]
+        for func in __list:
+            if func:
+                self.applicant_education_collection.append(func)
+            else:
+                self.applicant_education_collection.append(func)

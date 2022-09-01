@@ -24,6 +24,9 @@ class EnvironmentSetup:
         elif self.server == 'amsinc':
             self.driver.get(ReadConfigFile.ReadConfig.get_qa_certificate_url())
             self.index = 0
+        elif self.server == 'amsine':
+            self.driver.get(ReadConfigFile.ReadConfig.get_qa_educational_url())
+            self.index = 0
         elif self.server == 'amsc':
             self.driver.get(ReadConfigFile.ReadConfig.get_prod_registration_url())
             self.index = 1

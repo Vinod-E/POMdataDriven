@@ -11,6 +11,7 @@ class CandidateDetailsPage:
     __e_title_xpath = Locators.TITLE['title']
     __e_id_xpath = Locators.CANDIDATE['id']
     __e_certificate_xpath = Locators.CANDIDATE['certificates']
+    __e_education_xpath = Locators.CANDIDATE['education']
     __e_candidate_float_action_class = Locators.ACTIONS['float_click_class']
     __e_manage_task_xpath = Locators.TITLE['title'].format('Manage Task')
 
@@ -74,6 +75,20 @@ class CandidateDetailsPage:
             self.wait.web_element_wait_text(By.XPATH, self.__e_certificate_xpath.format(index),
                                             certificate_name)
             if certificate_name in self.wait.text_value.strip():
+                print(f'Certificate name:: {self.wait.text_value}')
+                return True
+        except Exception as error:
+            ui_logger.error(error)
+
+    def education_details_check(self, education_type, index):
+        try:
+            time.sleep(1)
+            self.wait.loading()
+            self.scroll.down(0, 300)
+            time.sleep(1)
+            self.wait.web_element_wait_text(By.XPATH, self.__e_education_xpath.format(index),
+                                            education_type)
+            if education_type in self.wait.text_value.strip():
                 print(f'Certificate name:: {self.wait.text_value}')
                 return True
         except Exception as error:
