@@ -21,6 +21,10 @@ class HistoryOutput:
             sheet_name = 'AMSIN'
         elif sheet_name == 'amsc':
             sheet_name = 'AMS'
+        elif sheet_name == 'amsine':
+            sheet_name = 'AMSIN'
+        elif sheet_name == 'amse':
+            sheet_name = 'AMS'
         # ----------------------- Headers initialization ----------------------------
         h1 = 'Run Date'
         h2 = 'Run Time'

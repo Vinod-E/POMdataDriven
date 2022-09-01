@@ -21,7 +21,7 @@ class CrpoNewRegistration:
         ----------------- EXCEL READ AND TO ASSIGN VALUES TO RESPECTIVE INIT VARIABLES ------>>>>
         """
         certificate_excel = excelRead.ExcelRead()
-        certificate_excel.read(inputFile.INPUT_PATH['microsite'], index=index)
+        certificate_excel.read(inputFile.INPUT_PATH['microsite_certificate'], index=index)
         xl = certificate_excel.excel_dict
         self.xl_name = xl['candidate_name'][0].format(version)
         self.xl_email = xl['email'][0].format(self.xl_name)

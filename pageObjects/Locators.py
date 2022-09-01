@@ -185,7 +185,8 @@ CANDIDATE = {
     'save_info': '//*[@data-ng-click="vm.validateSingleCandidate(entity);"]',
     'Upload_count': '.status-card.bg-success.ng-binding',
     'save': '//*[@data-ng-click="vm.consolidateCandidateInfo();"]',
-    'certificates': '(//*[@ng-repeat="certification in vm.data.certificationDetails"])[{}]'
+    'certificates': '(//*[@ng-repeat="certification in vm.data.certificationDetails"])[{}]',
+    'education': '(//strong[@class="ng-binding"])[{}]'
 }
 
 EVENT = {
@@ -301,4 +302,27 @@ MICROSITE = {
     'from_year': '(//select[@ng-model="certification.fromYear.value"])[{}]',
     'to_year': '(//select[@ng-model="certification.toYear.value"])[{}]',
     'text_ph': '(//input[@type="text"][@placeholder="No Of Attempts"])[{}]',
+    'pg_type': 'Education Type0',
+    'pg_degree': 'Degree0',
+    'pg_college': 'College0',
+    'pg_branch': 'Branch0',
+    'pg_yop': 'Year Of Passing0',
+    'pg_cgpa_radio': 'CGPA0',
+    'pg_cgpa': 'isPercentage0',
+    'pg_out_of': 'percentageOutOf0',
+    'ug_type': 'Education Type1',
+    'ug_degree': 'Degree1',
+    'ug_college': '(//*[@ng-model="education.college.value"])[2]',
+    'ug_branch': 'Branch1',
+    'ug_yop': 'Year Of Passing1',
+    'ug_percent_radio': 'Percentage1',
+    'ug_percent': 'isPercentage1',
+    '12th_type': 'Education Type2',
+    '12th_yop': 'Year Of Passing2',
+    '12th_cgpa_radio': 'CGPA2',
+    '12th_cgpa': 'isPercentage2',
+    '10th_type': 'Education Type3',
+    '10th_yop': 'Year Of Passing3',
+    '10th_percent_radio': 'Percentage3',
+    '10th_percent': 'isPercentage3',
 }

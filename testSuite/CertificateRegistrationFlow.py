@@ -65,6 +65,10 @@ class RegistrationCertificate:
         self.search.crpo_search_applicant()
         self.Certi_output.applicant_search_report(self.search.applicant_search_collection)
 
+    def crpo_applicant_certificates(self):
+        self.search.crpo_applicant_certificate()
+        self.Certi_output.applicant_certificate_report(self.search.applicant_education_collection)
+
 
 Object = RegistrationCertificate()
 
@@ -78,6 +82,7 @@ if Object.page_valid.page_validation():
     Object.crpo_admin_login()
     Object.crpo_event_search()
     Object.crpo_applicant_search()
+    Object.crpo_applicant_certificates()
 
     """
      <<=========== OUTPUT REPORTS GENERATOR PARTS HERE BELOW =============>>
