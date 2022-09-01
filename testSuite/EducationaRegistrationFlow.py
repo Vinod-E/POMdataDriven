@@ -100,4 +100,4 @@ if Object.page_valid.page_validation():
     """
     Object.education_output.overall_status()
     Object.education_output.history_html_generator()
-    # Object.environment.close()
+    Object.environment.close()
