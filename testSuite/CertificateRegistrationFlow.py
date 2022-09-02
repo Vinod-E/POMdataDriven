@@ -67,7 +67,7 @@ class RegistrationCertificate:
 
     def crpo_applicant_certificates(self):
         self.search.crpo_applicant_certificate()
-        self.Certi_output.applicant_certificate_report(self.search.applicant_education_collection)
+        self.Certi_output.applicant_certificate_report(self.search.applicant_certificate_collection)
 
 
 Object = RegistrationCertificate()
