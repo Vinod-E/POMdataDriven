@@ -15,8 +15,6 @@ class EducationalRegistration:
         self.edu = EducationDetails.EducationalDetailsData(self.driver)
         self.submit = SubmitPage.SubmitData(self.driver)
 
-        # ---- Attachment from local machine
-        self.attachment_file = inputFile.INPUT_PATH['job_attachment']
         """
         ----------------- EXCEL READ AND TO ASSIGN VALUES TO RESPECTIVE INIT VARIABLES ------>>>>
         """
@@ -28,6 +26,25 @@ class EducationalRegistration:
         self.xl_phone = xl['phone'][0]
         self.xl_whatsapp = xl['consent'][0]
         self.xl_message = xl['message'][0]
+        self.xl_pg_type = xl['pg_type'][0]
+        self.xl_pg_degree = xl['pg_degree'][0]
+        self.xl_pg_college = xl['pg_college'][0]
+        self.xl_pg_branch = xl['pg_branch'][0]
+        self.xl_pg_yop = xl['pg_yop'][0]
+        self.xl_pg_cgpa = xl['pg_cgpa'][0]
+        self.xl_pg_cgpa_out_of = xl['pg_cgpa_out_of'][0]
+        self.xl_ug_type = xl['ug_type'][0]
+        self.xl_ug_degree = xl['ug_degree'][0]
+        self.xl_ug_college = xl['ug_college'][0]
+        self.xl_ug_branch = xl['ug_branch'][0]
+        self.xl_ug_yop = xl['ug_yop'][0]
+        self.xl_ug_percentage = xl['ug_percentage'][0]
+        self.xl_twelfth_type = xl['twelfth_type'][0]
+        self.xl_twelfth_yop = xl['twelfth_yop'][0]
+        self.xl_twelfth_cgpa = xl['twelfth_cgpa'][0]
+        self.xl_tenth_type = xl['tenth_type'][0]
+        self.xl_tenth_yop = xl['tenth_yop'][0]
+        self.xl_tenth_percentage = xl['tenth_percentage'][0]
 
         self.entry_collection = []
         self.pd_collection = []
@@ -63,14 +80,14 @@ class EducationalRegistration:
 
     def entry_pg_details(self):
         self.pg_details_collection = []
-        __list = [self.edu.pg_education_type('Post Graduate'),
-                  self.edu.pg_degree("M.Tech.(Master of Technology)"),
-                  self.edu.pg_college("AMIE"),
-                  self.edu.pg_branch("Computer Science"),
-                  self.edu.pg_yop("2016"),
+        __list = [self.edu.pg_education_type(self.xl_pg_type),
+                  self.edu.pg_degree(self.xl_pg_degree),
+                  self.edu.pg_college(self.xl_pg_college),
+                  self.edu.pg_branch(self.xl_pg_branch),
+                  self.edu.pg_yop(self.xl_pg_yop),
                   self.edu.pg_select_cgpa(),
                   self.edu.pg_cgpa("4.5"),
-                  self.edu.pg_cgpa_out_of("5"),
+                  self.edu.pg_cgpa_out_of(self.xl_pg_cgpa_out_of),
                   self.edu.add_more_education()
                   ]
         for func in __list:
@@ -81,13 +98,13 @@ class EducationalRegistration:
 
     def entry_ug_details(self):
         self.ug_details_collection = []
-        __list = [self.edu.ug_education_type("Under Graduate"),
-                  self.edu.ug_degree("B.Tech.(Bachelor of Technology)"),
-                  self.edu.ug_college("AIM"),
-                  self.edu.ug_branch("Computer Science"),
-                  self.edu.ug_yop("2014"),
+        __list = [self.edu.ug_education_type(self.xl_ug_type),
+                  self.edu.ug_degree(self.xl_ug_degree),
+                  self.edu.ug_college(self.xl_ug_college),
+                  self.edu.ug_branch(self.xl_ug_branch),
+                  self.edu.ug_yop(self.xl_ug_yop),
                   self.edu.ug_select_percent(),
-                  self.edu.ug_percent("73.9"),
+                  self.edu.ug_percent(int(self.xl_ug_percentage)),
                   self.edu.add_more_education()
                   ]
         for func in __list:
@@ -98,10 +115,10 @@ class EducationalRegistration:
 
     def entry_twelfth_details(self):
         self.twelfth_details_collection = []
-        __list = [self.edu.twelfth_education_type("12th/Diploma"),
-                  self.edu.twelfth_yop("2011"),
+        __list = [self.edu.twelfth_education_type(self.xl_twelfth_type),
+                  self.edu.twelfth_yop(self.xl_twelfth_yop),
                   self.edu.twelfth_select_cgpa(),
-                  self.edu.twelfth_cgpa("4.5"),
+                  self.edu.twelfth_cgpa(int(self.xl_twelfth_cgpa)),
                   self.edu.add_more_education()
                   ]
         for func in __list:
@@ -112,8 +129,8 @@ class EducationalRegistration:
 
     def entry_tenth_details(self):
         self.tenth_details_collection = []
-        __list = [self.edu.tenth_education_type("10th"),
-                  self.edu.tenth_yop("2008"),
+        __list = [self.edu.tenth_education_type(self.xl_tenth_type),
+                  self.edu.tenth_yop(self.xl_tenth_yop),
                   self.edu.tenth_select_percent(),
                   self.edu.tenth_percent("89.3"),
                   ]

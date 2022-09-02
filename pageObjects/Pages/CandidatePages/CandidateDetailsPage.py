@@ -14,6 +14,12 @@ class CandidateDetailsPage:
     __e_education_xpath = Locators.CANDIDATE['education']
     __e_candidate_float_action_class = Locators.ACTIONS['float_click_class']
     __e_manage_task_xpath = Locators.TITLE['title'].format('Manage Task')
+    __e_photo_title_xpath = Locators.TITLE['title'].format('Edit photo')
+    __e_pan_xpath = Locators.CANDIDATE['other_attachments'].format(1)
+    __e_college_xpath = Locators.CANDIDATE['other_attachments'].format(2)
+    __e_communication_xpath = Locators.SUB_MENU['candidate_communication']
+    __e_arrow_xpath = Locators.CANDIDATE['down_arrow']
+    __e_id_card_xpath = Locators.CANDIDATE['id_card_verified']
 
     def __init__(self, driver):
         self.driver = driver
@@ -90,6 +96,60 @@ class CandidateDetailsPage:
                                             education_type)
             if education_type in self.wait.text_value.strip():
                 print(f'Certificate name:: {self.wait.text_value}')
+                return True
+        except Exception as error:
+            ui_logger.error(error)
+
+    def profile_photo_check(self):
+        try:
+            time.sleep(2)
+            self.wait.loading()
+            self.wait.web_element_wait(By.XPATH, self.__e_photo_title_xpath, 'profile_photo_check')
+            photo = self.wait.perform.get_attribute("src")
+            print(f'Photo s3 url:: {photo}')
+            return True
+        except Exception as error:
+            ui_logger.error(error)
+
+    def pan_photo_check(self):
+        try:
+            time.sleep(1)
+            self.scroll.up(0, 200)
+            self.wait.web_element_wait(By.XPATH, self.__e_pan_xpath, 'pan_photo_check')
+            pan = self.wait.perform.get_attribute("href")
+            print(f'PAN s3 url:: {pan}')
+            return True
+        except Exception as error:
+            ui_logger.error(error)
+
+    def college_id_photo_check(self):
+        try:
+            self.wait.web_element_wait(By.XPATH, self.__e_college_xpath, 'college_id_photo_check')
+            college = self.wait.perform.get_attribute("href")
+            print(f'College Id s3 url:: {college}')
+            return True
+        except Exception as error:
+            ui_logger.error(error)
+
+    def communication_tab(self):
+        try:
+            self.wait.web_element_wait_click(By.XPATH, self.__e_communication_xpath, 'communication_tab')
+            return True
+        except Exception as error:
+            ui_logger.error(error)
+
+    def arrow_down(self):
+        try:
+            self.wait.web_element_wait_click(By.XPATH, self.__e_arrow_xpath, 'arrow_down')
+            return True
+        except Exception as error:
+            ui_logger.error(error)
+
+    def id_card_verified(self):
+        try:
+            self.wait.web_element_wait_text(By.XPATH, self.__e_id_card_xpath, 'id_card_verified')
+            if self.wait.text_value.strip() == 'Id-Card Verified':
+                print(f'Communication status - {self.wait.text_value.strip()} ::  True')
                 return True
         except Exception as error:
             ui_logger.error(error)

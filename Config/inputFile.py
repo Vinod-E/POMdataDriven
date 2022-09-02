@@ -5,6 +5,9 @@ GENERIC_INPUT_PATH = CongfigFile.INPUT_FILE
 INPUT_PATH = {
     'upload': GENERIC_INPUT_PATH + 'candidateUpload.xls',
     'job_attachment': GENERIC_INPUT_PATH + 'job-description.pdf',
+    'OCR_candidate': GENERIC_INPUT_PATH + 'OCR_Candidate.png',
+    'OCR_PAN': GENERIC_INPUT_PATH + 'OCR_PAN.jpg',
+    'OCR_id_card': GENERIC_INPUT_PATH + 'college_id_card.jpg',
 
     'login_excel': GENERIC_INPUT_PATH + 'Login_Details.xls',
     'job_excel': GENERIC_INPUT_PATH + 'Job_Details.xls',
@@ -27,5 +30,6 @@ INPUT_PATH = {
     'candidate_queries': GENERIC_INPUT_PATH + 'candidate_query.xls',
     'manage_interviewers': GENERIC_INPUT_PATH + 'Manage_interviewers.xls',
     'microsite_certificate': GENERIC_INPUT_PATH + 'MicrositeCertificate.xls',
-    'microsite_education': GENERIC_INPUT_PATH + 'MicrositeEducation.xls'
+    'microsite_education': GENERIC_INPUT_PATH + 'MicrositeEducation.xls',
+    'microsite_OCR': GENERIC_INPUT_PATH + 'MicrositeOCR.xls'
 }

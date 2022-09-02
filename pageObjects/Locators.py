@@ -42,7 +42,8 @@ SUB_MENU = {
     'req_configurations': '//*[@ng-click="vm.goToConfiguration()"]',
     'req_duplicity': '//*[@ui-sref="crpo.requirements.details.configuration.candidateDuplicity"]',
     'req_query': '//*[@ui-sref="crpo.requirements.details.configuration.queryConfiguration"]',
-    'nominations': '//*[@ui-sref="crpo.events.interviewers.nominations"]'
+    'nominations': '//*[@ui-sref="crpo.events.interviewers.nominations"]',
+    'candidate_communication': '//*[@ui-sref="crpo.candidates.details.communicationDetails"]'
 }
 
 ATTACHMENT = {
@@ -186,7 +187,10 @@ CANDIDATE = {
     'Upload_count': '.status-card.bg-success.ng-binding',
     'save': '//*[@data-ng-click="vm.consolidateCandidateInfo();"]',
     'certificates': '(//*[@ng-repeat="certification in vm.data.certificationDetails"])[{}]',
-    'education': '(//strong[@class="ng-binding"])[{}]'
+    'education': '(//strong[@class="ng-binding"])[{}]',
+    'other_attachments': '(//a[@class="property-label"])[{}]',
+    'id_card_verified': '(//td[@class="th ng-scope"])[2]',
+    'down_arrow': '(//i[@class="fa fa-chevron-down"])[1]'
 }
 
 EVENT = {
@@ -292,6 +296,11 @@ NOMINATIONS = {
 }
 
 MICROSITE = {
+    'first_name': 'firstName',
+    'middle_name': 'middleName',
+    'last_name': 'lastName',
+    'pan_number_filed': 'panNo',
+    'card_type': 'idCardType',
     'whatsapp_consent': '//select[@ng-model="vm.service.formData[property.id]"]',
     'certificationType': '(//select[@ng-model="certification.certificationType.value"])[{}]',
     'certificateName': '(//select[@ng-model="certification.certificationName.value"])[{}]',

@@ -1,3 +1,5 @@
+import time
+
 from Listeners.logger_settings import ui_logger
 from pageObjects import Locators
 from selenium.webdriver.common.by import By
@@ -32,6 +34,7 @@ class SubmitData:
     def confirm_registration(self):
         try:
             self.wait.web_element_wait_click(By.XPATH, self.__e_confirm_xpath, 'confirm_registration')
+            time.sleep(2)
             return True
         except Exception as error:
             ui_logger.error(error)
