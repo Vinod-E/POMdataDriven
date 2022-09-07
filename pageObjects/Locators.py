@@ -43,7 +43,8 @@ SUB_MENU = {
     'req_duplicity': '//*[@ui-sref="crpo.requirements.details.configuration.candidateDuplicity"]',
     'req_query': '//*[@ui-sref="crpo.requirements.details.configuration.queryConfiguration"]',
     'nominations': '//*[@ui-sref="crpo.events.interviewers.nominations"]',
-    'candidate_communication': '//*[@ui-sref="crpo.candidates.details.communicationDetails"]'
+    'candidate_communication': '//*[@ui-sref="crpo.candidates.details.communicationDetails"]',
+    'candidate_payment': '//*[@ui-sref="crpo.candidates.details.paymentDetails"]'
 }
 
 ATTACHMENT = {
@@ -190,7 +191,8 @@ CANDIDATE = {
     'education': '(//strong[@class="ng-binding"])[{}]',
     'other_attachments': '(//a[@class="property-label"])[{}]',
     'id_card_verified': '(//td[@class="th ng-scope"])[2]',
-    'down_arrow': '(//i[@class="fa fa-chevron-down"])[1]'
+    'down_arrow': '(//i[@class="fa fa-chevron-down"])[1]',
+    'payment_details_by_index': '(//span[@class="dataSpan pull-right ng-binding"])[{}]'
 }
 
 EVENT = {
@@ -334,4 +336,8 @@ MICROSITE = {
     '10th_yop': 'Year Of Passing3',
     '10th_percent_radio': 'Percentage3',
     '10th_percent': 'isPercentage3',
+    'payment_card': '//button[@type="button"][@method="wallet"]',
+    'razorpay_c_name': 'merchant-name',
+    'Qr_code': '//*[@data-content="refresh"]',
+    'payment_ids': '(//span[@class="ng-binding"])[{}]'
 }

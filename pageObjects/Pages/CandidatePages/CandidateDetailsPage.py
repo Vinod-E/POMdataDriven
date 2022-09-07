@@ -18,8 +18,13 @@ class CandidateDetailsPage:
     __e_pan_xpath = Locators.CANDIDATE['other_attachments'].format(1)
     __e_college_xpath = Locators.CANDIDATE['other_attachments'].format(2)
     __e_communication_xpath = Locators.SUB_MENU['candidate_communication']
+    __e_payment_xpath = Locators.SUB_MENU['candidate_payment']
     __e_arrow_xpath = Locators.CANDIDATE['down_arrow']
     __e_id_card_xpath = Locators.CANDIDATE['id_card_verified']
+    __e_order_id_xpath = Locators.CANDIDATE['payment_details_by_index'].format(2)
+    __e_pay_id_xpath = Locators.CANDIDATE['payment_details_by_index'].format(3)
+    __e_pay_completed_xpath = Locators.CANDIDATE['payment_details_by_index'].format(4)
+    __e_pay_capture_xpath = Locators.CANDIDATE['payment_details_by_index'].format(5)
 
     def __init__(self, driver):
         self.driver = driver
@@ -138,6 +143,13 @@ class CandidateDetailsPage:
         except Exception as error:
             ui_logger.error(error)
 
+    def payment_tab(self):
+        try:
+            self.wait.web_element_wait_click(By.XPATH, self.__e_payment_xpath, 'payment_tab')
+            return True
+        except Exception as error:
+            ui_logger.error(error)
+
     def arrow_down(self):
         try:
             self.wait.web_element_wait_click(By.XPATH, self.__e_arrow_xpath, 'arrow_down')
@@ -150,6 +162,42 @@ class CandidateDetailsPage:
             self.wait.web_element_wait_text(By.XPATH, self.__e_id_card_xpath, 'id_card_verified')
             if self.wait.text_value.strip() == 'Id-Card Verified':
                 print(f'Communication status - {self.wait.text_value.strip()} ::  True')
+                return True
+        except Exception as error:
+            ui_logger.error(error)
+
+    def order_id_verified(self):
+        try:
+            self.wait.web_element_wait_text(By.XPATH, self.__e_order_id_xpath, 'order_id_verified')
+            if "order" in self.wait.text_value.strip():
+                print(f'Order Id - {self.wait.text_value.strip()}')
+                return True
+        except Exception as error:
+            ui_logger.error(error)
+
+    def payment_id_verified(self):
+        try:
+            self.wait.web_element_wait_text(By.XPATH, self.__e_pay_id_xpath, 'payment_id_verified')
+            if "pay" in self.wait.text_value.strip():
+                print(f'Payment Id - {self.wait.text_value.strip()}')
+                return True
+        except Exception as error:
+            ui_logger.error(error)
+
+    def payment_completed_verified(self):
+        try:
+            self.wait.web_element_wait_text(By.XPATH, self.__e_pay_completed_xpath, 'payment_completed_verified')
+            if self.wait.text_value.strip() == "Yes":
+                print(f'Payment Completed - {self.wait.text_value.strip()}')
+                return True
+        except Exception as error:
+            ui_logger.error(error)
+
+    def payment_captured_verified(self):
+        try:
+            self.wait.web_element_wait_text(By.XPATH, self.__e_pay_capture_xpath, 'payment_captured_verified')
+            if self.wait.text_value.strip() == "Yes":
+                print(f'Payment Captured - {self.wait.text_value.strip()}')
                 return True
         except Exception as error:
             ui_logger.error(error)

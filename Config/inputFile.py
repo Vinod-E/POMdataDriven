@@ -29,7 +29,9 @@ INPUT_PATH = {
     'help_desk': GENERIC_INPUT_PATH + 'Help_desk_config.xls',
     'candidate_queries': GENERIC_INPUT_PATH + 'candidate_query.xls',
     'manage_interviewers': GENERIC_INPUT_PATH + 'Manage_interviewers.xls',
+    'microsite_common': GENERIC_INPUT_PATH + 'MicrositeCommon.xls',
     'microsite_certificate': GENERIC_INPUT_PATH + 'MicrositeCertificate.xls',
     'microsite_education': GENERIC_INPUT_PATH + 'MicrositeEducation.xls',
-    'microsite_OCR': GENERIC_INPUT_PATH + 'MicrositeOCR.xls'
+    'microsite_OCR': GENERIC_INPUT_PATH + 'MicrositeOCR.xls',
+    'microsite_razorpay': GENERIC_INPUT_PATH + 'MicrositeRazorPay.xls'
 }
