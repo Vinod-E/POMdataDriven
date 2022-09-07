@@ -4,6 +4,7 @@ from pageObjects.Pages.NewRegistrationPage import EntryPage
 from Scripts.Registration.OCR import EducationalOCR
 from Scripts.Registration.crpo_login import AdminLogin
 from Scripts.Registration.crpo_event_search import CRPOEventSearch
+from Scripts.Registration.crpo_OCR import CRPOOCRDetails
 from Scripts.Output_scripts import RegistrationOCRReport
 
 
@@ -26,6 +27,7 @@ class RegistrationOCR:
         OCR_page = EducationalOCR(driver=driver, index=index, version=version)
         admin = AdminLogin(driver=driver, index=index)
         search = CRPOEventSearch(driver=driver, index=index, version=version)
+        OCR = CRPOOCRDetails(driver=driver, index=index, version=version)
 
         OCR_output = RegistrationOCRReport.OcrOutputReport(version=version, server=server,
                                                            start_date_time=date_time)
@@ -63,8 +65,8 @@ class RegistrationOCR:
         self.OCR_output.applicant_search_report(self.search.applicant_full_search_collection)
 
     def crpo_ocr_verification(self):
-        self.search.crpo_ocr_applicant_verification()
-        self.OCR_output.applicant_ocr_report(self.search.applicant_ocr_collection)
+        self.OCR.crpo_ocr_applicant_verification()
+        self.OCR_output.applicant_ocr_report(self.OCR.applicant_ocr_collection)
 
 
 Object = RegistrationOCR()

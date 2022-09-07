@@ -4,6 +4,7 @@ from pageObjects.Pages.NewRegistrationPage import EntryPage
 from Scripts.Registration.Certificates import CrpoNewRegistration
 from Scripts.Registration.crpo_login import AdminLogin
 from Scripts.Registration.crpo_event_search import CRPOEventSearch
+from Scripts.Registration.crpo_Certificates import CRPOCertificate
 from Scripts.Output_scripts import RegistrationReport
 
 
@@ -26,6 +27,7 @@ class RegistrationCertificate:
         Certificate_page = CrpoNewRegistration(driver=driver, index=index, version=version)
         admin = AdminLogin(driver=driver, index=index)
         search = CRPOEventSearch(driver=driver, index=index, version=version)
+        certificate = CRPOCertificate(driver=driver, index=index, version=version)
 
         Certi_output = RegistrationReport.CertOutputReport(version=version, server=server, start_date_time=date_time)
 
@@ -66,8 +68,8 @@ class RegistrationCertificate:
         self.Certi_output.applicant_search_report(self.search.applicant_search_collection)
 
     def crpo_applicant_certificates(self):
-        self.search.crpo_applicant_certificate()
-        self.Certi_output.applicant_certificate_report(self.search.applicant_certificate_collection)
+        self.certificate.crpo_applicant_certificate()
+        self.Certi_output.applicant_certificate_report(self.certificate.applicant_certificate_collection)
 
 
 Object = RegistrationCertificate()

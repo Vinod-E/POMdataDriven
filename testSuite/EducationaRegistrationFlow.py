@@ -4,6 +4,7 @@ from pageObjects.Pages.NewRegistrationPage import EntryPage
 from Scripts.Registration.Education import EducationalRegistration
 from Scripts.Registration.crpo_login import AdminLogin
 from Scripts.Registration.crpo_event_search import CRPOEventSearch
+from Scripts.Registration.crpo_Education import CRPOEducation
 from Scripts.Output_scripts import RegistrationEducationReport
 
 
@@ -26,6 +27,7 @@ class RegistrationEducation:
         Education_page = EducationalRegistration(driver=driver, index=index, version=version)
         admin = AdminLogin(driver=driver, index=index)
         search = CRPOEventSearch(driver=driver, index=index, version=version)
+        Education = CRPOEducation(driver=driver, index=index)
 
         education_output = RegistrationEducationReport.EduOutputReport(version=version, server=server,
                                                                        start_date_time=date_time)
@@ -75,8 +77,8 @@ class RegistrationEducation:
         self.education_output.applicant_search_report(self.search.applicant_search_collection)
 
     def crpo_applicant_educations(self):
-        self.search.crpo_applicant_education()
-        self.education_output.applicant_education_report(self.search.applicant_education_collection)
+        self.Education.crpo_applicant_education()
+        self.education_output.applicant_education_report(self.Education.applicant_education_collection)
 
 
 Object = RegistrationEducation()
