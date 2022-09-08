@@ -53,8 +53,23 @@ class ReadConfig:
         return url
 
     @staticmethod
-    def get_prod_registration_url():
+    def get_prod_certificate_url():
         url = config.get('RegistrationUrls', 'PROD_CERTIFICATE')
+        return url
+
+    @staticmethod
+    def get_prod_educational_url():
+        url = config.get('RegistrationUrls', 'PROD_EDUCATION')
+        return url
+
+    @staticmethod
+    def get_prod_ocr_url():
+        url = config.get('RegistrationUrls', 'PROD_OCR')
+        return url
+
+    @staticmethod
+    def get_prod_razorpay_url():
+        url = config.get('RegistrationUrls', 'PROD_RAZORPAY')
         return url
 
     @staticmethod

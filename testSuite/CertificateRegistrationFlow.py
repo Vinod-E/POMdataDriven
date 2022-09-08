@@ -27,7 +27,7 @@ class RegistrationCertificate:
         Certificate_page = CrpoNewRegistration(driver=driver, index=index, version=version)
         admin = AdminLogin(driver=driver, index=index)
         search = CRPOEventSearch(driver=driver, index=index, version=version)
-        certificate = CRPOCertificate(driver=driver, index=index, version=version)
+        certificate = CRPOCertificate(driver=driver, index=index)
 
         Certi_output = RegistrationReport.CertOutputReport(version=version, server=server, start_date_time=date_time)
 

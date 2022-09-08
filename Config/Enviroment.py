@@ -34,7 +34,16 @@ class EnvironmentSetup:
             self.driver.get(ReadConfigFile.ReadConfig.get_qa_razorpay_url())
             self.index = 0
         elif self.server == 'amsc':
-            self.driver.get(ReadConfigFile.ReadConfig.get_prod_registration_url())
+            self.driver.get(ReadConfigFile.ReadConfig.get_prod_certificate_url())
+            self.index = 1
+        elif self.server == 'amse':
+            self.driver.get(ReadConfigFile.ReadConfig.get_prod_educational_url())
+            self.index = 1
+        elif self.server == 'amso':
+            self.driver.get(ReadConfigFile.ReadConfig.get_prod_ocr_url())
+            self.index = 1
+        elif self.server == 'amsr':
+            self.driver.get(ReadConfigFile.ReadConfig.get_prod_razorpay_url())
             self.index = 1
         elif self.server == 'ams':
             self.driver.get(ReadConfigFile.ReadConfig.get_production_url())
