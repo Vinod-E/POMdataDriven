@@ -6,7 +6,7 @@ from utilities.SwitchWindow import SwitchWindowClose
 
 class CRPOCertificate:
 
-    def __init__(self, driver, index, version):
+    def __init__(self, driver, index):
         self.driver = driver
         self.candidate = CandidateDetailsPage(self.driver)
         self.switch_window = SwitchWindowClose(self.driver)
