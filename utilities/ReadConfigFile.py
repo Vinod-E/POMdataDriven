@@ -73,6 +73,26 @@ class ReadConfig:
         return url
 
     @staticmethod
+    def get_beta_certificate_url():
+        url = config.get('RegistrationUrls', 'BETA_CERTIFICATE')
+        return url
+
+    @staticmethod
+    def get_beta_educational_url():
+        url = config.get('RegistrationUrls', 'BETA_EDUCATION')
+        return url
+
+    @staticmethod
+    def get_beta_ocr_url():
+        url = config.get('RegistrationUrls', 'BETA_OCR')
+        return url
+
+    @staticmethod
+    def get_beta_razorpay_url():
+        url = config.get('RegistrationUrls', 'BETA_RAZORPAY')
+        return url
+
+    @staticmethod
     def get_qa_candidate_url():
         url = config.get('candidateLoginUrls', 'QA')
         return url
