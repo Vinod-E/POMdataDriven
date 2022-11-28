@@ -548,7 +548,7 @@ src="https://cdn-icons-png.flaticon.com/128/324/324107.png" width="25" height="2
                             </div>
 <footer class="footer">
       <div class="container">
-        <span class="text-muted">© 2021 HirePro . All rights reserved.
+        <span class="text-muted">© 2022 HirePro . All rights reserved.
 <span>Plot No. 53, Kariyammana Agrahara Road,Devarabisana Halli, Bengaluru – 560 103</span>
         </span>
       </div>

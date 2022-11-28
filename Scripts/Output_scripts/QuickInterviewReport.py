@@ -8,7 +8,7 @@ from Config import outputFile
 class QuickOutputReport:
 
     """ Number of Test cases / use cases name """
-    TestCases = 96
+    TestCases = 98
     use_case_name = 'QUICK INTERVIEW FLOW'
     fail_color = ''
 
@@ -62,16 +62,17 @@ class QuickOutputReport:
                                      row=2, i_column=0, o_column=1, path=self.__path)
 
     def quick_report(self, quick_coll):
-        testdata_headers = ['Select Applicant', 'More Actions', 'Quick Interview Action', 'Select Interviewers Field',
-                            'Search Interviewer_1', 'Move Interviewer_1', 'Clear Search', 'Search Interviewer_2',
-                            'Move Interviewer_2', 'Done selection']
+        testdata_headers = ['Select Applicant', 'More Actions', 'Quick Interview Action',
+                            'Select Interviewers Field', 'Search Interviewer_1', 'Move Interviewer_1', 'Clear Search',
+                            'Search Interviewer_2', 'Move Interviewer_2', 'Done selection']
         self.xlw.input_output_report(testdata_headers=testdata_headers, collection=quick_coll,
                                      row=2, i_column=2, o_column=3, path=self.__path)
 
     def quick_schedule_report(self, quick_schedule_coll):
         testdata_headers = ['Interview Stage selection', 'Quick Comment', 'Quick Schedule', 'Quick Schedule Notifier',
-                            'Quick Schedule Notifier Dismiss', 'Applicant Name Click', 'Candidate status - Schedule',
-                            'Window Close', 'Switch to Old screen']
+                            'Quick Schedule Notifier Dismiss', 'Quick Schedule Window Close', 'Switch to Old screen',
+                            'Applicant Name Click', 'Candidate status - Schedule',
+                            'Candidate details Window Close', 'Switch to Old screen']
         self.xlw.input_output_report(testdata_headers=testdata_headers, collection=quick_schedule_coll,
                                      row=2, i_column=4, o_column=5, path=self.__path)
 
