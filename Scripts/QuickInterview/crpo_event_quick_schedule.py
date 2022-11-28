@@ -44,7 +44,7 @@ class CRPOQuickInterviewSchedule:
         self.quick_config_collection = []
         __list = [self.applicant_grid.select_applicant(),
                   self.applicant_action.more_action(),
-                  self.applicant_action.quick_interview_action(),
+                  self.applicant_action.quick_interview_action(1),
                   self.quick_schedule.select_interviewers_field(),
                   self.multi_select.search(self.xl_int1_name),
                   self.multi_select.move_all_items(),
@@ -66,6 +66,8 @@ class CRPOQuickInterviewSchedule:
                   self.quick_schedule.schedule_quick_interview(),
                   self.quick_schedule.quick_schedule_notifier(self.xl_quick_message),
                   self.quick_schedule.quick_schedule_notifier_dismiss(),
+                  self.switch_window.window_close(),
+                  self.switch_window.switch_to_window(0),
                   self.applicant_grid.applicant_get_name(self.xl_app_name, 1),
                   self.getby.candidate_status(self.xl_schedule_status),
                   self.switch_window.window_close(),
