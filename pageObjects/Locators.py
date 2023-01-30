@@ -190,7 +190,7 @@ CANDIDATE = {
     'certificates': '(//*[@ng-repeat="certification in vm.data.certificationDetails"])[{}]',
     'education': '(//strong[@class="ng-binding"])[{}]',
     'other_attachments': '(//a[@class="property-label"])[{}]',
-    'id_card_verified': '(//td[@class="th ng-scope"])[2]',
+    'id_card_verified': '(//td[@class="th ng-scope"])[3]',
     'down_arrow': '(//i[@class="fa fa-chevron-down"])[1]',
     'payment_details_by_index': '(//span[@class="dataSpan pull-right ng-binding"])[{}]'
 }
