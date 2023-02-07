@@ -10,6 +10,7 @@ from utilities.WebDriver_Wait import WebElementWait
 class PersonalDetailsData:
 
     __e_p_d_xpath = Locators.PLACEHOLDER['text_ph']
+    __aadhar_id = Locators.MICROSITE['aadhar']
     __e_p_d_whatsapp_xpath = Locators.MICROSITE['whatsapp_consent']
     __first_name_id = Locators.MICROSITE['first_name']
     __middle_name_id = Locators.MICROSITE['middle_name']
@@ -67,6 +68,13 @@ class PersonalDetailsData:
         try:
             self.wait.web_element_wait_send_keys(By.XPATH, self.__e_p_d_xpath.format('MobileNumber'),
                                                  mobile_number, 'mobile_number')
+            return True
+        except Exception as error:
+            ui_logger.error(error)
+
+    def aadhar_number(self, aadhar_number):
+        try:
+            self.wait.web_element_wait_send_keys(By.ID, self.__aadhar_id, aadhar_number, 'aadhar_number')
             return True
         except Exception as error:
             ui_logger.error(error)

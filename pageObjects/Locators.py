@@ -180,6 +180,7 @@ CHANGE_STATUS = {
 
 CANDIDATE = {
     'id': '//*[@id="mainBodyElement"]/div[3]/div/div[1]/div[1]/div/div/div[2]/div[2]/p[2]/span[2]',
+    'aadhar_number': '//*[@id="mainBodyElement"]/div[3]/div/div[1]/div[1]/div/div/div[2]/div[2]/p[4]/span[2]',
     'upload_signature': '//*[@ng-model="vm.signature"]',
     'name_field': '//*[@id="mainBodyElement"]/div[7]/div/div/div[2]/form/div[1]/div/input',
     'email_field': '//*[@id="mainBodyElement"]/div[7]/div/div/div[2]/form/div[3]/div/input',
@@ -190,6 +191,7 @@ CANDIDATE = {
     'certificates': '(//*[@ng-repeat="certification in vm.data.certificationDetails"])[{}]',
     'education': '(//strong[@class="ng-binding"])[{}]',
     'other_attachments': '(//a[@class="property-label"])[{}]',
+    'aadhar_verified': '(//td[@class="th ng-scope"])[2]',
     'id_card_verified': '(//td[@class="th ng-scope"])[3]',
     'down_arrow': '(//i[@class="fa fa-chevron-down"])[1]',
     'payment_details_by_index': '(//span[@class="dataSpan pull-right ng-binding"])[{}]'
@@ -339,5 +341,6 @@ MICROSITE = {
     'payment_card': '//button[@type="button"][@method="wallet"]',
     'razorpay_c_name': 'merchant-name',
     'Qr_code': '//*[@data-content="refresh"]',
-    'payment_ids': '(//span[@class="ng-binding"])[{}]'
+    'payment_ids': '(//span[@class="ng-binding"])[{}]',
+    'aadhar': 'aadharNo'
 }

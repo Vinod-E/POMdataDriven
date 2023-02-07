@@ -34,10 +34,12 @@ class CRPOEventSearch:
         self.xl_middle = xl['middle_name'][0]
         self.xl_last = xl['last_name'][0]
         self.full_name = self.xl_first + ' ' + self.xl_middle + ' ' + self.xl_last
+        self.xl_aadhar_name = xl['NameInAadhar'][0]
 
         self.event_search_collection = []
         self.applicant_search_collection = []
         self.applicant_full_search_collection = []
+        self.applicant_aadhar_name_search_collection = []
 
     def crpo_search_event(self):
         self.event_search_collection = []
@@ -81,3 +83,16 @@ class CRPOEventSearch:
                 self.applicant_full_search_collection.append(func)
             else:
                 self.applicant_full_search_collection.append(func)
+
+    def crpo_aadhar_name_search_applicant(self):
+        self.applicant_aadhar_name_search_collection = []
+        __list = [self.search.advance_search(),
+                  self.search.name_field_applicant(self.xl_aadhar_name),
+                  self.search.applicant_search_button(),
+                  self.applicant.applicant_get_name(self.xl_aadhar_name, 1)
+                  ]
+        for func in __list:
+            if func:
+                self.applicant_aadhar_name_search_collection.append(func)
+            else:
+                self.applicant_aadhar_name_search_collection.append(func)

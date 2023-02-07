@@ -33,6 +33,9 @@ class EnvironmentSetup:
         elif self.server == 'amsinr':
             self.driver.get(ReadConfigFile.ReadConfig.get_qa_razorpay_url())
             self.index = 0
+        elif self.server == 'amsina':
+            self.driver.get(ReadConfigFile.ReadConfig.get_qa_aadhar_url())
+            self.index = 0
         elif self.server == 'amsc':
             self.driver.get(ReadConfigFile.ReadConfig.get_prod_certificate_url())
             self.index = 1

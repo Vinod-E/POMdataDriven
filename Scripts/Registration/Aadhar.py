@@ -1,38 +1,36 @@
 from Config import inputFile
 from pageObjects.Pages.NewRegistrationPage import EntryPage
 from pageObjects.Pages.NewRegistrationPage import PersonalDetailsPage
+from pageObjects.Pages.NewRegistrationPage import AadharVerificationPage
 from pageObjects.Pages.NewRegistrationPage import SubmitPage
-from pageObjects.Pages.NewRegistrationPage import RazorPayPage
 from utilities import excelRead
 from utilities.SwitchWindow import SwitchWindowClose
 
 
-class CrpoRazorPayRegistration:
+class CrpoAadharRegistration:
 
     def __init__(self, driver, index, version):
         self.driver = driver
         self.entry = EntryPage.EntryButton(self.driver)
         self.pd = PersonalDetailsPage.PersonalDetailsData(self.driver)
+        self.aadhar = AadharVerificationPage.AadharPageDetails(self.driver)
         self.submit = SubmitPage.SubmitData(self.driver)
-        self.razorpay = RazorPayPage.RazorPayPageDetails(self.driver)
         self.back_to_window = SwitchWindowClose(self.driver)
 
         """
         ----------------- EXCEL READ AND TO ASSIGN VALUES TO RESPECTIVE INIT VARIABLES ------>>>>
         """
-        razorpay_excel = excelRead.ExcelRead()
-        razorpay_excel.read(inputFile.INPUT_PATH['microsite_razorpay'], index=index)
-        xl = razorpay_excel.excel_dict
+        aadhar_excel = excelRead.ExcelRead()
+        aadhar_excel.read(inputFile.INPUT_PATH['microsite_Aadhar'], index=index)
+        xl = aadhar_excel.excel_dict
         self.xl_name = xl['candidate_name'][0].format(version)
         self.xl_email = xl['email'][0].format(self.xl_name)
-        self.xl_phone = xl['phone'][0]
-        self.xl_whatsapp = xl['consent'][0]
+        self.xl_aadhar = xl['AadharNumber'][0]
         self.xl_message = xl['message'][0]
 
         self.entry_collection = []
         self.pd_collection = []
-        self.submit_collection = []
-        self.razorpay_collection = []
+        self.aadhar_otp_collection = []
 
     def registration_page_entry(self):
         self.entry_collection = []
@@ -48,9 +46,7 @@ class CrpoRazorPayRegistration:
         self.pd_collection = []
         __list = [self.pd.full_name(self.xl_name),
                   self.pd.email_id(self.xl_email),
-                  self.pd.mobile_number(self.xl_phone),
-                  self.pd.usn_number(self.xl_name),
-                  self.pd.whatsapp_consent(self.xl_whatsapp)
+                  self.pd.aadhar_number(self.xl_aadhar),
                   ]
         for func in __list:
             if func:
@@ -58,28 +54,17 @@ class CrpoRazorPayRegistration:
             else:
                 self.pd_collection.append(func)
 
-    def submit_details(self):
-        self.submit_collection = []
+    def aadhar_opt_verification(self):
+        self.aadhar_otp_collection = []
         __list = [self.submit.submit_registration(),
+                  self.aadhar.generate_aadhar_otp(),
+                  self.aadhar.enter_aadhar_otp(),
+                  self.aadhar.proceed_with_aadhar_verify(),
                   self.submit.confirm_registration(),
+                  self.submit.registration_successful(self.xl_message)
                   ]
         for func in __list:
             if func:
-                self.submit_collection.append(func)
+                self.aadhar_otp_collection.append(func)
             else:
-                self.submit_collection.append(func)
-
-    def razorpay_submit_payment(self):
-        self.razorpay_collection = []
-        __list = [self.razorpay.merchant_name(self.xl_name),
-                  self.razorpay.qrcode(),
-                  self.back_to_window.switch_back_from_iframe(),
-                  self.submit.registration_successful(self.xl_message),
-                  self.submit.order_id(),
-                  self.submit.payment_id()
-                  ]
-        for func in __list:
-            if func:
-                self.razorpay_collection.append(func)
-            else:
-                self.razorpay_collection.append(func)
+                self.aadhar_otp_collection.append(func)
