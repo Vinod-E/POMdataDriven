@@ -8,7 +8,6 @@ from utilities.uiNotifier import Notifier
 
 
 class JobAutomations:
-
     __e_registration_stage_xpath = Locators.JOB['registration_hop']
     __e_eligibility_stage_xpath = Locators.JOB['eligibility_hop']
     __e_offer_stage_xpath = Locators.JOB['offer_stage']
@@ -73,7 +72,7 @@ class JobAutomations:
         try:
             time.sleep(0.5)
             self.scroll.up(0, 100)
-            a = [9, 10, 12, 13, 15, 20]
+            a = [21, 22, 27, 36, 23, 24, 29, 40]  # ---21/22/27/36 are amsin toggles remain all are ams
             for i in a:
                 self.wait.web_element_wait_click(By.XPATH, self.__e_toggle_buttons_xpath.format(i),
                                                  'all_round_button_on')
