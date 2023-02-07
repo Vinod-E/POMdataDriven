@@ -53,6 +53,11 @@ class ReadConfig:
         return url
 
     @staticmethod
+    def get_qa_aadhar_url():
+        url = config.get('RegistrationUrls', 'QA_AADHAR')
+        return url
+
+    @staticmethod
     def get_prod_certificate_url():
         url = config.get('RegistrationUrls', 'PROD_CERTIFICATE')
         return url

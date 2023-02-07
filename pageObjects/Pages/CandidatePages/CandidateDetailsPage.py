@@ -10,6 +10,7 @@ from utilities.PageScroll import PageScroll
 class CandidateDetailsPage:
     __e_title_xpath = Locators.TITLE['title']
     __e_id_xpath = Locators.CANDIDATE['id']
+    __e_aadhar_number_xpath = Locators.CANDIDATE['aadhar_number']
     __e_certificate_xpath = Locators.CANDIDATE['certificates']
     __e_education_xpath = Locators.CANDIDATE['education']
     __e_candidate_float_action_class = Locators.ACTIONS['float_click_class']
@@ -21,6 +22,7 @@ class CandidateDetailsPage:
     __e_payment_xpath = Locators.SUB_MENU['candidate_payment']
     __e_arrow_xpath = Locators.CANDIDATE['down_arrow']
     __e_id_card_xpath = Locators.CANDIDATE['id_card_verified']
+    __e_aadhar_xpath = Locators.CANDIDATE['aadhar_verified']
     __e_order_id_xpath = Locators.CANDIDATE['payment_details_by_index'].format(2)
     __e_pay_id_xpath = Locators.CANDIDATE['payment_details_by_index'].format(3)
     __e_pay_completed_xpath = Locators.CANDIDATE['payment_details_by_index'].format(4)
@@ -33,6 +35,7 @@ class CandidateDetailsPage:
         self.scroll = PageScroll(self.driver)
 
         self.candidate_id = ''
+        self.aadhar_number = ''
 
     def candidate_float_actions(self):
         try:
@@ -74,6 +77,16 @@ class CandidateDetailsPage:
             self.candidate_id = self.wait.text_value
             print(f'candidate id - {self.candidate_id}')
             return True
+        except Exception as error:
+            ui_logger.error(error)
+
+    def aadhar_numbers(self, aadhar):
+        try:
+            self.wait.web_element_wait_text(By.XPATH, self.__e_aadhar_number_xpath, 'aadhar_number')
+            self.aadhar_number = self.wait.text_value
+            print(f'Candidate Aadhar Number - {self.aadhar_number}')
+            if int(self.aadhar_number) == int(aadhar):
+                return True
         except Exception as error:
             ui_logger.error(error)
 
@@ -154,6 +167,15 @@ class CandidateDetailsPage:
         try:
             self.wait.web_element_wait_click(By.XPATH, self.__e_arrow_xpath, 'arrow_down')
             return True
+        except Exception as error:
+            ui_logger.error(error)
+
+    def aadhar_verified(self):
+        try:
+            self.wait.web_element_wait_text(By.XPATH, self.__e_aadhar_xpath, 'aadhar_verified')
+            if self.wait.text_value.strip() == 'Aadhaar Verification':
+                print(f'Communication status - {self.wait.text_value.strip()} ::  Aadhaar validated')
+                return True
         except Exception as error:
             ui_logger.error(error)
 
