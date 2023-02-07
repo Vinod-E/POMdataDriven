@@ -7,7 +7,7 @@ from Scripts.HTML_Reports.history_data_html_generator import HistoryDataHTMLGene
 
 class RazorPayOutputReport:
     """ Number of Test cases / use cases name """
-    TestCases = 41
+    TestCases = 44
     use_case_name = 'RAZORPAY REGISTRATION FLOW'
 
     def __init__(self, version, server, start_date_time):
@@ -26,7 +26,7 @@ class RazorPayOutputReport:
         excel_headers = ['Admin Login', 'Status', 'Event Search', 'Status', 'Applicant Search', 'Status',
                          'Certificate', 'Status']
         color_headers = ['Status', 'Admin Login', 'Event Search', 'Applicant Search', 'Certificate']
-        self.xlw.excel_header_by_index(row=10, col=0, excel_headers_list=excel_headers,
+        self.xlw.excel_header_by_index(row=12, col=0, excel_headers_list=excel_headers,
                                        color_headers_list=color_headers)
 
         """ <<<================== HTML / History Report Generator ==============================>>> """
@@ -64,8 +64,8 @@ class RazorPayOutputReport:
                                      row=2, i_column=2, o_column=3, path=self.__path)
 
     def razorpay_data_report(self, submit_coll):
-        testdata_headers = ['Verify Merchant Name', 'Click On QR code', 'Back from iframe', 'Registration Successful!',
-                            'Order Id Received', 'Payment Id Received']
+        testdata_headers = ['Verify Merchant Name', 'Wallet', 'PhonePe', 'Pay Amount', 'Payment Success',
+                            'Back from iframe', 'Registration Successful!', 'Order Id Received', 'Payment Id Received']
         self.xlw.input_output_report(testdata_headers=testdata_headers, collection=submit_coll,
                                      row=2, i_column=4, o_column=5, path=self.__path)
 
@@ -73,22 +73,22 @@ class RazorPayOutputReport:
         testdata_headers = ['Enter Alias', 'Next Button', 'Login Name', 'Password', 'Login Button',
                             'Verify User Login']
         self.xlw.input_output_report(testdata_headers=testdata_headers, collection=admin_coll,
-                                     row=11, i_column=0, o_column=1, path=self.__path)
+                                     row=13, i_column=0, o_column=1, path=self.__path)
 
     def event_search_report(self, event_coll):
         testdata_headers = ['Event Tab', 'Advance Search', 'Name Field', 'Search Button', 'Event Getbyname',
                             'Event name Validation', 'Event Action', 'View Applicants']
         self.xlw.input_output_report(testdata_headers=testdata_headers, collection=event_coll,
-                                     row=11, i_column=2, o_column=3, path=self.__path)
+                                     row=13, i_column=2, o_column=3, path=self.__path)
 
     def applicant_search_report(self, applicant_coll):
         testdata_headers = ['Advance Search', 'Name Field', 'Search Button', 'Applicant Getbyname']
         self.xlw.input_output_report(testdata_headers=testdata_headers, collection=applicant_coll,
-                                     row=11, i_column=4, o_column=5, path=self.__path)
+                                     row=13, i_column=4, o_column=5, path=self.__path)
 
     def applicant_payment_report(self, applicant_coll):
         testdata_headers = ['payment Done Status', 'Payment Tab', 'Arrow Down', 'Order Id Verified',
                             'Payment Id Verified', 'Payment Completed', 'Payment Captured', 'Window Close',
                             'Switch To Window']
         self.xlw.input_output_report(testdata_headers=testdata_headers, collection=applicant_coll,
-                                     row=11, i_column=6, o_column=7, path=self.__path)
+                                     row=13, i_column=6, o_column=7, path=self.__path)

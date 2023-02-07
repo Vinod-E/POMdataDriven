@@ -46,6 +46,7 @@ class SubmitData:
 
     def registration_successful(self, message):
         try:
+            time.sleep(2)
             self.wait.loading()
             self.wait.web_element_wait_text(By.TAG_NAME, self.__e_header_tag, 'registration_successful')
             if self.wait.text_value.strip() == message:
