@@ -72,7 +72,10 @@ class CrpoRazorPayRegistration:
     def razorpay_submit_payment(self):
         self.razorpay_collection = []
         __list = [self.razorpay.merchant_name(self.xl_name),
-                  self.razorpay.qrcode(),
+                  self.razorpay.wallet(),
+                  self.razorpay.phonepe(),
+                  self.razorpay.payment(),
+                  self.razorpay.payment_success(),
                   self.back_to_window.switch_back_from_iframe(),
                   self.submit.registration_successful(self.xl_message),
                   self.submit.order_id(),
