@@ -58,6 +58,16 @@ class ReadConfig:
         return url
 
     @staticmethod
+    def get_prod_aadhar_url():
+        url = config.get('RegistrationUrls', 'PROD_AADHAR')
+        return url
+
+    @staticmethod
+    def get_beta_aadhar_url():
+        url = config.get('RegistrationUrls', 'BETA_AADHAR')
+        return url
+
+    @staticmethod
     def get_prod_certificate_url():
         url = config.get('RegistrationUrls', 'PROD_CERTIFICATE')
         return url
