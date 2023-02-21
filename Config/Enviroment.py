@@ -48,6 +48,9 @@ class EnvironmentSetup:
         elif self.server == 'amsr':
             self.driver.get(ReadConfigFile.ReadConfig.get_prod_razorpay_url())
             self.index = 1
+        elif self.server == 'amsa':
+            self.driver.get(ReadConfigFile.ReadConfig.get_prod_aadhar_url())
+            self.index = 1
         elif self.server == 'betac':
             self.driver.get(ReadConfigFile.ReadConfig.get_beta_certificate_url())
             self.index = 1
@@ -59,6 +62,9 @@ class EnvironmentSetup:
             self.index = 1
         elif self.server == 'betar':
             self.driver.get(ReadConfigFile.ReadConfig.get_beta_razorpay_url())
+            self.index = 1
+        elif self.server == 'betaa':
+            self.driver.get(ReadConfigFile.ReadConfig.get_beta_aadhar_url())
             self.index = 1
         elif self.server == 'ams':
             self.driver.get(ReadConfigFile.ReadConfig.get_production_url())
