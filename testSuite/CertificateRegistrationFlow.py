@@ -75,8 +75,8 @@ class RegistrationCertificate:
 Object = RegistrationCertificate()
 
 if Object.page_valid.page_validation():
-    captcha = input('Authentication (Click Enter to Complete)')
-    Object.page_entry()
+    # captcha = input('Authentication (Click Enter to Complete)')
+    # Object.page_entry()
     Object.personal_details_entry()
     Object.certificate1_details_entry()
     Object.certificate2_details_entry()

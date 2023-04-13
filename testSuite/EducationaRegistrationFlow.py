@@ -84,8 +84,8 @@ class RegistrationEducation:
 Object = RegistrationEducation()
 
 if Object.page_valid.page_validation():
-    captcha = input('Authentication (Click Enter to Complete)')
-    Object.page_entry()
+    # captcha = input('Authentication (Click Enter to Complete)')
+    # Object.page_entry()
     Object.personal_details_entry()
     Object.pg_details_entry()
     Object.ug_details_entry()

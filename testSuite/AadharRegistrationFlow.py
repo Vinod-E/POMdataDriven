@@ -68,10 +68,10 @@ class RegistrationAadhar:
 Object = RegistrationAadhar()
 
 if Object.page_valid.page_validation():
-    captcha = input('Authentication (Click Enter to Complete)')
-    Object.page_entry()
-    Object.personal_details_entry()
-    Object.otp_verification_aadhar()
+    # captcha = input('Authentication (Click Enter to Complete)')
+    # Object.page_entry()
+    # Object.personal_details_entry()
+    # Object.otp_verification_aadhar()
     Object.crpo_admin_login()
     Object.crpo_event_search()
     Object.crpo_applicant_search()

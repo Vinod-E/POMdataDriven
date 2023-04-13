@@ -180,7 +180,7 @@ CHANGE_STATUS = {
 
 CANDIDATE = {
     'id': '//*[@id="mainBodyElement"]/div[3]/div/div[1]/div[1]/div/div/div[2]/div[2]/p[2]/span[2]',
-    'aadhar_number': '//*[@id="mainBodyElement"]/div[3]/div/div[1]/div[1]/div/div/div[2]/div[2]/p[4]/span[2]',
+    'aadhar_number': '//*[@id="mainBodyElement"]/div[3]/div/div[1]/div[1]/div/div/div[2]/div[2]/p[5]/span[2]',
     'upload_signature': '//*[@ng-model="vm.signature"]',
     'name_field': '//*[@id="mainBodyElement"]/div[7]/div/div/div[2]/form/div[1]/div/input',
     'email_field': '//*[@id="mainBodyElement"]/div[7]/div/div/div[2]/form/div[3]/div/input',
@@ -342,5 +342,13 @@ MICROSITE = {
     'razorpay_c_name': 'merchant-name',
     'Qr_code': '//*[@data-content="refresh"]',
     'payment_ids': '(//span[@class="ng-binding"])[{}]',
-    'aadhar': 'aadharNo'
+    'aadhar': 'aadharNo',
+    'Wf1_company': '//*[@id="mainBodyElement"]/div[3]/div/div[1]/div[2]/ui-view/div/div/div[2]/'
+                   'div/div/div[2]/div[1]/p/span[1]/strong',
+    'wf1_designation': '//*[@id="mainBodyElement"]/div[3]/div/div[1]/div[2]/ui-view/div/div/div[2]/'
+                          'div/div/div[2]/div[1]/p/span[2]',
+    'Wf2_company': '//*[@id="mainBodyElement"]/div[3]/div/div[1]/div[2]/ui-view/div/div/div[2]/'
+                   'div/div/div[2]/div[2]/p/span[1]/strong',
+    'wf2_designation': '//*[@id="mainBodyElement"]/div[3]/div/div[1]/div[2]/ui-view/div/div/div[2]'
+                   '/div/div/div[2]/div[2]/p/span[2]'
 }
