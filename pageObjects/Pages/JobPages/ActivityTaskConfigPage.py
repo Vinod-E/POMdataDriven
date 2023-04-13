@@ -25,6 +25,7 @@ class ActivityTaskConfigPage:
 
     def job_task_configure_button(self):
         try:
+            self.scroll.up(0, 250)
             self.wait.web_element_wait_click(By.XPATH, self.__e_job_task_config_btn_xpath, 'job_task_configure_button')
             self.wait.loading()
             print('Job Task Configuration button - Clicked')

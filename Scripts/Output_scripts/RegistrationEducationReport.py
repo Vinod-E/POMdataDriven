@@ -7,7 +7,7 @@ from Scripts.HTML_Reports.history_data_html_generator import HistoryDataHTMLGene
 
 class EduOutputReport:
     """ Number of Test cases / use cases name """
-    TestCases = 60
+    TestCases = 59
     use_case_name = 'EDUCATIONAL REGISTRATION FLOW'
 
     def __init__(self, version, server, start_date_time):

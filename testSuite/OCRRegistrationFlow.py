@@ -72,8 +72,8 @@ class RegistrationOCR:
 Object = RegistrationOCR()
 
 if Object.page_valid.page_validation():
-    captcha = input('Authentication (Click Enter to Complete)')
-    Object.page_entry()
+    # captcha = input('Authentication (Click Enter to Complete)')
+    # Object.page_entry()
     Object.personal_details_entry()
     Object.attachments_details_entry()
     Object.submit_register_data()

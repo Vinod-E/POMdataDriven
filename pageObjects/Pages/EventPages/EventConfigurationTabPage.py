@@ -4,6 +4,7 @@ from selenium.webdriver.common.by import By
 from Listeners.logger_settings import ui_logger
 from utilities.WebDriver_Wait import WebElementWait
 from utilities.uiNotifier import Notifier
+from utilities.PageScroll import PageScroll
 
 
 class EventConfiguration:
@@ -19,6 +20,7 @@ class EventConfiguration:
         self.driver = driver
         self.wait = WebElementWait(self.driver)
         self.notifier = Notifier(self.driver)
+        self.scroll = PageScroll(self.driver)
 
     def on_off_buttons(self, button_name):
         try:
@@ -30,6 +32,7 @@ class EventConfiguration:
 
     def user_id_chat(self):
         try:
+            self.scroll.up(0, 300)
             self.wait.web_element_wait_click(By.XPATH, self.__e_user_id_xpath, 'chat_user_filed_click')
             return True
         except Exception as error:

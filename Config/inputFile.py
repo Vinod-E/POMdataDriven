@@ -1,13 +1,15 @@
 from Config import CongfigFile
 
 GENERIC_INPUT_PATH = CongfigFile.INPUT_FILE
+MICROSITE_GENERIC_INPUT_PATH = CongfigFile.MICROSITE_INPUT_FILE
+
 
 INPUT_PATH = {
     'upload': GENERIC_INPUT_PATH + 'candidateUpload.xls',
     'job_attachment': GENERIC_INPUT_PATH + 'job-description.pdf',
-    'OCR_candidate': GENERIC_INPUT_PATH + 'OCR_Candidate.png',
-    'OCR_PAN': GENERIC_INPUT_PATH + 'OCR_PAN.jpg',
-    'OCR_id_card': GENERIC_INPUT_PATH + 'college_id_card.jpg',
+    'OCR_candidate': MICROSITE_GENERIC_INPUT_PATH + 'OCR_Candidate.png',
+    'OCR_PAN': MICROSITE_GENERIC_INPUT_PATH + 'OCR_PAN.jpg',
+    'OCR_id_card': MICROSITE_GENERIC_INPUT_PATH + 'college_id_card.jpg',
 
     'login_excel': GENERIC_INPUT_PATH + 'Login_Details.xls',
     'job_excel': GENERIC_INPUT_PATH + 'Job_Details.xls',
@@ -29,10 +31,12 @@ INPUT_PATH = {
     'help_desk': GENERIC_INPUT_PATH + 'Help_desk_config.xls',
     'candidate_queries': GENERIC_INPUT_PATH + 'candidate_query.xls',
     'manage_interviewers': GENERIC_INPUT_PATH + 'Manage_interviewers.xls',
-    'microsite_common': GENERIC_INPUT_PATH + 'MicrositeCommon.xls',
-    'microsite_certificate': GENERIC_INPUT_PATH + 'MicrositeCertificate.xls',
-    'microsite_education': GENERIC_INPUT_PATH + 'MicrositeEducation.xls',
-    'microsite_OCR': GENERIC_INPUT_PATH + 'MicrositeOCR.xls',
-    'microsite_razorpay': GENERIC_INPUT_PATH + 'MicrositeRazorPay.xls',
-    'microsite_Aadhar': GENERIC_INPUT_PATH + 'MicrositeAadhar.xls'
+    'microsite_common': MICROSITE_GENERIC_INPUT_PATH + 'MicrositeCommon.xls',
+    'microsite_certificate': MICROSITE_GENERIC_INPUT_PATH + 'MicrositeCertificate.xls',
+    'microsite_education': MICROSITE_GENERIC_INPUT_PATH + 'MicrositeEducation.xls',
+    'microsite_OCR': MICROSITE_GENERIC_INPUT_PATH + 'MicrositeOCR.xls',
+    'microsite_razorpay': MICROSITE_GENERIC_INPUT_PATH + 'MicrositeRazorPay.xls',
+    'microsite_Aadhar': MICROSITE_GENERIC_INPUT_PATH + 'MicrositeAadhar.xls',
+    'microsite_WorkProfile': MICROSITE_GENERIC_INPUT_PATH + 'MicrositeWorkProfile.xls'
+
 }

@@ -58,6 +58,11 @@ class ReadConfig:
         return url
 
     @staticmethod
+    def get_qa_workprofile_url():
+        url = config.get('RegistrationUrls', 'QA_WORK_PROFILE')
+        return url
+
+    @staticmethod
     def get_prod_aadhar_url():
         url = config.get('RegistrationUrls', 'PROD_AADHAR')
         return url
@@ -88,6 +93,11 @@ class ReadConfig:
         return url
 
     @staticmethod
+    def get_prod_workprofile_url():
+        url = config.get('RegistrationUrls', 'PROD_WORK_PROFILE')
+        return url
+
+    @staticmethod
     def get_beta_certificate_url():
         url = config.get('RegistrationUrls', 'BETA_CERTIFICATE')
         return url
@@ -105,6 +115,11 @@ class ReadConfig:
     @staticmethod
     def get_beta_razorpay_url():
         url = config.get('RegistrationUrls', 'BETA_RAZORPAY')
+        return url
+
+    @staticmethod
+    def get_beta_workprofile_url():
+        url = config.get('RegistrationUrls', 'BETA_WORK_PROFILE')
         return url
 
     @staticmethod
