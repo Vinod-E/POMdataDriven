@@ -39,6 +39,8 @@ class HistoryOutput:
             sheet_name = 'AMSIN'
         elif sheet_name == 'amsinw':
             sheet_name = 'AMSIN'
+        elif sheet_name == 'amsincp':
+            sheet_name = 'AMSIN'
         elif sheet_name == 'amsr':
             sheet_name = 'AMS'
         elif sheet_name == 'betar':
@@ -51,7 +53,11 @@ class HistoryOutput:
             sheet_name = 'AMS'
         elif sheet_name == 'amsw':
             sheet_name = 'AMS'
+        elif sheet_name == 'amscp':
+            sheet_name = 'AMS'
         elif sheet_name == 'betaw':
+            sheet_name = 'AMS'
+        elif sheet_name == 'betacp':
             sheet_name = 'AMS'
         # ----------------------- Headers initialization ----------------------------
         h1 = 'Run Date'

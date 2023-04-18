@@ -37,6 +37,6 @@ INPUT_PATH = {
     'microsite_OCR': MICROSITE_GENERIC_INPUT_PATH + 'MicrositeOCR.xls',
     'microsite_razorpay': MICROSITE_GENERIC_INPUT_PATH + 'MicrositeRazorPay.xls',
     'microsite_Aadhar': MICROSITE_GENERIC_INPUT_PATH + 'MicrositeAadhar.xls',
-    'microsite_WorkProfile': MICROSITE_GENERIC_INPUT_PATH + 'MicrositeWorkProfile.xls'
-
+    'microsite_WorkProfile': MICROSITE_GENERIC_INPUT_PATH + 'MicrositeWorkProfile.xls',
+    'microsite_CP': MICROSITE_GENERIC_INPUT_PATH + 'MicrositeCP.xls'
 }
