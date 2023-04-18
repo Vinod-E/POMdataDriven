@@ -7,7 +7,7 @@ from Scripts.HTML_Reports.history_data_html_generator import HistoryDataHTMLGene
 
 class CPOutputReport:
     """ Number of Test cases / use cases name """
-    TestCases = 46
+    TestCases = 62
     use_case_name = 'CUSTOM PRO REGISTRATION FLOW'
 
     def __init__(self, version, server, start_date_time):
@@ -26,8 +26,8 @@ class CPOutputReport:
 
         excel_headers = ['Admin Login', 'Status', 'Event Search', 'Status', 'Applicant Search', 'Status',
                          'CP Verification', 'Status']
-        color_headers = ['Status', 'Admin Login', 'Event Search', 'Applicant Search', 'WP Verification']
-        self.xlw.excel_header_by_index(row=25, col=0, excel_headers_list=excel_headers,
+        color_headers = ['Status', 'Admin Login', 'Event Search', 'Applicant Search', 'CP Verification']
+        self.xlw.excel_header_by_index(row=23, col=0, excel_headers_list=excel_headers,
                                        color_headers_list=color_headers)
 
         """ <<<================== HTML / History Report Generator ==============================>>> """
@@ -80,21 +80,21 @@ class CPOutputReport:
         testdata_headers = ['Enter Alias', 'Next Button', 'Login Name', 'Password', 'Login Button',
                             'Verify User Login']
         self.xlw.input_output_report(testdata_headers=testdata_headers, collection=report_collection,
-                                     row=26, i_column=0, o_column=1, path=self.__path)
+                                     row=24, i_column=0, o_column=1, path=self.__path)
 
     def event_search_report(self, report_collection):
         testdata_headers = ['Event Tab', 'Advance Search', 'Name Field', 'Search Button', 'Event Getbyname',
                             'Event name Validation', 'Event Action', 'View Applicants']
         self.xlw.input_output_report(testdata_headers=testdata_headers, collection=report_collection,
-                                     row=26, i_column=2, o_column=3, path=self.__path)
+                                     row=24, i_column=2, o_column=3, path=self.__path)
 
     def applicant_search_report(self, report_collection):
         testdata_headers = ['Advance Search', 'Name Field', 'Search Button', 'Applicant Getbyname']
         self.xlw.input_output_report(testdata_headers=testdata_headers, collection=report_collection,
-                                     row=26, i_column=4, o_column=5, path=self.__path)
+                                     row=24, i_column=4, o_column=5, path=self.__path)
 
     def applicant_cp_report(self, report_collection):
         testdata_headers = ['Text1', 'Text5', 'Text35', 'Text53', 'Text80',
                             'TextArea1', 'TextArea10', 'TextArea15', 'Window Close', 'Switch To Window']
         self.xlw.input_output_report(testdata_headers=testdata_headers, collection=report_collection,
-                                     row=26, i_column=6, o_column=7, path=self.__path)
+                                     row=24, i_column=6, o_column=7, path=self.__path)

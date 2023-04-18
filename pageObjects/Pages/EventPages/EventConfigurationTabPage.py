@@ -59,6 +59,7 @@ class EventConfiguration:
             self.wait.web_elements_wait_multiple_click(By.XPATH, self.__e_save_button_xpath, button_name)
             self.notifier.glowing_messages(message)
             self.notifier.dismiss_message()
+            time.sleep(5)
             return True
         except Exception as error:
             ui_logger.error(error)

@@ -66,9 +66,10 @@ class CandidateLogin:
 
     def login_account_name_verification(self, user_name):
         try:
-            self.wait.loading()
+            self.wait.candidate_login_loading()
             assert self.wait.web_elements_wait_text(By.TAG_NAME, self.__e_anchor_tag, user_name) == user_name, \
                 'Logged in different account please check the details'
+            print('Login Name verification done: ', user_name)
             return True
         except Exception as error:
             ui_logger.error(error)
