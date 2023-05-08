@@ -14,6 +14,7 @@ class EventNominationsPage:
     __e_check_xpath = Locators.CHECK_BOX['check_box']
     __e_action_class = Locators.NOMINATIONS['actions']
     __e_approve_xpath = Locators.NOMINATIONS['approve']
+    __e_refresh_xpath = Locators.TITLE['title'].format('Refresh list')
     __e_sync_xpath = Locators.TITLE['title'].format('This will sync interviewers for whom you'
                                                     ' have accepted nomination with the event owners')
 
@@ -37,6 +38,14 @@ class EventNominationsPage:
             self.wait.loading()
             assert self.wait.web_elements_wait_text(By.TAG_NAME, self.__e_header_tag, header) == header, \
                 'no header found'
+            return True
+        except Exception as error:
+            ui_logger.error(error)
+
+    def refresh_list(self):
+        try:
+            self.wait.web_element_wait_click(By.XPATH, self.__e_refresh_xpath, 'refresh_list')
+            self.wait.loading()
             return True
         except Exception as error:
             ui_logger.error(error)

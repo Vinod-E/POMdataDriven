@@ -72,7 +72,7 @@ class JobAutomations:
         try:
             time.sleep(0.5)
             self.scroll.up(0, 100)
-            a = [25, 30, 31, 32, 23, 24, 29, 40]  # ---25/30/31/32 are amsin toggles remain all are ams
+            a = [25, 30, 31, 32]  # ---25/30/31/32 are amsin toggles remain all are ams
             for i in a:
                 self.wait.web_element_wait_click(By.XPATH, self.__e_toggle_buttons_xpath.format(i),
                                                  'all_round_button_on')

@@ -90,7 +90,7 @@ BUTTONS = {
     'task_configure': '//*[@ng-click="vm.getTaskConfigurationModal()"]',
     'close': '//*[@ng-click="vm.cancelClicked()"]',
     'add_criteria': '//button[@ng-click="vm.addCriteria()"]',
-    'nomination_int_search': '//button[@ng-click="criterion.searchInterviewers()"]',
+    'nomination_int_search': '(//button[@ng-click="criterion.searchInterviewers()"])[{}]',
     'nomination_mail': '//button[@ng-click="vm.sendMailToAll()"]',
 }
 
@@ -282,17 +282,10 @@ QUERY = {
 }
 
 NOMINATIONS = {
-    'panel_1': "//input[@type='text']",
-    'panel_2': '//*[@id="mainBodyElement"]/div[3]/div/div/div[3]/section/div[2]/'
-               'transcluded-input/div/div/div/div/div[1]/ta-dropdown/div/div/input',
-    'search': '//*[@id="mainBodyElement"]/div[3]/div/div/div[3]/section/div[2]/'
-              'transcluded-input/div/div/div/div/div[4]/button',
-    'skill1_int': '//input[@ng-model="criterion.requiredInterviewers"]',
-    'skill2_int': '//*[@id="mainBodyElement"]/div[3]/div/div/div[3]/section/div[2]/'
-                  'transcluded-input/div/div/div[1]/div[2]/div/div[1]/input',
-    'skill1_nom': '//input[@ng-model="criterion.requiredNominations"]',
-    'skill2_nom': '//*[@id="mainBodyElement"]/div[3]/div/div/div[3]/section/div[2]/'
-                  'transcluded-input/div/div/div[1]/div[2]/div/div[2]/input',
+    'panel_1': '(//input[@placeholder="Select Panel Type"])[1]',
+    'panel_2': '(//input[@placeholder="Select Panel Type"])[2]',
+    'skill_int': '(//input[@ng-model="criterion.requiredInterviewers"])[{}]',
+    'skill_nom': '(//input[@ng-model="criterion.requiredNominations"])[{}]',
     'dropdown': 'fa-chevron-down',
     'panel_select': '//select[@ng-model="vm.selectedSearchPanelType"]',
     'actions': 'btn-submit',

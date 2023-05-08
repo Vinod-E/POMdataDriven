@@ -24,10 +24,12 @@ class CRPORecruiterApproval:
 
     def recruiter_approval_skill(self):
         self.recruiter_acceptance_collection = []
-        __list = [self.nomination_approval.panel_select(self.xl_skill1),
+        __list = [self.nomination_approval.refresh_list(),
+                  self.nomination_approval.panel_select(self.xl_skill1),
                   self.nomination_approval.select_applicants(),
                   self.nomination_approval.recruiter_actions(),
                   self.nomination_approval.approve_by_recruiter(),
+                  self.nomination_approval.refresh_list(),
                   self.nomination_approval.panel_select(self.xl_skill2),
                   self.nomination_approval.select_applicants(),
                   self.nomination_approval.recruiter_actions(),

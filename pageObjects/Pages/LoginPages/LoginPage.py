@@ -63,6 +63,7 @@ class Login:
     def login_account_name_verification(self, user_name):
         try:
             self.wait.loading()
+            time.sleep(2)
             assert self.wait.web_elements_wait_text(By.TAG_NAME, self.__e_anchor_tag, user_name) == user_name, \
                 'Logged in different account please check the details'
             return True

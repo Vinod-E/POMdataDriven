@@ -11,12 +11,12 @@ class EventMangeInterviewersPage:
     __e_add_criteria_xpath = Locators.BUTTONS['add_criteria']
     __e_panel_entry_xpath = Locators.NOMINATIONS['panel_1']
     __e_panel2_entry_xpath = Locators.NOMINATIONS['panel_2']
-    __e_skill1_search_xpath = Locators.BUTTONS['nomination_int_search']
-    __e_skill2_search_xpath = Locators.NOMINATIONS['search']
-    __e_skill1_required_int_xpath = Locators.NOMINATIONS['skill1_int']
-    __e_skill2_required_int_xpath = Locators.NOMINATIONS['skill2_int']
-    __e_skill1_required_nom_xpath = Locators.NOMINATIONS['skill1_nom']
-    __e_skill2_required_nom_xpath = Locators.NOMINATIONS['skill2_nom']
+    __e_skill1_search_xpath = Locators.BUTTONS['nomination_int_search'].format(1)
+    __e_skill2_search_xpath = Locators.BUTTONS['nomination_int_search'].format(2)
+    __e_skill1_required_int_xpath = Locators.NOMINATIONS['skill_int'].format(1)
+    __e_skill2_required_int_xpath = Locators.NOMINATIONS['skill_int'].format(2)
+    __e_skill1_required_nom_xpath = Locators.NOMINATIONS['skill_nom'].format(1)
+    __e_skill2_required_nom_xpath = Locators.NOMINATIONS['skill_nom'].format(2)
     __e_send_mail_xpath = Locators.BUTTONS['nomination_mail']
     __e_confirm_button_xpath = Locators.BUTTONS['all_buttons'].format('OK')
 
