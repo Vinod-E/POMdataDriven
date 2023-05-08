@@ -8,7 +8,7 @@ from Config import outputFile
 class ManageInterviewersOutputReport:
 
     """ Number of Test cases / use cases name """
-    TestCases = 75
+    TestCases = 77
     use_case_name = 'MANAGE INTERVIEWERS FLOW'
     fail_color = ''
 
@@ -123,8 +123,8 @@ class ManageInterviewersOutputReport:
                                      row=19, i_column=2, o_column=3, path=self.__path)
 
     def approval_report(self, collection):
-        testdata_headers = ['Panel(Technical Java)', 'Select Applicant', 'Actions', 'Approve',
-                            'Panel(Technical NodeJs)', 'Select Applicant', 'Actions', 'Approve']
+        testdata_headers = ['Refresh List', 'Panel(Technical Java)', 'Select Applicant', 'Actions', 'Approve',
+                            'Refresh List','Panel(Technical NodeJs)', 'Select Applicant', 'Actions', 'Approve']
         self.xlw.input_output_report(testdata_headers=testdata_headers, collection=collection,
                                      row=19, i_column=4, o_column=5, path=self.__path)
 
