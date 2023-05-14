@@ -8,7 +8,7 @@ from utilities.OpenNewTab import NewTab
 
 class LoginPage:
 
-    __e_candidate_id_xpath = Locators.PLACEHOLDER['text_ph'].format('Enter Candidate Id')
+    __e_candidate_id_xpath = Locators.CANDIDATE_LOBBY_LOGIN['cid_entry']
     __e_enter_button_xpath = Locators.BUTTONS['button'].format('Enter the room')
     __e_candidate_name_xpath = Locators.CANDIDATE_LOBBY_LOGIN['candidate_name']
     __e_almost_message_css = Locators.CANDIDATE_LOBBY_LOGIN['almost-message']
@@ -32,8 +32,8 @@ class LoginPage:
         try:
             self.wait.loading()
             time.sleep(2)
-            self.wait.web_element_wait_send_keys(By.XPATH,
-                                                 self.__e_candidate_id_xpath, candidate_id, 'candidate_login_screen')
+            self.wait.web_element_wait_send_keys(By.XPATH, self.__e_candidate_id_xpath,
+                                                 candidate_id, 'candidate_login_screen')
             return True
         except Exception as error:
             ui_logger.error(error)
@@ -49,10 +49,9 @@ class LoginPage:
     def candidate_name_validate(self, candidate_name):
         try:
             time.sleep(1)
-            self.wait.web_element_wait_text(By.XPATH,
-                                            self.__e_candidate_name_xpath.format(candidate_name),
+            self.wait.web_element_wait_text(By.XPATH, self.__e_candidate_name_xpath,
                                             'candidate_name_validation_lobby')
-            if self.wait.text_value in self.wait.text_value:
+            if candidate_name in self.wait.text_value:
                 print(f'Lobby Candidate name - {self.wait.text_value}')
                 return True
         except Exception as error:
@@ -69,7 +68,7 @@ class LoginPage:
 
     def queued_message(self, message):
         try:
-            self.wait.web_element_wait_text(By.XPATH, self.__e_queued_message_xpath, 'queued_message')
+            self.wait.web_element_wait_text(By.CSS_SELECTOR, self.__e_queued_message_xpath, 'queued_message')
             if self.wait.text_value == message:
                 print(f'Candidate Lobby - {self.wait.text_value}')
                 return True
@@ -78,7 +77,7 @@ class LoginPage:
 
     def it_is_your_message(self, message):
         try:
-            self.wait.web_element_wait_text(By.XPATH, self.__e_your_message_xpath, 'it_is_your_message')
+            self.wait.web_element_wait_text(By.CSS_SELECTOR, self.__e_your_message_xpath, 'it_is_your_message')
             if self.wait.text_value == message:
                 print(f'Candidate Lobby - {self.wait.text_value}')
                 return True
@@ -87,7 +86,7 @@ class LoginPage:
 
     def finish_interview_message(self, message):
         try:
-            self.wait.web_element_wait_text(By.XPATH, self.__e_finish_message_xpath, 'finish_interview_message')
+            self.wait.web_element_wait_text(By.CSS_SELECTOR, self.__e_finish_message_xpath, 'finish_interview_message')
             if self.wait.text_value == message:
                 print(f'Candidate Lobby - {self.wait.text_value}')
                 return True

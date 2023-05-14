@@ -68,6 +68,11 @@ class ReadConfig:
         return url
 
     @staticmethod
+    def get_qa_acp_url():
+        url = config.get('RegistrationUrls', 'QA_APPCUSTOM_PRO')
+        return url
+
+    @staticmethod
     def get_prod_aadhar_url():
         url = config.get('RegistrationUrls', 'PROD_AADHAR')
         return url
@@ -108,6 +113,11 @@ class ReadConfig:
         return url
 
     @staticmethod
+    def get_prod_acp_url():
+        url = config.get('RegistrationUrls', 'PROD_APPCUSTOM_PRO')
+        return url
+
+    @staticmethod
     def get_beta_certificate_url():
         url = config.get('RegistrationUrls', 'BETA_CERTIFICATE')
         return url
@@ -135,6 +145,11 @@ class ReadConfig:
     @staticmethod
     def get_beta_cp_url():
         url = config.get('RegistrationUrls', 'BETA_CUSTOM_PRO')
+        return url
+
+    @staticmethod
+    def get_beta_acp_url():
+        url = config.get('RegistrationUrls', 'BETA_APPCUSTOM_PRO')
         return url
 
     @staticmethod

@@ -127,6 +127,7 @@ class EventUploadCandidate:
             time.sleep(1)
             self.wait.web_element_wait_click(By.XPATH, self.__e_save_candidate_xpath, 'save_candidate')
             print('Save Candidate - Saved')
+            self.wait.loading()
             return True
         except Exception as error:
             ui_logger.error(error)
