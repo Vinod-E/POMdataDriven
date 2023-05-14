@@ -54,6 +54,7 @@ class CandidateDetailsPage:
             print('Candidate details screen - floating action - Manage Task')
             time.sleep(1)
             self.window.switch_to_window(window_index)
+            time.sleep(1)
             self.wait.loading()
             return True
         except Exception as error:

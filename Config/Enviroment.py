@@ -42,6 +42,9 @@ class EnvironmentSetup:
         elif self.server == 'amsincp':
             self.driver.get(ReadConfigFile.ReadConfig.get_qa_cp_url())
             self.index = 0
+        elif self.server == 'amsinacp':
+            self.driver.get(ReadConfigFile.ReadConfig.get_qa_acp_url())
+            self.index = 0
         elif self.server == 'amsc':
             self.driver.get(ReadConfigFile.ReadConfig.get_prod_certificate_url())
             self.index = 1
@@ -62,6 +65,9 @@ class EnvironmentSetup:
             self.index = 1
         elif self.server == 'amscp':
             self.driver.get(ReadConfigFile.ReadConfig.get_prod_cp_url())
+            self.index = 1
+        elif self.server == 'amsacp':
+            self.driver.get(ReadConfigFile.ReadConfig.get_prod_acp_url())
             self.index = 1
         elif self.server == 'betac':
             self.driver.get(ReadConfigFile.ReadConfig.get_beta_certificate_url())

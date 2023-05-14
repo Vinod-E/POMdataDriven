@@ -32,6 +32,7 @@ class InterviewerLobbyPage:
         try:
             self.wait.loading()
             self.wait.web_element_wait_click(By.XPATH, self.__e_provide_feedback_xpath, 'provide_feedback')
+            time.sleep(1)
             return True
         except Exception as error:
             ui_logger.error(error)

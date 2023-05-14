@@ -210,11 +210,12 @@ EVENT_LOBBY = {
 }
 
 CANDIDATE_LOBBY_LOGIN = {
-    'candidate_name': "//label[contains(text(),'{}')]",
-    'queued-message': "/html/body/div[2]/div[1]/div[1]/div[2]/div/div/div/div/div/div/div/div[2]/div[1]/p[1]",
-    'almost-message': ".headerText.ng-scope",
-    'your-message': '/html/body/div[2]/div[1]/div[1]/div[2]/div/div/div/div/div/div/div/div[2]/div[1]/p[1]',
-    'finished-message': '/html/body/div[2]/div[1]/div[1]/div[2]/div/div/div/div/div/div/div/div[2]/div/p[1]'
+    'cid_entry': '//input[@ng-model="vm.service.pageDetails.fillFormCandidateId"]',
+    'candidate_name': '//span[@ng-if="vm.service.pageDetails.candidateName"]',
+    'queued-message': ".headerText",
+    'almost-message': ".headerText",
+    'your-message': ".headerText",
+    'finished-message': ".headerText"
 }
 
 LIVE_INTERVIEW = {
