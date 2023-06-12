@@ -25,10 +25,10 @@ class CRPOEducation:
 
     def crpo_applicant_education(self):
         self.applicant_education_collection = []
-        __list = [self.candidate.education_details_check(self.xl_pg_degree, 1),
-                  self.candidate.education_details_check(self.xl_ug_degree, 2),
-                  self.candidate.education_details_check("12th", 3),
-                  self.candidate.education_details_check(self.xl_tenth_type, 4),
+        __list = [self.candidate.education_details_check(self.xl_pg_degree, 4),
+                  self.candidate.education_details_check(self.xl_ug_degree, 5),
+                  self.candidate.education_details_check("12th", 6),
+                  self.candidate.education_details_check(self.xl_tenth_type, 7),
                   self.switch_window.window_close(),
                   self.switch_window.switch_to_window(0)
                   ]
