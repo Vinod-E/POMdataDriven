@@ -1,5 +1,5 @@
 ACCOUNT = {
-    'account_icon': '//a[@class="ng-binding"]',
+    'account_icon': '/html/body/div[1]/div/header/div[1]/nav/div/div[4]/ul/li/a',
     'settings': 'crpo-common-settings',
     'new_form': '//*[@id="mainBodyElement"]/div[3]/section/div/div/div[2]/ul/li[18]/span/b'
 }
@@ -248,7 +248,7 @@ INTERVIEWER_LOBBY = {
 MANAGE_TASK = {
     'common_label': '.ng-binding',
     'candidate_status': '//*[@id="mainBodyElement"]/div[3]/div[2]/div[1]/div[1]/div/div[1]/div[1]/span[2]',
-    'total': '//*[@id="mainBodyElement"]/div[3]/div[2]/div[1]/div[3]/div[1]/div/div[5]'
+    'total': '//*[@id="mainBodyElement"]/div[3]/div[2]/div[1]/div/div[3]/div[1]/div/div[5]'
 }
 
 EMBRACE = {

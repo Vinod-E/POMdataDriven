@@ -10,6 +10,7 @@ INPUT_PATH = {
     'OCR_candidate': MICROSITE_GENERIC_INPUT_PATH + 'OCR_Candidate.png',
     'OCR_PAN': MICROSITE_GENERIC_INPUT_PATH + 'OCR_PAN.jpg',
     'OCR_id_card': MICROSITE_GENERIC_INPUT_PATH + 'college_id_card.jpg',
+    'resume': MICROSITE_GENERIC_INPUT_PATH + 'dummy.pdf',
 
     'login_excel': GENERIC_INPUT_PATH + 'Login_Details.xls',
     'job_excel': GENERIC_INPUT_PATH + 'Job_Details.xls',
