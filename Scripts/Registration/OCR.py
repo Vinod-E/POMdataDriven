@@ -16,7 +16,7 @@ class EducationalOCR:
         self.submit = SubmitPage.SubmitData(self.driver)
 
         # ---- Attachment from local machine
-        self.attachment_resume = inputFile.INPUT_PATH['job_attachment']
+        self.attachment_resume = inputFile.INPUT_PATH['resume']
         self.attachment_photo = inputFile.INPUT_PATH['OCR_candidate']
         self.attachment_pan = inputFile.INPUT_PATH['OCR_PAN']
         self.attachment_idcard = inputFile.INPUT_PATH['OCR_id_card']
