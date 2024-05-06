@@ -8,7 +8,7 @@ from Config import outputFile
 class HelpDeskOutputReport:
 
     """ Number of Test cases / use cases name """
-    TestCases = 124
+    TestCases = 126
     use_case_name = 'QUERY HELP DESK FLOW'
     fail_color = ''
 
@@ -91,7 +91,8 @@ class HelpDeskOutputReport:
                                      row=2, i_column=8, o_column=9, path=self.__path)
 
     def candidate_login_report(self, collection):
-        testdata_headers = ['Login Url Entered', 'Login Name', 'Password', 'Login', 'Validate Account name']
+        testdata_headers = ['Login Url Entered', 'Login Name', 'Password', 'Tenant Name', 'Login',
+                            'Validate Account name']
         self.xlw.input_output_report(testdata_headers=testdata_headers, collection=collection,
                                      row=20, i_column=0, o_column=1, path=self.__path)
 
@@ -114,7 +115,8 @@ class HelpDeskOutputReport:
                                      row=20, i_column=6, o_column=7, path=self.__path)
 
     def user_1_login_report(self, collection):
-        testdata_headers = ['Login Url Entered', 'Login Name', 'Password', 'Login', 'Validate Account name']
+        testdata_headers = ['Login Url Entered', 'Tenant Name', 'Login Name', 'Password', 'Login',
+                            'Validate Account name']
         self.xlw.input_output_report(testdata_headers=testdata_headers, collection=collection,
                                      row=29, i_column=0, o_column=1, path=self.__path)
 

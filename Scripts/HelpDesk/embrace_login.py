@@ -24,6 +24,7 @@ class CrpoEmbraceLogin:
         self.xl_login_3 = xl['event_user_loginname'][0]
         self.xl_password = xl['Password'][0]
         self.xl_tab_title = xl['tab'][0]
+        self.xl_tenant = xl['tenant'][0]
 
         self.login_1_collection = []
         self.login_2_collection = []
@@ -32,6 +33,8 @@ class CrpoEmbraceLogin:
     def embrace_user_1_login(self):
         self.login_1_collection = []
         __list = [self.embrace_login.embrace_url(self.server),
+                  # self.embrace_login.next_button(),
+                  self.embrace_login.login_alias(self.xl_tenant),
                   self.embrace_login.login_name(self.xl_login_1),
                   self.embrace_login.password(self.xl_password),
                   self.embrace_login.login_button(),

@@ -116,6 +116,7 @@ class WebElementWait:
         for i in self.perform:
             if value in i.text.strip():
                 text_value = i.text.strip()
+                print("Web driver Validated UserName - ", text_value)
                 break
         return text_value
 

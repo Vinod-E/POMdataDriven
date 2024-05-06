@@ -14,8 +14,10 @@ class EmbraceLogin:
     """
     __e_login_name = Locators.LOGIN['c_user_name']
     __e_password_xpath = Locators.LOGIN['password']
+    __e_tenant_name = Locators.LOGIN['alias']
     __e_login_button_xpath = Locators.LOGIN['e_login']
     __e_login_verify_name = 'headerNameText'
+    __e_next_button_xpath = '/html/body/div[5]/div/div/div[3]/div/button'
 
     def __init__(self, driver):
         self.driver = driver
@@ -51,6 +53,26 @@ class EmbraceLogin:
     def password(self, password):
         try:
             self.wait.web_element_wait_send_keys(By.XPATH, self.__e_password_xpath, password, 'login_password_field')
+            return True
+        except Exception as error:
+            ui_logger.error(error)
+
+    def login_alias(self, login_alais):
+        try:
+            self.wait.refresh_page()
+            self.wait.clear(By.NAME, self.__e_tenant_name, 'login_alais_field')
+            self.wait.web_element_wait_send_keys(By.NAME, self.__e_tenant_name, login_alais,
+                                                 'login_alais_field')
+            self.wait.web_element_wait_click(By.XPATH, self.__e_next_button_xpath, 'next_button')
+
+            return True
+        except Exception as error:
+            ui_logger.error(error)
+
+    def next_button(self):
+        try:
+            time.sleep(2)
+            self.wait.web_element_wait_click(By.XPATH, self.__e_next_button_xpath, 'next_button')
             return True
         except Exception as error:
             ui_logger.error(error)
