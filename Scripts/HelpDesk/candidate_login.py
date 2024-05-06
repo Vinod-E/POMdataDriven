@@ -19,6 +19,7 @@ class CrpoCandidateLogin:
         xl = login_excel.excel_dict
         self.xl_title = xl['c_p_title'][0]
         self.xl_user = xl['c_p_user'][0].format(version)
+        self.xl_tenant = xl['c_tenant'][0]
 
         self.login_collection = []
 
@@ -27,6 +28,7 @@ class CrpoCandidateLogin:
         __list = [self.LoginPage.candidate_login_url(self.server),
                   self.LoginPage.login_name(candidate_email),
                   self.LoginPage.password(password),
+                  self.LoginPage.login_alias(self.xl_tenant),
                   self.LoginPage.login_button(),
                   self.LoginPage.login_account_name_verification(self.xl_user)
                   ]

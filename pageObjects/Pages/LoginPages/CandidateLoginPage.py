@@ -42,6 +42,15 @@ class CandidateLogin:
             self.new_tab.open_in_same_tab(0, ReadConfigFile.ReadConfig.get_indiaams_candidate_url())
             return True
 
+    def login_alias(self, login_alais):
+        try:
+            time.sleep(3)
+            self.wait.web_element_wait_send_keys(By.NAME, self.__e_tenant_name, login_alais,
+                                                 'login_alais_field')
+            return True
+        except Exception as error:
+            ui_logger.error(error)
+
     def login_name(self, login_name):
         try:
             time.sleep(3)
@@ -67,6 +76,7 @@ class CandidateLogin:
     def login_account_name_verification(self, user_name):
         try:
             self.wait.candidate_login_loading()
+            time.sleep(2)
             assert self.wait.web_elements_wait_text(By.TAG_NAME, self.__e_anchor_tag, user_name) == user_name, \
                 'Logged in different account please check the details'
             print('Login Name verification done: ', user_name)
