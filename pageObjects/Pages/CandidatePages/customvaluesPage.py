@@ -10,6 +10,7 @@ from utilities.PageScroll import PageScroll
 class CustomValuesDetailsPage:
     __e_text_xpath = '(//span[@title="{}"])[{}]'
     __e_textarea_xpath = '(//span[@title="{}"])[{}]'
+    __e_app_int_xpath = '//*[contains(text(), "Good")]'
 
     def __init__(self, driver):
         self.driver = driver
@@ -34,6 +35,18 @@ class CustomValuesDetailsPage:
                                             'textarea_value_verified')
             if value in self.wait.text_value.strip():
                 print(f'Custom TextArea Property - {self.wait.text_value.strip()}')
+                return True
+        except Exception as error:
+            ui_logger.error(error)
+
+    def applicant_int_verified(self, value):
+        try:
+            time.sleep(0.5)
+            self.scroll.up(0, -100)
+            self.wait.web_element_wait_text(By.XPATH, self.__e_app_int_xpath,
+                                            'applicant_int_verified')
+            if value in self.wait.text_value.strip():
+                print(f'Python Rate yourself Property - {self.wait.text_value.strip()}')
                 return True
         except Exception as error:
             ui_logger.error(error)

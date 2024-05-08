@@ -44,7 +44,8 @@ SUB_MENU = {
     'req_query': '//*[@ui-sref="crpo.requirements.details.configuration.queryConfiguration"]',
     'nominations': '//*[@ui-sref="crpo.events.interviewers.nominations"]',
     'candidate_communication': '//*[@ui-sref="crpo.candidates.details.communicationDetails"]',
-    'candidate_payment': '//*[@ui-sref="crpo.candidates.details.paymentDetails"]'
+    'candidate_payment': '//*[@ui-sref="crpo.candidates.details.paymentDetails"]',
+    'candidate_applications': '//*[@ui-sref="crpo.candidates.details.applicantDetails"]'
 }
 
 ATTACHMENT = {

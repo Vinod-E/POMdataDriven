@@ -7,7 +7,7 @@ from Scripts.HTML_Reports.history_data_html_generator import HistoryDataHTMLGene
 
 class ACPOutputReport:
     """ Number of Test cases / use cases name """
-    TestCases = 62
+    TestCases = 35
     use_case_name = 'APP CUSTOM PRO REGISTRATION FLOW'
 
     def __init__(self, version, server, start_date_time):
@@ -26,7 +26,7 @@ class ACPOutputReport:
         excel_headers = ['Admin Login', 'Status', 'Event Search', 'Status', 'Applicant Search', 'Status',
                          'ACP Verification', 'Status']
         color_headers = ['Status', 'Admin Login', 'Event Search', 'Applicant Search', 'ACP Verification']
-        self.xlw.excel_header_by_index(row=23, col=0, excel_headers_list=excel_headers,
+        self.xlw.excel_header_by_index(row=8, col=0, excel_headers_list=excel_headers,
                                        color_headers_list=color_headers)
 
         """ <<<================== HTML / History Report Generator ==============================>>> """
@@ -56,10 +56,11 @@ class ACPOutputReport:
     def personal_details_report(self, report_collection):
         testdata_headers = ['Full Name', 'Email', 'Mobile Number', 'WhatsappConsent']
         self.xlw.input_output_report(testdata_headers=testdata_headers, collection=report_collection,
-                                     row=3, i_column=0, o_column=1, path=self.__path)
+                                     row=2, i_column=0, o_column=1, path=self.__path)
 
     def text_details_report(self, report_collection):
-        testdata_headers = ['Text1', 'Text2', 'Text3', 'Text4', 'Text5']
+        testdata_headers = ['Python(Rate yourself)', 'Write About Your Python Experience',
+                            'Experience In selenium', 'Date Of Certification', 'Institute Name']
         self.xlw.input_output_report(testdata_headers=testdata_headers, collection=report_collection,
                                      row=2, i_column=2, o_column=3, path=self.__path)
 
@@ -72,21 +73,20 @@ class ACPOutputReport:
         testdata_headers = ['Enter Alias', 'Next Button', 'Login Name', 'Password', 'Login Button',
                             'Verify User Login']
         self.xlw.input_output_report(testdata_headers=testdata_headers, collection=report_collection,
-                                     row=24, i_column=0, o_column=1, path=self.__path)
+                                     row=9, i_column=0, o_column=1, path=self.__path)
 
     def event_search_report(self, report_collection):
         testdata_headers = ['Event Tab', 'Advance Search', 'Name Field', 'Search Button', 'Event Getbyname',
                             'Event name Validation', 'Event Action', 'View Applicants']
         self.xlw.input_output_report(testdata_headers=testdata_headers, collection=report_collection,
-                                     row=24, i_column=2, o_column=3, path=self.__path)
+                                     row=9, i_column=2, o_column=3, path=self.__path)
 
     def applicant_search_report(self, report_collection):
         testdata_headers = ['Advance Search', 'Name Field', 'Search Button', 'Applicant Getbyname']
         self.xlw.input_output_report(testdata_headers=testdata_headers, collection=report_collection,
-                                     row=24, i_column=4, o_column=5, path=self.__path)
+                                     row=9, i_column=4, o_column=5, path=self.__path)
 
     def applicant_cp_report(self, report_collection):
-        testdata_headers = ['Text1', 'Text5', 'Text35', 'Text53', 'Text80',
-                            'TextArea1', 'TextArea10', 'TextArea15', 'Window Close', 'Switch To Window']
+        testdata_headers = ['Applications Tab', 'Python(Rate yourself)', 'Window Close', 'Switch To Window']
         self.xlw.input_output_report(testdata_headers=testdata_headers, collection=report_collection,
-                                     row=24, i_column=6, o_column=7, path=self.__path)
+                                     row=9, i_column=6, o_column=7, path=self.__path)
