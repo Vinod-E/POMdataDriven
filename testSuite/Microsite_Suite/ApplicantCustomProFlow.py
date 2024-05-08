@@ -65,8 +65,8 @@ class APPCustomProperties:
         self.ACP_output.applicant_search_report(self.search.applicant_search_collection)
 
     def crpo_custom_property_verification(self):
-        self.cpv.crpo_applicant_text_textarea_values()
-        self.ACP_output.applicant_cp_report(self.cpv.applicant_tpv_collection)
+        self.cpv.crpo_applicant_custom_properties()
+        self.ACP_output.applicant_cp_report(self.cpv.applicant_acp_collection)
 
 
 Object = APPCustomProperties()

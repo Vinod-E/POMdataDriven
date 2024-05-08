@@ -1,7 +1,7 @@
 from Config import inputFile
 from pageObjects.Pages.NewRegistrationPage import EntryPage
 from pageObjects.Pages.NewRegistrationPage import PersonalDetailsPage
-from pageObjects.Pages.NewRegistrationPage import CustomProperty
+from pageObjects.Pages.NewRegistrationPage import ApplicantCustomprty
 from pageObjects.Pages.NewRegistrationPage import SubmitPage
 from utilities import excelRead
 
@@ -12,7 +12,7 @@ class AppCustomPropertiesRegistration:
         self.driver = driver
         self.entry = EntryPage.EntryButton(self.driver)
         self.pd = PersonalDetailsPage.PersonalDetailsData(self.driver)
-        self.cp = CustomProperty.CustomPropertyData(self.driver)
+        self.acp = ApplicantCustomprty.ApplicantCustomPropertyData(self.driver)
         self.submit = SubmitPage.SubmitData(self.driver)
 
         """
@@ -26,8 +26,10 @@ class AppCustomPropertiesRegistration:
         self.xl_phone = xl['phone'][0]
         self.xl_whatsapp = xl['consent'][0]
         self.xl_message = xl['message'][0]
-        self.xl_text = xl['text'][0]
-        self.xl_textarea = xl['textarea'][0]
+        self.xl_ACP1 = xl['Rate'][0]
+        self.xl_ACP2 = xl['WriteAbout'][0]
+        self.xl_ACP3 = xl['Date'][0]
+        self.xl_ACP4 = xl['InstituteName'][0]
 
         self.entry_collection = []
         self.pd_collection = []
@@ -61,12 +63,11 @@ class AppCustomPropertiesRegistration:
     def custom_text_details(self):
         self.text_details_collection = []
         __list = [
-            self.cp.text_field(self.xl_text, 1),
-            self.cp.text_field(self.xl_text, 2),
-            self.cp.text_field(self.xl_text, 3),
-            self.cp.text_field(self.xl_text, 4),
-            self.cp.text_field(self.xl_text, 5),
-            self.cp.text_field(self.xl_text, 7)
+            self.acp.rating_dropdown(self.xl_ACP1),
+            self.acp.writeabout_field(self.xl_ACP2),
+            self.acp.selenium_boolean(),
+            self.acp.date_field(self.xl_ACP3),
+            self.acp.institute_field(self.xl_ACP4)
                   ]
         for func in __list:
             if func:
