@@ -90,6 +90,9 @@ class EnvironmentSetup:
         elif self.server == 'betacp':
             self.driver.get(ReadConfigFile.ReadConfig.get_beta_cp_url())
             self.index = 1
+        elif self.server == 'betaacp':
+            self.driver.get(ReadConfigFile.ReadConfig.get_beta_acp_url())
+            self.index = 1
         elif self.server == 'ams':
             self.driver.get(ReadConfigFile.ReadConfig.get_production_url())
             self.index = 1

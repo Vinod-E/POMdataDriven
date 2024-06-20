@@ -8,7 +8,7 @@ from Scripts.Registration.crpo_cp import CRPOCustomValues
 from Scripts.Output_scripts import RegistrationCPReport
 
 
-class RegistrationOCR:
+class CandidateCustomPRO:
     """
         Required class Objects are created
     """
@@ -73,7 +73,7 @@ class RegistrationOCR:
         self.CP_output.applicant_cp_report(self.cpv.applicant_tpv_collection)
 
 
-Object = RegistrationOCR()
+Object = CandidateCustomPRO()
 
 if Object.page_valid.page_validation():
     # captcha = input('Authentication (Click Enter to Complete)')
