@@ -10,10 +10,10 @@ from utilities.SwitchWindow import SwitchWindowClose
 
 class RazorPayPageDetails:
 
-    __r_candidate_name_xpath = Locators.TITLE['title']
+    __r_candidate_name_xpath = '//*[@id="merchant-identity"]/div/div[2]/div/div'
     __r_qr_code_xpath = Locators.MICROSITE['Qr_code']
-    __r_wallet_xpath = '//*[@slot="title"]'
-    __r_phonepe_xpath = '//*[@class="title"]'
+    __r_wallet_xpath = '//*[@id="nav-sidebar"]/div[1]/label[5]/div/div'
+    __r_phonepe_xpath = '//*[@id="main-stack-container"]/div/div/div/div/div[2]/div/div/form/div/label[2]/div'
     __r_payment_id = 'redesign-v15-cta'
     __r_success_class = 'success'
 
@@ -27,7 +27,7 @@ class RazorPayPageDetails:
         try:
             time.sleep(5)
             self.iframe.switch_to_iframe('//iframe[@class="razorpay-checkout-frame"]')
-            time.sleep(2)
+            time.sleep(3)
             self.wait.web_element_wait_text(By.XPATH, self.__r_candidate_name_xpath.format(first_name),
                                             'razorpay_candidate_name')
             if self.wait.text_value.strip() == first_name:

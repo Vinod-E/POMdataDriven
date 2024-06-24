@@ -7,7 +7,7 @@ from Scripts.HTML_Reports.history_data_html_generator import HistoryDataHTMLGene
 
 class RazorPayOutputReport:
     """ Number of Test cases / use cases name """
-    TestCases = 43
+    TestCases = 42
     use_case_name = 'RAZORPAY REGISTRATION FLOW'
 
     def __init__(self, version, server, start_date_time):

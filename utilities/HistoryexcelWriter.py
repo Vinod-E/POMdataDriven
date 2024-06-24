@@ -93,7 +93,7 @@ class HistoryOutput:
                 for col_num, value in enumerate(df_dynamic.columns.values):
                     worksheet.write(0, col_num, value, header_format)
                     col_num += 1
-            vinod.save()
+            vinod._save()
             print('**----->> File has been created successfully')
 
         # ------------- Appending the values into their columns --------------------
@@ -109,9 +109,9 @@ class HistoryOutput:
         """ ======== Load Excel file before open ==========="""
         book = load_workbook(self.HISTORY_DATA_OUTPUT)
         writer = pd.ExcelWriter(self.HISTORY_DATA_OUTPUT, engine='openpyxl')
-        writer.book = book
-        writer.sheets = dict((ws.title, ws) for ws in book.worksheets)
-        writer.save()
+        writer._book = book
+        writer._sheets = dict((ws.title, ws) for ws in book.worksheets)
+        writer._save()
 
         """ ======== Open and Read Excel to get the sheet data ==========="""
         reader = pd.read_excel(self.HISTORY_DATA_OUTPUT, engine='openpyxl', sheet_name=sheet_name)
@@ -121,6 +121,6 @@ class HistoryOutput:
         if length is None:
             length = 0
         df.to_excel(writer, sheet_name=sheet_name, index=False, header=False, startrow=length + 1)
-        writer.save()
+        writer._save()
         writer.close()
         print('**----->> Excel History Data - Saved')

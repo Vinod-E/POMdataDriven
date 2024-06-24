@@ -343,7 +343,7 @@ background: #ffff !important;border: 1px solid #e9ede8;margin-top: 1rem; margin-
 <div class="row" style="    padding: 20px;">
 <a>
 <img width="142"
-src="https://hirepro.in/wp-content/uploads/2020/08/hirepro-new-logo-dark-slim.png"
+src="https://hirepro.in/wp-content/uploads/2023/09/HirePro-logo.png"
 style="border:0;display:block;outline:0;text-decoration:none;height:auto">
 </a>
     <div class="row" style="margin-top: 3rem">
@@ -548,7 +548,7 @@ src="https://cdn-icons-png.flaticon.com/128/324/324107.png" width="25" height="2
                             </div>
 <footer class="footer">
       <div class="container">
-        <span class="text-muted">© 2022 HirePro . All rights reserved.
+        <span class="text-muted">© 2024 HirePro . All rights reserved.
 <span>Plot No. 53, Kariyammana Agrahara Road,Devarabisana Halli, Bengaluru – 560 103</span>
         </span>
       </div>
