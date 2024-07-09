@@ -2,6 +2,7 @@ from Config import CongfigFile
 
 GENERIC_INPUT_PATH = CongfigFile.INPUT_FILE
 MICROSITE_GENERIC_INPUT_PATH = CongfigFile.MICROSITE_INPUT_FILE
+SLOT_GENERIC_INPUT_PATH = CongfigFile.SLOT_INPUT_FILE
 
 
 INPUT_PATH = {
@@ -40,5 +41,6 @@ INPUT_PATH = {
     'microsite_Aadhar': MICROSITE_GENERIC_INPUT_PATH + 'MicrositeAadhar.xls',
     'microsite_WorkProfile': MICROSITE_GENERIC_INPUT_PATH + 'MicrositeWorkProfile.xls',
     'microsite_CP': MICROSITE_GENERIC_INPUT_PATH + 'MicrositeCP.xls',
-    'microsite_ACP': MICROSITE_GENERIC_INPUT_PATH + 'MicrositeACP.xls'
+    'microsite_ACP': MICROSITE_GENERIC_INPUT_PATH + 'MicrositeACP.xls',
+    'assessment_slot': SLOT_GENERIC_INPUT_PATH + 'assessmentslot.xls'
 }

@@ -16,6 +16,7 @@ class Notifier:
         message = self.wait.text_value
         if message == ui_message:
             print('**-------->>> Message/UI notifier validated successfully - {}'.format(message))
+            return True
         else:
             print('Message/UI notifier validation failed - {} <<<---------**'.format(message))
 

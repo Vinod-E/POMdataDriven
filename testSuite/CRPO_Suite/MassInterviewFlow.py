@@ -29,6 +29,7 @@ class MassInterviewFlow:
     """
     try:
         environment = Enviroment.EnvironmentSetup()
+        environment.crpo_app()
         driver = environment.driver
         index = environment.index
         server = environment.server

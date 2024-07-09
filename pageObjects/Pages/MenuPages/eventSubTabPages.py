@@ -14,6 +14,8 @@ class EventSubTabs:
     __e_event_tracking_xpath = Locators.SUB_MENU['event_tracking']
     __e_cancel_request_xpath = Locators.SUB_MENU['cancel_request']
     __e_manage_candidates = Locators.BUTTONS['all_buttons'].format('Manage Candidates')
+    __e_interview_slot_xpath = '//*[@ui-sref="crpo.events.details.tracking.configureInterviewSlots"]'
+    __e_assessment_slot_xpath = '//*[@ui-sref="crpo.events.details.tracking.configureAssessmentSlots"]'
 
     def __init__(self, driver):
         self.driver = driver
@@ -49,6 +51,20 @@ class EventSubTabs:
         try:
             self.scroll.up(0, -60)
             self.wait.web_element_wait_click(By.XPATH, self.__e_event_tracking_xpath, 'event_tracking')
+            return True
+        except Exception as error:
+            ui_logger.error(error)
+
+    def interview_slot_tab(self):
+        try:
+            self.wait.web_element_wait_click(By.XPATH, self.__e_interview_slot_xpath, 'interview_slot_tab')
+            return True
+        except Exception as error:
+            ui_logger.error(error)
+
+    def assessment_slot_tab(self):
+        try:
+            self.wait.web_element_wait_click(By.XPATH, self.__e_assessment_slot_xpath, 'assessment_slot_tab')
             return True
         except Exception as error:
             ui_logger.error(error)

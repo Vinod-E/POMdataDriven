@@ -17,6 +17,7 @@ class RegistrationOCR:
 
     try:
         environment = Enviroment.EnvironmentSetup()
+        environment.registration_app('ocr')
         driver = environment.driver
         index = environment.index
         server = environment.server

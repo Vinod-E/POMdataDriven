@@ -22,6 +22,9 @@ OUTPUT_PATH = {
     'WorkPofile_output': GENERIC_OUTPUT_PATH + 'UI_WORKPROFILE_REGISTRATION.xls',
     'CustomP_output': GENERIC_OUTPUT_PATH + 'UI_CUSTOMPROPERTIES_REGISTRATION.xls',
     'ACustomP_output': GENERIC_OUTPUT_PATH + 'UI_APPCUSTOMPROPERTIES_REGISTRATION.xls',
+    'AssessmentSlot_output': GENERIC_OUTPUT_PATH + "UI_ASSESSMENT_SLOTS.xls",
+    'InterviewSlot_output': GENERIC_OUTPUT_PATH + "UI_INTERVIEW_SLOTS.xls",
+    'ChooseSlot_output': GENERIC_OUTPUT_PATH + "UI_CHOOSE_SLOTS.xls",
 
     'E2E_output_html': GENERIC_OUTPUT_PATH_HTML + 'UI_CRPO_E2E_REGRESSION.html',
     'Mass_Interview_output_html': GENERIC_OUTPUT_PATH_HTML + 'UI_MASS_INTERVIEW.html',
@@ -40,6 +43,9 @@ OUTPUT_PATH = {
     'WP_output_html': GENERIC_OUTPUT_PATH_HTML + 'UI_WORKPROFILE_REGISTRATION.html',
     'CP_output_html': GENERIC_OUTPUT_PATH_HTML + 'UI_CUSTOMPROPERTIES_REGISTRATION.html',
     'ACP_output_html': GENERIC_OUTPUT_PATH_HTML + 'UI_APPCUSTOMPROPERTIES_REGISTRATION.html',
+    'Assessment_slot_output_html': GENERIC_OUTPUT_PATH_HTML + "UI_ASSESSMENT_SLOT.html",
+    'Interview_slot_output_html': GENERIC_OUTPUT_PATH_HTML + "UI_INTERVIEW_SLOT.html",
+    'Choose_slot_output_html': GENERIC_OUTPUT_PATH_HTML + "UI_CHOOSE_SLOT.html",
 
     'E2E_output_history': GENERIC_OUTPUT_PATH_HISTORY + 'E2E_REGRESSION_HISTORY_DATA.xlsx',
     'Mass_Interview_output_history': GENERIC_OUTPUT_PATH_HISTORY + 'MASS_INTERVIEW_HISTORY_DATA.xlsx',
@@ -58,5 +64,8 @@ OUTPUT_PATH = {
     'WP_output_history': GENERIC_OUTPUT_PATH_HISTORY + 'UI_WorkProfile_REGISTRATION_HISTORY_DATA.xlsx',
     'CP_output_history': GENERIC_OUTPUT_PATH_HISTORY + 'UI_CustomP_REGISTRATION_HISTORY_DATA.xlsx',
     'ACP_output_history': GENERIC_OUTPUT_PATH_HISTORY + 'UI_ACustomP_REGISTRATION_HISTORY_DATA.xlsx',
+    'Assessment_slot_output_history': GENERIC_OUTPUT_PATH_HISTORY + 'UI_ASSESSMENT_SLOT_HISTORY_DATA.xlsx',
+    'Interview_slot_output_history': GENERIC_OUTPUT_PATH_HISTORY + 'UI_INTERVIEW_SLOT_HISTORY_DATA.xlsx',
+    'Choose_slot_output_history': GENERIC_OUTPUT_PATH_HISTORY + 'UI_CHOOSE_SLOT_HISTORY_DATA.xlsx'
 
 }

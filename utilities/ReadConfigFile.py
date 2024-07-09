@@ -211,3 +211,47 @@ class ReadConfig:
     def login_api():
         login = config.get('AWS', 'LOGIN')
         return login
+
+    @staticmethod
+    def get_amsin_assessment_slot():
+        url = config.get('SlotsUrls', 'QA_Assessment_slot')
+        return url
+
+    @staticmethod
+    def get_beta_assessment_slot():
+        url = config.get('SlotsUrls', 'BETA_Assessment_slot')
+        return url
+
+    @staticmethod
+    def get_ams_assessment_slot():
+        url = config.get('SlotsUrls', 'PROD_Assessment_slot')
+        return url
+
+    @staticmethod
+    def get_amsin_interview_slot():
+        url = config.get('SlotsUrls', 'QA_Interview_slot')
+        return url
+
+    @staticmethod
+    def get_beta_interview_slot():
+        url = config.get('SlotsUrls', 'BETA_Interview_slot')
+        return url
+
+    @staticmethod
+    def get_ams_interview_slot():
+        url = config.get('SlotsUrls', 'PROD_Interview_slot')
+        return url
+    @staticmethod
+    def get_amsin_choose_slot():
+        url = config.get('SlotsUrls', 'QA_Choose_slot')
+        return url
+
+    @staticmethod
+    def get_beta_choose_slot():
+        url = config.get('SlotsUrls', 'BETA_Choose_slot')
+        return url
+
+    @staticmethod
+    def get_ams_choose_slot():
+        url = config.get('SlotsUrls', 'PROD_Choose_slot')
+        return url

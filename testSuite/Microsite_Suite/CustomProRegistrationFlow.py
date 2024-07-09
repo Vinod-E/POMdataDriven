@@ -17,6 +17,7 @@ class CandidateCustomPRO:
 
     try:
         environment = Enviroment.EnvironmentSetup()
+        environment.registration_app('candidateCustomProperties')
         driver = environment.driver
         index = environment.index
         server = environment.server

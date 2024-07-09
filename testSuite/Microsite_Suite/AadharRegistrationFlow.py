@@ -17,6 +17,7 @@ class RegistrationAadhar:
 
     try:
         environment = Enviroment.EnvironmentSetup()
+        environment.registration_app('aadhar')
         driver = environment.driver
         index = environment.index
         server = environment.server

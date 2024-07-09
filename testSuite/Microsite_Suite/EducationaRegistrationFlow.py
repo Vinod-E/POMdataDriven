@@ -17,6 +17,7 @@ class RegistrationEducation:
 
     try:
         environment = Enviroment.EnvironmentSetup()
+        environment.registration_app('education')
         driver = environment.driver
         index = environment.index
         server = environment.server

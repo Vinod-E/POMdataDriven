@@ -17,6 +17,7 @@ class RegistrationCertificate:
 
     try:
         environment = Enviroment.EnvironmentSetup()
+        environment.registration_app('certificate')
         driver = environment.driver
         index = environment.index
         server = environment.server

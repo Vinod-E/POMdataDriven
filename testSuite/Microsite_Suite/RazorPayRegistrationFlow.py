@@ -17,6 +17,7 @@ class RegistrationRazorPay:
 
     try:
         environment = Enviroment.EnvironmentSetup()
+        environment.registration_app('payment')
         driver = environment.driver
         index = environment.index
         server = environment.server

@@ -17,6 +17,7 @@ class APPCustomProperties:
 
     try:
         environment = Enviroment.EnvironmentSetup()
+        environment.registration_app('applicantCustomProperties')
         driver = environment.driver
         index = environment.index
         server = environment.server
