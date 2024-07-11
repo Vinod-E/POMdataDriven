@@ -20,6 +20,8 @@ class EventSlot:
     __e_assign_button_xpath = Locators.EVENT_LOBBY['assign_slot']
     __e_ok_button_xpath = Locators.BUTTONS['all_buttons'].format('OK')
     __e_cancel_button_xpath = Locators.BUTTONS['all_buttons'].format('CANCEL')
+    __e_filter_all_assigned = '//input[@placeholder="Slot"]'
+    __e_unassign_slot_xpath = '//span[@title="Unassign Slot"]'
     __e_candidate_id_xpath = Locators.PLACEHOLDER['place_holder'].format('Candidate Id(s) (Eg: 1234, 2312,...)')
     __e_search_button_xpath = Locators.BUTTONS['button'].format(' Search')
     __e_login_link_xpath = Locators.TITLE['title'].format('View Interview Lobby Link')
@@ -156,6 +158,25 @@ class EventSlot:
     def cancel_button(self):
         try:
             self.wait.web_element_wait_click(By.XPATH, self.__e_cancel_button_xpath, 'link_cancel_button')
+            return True
+        except Exception as error:
+            ui_logger.error(error)
+
+    def all_assigned_search(self, search):
+        try:
+            self.page_scroll.down(0, 200)
+            self.wait.clear(By.XPATH, self.__e_filter_all_assigned, 'Clear_filed')
+            self.wait.web_element_wait_send_keys(By.XPATH, self.__e_filter_all_assigned,
+                                                 search, 'all_assigned_search')
+            self.wait.drop_down_selection()
+            return True
+        except Exception as error:
+            ui_logger.error(error)
+
+    def un_assign_slot_icon(self):
+        try:
+            time.sleep(1)
+            self.wait.web_element_wait_click(By.XPATH, self.__e_unassign_slot_xpath, 'un_assign_slot')
             return True
         except Exception as error:
             ui_logger.error(error)

@@ -71,7 +71,6 @@ class AssessmentSlot:
         try:
             self.wait.web_element_wait_send_keys(By.XPATH, self.__e_unassign_slot_name_xpath, slot,
                                                  'select_slot_to_unassign')
-            time.sleep(5)
             self.wait.drop_down_selection()
             return True
         except Exception as error:

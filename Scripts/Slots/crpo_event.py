@@ -7,6 +7,7 @@ from pageObjects.Pages.CandidatePages.CandidateDetailsPage import CandidateDetai
 from pageObjects.Pages.MenuPages.menuPage import Menu
 from pageObjects.Pages.MenuPages.eventSubTabPages import EventSubTabs
 from pageObjects.Pages.EventPages.EventAssessmentSlotPage import AssessmentSlot
+from pageObjects.Pages.EventPages.EventSlotConfigurationPage import EventSlot
 from utilities import excelRead
 from utilities.SwitchWindow import SwitchWindowClose
 from utilities.uiNotifier import Notifier
@@ -14,11 +15,12 @@ from utilities.uiNotifier import Notifier
 
 class CRPOEventSearch:
 
-    def __init__(self, driver, index, version):
+    def __init__(self, driver, index, app):
         self.driver = driver
         self.menu = Menu(self.driver)
         self.subtab = EventSubTabs(self.driver)
         self.slot_search = AssessmentSlot(self.driver)
+        self.int_slot = EventSlot(self.driver)
         self.notifier = Notifier(self.driver)
         self.search = Search(self.driver)
         self.get_by = EventGetByName(self.driver)
@@ -27,23 +29,35 @@ class CRPOEventSearch:
         self.candidate = CandidateDetailsPage(self.driver)
         self.switch_window = SwitchWindowClose(self.driver)
 
-        """
-        ----------------- EXCEL READ AND TO ASSIGN VALUES TO RESPECTIVE INIT VARIABLES ------>>>>
-        """
-        status_excel = excelRead.ExcelRead()
-        status_excel.read(inputFile.INPUT_PATH['assessment_slot'], index=index)
-        xl = status_excel.excel_dict
-        self.xl_menu_name = xl['menu'][0]
-        self.xl_tab_title = xl['tab_title'][0]
-        self.xl_event_name = xl['event_name'][0]
-        self.xl_job_filter = xl['job_name'][0]
-        self.xl_stage_filter = xl['stage_name'][0]
-        self.xl_unassign_slot = xl['unassign_slot'][0]
-        self.xl_notifier = xl['notifier'][0]
-
         self.event_search_collection = []
         self.event_tracking_collection = []
         self.event_unslot_collection = []
+        self.event_iunslot_collection = []
+        self.event_tracking_int_collection = []
+
+        """
+        ----------------- EXCEL READ AND TO ASSIGN VALUES TO RESPECTIVE INIT VARIABLES ------>>>>
+        """
+        if app == 'assessment':
+            excel = excelRead.ExcelRead()
+            excel.read(inputFile.INPUT_PATH['assessment_slot'], index=index)
+            xl = excel.excel_dict
+            self.xl_menu_name = xl['menu'][0]
+            self.xl_tab_title = xl['tab_title'][0]
+            self.xl_event_name = xl['event_name'][0]
+            self.xl_job_filter = xl['job_name'][0]
+            self.xl_stage_filter = xl['stage_name'][0]
+            self.xl_unassign_slot = xl['unassign_slot'][0]
+            self.xl_notifier = xl['notifier'][0]
+        elif app == 'interview':
+            excel = excelRead.ExcelRead()
+            excel.read(inputFile.INPUT_PATH['interview_slot'], index=index)
+            xl = excel.excel_dict
+            self.xl_menu_name = xl['menu'][0]
+            self.xl_tab_title = xl['tab_title'][0]
+            self.xl_event_name = xl['event_name'][0]
+            self.xl_stage_filter = xl['stage_name'][0]
+            self.xl_filter = xl['filter'][0]
 
     def crpo_search_event(self):
         self.event_search_collection = []
@@ -87,3 +101,30 @@ class CRPOEventSearch:
                 self.event_unslot_collection.append(func)
             else:
                 self.event_unslot_collection.append(func)
+
+    def crpo_tracking_tab_interview(self):
+        self.event_tracking_int_collection = []
+        __list = [self.subtab.tracking(),
+                  self.subtab.interview_slot_tab(),
+                  self.int_slot.current_applicant_status_choose(),
+                  self.int_slot.search_status_select(self.xl_stage_filter),
+                  self.int_slot.go_button()
+                  ]
+        for func in __list:
+            if func:
+                self.event_tracking_int_collection.append(func)
+            else:
+                self.event_tracking_int_collection.append(func)
+
+    def crpo_unassign_interview_slot(self):
+        self.event_iunslot_collection = []
+        __list = [self.int_slot.all_assigned_search(self.xl_filter),
+                  self.int_slot.un_assign_slot_icon(),
+                  self.int_slot.ok_button()
+                  ]
+        for func in __list:
+            if func:
+                self.event_iunslot_collection.append(func)
+            else:
+                self.event_iunslot_collection.append(func)
+

@@ -58,6 +58,7 @@ class EventSubTabs:
     def interview_slot_tab(self):
         try:
             self.wait.web_element_wait_click(By.XPATH, self.__e_interview_slot_xpath, 'interview_slot_tab')
+            time.sleep(2)
             return True
         except Exception as error:
             ui_logger.error(error)

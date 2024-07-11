@@ -24,7 +24,7 @@ class AssessmentSlot:
 
         slot_app = AssessmentSlots.AssessmentSlotApp(driver=driver, index=index)
         admin = AdminLogin(driver=driver, index=index)
-        search = CRPOEventSearch(driver=driver, index=index, version=version)
+        search = CRPOEventSearch(driver=driver, index=index, app='assessment')
 
         slot_output = AssessmentSlotReport.AssessmentSlotOutputReport(version=version,
                                                                       server=server, start_date_time=date_time)

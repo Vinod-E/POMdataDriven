@@ -1,3 +1,6 @@
+import time
+
+
 class PageScroll:
     def __init__(self, driver):
         """
@@ -16,6 +19,7 @@ class PageScroll:
         """
         self.window_scroll = "window.scrollTo({},{});".format(x_axis, y_axis)
         self.driver.execute_script(self.window_scroll)
+        time.sleep(2)
 
     def down(self, x_axis, y_axis):
         """
@@ -27,6 +31,7 @@ class PageScroll:
         """
         self.window_scroll = "window.scrollTo({},{});".format(x_axis, y_axis)
         self.driver.execute_script(self.window_scroll)
+        time.sleep(2)
 
     def right(self, x_axis, y_axis):
         """

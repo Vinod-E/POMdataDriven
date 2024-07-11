@@ -26,7 +26,7 @@ class AssessmentSlotOutputReport:
         excel_headers = ['Admin Login', 'Status', 'Event Search', 'Status', 'Event Tracking', 'Status',
                          'UnAssign Slot', 'Status']
         color_headers = ['Status', 'Admin Login', 'Event Search', 'Event Tracking', 'UnAssign Slot']
-        self.xlw.excel_header_by_index(row=7, col=0, excel_headers_list=excel_headers,
+        self.xlw.excel_header_by_index(row=6, col=0, excel_headers_list=excel_headers,
                                        color_headers_list=color_headers)
 
         """ <<<================== HTML / History Report Generator ==============================>>> """
@@ -67,21 +67,21 @@ class AssessmentSlotOutputReport:
         testdata_headers = ['Enter Alias', 'Next Button', 'Login Name', 'Password', 'Login Button',
                             'Verify User Login']
         self.xlw.input_output_report(testdata_headers=testdata_headers, collection=admin_coll,
-                                     row=8, i_column=0, o_column=1, path=self.__path)
+                                     row=7, i_column=0, o_column=1, path=self.__path)
 
     def event_search_report(self, event_coll):
         testdata_headers = ['Event Tab', 'Advance Search', 'Name Field', 'Search Button', 'Event Getbyname',
                             'Event name Validation']
         self.xlw.input_output_report(testdata_headers=testdata_headers, collection=event_coll,
-                                     row=8, i_column=2, o_column=3, path=self.__path)
+                                     row=7, i_column=2, o_column=3, path=self.__path)
 
     def event_tracking_report(self, event_coll):
         testdata_headers = ['Tracking Tab', 'Assessment SLot Tab', 'Job Filter', 'Stage Filter']
         self.xlw.input_output_report(testdata_headers=testdata_headers, collection=event_coll,
-                                     row=8, i_column=4, o_column=5, path=self.__path)
+                                     row=7, i_column=4, o_column=5, path=self.__path)
 
     def unassign_slot_report(self, event_coll):
         testdata_headers = ['Go Button', 'all checked', 'Unassign icon', 'Slot Name', 'Unassign Button',
                             'Notifier Validate']
         self.xlw.input_output_report(testdata_headers=testdata_headers, collection=event_coll,
-                                     row=8, i_column=6, o_column=7, path=self.__path)
+                                     row=7, i_column=6, o_column=7, path=self.__path)
