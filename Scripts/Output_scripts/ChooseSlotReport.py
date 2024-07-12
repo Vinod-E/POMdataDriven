@@ -5,9 +5,9 @@ from Scripts.HTML_Reports.amazon_aws_s3 import AWS
 from Scripts.HTML_Reports.history_data_html_generator import HistoryDataHTMLGenerator
 
 
-class AadharOutputReport:
+class ChooseSlotReport:
     """ Number of Test cases / use cases name """
-    TestCases = 33
+    TestCases = 27
     use_case_name = 'CHOOSE SLOTS FLOW'
 
     def __init__(self, version, server, start_date_time):
@@ -18,15 +18,15 @@ class AadharOutputReport:
         self.__path = outputFile.OUTPUT_PATH['ChooseSlot_output']
         self.xlw = excelWrite.ExcelReportWrite(version=self.version, test_cases=self.TestCases)
 
-        excel_headers = ['Personal Details', 'Status', 'Aadhar Verification', 'Status']
-        color_headers = ['Status', 'Personal Details', 'Aadhar Verification']
+        excel_headers = ['Captcha Verification', 'Status', 'Choose Slot', 'Status']
+        color_headers = ['Status', 'Captcha Verification', 'Choose Slot']
         self.xlw.excel_header_by_index(row=1, col=0, excel_headers_list=excel_headers,
                                        color_headers_list=color_headers)
 
-        excel_headers = ['Admin Login', 'Status', 'Event Search', 'Status', 'Applicant Search', 'Status',
-                         'Aadhar Communication', 'Status']
-        color_headers = ['Status', 'Admin Login', 'Event Search', 'Applicant Search', 'Aadhar Communication']
-        self.xlw.excel_header_by_index(row=9, col=0, excel_headers_list=excel_headers,
+        excel_headers = ['Admin Login', 'Status', 'Event Search', 'Status', 'Event Applicant', 'Status',
+                         'Candidate Verification', 'Status']
+        color_headers = ['Status', 'Admin Login', 'Event Search', 'Event Applicant', 'Candidate Verification']
+        self.xlw.excel_header_by_index(row=8, col=0, excel_headers_list=excel_headers,
                                        color_headers_list=color_headers)
 
         """ <<<================== HTML / History Report Generator ==============================>>> """
@@ -49,41 +49,40 @@ class AadharOutputReport:
                         path=self.__path, excel_save_name=self.use_case_name)
 
     def entry_page_report(self, entry_coll):
-        testdata_headers = ['Entry Button']
+        testdata_headers = ['Captcha Verification']
         self.xlw.input_output_report(testdata_headers=testdata_headers, collection=entry_coll,
                                      row=2, i_column=0, o_column=1, path=self.__path)
 
-    def personal_details_report(self, pd_coll):
-        testdata_headers = ['Full Name', 'Email', 'Aadhar Number']
+    def choose_slot_report(self, pd_coll):
+        testdata_headers = ['Choose Slot One', 'Reset', 'Choose SLot One', 'Submit', 'Thank you Page!']
         self.xlw.input_output_report(testdata_headers=testdata_headers, collection=pd_coll,
-                                     row=3, i_column=0, o_column=1, path=self.__path)
-
-    def submit_and_aadhar_data_report(self, submit_coll):
-        testdata_headers = ['Submit', 'Generate Aadhar OTP', 'Submit Aadhar OTP', 'Proceed with Aadhar verified',
-                            'Confirm and Submit', 'Registration Successfully']
-        self.xlw.input_output_report(testdata_headers=testdata_headers, collection=submit_coll,
                                      row=2, i_column=2, o_column=3, path=self.__path)
+
+    def update_choose_slot_report(self, pd_coll):
+        testdata_headers = ['Choose Slot One', 'Submit', 'Thank you Page!']
+        self.xlw.input_output_report(testdata_headers=testdata_headers, collection=pd_coll,
+                                     row=2, i_column=4, o_column=5, path=self.__path)
 
     def admin_login_report(self, admin_coll):
         testdata_headers = ['Enter Alias', 'Next Button', 'Login Name', 'Password', 'Login Button',
                             'Verify User Login']
         self.xlw.input_output_report(testdata_headers=testdata_headers, collection=admin_coll,
-                                     row=10, i_column=0, o_column=1, path=self.__path)
+                                     row=9, i_column=0, o_column=1, path=self.__path)
 
     def event_search_report(self, event_coll):
         testdata_headers = ['Event Tab', 'Advance Search', 'Name Field', 'Search Button', 'Event Getbyname',
                             'Event name Validation', 'Event Action', 'View Applicants']
         self.xlw.input_output_report(testdata_headers=testdata_headers, collection=event_coll,
-                                     row=10, i_column=2, o_column=3, path=self.__path)
+                                     row=9, i_column=2, o_column=3, path=self.__path)
 
-    def applicant_search_report(self, applicant_coll):
-        testdata_headers = ['Advance Search', 'Name Field', 'Search Button', 'Applicant Getbyname']
-        self.xlw.input_output_report(testdata_headers=testdata_headers, collection=applicant_coll,
-                                     row=10, i_column=4, o_column=5, path=self.__path)
+    def candidate_search_report(self, event_coll):
+        testdata_headers = ['Event Actions', 'Applicants', 'Search', 'Search Button', 'Candidate Getbyname',
+                            'Switch to new tab']
+        self.xlw.input_output_report(testdata_headers=testdata_headers, collection=event_coll,
+                                     row=9, i_column=4, o_column=5, path=self.__path)
 
-    def aadhar_verification_report(self, applicant_coll):
-        testdata_headers = ['Aadhar Number Verified', 'Communication Tab', 'Open communication status',
-                            'Aadhar Verified - True', 'Window Close', 'Switch To Window']
-        self.xlw.input_output_report(testdata_headers=testdata_headers, collection=applicant_coll,
-                                     row=10, i_column=6, o_column=7, path=self.__path)
+    def candidate_verification_report(self, event_coll):
+        testdata_headers = ['Status Verification', 'Close Switch Window', 'Main window']
+        self.xlw.input_output_report(testdata_headers=testdata_headers, collection=event_coll,
+                                     row=9, i_column=6, o_column=7, path=self.__path)
 

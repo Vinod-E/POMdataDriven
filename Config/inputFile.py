@@ -43,5 +43,6 @@ INPUT_PATH = {
     'microsite_CP': MICROSITE_GENERIC_INPUT_PATH + 'MicrositeCP.xls',
     'microsite_ACP': MICROSITE_GENERIC_INPUT_PATH + 'MicrositeACP.xls',
     'assessment_slot': SLOT_GENERIC_INPUT_PATH + 'assessmentslot.xls',
-    'interview_slot': SLOT_GENERIC_INPUT_PATH + 'interviewslot.xls'
+    'interview_slot': SLOT_GENERIC_INPUT_PATH + 'interviewslot.xls',
+    'choose_slot': SLOT_GENERIC_INPUT_PATH + 'chooseslot.xls'
 }

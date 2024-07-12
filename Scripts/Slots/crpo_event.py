@@ -34,6 +34,8 @@ class CRPOEventSearch:
         self.event_unslot_collection = []
         self.event_iunslot_collection = []
         self.event_tracking_int_collection = []
+        self.event_candidate_collection = []
+        self.candidate_verification_collection = []
 
         """
         ----------------- EXCEL READ AND TO ASSIGN VALUES TO RESPECTIVE INIT VARIABLES ------>>>>
@@ -58,6 +60,15 @@ class CRPOEventSearch:
             self.xl_event_name = xl['event_name'][0]
             self.xl_stage_filter = xl['stage_name'][0]
             self.xl_filter = xl['filter'][0]
+        elif app == 'Choose':
+            excel = excelRead.ExcelRead()
+            excel.read(inputFile.INPUT_PATH['choose_slot'], index=index)
+            xl = excel.excel_dict
+            self.xl_menu_name = xl['menu'][0]
+            self.xl_tab_title = xl['tab_title'][0]
+            self.xl_event_name = xl['event_name'][0]
+            self.xl_candidate = xl['applicant'][0]
+            self.xl_move_status = xl['moved_status'][0]
 
     def crpo_search_event(self):
         self.event_search_collection = []
@@ -73,6 +84,33 @@ class CRPOEventSearch:
                 self.event_search_collection.append(func)
             else:
                 self.event_search_collection.append(func)
+
+    def crpo_candidate_search(self):
+        self.event_candidate_collection = []
+        __list = [self.action.event_actions_click(),
+                  self.action.event_view_candidates(),
+                  self.search.advance_search(),
+                  self.search.name_field_applicant(self.xl_candidate),
+                  self.search.search_button(),
+                  self.applicant.applicant_get_name(self.xl_candidate, 1)
+                  ]
+        for func in __list:
+            if func:
+                self.event_candidate_collection.append(func)
+            else:
+                self.event_candidate_collection.append(func)
+
+    def crpo_candidate_verification(self):
+        self.candidate_verification_collection = []
+        __list = [self.candidate.candidate_status(self.xl_move_status),
+                  self.switch_window.window_close(),
+                  self.switch_window.switch_to_window(0)
+                  ]
+        for func in __list:
+            if func:
+                self.candidate_verification_collection.append(func)
+            else:
+                self.candidate_verification_collection.append(func)
 
     def crpo_tracking_tab(self):
         self.event_tracking_collection = []
