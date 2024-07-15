@@ -3,6 +3,7 @@ from Config import CongfigFile
 GENERIC_INPUT_PATH = CongfigFile.INPUT_FILE
 MICROSITE_GENERIC_INPUT_PATH = CongfigFile.MICROSITE_INPUT_FILE
 SLOT_GENERIC_INPUT_PATH = CongfigFile.SLOT_INPUT_FILE
+LOGIN_GENERIC_INPUT_PATH = CongfigFile.LOGIN_INPUT_FILE
 
 
 INPUT_PATH = {
@@ -14,6 +15,8 @@ INPUT_PATH = {
     'resume': MICROSITE_GENERIC_INPUT_PATH + 'dummy.pdf',
 
     'login_excel': GENERIC_INPUT_PATH + 'Login_Details.xls',
+    'admin_login_excel': LOGIN_GENERIC_INPUT_PATH + 'crpouser.xls',
+    'int_login_excel': LOGIN_GENERIC_INPUT_PATH + 'InterviewerLogin.xls',
     'job_excel': GENERIC_INPUT_PATH + 'Job_Details.xls',
     'job_config_excel': GENERIC_INPUT_PATH + 'Job_Configurations.xls',
     'job_automation': GENERIC_INPUT_PATH + 'Job_automations.xls',
@@ -44,5 +47,6 @@ INPUT_PATH = {
     'microsite_ACP': MICROSITE_GENERIC_INPUT_PATH + 'MicrositeACP.xls',
     'assessment_slot': SLOT_GENERIC_INPUT_PATH + 'assessmentslot.xls',
     'interview_slot': SLOT_GENERIC_INPUT_PATH + 'interviewslot.xls',
-    'choose_slot': SLOT_GENERIC_INPUT_PATH + 'chooseslot.xls'
+    'choose_slot': SLOT_GENERIC_INPUT_PATH + 'chooseslot.xls',
+    'revise_feedback': GENERIC_INPUT_PATH + 'ReviseFeedback.xls'
 }

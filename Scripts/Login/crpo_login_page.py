@@ -16,7 +16,7 @@ class CRPOLogin:
         ----------------- EXCEL READ AND TO ASSIGN VALUES TO RESPECTIVE INIT VARIABLES ------>>>>
         """
         login_excel = excelRead.ExcelRead()
-        login_excel.read(inputFile.INPUT_PATH['login_excel'], index=index)
+        login_excel.read(inputFile.INPUT_PATH['admin_login_excel'], index=index)
         xl = login_excel.excel_dict
         self.xl_title = xl['c_title'][0]
         self.xl_tenant = xl['c_tenant'][0]

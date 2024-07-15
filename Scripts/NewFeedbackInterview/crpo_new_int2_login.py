@@ -17,7 +17,7 @@ class CrpoInt2Login:
         ----------------- EXCEL READ AND TO ASSIGN VALUES TO RESPECTIVE INIT VARIABLES ------>>>>
         """
         int_excel = excelRead.ExcelRead()
-        int_excel.read(inputFile.INPUT_PATH['interview_lobby'], index=index)
+        int_excel.read(inputFile.INPUT_PATH['int_login_excel'], index=index)
         xl = int_excel.excel_dict
         self.xl_int1_name = xl['int1_name'][0]
         self.xl_int2 = xl['int2'][0]

@@ -16,6 +16,7 @@ class EventApplicantActions:
     __e_cancel_request_id = Locators.ACTIONS['cancel_request']
     __e_cancel_interview_id = Locators.ACTIONS['cancel_interview']
     __e_unlock_feedback_id = Locators.ACTIONS['unlock_feedback']
+    __e_revise_feedback_xpath = '//*[@id="mainBodyElement"]//div[22]'
 
     def __init__(self, driver):
         self.driver = driver
@@ -97,6 +98,16 @@ class EventApplicantActions:
             self.scroll.down(0, -50)
             self.wait.web_element_wait_click(By.ID, self.__e_unlock_feedback_id, 'unlock_feedback_action')
             print('Unlock Feedback Action - Clicked')
+            return True
+        except Exception as error:
+            ui_logger.error(error)
+
+    def applicant_revise_feedback(self):
+        try:
+            time.sleep(1)
+            self.wait.web_element_wait_click(By.XPATH, self.__e_revise_feedback_xpath,
+                                             'applicant_revise_feedback')
+            print('Revised Feedback Action')
             return True
         except Exception as error:
             ui_logger.error(error)
