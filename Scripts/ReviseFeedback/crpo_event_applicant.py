@@ -26,6 +26,7 @@ class CRPOEventApplicant:
         self.change_applicant_collection = []
         self.candidate_verification_collection = []
         self.revise_feedback_collection = []
+        self.candidate_revise_verification_collection = []
 
         """
         ----------------- EXCEL READ AND TO ASSIGN VALUES TO RESPECTIVE INIT VARIABLES ------>>>>
@@ -36,10 +37,12 @@ class CRPOEventApplicant:
         self.xl_applicant_name = xl['applicant_name'][0]
         self.xl_stage = xl['stage'][0]
         self.xl_status = xl['status'][0]
+        self.xl_revise_status = xl['revise_status'][0]
         self.xl_interviewer = xl['int1'][0]
         self.xl_comment = xl['comment'][0]
         self.xl_message = xl['message'][0]
         self.xl_revise_comment = xl['Revise_comment'][0]
+        self.xl_revise_button = xl['revise_button'][0]
 
     def crpo_change_applicant_status(self):
         self.change_applicant_collection = []
@@ -87,3 +90,16 @@ class CRPOEventApplicant:
                 self.candidate_verification_collection.append(func)
             else:
                 self.candidate_verification_collection.append(func)
+
+    def crpo_candidate_revise_verification(self):
+        self.candidate_revise_verification_collection = []
+        __list = [self.applicant.applicant_get_name(self.xl_applicant_name, 1),
+                  self.candidate_details.candidate_status(self.xl_status),
+                  self.switch_window.window_close(),
+                  self.switch_window.switch_to_window(0)
+                  ]
+        for func in __list:
+            if func:
+                self.candidate_revise_verification_collection.append(func)
+            else:
+                self.candidate_revise_verification_collection.append(func)

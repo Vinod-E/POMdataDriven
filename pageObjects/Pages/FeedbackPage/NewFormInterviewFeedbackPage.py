@@ -15,6 +15,7 @@ class InterviewFeedback:
     __e_feedback_submit_xpath = Locators.BUTTONS['button'].format('Submit Feedback')
     __e_agree_xpath = Locators.BUTTONS['button'].format('Agree and Submit')
     __e_save_draft_xpath = Locators.BUTTONS['button'].format('Save as Draft')
+    __e_update_feedback_xpath = "//button[text()='{}']".format('Update Feedback')
 
     def __init__(self, driver):
         self.driver = driver
@@ -94,6 +95,14 @@ class InterviewFeedback:
     def save_draft_notifier_dismiss(self):
         try:
             self.notifier.dismiss_message()
+            return True
+        except Exception as error:
+            ui_logger.error(error)
+
+    def update_feedback(self):
+        try:
+            self.wait.web_element_wait_click(By.XPATH, self.__e_update_feedback_xpath, 'update_feedback')
+            print('Feedback - Updated')
             return True
         except Exception as error:
             ui_logger.error(error)

@@ -1,4 +1,5 @@
 from selenium.webdriver.common.by import By
+from Listeners.logger_settings import ui_logger
 from pageObjects import Locators
 from utilities.WebDriver_Wait import WebElementWait
 
@@ -21,5 +22,8 @@ class Notifier:
             print('Message/UI notifier validation failed - {} <<<---------**'.format(message))
 
     def dismiss_message(self):
-        self.wait.web_element_wait_click(By.CLASS_NAME, self.e_dismiss, 'Dismiss_message')
-        print('***---------->>> Notifier closed')
+        try:
+            self.wait.web_element_wait_click(By.CLASS_NAME, self.e_dismiss, 'Dismiss_message')
+            print('***---------->>> Notifier closed')
+        except Exception as error:
+            ui_logger.error(error)

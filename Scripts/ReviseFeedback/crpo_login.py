@@ -48,7 +48,7 @@ class AdminLogin:
 
     def admin_re_login(self):
         self.re_login_collection = []
-        __list = [self.login.login_account_click(self.xl_account_name),
+        __list = [self.login.login_account_click(self.xl_interviewer_name),
                   self.login.login_out(),
                   self.login.click_here_to_login(),
                   self.login.login_name(self.xl_login),

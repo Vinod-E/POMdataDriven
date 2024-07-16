@@ -97,6 +97,7 @@ BUTTONS = {
 
 ACTIONS = {
     'actions_click': "//span[contains(text(),'Actions')]",
+    'revise_action': "//p[contains(text(),'Revise Feedback')]",
     'view_candidates': 'Event-Details-View-Candidates',
     'upload_candidate': 'Event-Details-Upload-Candidates',
     'event_owners': 'Event-Details-Manage-Event-Owners',

@@ -8,7 +8,6 @@ from utilities.SwitchWindow import SwitchWindowClose
 
 
 class EventApplicantActions:
-
     __e_status_change_id = Locators.ACTIONS['status_change']
     __e_more_button_xpath = Locators.ACTIONS['app_more']
     __e_app_action_xpath = Locators.BUTTONS['all_buttons']
@@ -16,16 +15,18 @@ class EventApplicantActions:
     __e_cancel_request_id = Locators.ACTIONS['cancel_request']
     __e_cancel_interview_id = Locators.ACTIONS['cancel_interview']
     __e_unlock_feedback_id = Locators.ACTIONS['unlock_feedback']
-    __e_revise_feedback_xpath = '//*[@id="mainBodyElement"]//div[22]'
+    __e_revise_feedback_xpath = Locators.ACTIONS['revise_action']
 
     def __init__(self, driver):
         self.driver = driver
         self.wait = WebElementWait(self.driver)
         self.scroll = PageScroll(self.driver)
         self.switch_window = SwitchWindowClose(self.driver)
+
     """
      ****--------------------- Event Applicant Action Functions ---------------------------------****
     """
+
     def change_status_action(self):
         try:
             self.wait.web_element_wait_click(By.ID, self.__e_status_change_id, 'Applicant_status_change')
@@ -60,6 +61,7 @@ class EventApplicantActions:
     """
      ****--------------------- Event Interviews Applicant Action Functions ---------------------------------****
     """
+
     def provide_feedback_action(self):
         try:
             self.scroll.down(0, -50)

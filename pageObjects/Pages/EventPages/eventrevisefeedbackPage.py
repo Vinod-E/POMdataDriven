@@ -14,6 +14,7 @@ class EventReviseFeedbackPage:
         self.driver = driver
         self.wait = WebElementWait(self.driver)
         self.message = Notifier(self.driver)
+        self.notifier = Notifier(self.driver)
 
     def revise_comment(self, comment):
         try:
@@ -28,6 +29,8 @@ class EventReviseFeedbackPage:
         try:
             time.sleep(1)
             self.wait.web_element_wait_click(By.XPATH, self.__e_revise_button_xpath, 'revise_submit_button')
+            time.sleep(1)
+            self.notifier.dismiss_message()
             return True
         except Exception as error:
             ui_logger.error(error)

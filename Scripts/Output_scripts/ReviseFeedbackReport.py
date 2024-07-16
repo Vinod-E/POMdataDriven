@@ -7,7 +7,7 @@ from Scripts.HTML_Reports.history_data_html_generator import HistoryDataHTMLGene
 
 class ReviseFeedbackReport:
     """ Number of Test cases / use cases name """
-    TestCases = 45
+    TestCases = 115
     use_case_name = 'REVISE FEEDBACK FLOW'
 
     def __init__(self, version, server, start_date_time):
@@ -25,14 +25,23 @@ class ReviseFeedbackReport:
         self.xlw.excel_header_by_index(row=1, col=0, excel_headers_list=excel_headers,
                                        color_headers_list=color_headers)
 
-        excel_headers = ['Interviewer Login', 'Status']
-        color_headers = ['Status', 'Interviewer Login']
+        excel_headers = ['Interviewer Login', 'Status', 'Event Search', 'Status', 'Event Interviews', 'Status',
+                         'Provide Feedback', 'Status']
+        color_headers = ['Status', 'Interviewer Login', 'Event Search', 'Event Interviews', 'Provide Feedback']
         self.xlw.excel_header_by_index(row=14, col=0, excel_headers_list=excel_headers,
                                        color_headers_list=color_headers)
 
-        excel_headers = ['Admin Re-Login', 'Status']
-        color_headers = ['Status', 'Interviewer Login']
+        excel_headers = ['Admin Re-Login', 'Status', 'Event Search', 'Status', 'Applicant Search', 'Status',
+                         'Revise Feedback Enable', 'Status', 'Candidate Verification', 'Status']
+        color_headers = ['Status', 'Admin Re-Login', 'Event Search', 'Applicant Search', 'Revise Feedback Enable',
+                         'Candidate Verification']
         self.xlw.excel_header_by_index(row=24, col=0, excel_headers_list=excel_headers,
+                                       color_headers_list=color_headers)
+
+        excel_headers = ['Interviewer Login', 'Status', 'Event Search', 'Status', 'Event Interviews', 'Status',
+                         'Provide Feedback', 'Status']
+        color_headers = ['Status', 'Interviewer Login', 'Event Search', 'Event Interviews', 'Provide Feedback']
+        self.xlw.excel_header_by_index(row=33, col=0, excel_headers_list=excel_headers,
                                        color_headers_list=color_headers)
 
         """ <<<================== HTML / History Report Generator ==============================>>> """
@@ -133,3 +142,34 @@ class ReviseFeedbackReport:
                             'Revise Button']
         self.xlw.input_output_report(testdata_headers=testdata_headers, collection=login_coll,
                                      row=25, i_column=6, o_column=7, path=self.__path)
+
+    def candidate_revise_status_verification_report(self, login_coll):
+        testdata_headers = ['Applicant Get By Name', 'Switch To Details Page', 'Status Verification',
+                            'Close Switch Window', 'Main window']
+        self.xlw.input_output_report(testdata_headers=testdata_headers, collection=login_coll,
+                                     row=25, i_column=8, o_column=9, path=self.__path)
+
+    def interviewer_revise_report(self, login_coll):
+        testdata_headers = ['Account Center', 'Logout Button', 'Login Again', 'Login Name',
+                            'Login Password', 'Login Button', 'Login User Verification']
+        self.xlw.input_output_report(testdata_headers=testdata_headers, collection=login_coll,
+                                     row=34, i_column=0, o_column=1, path=self.__path)
+
+    def int_event_search_revise_report(self, login_coll):
+        testdata_headers = ['Event Tab', 'Advance Search', 'Event Name Field', 'Search Button', 'GetBy Event Name',
+                            'Event Name Validation']
+        self.xlw.input_output_report(testdata_headers=testdata_headers, collection=login_coll,
+                                     row=34, i_column=2, o_column=3, path=self.__path)
+
+    def int_event_interview_revise_report(self, login_coll):
+        testdata_headers = ['Event Actions', 'Event Interviews Action', 'Advance Search', 'Search Button',
+                            'Name Search Field', 'Search Button', 'Select IR', 'Provide Feedback Action',
+                            'Switch Window']
+        self.xlw.input_output_report(testdata_headers=testdata_headers, collection=login_coll,
+                                     row=34, i_column=4, o_column=5, path=self.__path)
+
+    def int_provide_feedback_revise_report(self, login_coll):
+        testdata_headers = ['Question Rating', 'Question Comment', 'Feedback Decision', 'Overall Comment',
+                            'Submit Feedback', 'Agree And Submit', 'Switch to Main Tab']
+        self.xlw.input_output_report(testdata_headers=testdata_headers, collection=login_coll,
+                                     row=34, i_column=6, o_column=7, path=self.__path)

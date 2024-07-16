@@ -91,14 +91,36 @@ class ReviseFeedback:
         self.applicant.crpo_revise_feedback()
         self.rf_output.revise_feedback_report(self.applicant.revise_feedback_collection)
 
+    def crpo_candidate_revise_status_verification(self):
+        self.applicant.crpo_candidate_revise_verification()
+        self.rf_output.candidate_revise_status_verification_report(
+            self.applicant.candidate_revise_verification_collection)
+
+    def interview_login_revise(self):
+        self.admin.interviewer_login()
+        self.rf_output.interviewer_revise_report(self.admin.interviewer_collection)
+
+    def crpo_int_event_search_revise(self):
+        self.event.crpo_search_event()
+        self.rf_output.int_event_search_revise_report(self.event.event_search_collection)
+
+    def crpo_int_event_interviews_revise(self):
+        self.event.crpo_event_interviews()
+        self.rf_output.int_event_interview_revise_report(self.event.event_interview_collection)
+
+    def interviewer_provide_feedback_revise(self):
+        self.feedback.interviewer_revise_provide_feedback()
+        self.rf_output.int_provide_feedback_revise_report(self.feedback.int_revise__collection)
+
 
 Object = ReviseFeedback()
 Object.crpo_admin_login()
 if Object.login_success:
-    # Object.crpo_event_search()
-    # Object.crpo_event_applicant_search()
-    # Object.crpo_schedule_interview()
-    # Object.crpo_candidate_status_verification()
+    Object.crpo_event_search()
+    Object.crpo_event_applicant_search()
+    Object.crpo_schedule_interview()
+    Object.crpo_candidate_status_verification()
+
     Object.interview_login()
     Object.crpo_int_event_search()
     Object.crpo_int_event_interviews()
@@ -108,6 +130,12 @@ if Object.login_success:
     Object.crpo_event_search_re_login()
     Object.crpo_event_applicant_search_re_login()
     Object.crpo_revise_feedback_enable()
+    Object.crpo_candidate_revise_status_verification()
+
+    Object.interview_login_revise()
+    Object.crpo_int_event_search_revise()
+    Object.crpo_int_event_interviews_revise()
+    Object.interviewer_provide_feedback_revise()
 
 """
 <<=========== OUTPUT REPORTS GENERATOR PARTS HERE BELOW =============>>
