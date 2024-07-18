@@ -19,8 +19,8 @@ class CrpoInterviewerFeedback:
         self.xl_candidate_name = 'Revisefeedback'
         self.xl_shortlist_decision = xl['shortlist'][0]
         self.xl_reject_decision = xl['reject'][0]
-        self.xl_rating1 = xl['rating1'][0]
-        self.xl_rating = xl['rating'][0]
+        self.xl_rating1 = xl['new_form_rating1'][0]
+        self.xl_rating2 = xl['new_form_rating2'][0]
         self.xl_comment = xl['new_comment'][0]
         self.xl_overall = xl['new_overall'][0]
 
@@ -31,8 +31,8 @@ class CrpoInterviewerFeedback:
         self.int_collection = []
         __list = [self.feedback.feedback_select_drop_down(self.xl_rating1),
                   self.feedback.feedback_comments(self.xl_comment),
-                  self.feedback.feedback_decision(self.xl_shortlist_decision),
                   self.feedback.overall_comment(self.xl_overall),
+                  self.feedback.feedback_decision(self.xl_reject_decision),
                   self.feedback.submit_feedback(),
                   self.feedback.agree_and_submit(),
                   self.new_tab.switch_to_window(0),
@@ -45,10 +45,10 @@ class CrpoInterviewerFeedback:
 
     def interviewer_revise_provide_feedback(self):
         self.int_revise__collection = []
-        __list = [self.feedback.feedback_select_drop_down(self.xl_rating),
+        __list = [self.feedback.feedback_select_drop_down(self.xl_rating2),
                   self.feedback.feedback_comments(self.xl_comment),
-                  self.feedback.feedback_decision(self.xl_reject_decision),
                   self.feedback.overall_comment(self.xl_overall),
+                  self.feedback.feedback_decision(self.xl_shortlist_decision),
                   self.feedback.update_feedback(),
                   self.feedback.agree_and_submit(),
                   self.new_tab.switch_to_window(0),
