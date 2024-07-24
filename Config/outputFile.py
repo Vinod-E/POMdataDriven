@@ -26,6 +26,8 @@ OUTPUT_PATH = {
     'InterviewSlot_output': GENERIC_OUTPUT_PATH + "UI_INTERVIEW_SLOTS.xls",
     'ChooseSlot_output': GENERIC_OUTPUT_PATH + "UI_CHOOSE_SLOTS.xls",
     'revise_feedback_output': GENERIC_OUTPUT_PATH + 'UI_REVISE_FEEDBACK.xls',
+    'sso_candidate_output': GENERIC_OUTPUT_PATH + "UI_SSO_CANDIDATE.xls",
+    'sso_interviewer_output': GENERIC_OUTPUT_PATH + "UI_SSO_CANDIDATE.xls",
 
     'E2E_output_html': GENERIC_OUTPUT_PATH_HTML + 'UI_CRPO_E2E_REGRESSION.html',
     'Mass_Interview_output_html': GENERIC_OUTPUT_PATH_HTML + 'UI_MASS_INTERVIEW.html',
@@ -48,6 +50,8 @@ OUTPUT_PATH = {
     'Interview_slot_output_html': GENERIC_OUTPUT_PATH_HTML + "UI_INTERVIEW_SLOT.html",
     'Choose_slot_output_html': GENERIC_OUTPUT_PATH_HTML + "UI_CHOOSE_SLOT.html",
     'Revise_feedback_output_html': GENERIC_OUTPUT_PATH_HTML + 'UI_REVISE_FEEDBACK.html',
+    'sso_candidate_output_html': GENERIC_OUTPUT_PATH_HTML + 'UI_SSO_CANDIDATE.html',
+    'sso_interviewer_output_html': GENERIC_OUTPUT_PATH_HTML + 'UI_SSO_INTERVIEWER.html',
 
     'E2E_output_history': GENERIC_OUTPUT_PATH_HISTORY + 'E2E_REGRESSION_HISTORY_DATA.xlsx',
     'Mass_Interview_output_history': GENERIC_OUTPUT_PATH_HISTORY + 'MASS_INTERVIEW_HISTORY_DATA.xlsx',
@@ -69,6 +73,8 @@ OUTPUT_PATH = {
     'Assessment_slot_output_history': GENERIC_OUTPUT_PATH_HISTORY + 'UI_ASSESSMENT_SLOT_HISTORY_DATA.xlsx',
     'Interview_slot_output_history': GENERIC_OUTPUT_PATH_HISTORY + 'UI_INTERVIEW_SLOT_HISTORY_DATA.xlsx',
     'Choose_slot_output_history': GENERIC_OUTPUT_PATH_HISTORY + 'UI_CHOOSE_SLOT_HISTORY_DATA.xlsx',
-    'Revise_feedback_output_history': GENERIC_OUTPUT_PATH_HISTORY + 'UI_REVISE_FEEDBACK_HISTORY_DATA.xlsx'
+    'Revise_feedback_output_history': GENERIC_OUTPUT_PATH_HISTORY + 'UI_REVISE_FEEDBACK_HISTORY_DATA.xlsx',
+    "SSO_candidate_output_history": GENERIC_OUTPUT_PATH_HISTORY + 'UI_SSO_CANDIDATE_HISTORY_DATA.xlsx',
+    "SSO_interviewer_output_history": GENERIC_OUTPUT_PATH_HISTORY + 'UI_SSO_INTERVIEWER_HISTORY_DATA.xlsx',
 
 }

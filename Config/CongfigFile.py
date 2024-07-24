@@ -6,6 +6,7 @@ COMMON_FOLDER_PATH = "%s/hirepro_automation/POMdataDriven/" % PATH
 INPUT_FILE = "%s/hirepro_automation/POMdataDriven/testData/" % PATH
 MICROSITE_INPUT_FILE = "%s/hirepro_automation/POMdataDriven/testData/microsite/" % PATH
 SLOT_INPUT_FILE = "%s/hirepro_automation/POMdataDriven/testData/slotapp/" % PATH
+SSO_INPUT_FILE = "%s/hirepro_automation/POMdataDriven/testData/SSO/" % PATH
 LOGIN_INPUT_FILE = "%s/hirepro_automation/POMdataDriven/testData/Login/" % PATH
 OUTPUT_FILE = "%s/hirepro_automation/POMdataDriven/Reports/" % PATH
 HTML_OUTPUT_FILE = "%s/hirepro_automation/POMdataDriven/Reports/HTML_Reports/" % PATH

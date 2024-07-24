@@ -3,6 +3,7 @@ from Config import CongfigFile
 GENERIC_INPUT_PATH = CongfigFile.INPUT_FILE
 MICROSITE_GENERIC_INPUT_PATH = CongfigFile.MICROSITE_INPUT_FILE
 SLOT_GENERIC_INPUT_PATH = CongfigFile.SLOT_INPUT_FILE
+SSO_GENERIC_INPUT_PATH = CongfigFile.SSO_INPUT_FILE
 LOGIN_GENERIC_INPUT_PATH = CongfigFile.LOGIN_INPUT_FILE
 
 
@@ -36,6 +37,7 @@ INPUT_PATH = {
     'help_desk': GENERIC_INPUT_PATH + 'Help_desk_config.xls',
     'candidate_queries': GENERIC_INPUT_PATH + 'candidate_query.xls',
     'manage_interviewers': GENERIC_INPUT_PATH + 'Manage_interviewers.xls',
+    'revise_feedback': GENERIC_INPUT_PATH + 'ReviseFeedback.xls',
     'microsite_common': MICROSITE_GENERIC_INPUT_PATH + 'MicrositeCommon.xls',
     'microsite_certificate': MICROSITE_GENERIC_INPUT_PATH + 'MicrositeCertificate.xls',
     'microsite_education': MICROSITE_GENERIC_INPUT_PATH + 'MicrositeEducation.xls',
@@ -48,5 +50,6 @@ INPUT_PATH = {
     'assessment_slot': SLOT_GENERIC_INPUT_PATH + 'assessmentslot.xls',
     'interview_slot': SLOT_GENERIC_INPUT_PATH + 'interviewslot.xls',
     'choose_slot': SLOT_GENERIC_INPUT_PATH + 'chooseslot.xls',
-    'revise_feedback': GENERIC_INPUT_PATH + 'ReviseFeedback.xls'
+
+    'sso': SSO_GENERIC_INPUT_PATH + 'SSO.xls'
 }

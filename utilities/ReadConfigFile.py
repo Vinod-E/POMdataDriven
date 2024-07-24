@@ -255,3 +255,18 @@ class ReadConfig:
     def get_ams_choose_slot():
         url = config.get('SlotsUrls', 'PROD_Choose_slot')
         return url
+
+    @staticmethod
+    def get_amsin_abacus_access():
+        url = config.get('SAML', 'AMSIN_ABACUS_ACCESS')
+        return url
+
+    @staticmethod
+    def get_amsin_abacus_schedule():
+        url = config.get('SAML', 'AMSIN_ABACUS_SCHEDULE')
+        return url
+
+    @staticmethod
+    def get_amsin_abacus_cancel():
+        url = config.get('SAML', 'AMSIN_ABACUS_CANCEL')
+        return url
