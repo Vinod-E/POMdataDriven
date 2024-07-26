@@ -27,7 +27,7 @@ OUTPUT_PATH = {
     'ChooseSlot_output': GENERIC_OUTPUT_PATH + "UI_CHOOSE_SLOTS.xls",
     'revise_feedback_output': GENERIC_OUTPUT_PATH + 'UI_REVISE_FEEDBACK.xls',
     'sso_candidate_output': GENERIC_OUTPUT_PATH + "UI_SSO_CANDIDATE.xls",
-    'sso_interviewer_output': GENERIC_OUTPUT_PATH + "UI_SSO_CANDIDATE.xls",
+    'sso_interviewer_output': GENERIC_OUTPUT_PATH + "UI_SSO_INTERVIEWER.xls",
 
     'E2E_output_html': GENERIC_OUTPUT_PATH_HTML + 'UI_CRPO_E2E_REGRESSION.html',
     'Mass_Interview_output_html': GENERIC_OUTPUT_PATH_HTML + 'UI_MASS_INTERVIEW.html',

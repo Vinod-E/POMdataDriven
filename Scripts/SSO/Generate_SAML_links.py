@@ -97,6 +97,16 @@ class SAMLLinks:
             else:
                 self.candidate_collection.append(func)
 
+    def interviewer_video_link(self):
+        self.candidate_collection = []
+        __list = [self.driver_chrome(self.schedule_call.interview_link)
+                  ]
+        for func in __list:
+            if func:
+                self.candidate_collection.append(func)
+            else:
+                self.candidate_collection.append(func)
+
     def abacus_cancel_interview(self):
         self.cancel_collection = []
         __list = [self.cancel_call.cancel_api_call(self.login.headers, self.schedule_call.IR)

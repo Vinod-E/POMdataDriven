@@ -5,17 +5,17 @@ from Scripts.HTML_Reports.amazon_aws_s3 import AWS
 from Scripts.HTML_Reports.history_data_html_generator import HistoryDataHTMLGenerator
 
 
-class SSOCandidateReport:
+class SSOInterviewerReport:
     """ Number of Test cases / use cases name """
     TestCases = 15
-    use_case_name = 'SSO FLOW'
+    use_case_name = 'INTERVIEWER SSO FLOW'
 
     def __init__(self, version, server, start_date_time):
         self.version = version
         self.server = server
         self.start_date_time = start_date_time
         self.time = datetime.now()
-        self.__path = outputFile.OUTPUT_PATH['sso_candidate_output']
+        self.__path = outputFile.OUTPUT_PATH['sso_interviewer_output']
         self.xlw = excelWrite.ExcelReportWrite(version=self.version, test_cases=self.TestCases)
 
         excel_headers = ['Access Token', 'Status', 'Schedule API', 'Status', 'Video Link', 'Status',
@@ -26,8 +26,8 @@ class SSOCandidateReport:
                                        color_headers_list=color_headers)
 
         """ <<<================== HTML / History Report Generator ==============================>>> """
-        self.__history_path = outputFile.OUTPUT_PATH['SSO_candidate_output_history']
-        self.__html_path = outputFile.OUTPUT_PATH['sso_candidate_output_html']
+        self.__history_path = outputFile.OUTPUT_PATH['SSO_interviewer_output_history']
+        self.__html_path = outputFile.OUTPUT_PATH['sso_interviewer_output_html']
         self.history_data_with_html_report = HistoryDataHTMLGenerator(self.__history_path, self.__html_path)
         self.amazon_s3 = AWS('{}.html'.format(self.use_case_name), self.__html_path)
 

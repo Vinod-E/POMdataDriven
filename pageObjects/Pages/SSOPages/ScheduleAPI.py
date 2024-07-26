@@ -44,7 +44,8 @@ class ScheduleInterview:
 
             self.IR = data.get('interviewId')
             self.candidate_link = data.get('candidateInterviewLink')
-            self.interview_link = data.get('interviewerLinks')
+            for i in data.get('interviewerLinks'):
+                self.interview_link = i.get('interviewLink')
 
             print("Scheduled IR is:: ", self.IR)
             print("Candidate Video Link is:: ", self.candidate_link)

@@ -1,5 +1,5 @@
 from Listeners.logger_settings import ui_logger
-from Scripts.Output_scripts import SSOReport
+from Scripts.Output_scripts import CandidateSSOReport
 from Scripts.SSO import Generate_SAML_links
 import datetime
 
@@ -15,8 +15,8 @@ class CandidateSSO:
 
         candidate_link = Generate_SAML_links.SAMLLinks(server=server)
 
-        sso_output = SSOReport.SSOCandidateReport(version=sprint_version,
-                                                  server=server, start_date_time=start_date_time)
+        sso_output = CandidateSSOReport.SSOCandidateReport(version=sprint_version,
+                                                           server=server, start_date_time=start_date_time)
 
     except Exception as error:
         ui_logger.error(error)
