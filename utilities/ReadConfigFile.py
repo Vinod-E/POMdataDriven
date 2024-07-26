@@ -270,3 +270,23 @@ class ReadConfig:
     def get_amsin_abacus_cancel():
         url = config.get('SAML', 'AMSIN_ABACUS_CANCEL')
         return url
+
+    @staticmethod
+    def get_candidate_google_email():
+        url = config.get('GMAIL', 'CANDIDATE_EMAIL')
+        return url
+
+    @staticmethod
+    def get_candidate_google_password():
+        url = config.get('GMAIL', 'CANDIDATE_PASSWORD')
+        return url
+
+    @staticmethod
+    def get_interviewer_google_email():
+        url = config.get('GMAIL', 'INTERVIEWER_EMAIL')
+        return url
+
+    @staticmethod
+    def get_interviewer_google_password():
+        url = config.get('GMAIL', 'INTERVIEWER_PASSWORD')
+        return url

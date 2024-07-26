@@ -30,8 +30,21 @@ class CandidateSSO:
         self.candidate_link.abacus_interviewer_schedule()
         self.sso_output.schedule_api_call_report(self.candidate_link.schedule_collection)
 
-    def saml_login_candidate(self):
+    def saml_login_candidate_link(self):
         self.candidate_link.candidate_video_link()
+        self.sso_output.saml_link_report(self.candidate_link.candidate_collection)
+
+    def video_interview_screen(self):
+        self.candidate_link.on_video_interview_screen()
+        self.sso_output.video_link_report(self.candidate_link.video_collection)
+
+    def sso_candidate_login(self):
+        self.candidate_link.gmail_login('candidate')
+        self.sso_output.sso_login_report(self.candidate_link.gmail_collection)
+
+    def proctoring_screen(self):
+        self.candidate_link.on_proctoring_screen()
+        self.sso_output.proctoring_report(self.candidate_link.proctoring_collection)
 
     def cancel_api_call(self):
         self.candidate_link.abacus_cancel_interview()
@@ -41,7 +54,10 @@ class CandidateSSO:
 Object = CandidateSSO()
 Object.login_api_call()
 Object.schedule_api_call()
-Object.saml_login_candidate()
+Object.saml_login_candidate_link()
+Object.video_interview_screen()
+Object.sso_candidate_login()
+Object.proctoring_screen()
 Object.cancel_api_call()
 
 """
