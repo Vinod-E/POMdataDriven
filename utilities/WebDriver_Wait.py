@@ -74,6 +74,9 @@ class WebElementWait:
     def loading(self):
         self.__loading_pages(by_locator=By.CLASS_NAME, element=self.load)
 
+    def loading_microsite(self):
+        self.__loading_pages(by_locator=By.CLASS_NAME, element="visually-hidden")
+
     def loading_text(self):
         self.__loading_pages(by_locator=By.CLASS_NAME, element=self.load_text)
 

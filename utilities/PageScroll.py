@@ -54,3 +54,11 @@ class PageScroll:
         """
         self.window_scroll = "window.scrollTo({},{});".format(x_axis, y_axis)
         self.driver.execute_script(self.window_scroll)
+
+    def full_down(self):
+        self.driver.execute_script("window.scrollTo(0, document.body.scrollHeight);")
+        time.sleep(2)
+
+    def full_top(self):
+        self.driver.execute_script("window.scrollTo(50, document.body.scrollTop);")
+        time.sleep(2)
