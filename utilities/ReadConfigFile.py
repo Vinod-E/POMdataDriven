@@ -241,6 +241,7 @@ class ReadConfig:
     def get_ams_interview_slot():
         url = config.get('SlotsUrls', 'PROD_Interview_slot')
         return url
+
     @staticmethod
     def get_amsin_choose_slot():
         url = config.get('SlotsUrls', 'QA_Choose_slot')
@@ -269,6 +270,21 @@ class ReadConfig:
     @staticmethod
     def get_amsin_abacus_cancel():
         url = config.get('SAML', 'AMSIN_ABACUS_CANCEL')
+        return url
+
+    @staticmethod
+    def get_ams_abacus_access():
+        url = config.get('SAML', 'AMS_ABACUS_ACCESS')
+        return url
+
+    @staticmethod
+    def get_ams_abacus_schedule():
+        url = config.get('SAML', 'AMS_ABACUS_SCHEDULE')
+        return url
+
+    @staticmethod
+    def get_ams_abacus_cancel():
+        url = config.get('SAML', 'AMS_ABACUS_CANCEL')
         return url
 
     @staticmethod

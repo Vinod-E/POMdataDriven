@@ -8,10 +8,14 @@ class CancelInterview:
     def __init__(self):
         self.cancel_irs = ''
 
-    def cancel_api_call(self, headers, ir):
+    def cancel_api_call(self, server, headers, ir):
         try:
             urllib3.disable_warnings()
-            api = ReadConfigFile.ReadConfig.get_amsin_abacus_cancel()
+            if server == 'amsin':
+                api = ReadConfigFile.ReadConfig.get_amsin_abacus_cancel()
+            else:
+                api = ReadConfigFile.ReadConfig.get_ams_abacus_cancel()
+
             request_data = {
                 "id": ir,
                 "comment": "Cancel by Vinod through UI-Automation"

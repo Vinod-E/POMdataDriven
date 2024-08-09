@@ -64,9 +64,9 @@ class SAMLLinks:
         except ValueError as driver_chrome:
             print(driver_chrome)
 
-    def access_token(self):
+    def access_token(self, server):
         self.login_collection = []
-        __list = [self.login.abacus_access_login(self.xl_client_id, self.xl_client_secret)
+        __list = [self.login.abacus_access_login(server, self.xl_client_id, self.xl_client_secret)
                   ]
         for func in __list:
             if func:
@@ -74,10 +74,10 @@ class SAMLLinks:
             else:
                 self.login_collection.append(func)
 
-    def abacus_interviewer_schedule(self):
+    def abacus_interviewer_schedule(self, server):
         self.schedule_collection = []
         __list = [
-            self.schedule_call.schedule_api_call(self.login.headers, self.xl_abacus_id, self.xl_stage, self.xl_time,
+            self.schedule_call.schedule_api_call(server, self.login.headers, self.xl_abacus_id, self.xl_stage, self.xl_time,
                                                  self.xl_int_first_name, self.xl_int_middle_name,
                                                  self.xl_int_last_name, self.xl_int_email)
             ]
@@ -107,9 +107,9 @@ class SAMLLinks:
             else:
                 self.candidate_collection.append(func)
 
-    def abacus_cancel_interview(self):
+    def abacus_cancel_interview(self, server):
         self.cancel_collection = []
-        __list = [self.cancel_call.cancel_api_call(self.login.headers, self.schedule_call.IR)
+        __list = [self.cancel_call.cancel_api_call(server, self.login.headers, self.schedule_call.IR)
                   ]
         for func in __list:
             if func:

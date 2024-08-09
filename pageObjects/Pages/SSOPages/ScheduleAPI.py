@@ -12,12 +12,16 @@ class ScheduleInterview:
         self.candidate_link = ''
         self.interview_link = ''
 
-    def schedule_api_call(self, headers, xl_abacus_id, xl_stage, xl_time,
+    def schedule_api_call(self, server, headers, xl_abacus_id, xl_stage, xl_time,
                           xl_int_first_name, xl_int_middle_name, xl_int_last_name,
                           xl_int_email):
         try:
             urllib3.disable_warnings()
-            api = ReadConfigFile.ReadConfig.get_amsin_abacus_schedule()
+            if server == 'amsin':
+                api = ReadConfigFile.ReadConfig.get_amsin_abacus_schedule()
+            else:
+                api = ReadConfigFile.ReadConfig.get_ams_abacus_schedule()
+
             request_data = {
                 "abacusCandidateId": xl_abacus_id,
                 "isSaml": True,

@@ -23,11 +23,11 @@ class CandidateSSO:
         candidate_link.driver.close()
 
     def login_api_call(self):
-        self.candidate_link.access_token()
+        self.candidate_link.access_token(CandidateSSO.server)
         self.sso_output.login_api_call_report(self.candidate_link.login_collection)
 
     def schedule_api_call(self):
-        self.candidate_link.abacus_interviewer_schedule()
+        self.candidate_link.abacus_interviewer_schedule(CandidateSSO.server)
         self.sso_output.schedule_api_call_report(self.candidate_link.schedule_collection)
 
     def saml_login_candidate_link(self):
@@ -47,7 +47,7 @@ class CandidateSSO:
         self.sso_output.proctoring_report(self.candidate_link.proctoring_collection)
 
     def cancel_api_call(self):
-        self.candidate_link.abacus_cancel_interview()
+        self.candidate_link.abacus_cancel_interview(CandidateSSO.server)
         self.sso_output.cancel_api_call_report(self.candidate_link.cancel_collection)
 
 

@@ -12,9 +12,10 @@ class CommonLogin(object):
         self.lambda_headers = {"content-type": "application/json"}
         self.Non_lambda_headers = {"content-type": "application/json"}
         self.headers = {"content-type": "application/json"}
+        self.api = ""
         self.get_token = ""
 
-    def abacus_access_login(self, client_id, client_secret):
+    def abacus_access_login(self, server, client_id, client_secret):
         # -------------------------------- CRPO LOGIN APPLICATION ------------------------------------------------------
 
         print("-------------------------------------------------")
@@ -23,13 +24,17 @@ class CommonLogin(object):
 
         try:
             urllib3.disable_warnings()
-            api = ReadConfigFile.ReadConfig.get_amsin_abacus_access()
+            if server == 'amsin':
+                self.api = ReadConfigFile.ReadConfig.get_amsin_abacus_access()
+            elif server == 'ams':
+                self.api = ReadConfigFile.ReadConfig.get_ams_abacus_access()
+
             request_data = {
                 "client_id": client_id,
                 "client_secret": client_secret
             }
 
-            access_api = requests.post(api, headers=self.headers, data=json.dumps(request_data),
+            access_api = requests.post(self.api, headers=self.headers, data=json.dumps(request_data),
                                        verify=False)
             response = access_api.json()
             token = response.get('access_token')
