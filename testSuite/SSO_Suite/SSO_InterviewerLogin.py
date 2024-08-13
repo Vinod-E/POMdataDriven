@@ -23,11 +23,11 @@ class InterviewerSSO:
         interviewer_link.driver.close()
 
     def login_api_call(self):
-        self.interviewer_link.access_token()
+        self.interviewer_link.access_token(InterviewerSSO.server)
         self.sso_output.login_api_call_report(self.interviewer_link.login_collection)
 
     def schedule_api_call(self):
-        self.interviewer_link.abacus_interviewer_schedule()
+        self.interviewer_link.abacus_interviewer_schedule(InterviewerSSO.server)
         self.sso_output.schedule_api_call_report(self.interviewer_link.schedule_collection)
 
     def saml_login_interviewer_link(self):
@@ -47,7 +47,7 @@ class InterviewerSSO:
         self.sso_output.proctoring_report(self.interviewer_link.proctoring_collection)
 
     def cancel_api_call(self):
-        self.interviewer_link.abacus_cancel_interview()
+        self.interviewer_link.abacus_cancel_interview(InterviewerSSO.server)
         self.sso_output.cancel_api_call_report(self.interviewer_link.cancel_collection)
 
 
